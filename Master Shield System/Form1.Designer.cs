@@ -76,6 +76,7 @@
             this.voltarParaCampanhasToolStripMenuItem.Name = "voltarParaCampanhasToolStripMenuItem";
             this.voltarParaCampanhasToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.voltarParaCampanhasToolStripMenuItem.Text = "Voltar para Campanhas";
+            this.voltarParaCampanhasToolStripMenuItem.Click += new System.EventHandler(this.voltarParaCampanhasToolStripMenuItem_Click);
             // 
             // chaveDeAPIToolStripMenuItem
             // 

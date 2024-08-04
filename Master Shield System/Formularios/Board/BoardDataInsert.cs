@@ -18,8 +18,6 @@ namespace Master_Shield_System.Formularios.Board
         private BoardClass bc = new BoardClass();
         private string caminhoArquivoImagemCapa = "";
         private string caminhoArquivoImagemMapa = "";
-        byte[] coverImageBytes = null;
-        byte[] mapImageBytes = null;
         public BoardDataInsert()
         {
             InitializeComponent();

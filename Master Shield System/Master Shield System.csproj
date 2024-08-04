@@ -127,6 +127,24 @@
     <Compile Include="Formularios\Board\BoardMain.Designer.cs">
       <DependentUpon>BoardMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\City\CityDataInsert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\City\CityDataInsert.Designer.cs">
+      <DependentUpon>CityDataInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\City\CityDataUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\City\CityDataUpdate.Designer.cs">
+      <DependentUpon>CityDataUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\City\CityMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\City\CityMain.Designer.cs">
+      <DependentUpon>CityMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -140,6 +158,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Board\BoardMain.resx">
       <DependentUpon>BoardMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\City\CityDataInsert.resx">
+      <DependentUpon>CityDataInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\City\CityDataUpdate.resx">
+      <DependentUpon>CityDataUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\City\CityMain.resx">
+      <DependentUpon>CityMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -192,5 +219,6 @@
   <ItemGroup>
     <None Include="Resources\excluir.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

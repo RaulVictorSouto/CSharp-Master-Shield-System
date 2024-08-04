@@ -19,5 +19,10 @@ namespace Master_Shield_System
             InitializeComponent();
             UCClass.AddUserControl(this.panelContainer, (UserControl)new BoardMain());
         }
+
+        private void voltarParaCampanhasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCClass.AddUserControl(this.panelContainer, (UserControl)new BoardMain());
+        }
     }
 }

@@ -36,19 +36,20 @@
             this.Cbb_BoardFilter = new System.Windows.Forms.ComboBox();
             this.Btn_Incluir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Pcb_Mapa = new System.Windows.Forms.PictureBox();
-            this.Pcb_Capa = new System.Windows.Forms.PictureBox();
             this.Lbl_Master = new System.Windows.Forms.Label();
             this.Lbl_Title = new System.Windows.Forms.Label();
             this.Dgv_Board = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Pcb_Mapa = new System.Windows.Forms.PictureBox();
+            this.Pcb_Capa = new System.Windows.Forms.PictureBox();
             this.editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Btn_Selecionar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Mapa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Capa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).BeginInit();
             this.SuspendLayout();
             // 
             // Txt_Pesquisa
@@ -117,24 +118,6 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
-            // Pcb_Mapa
-            // 
-            this.Pcb_Mapa.Location = new System.Drawing.Point(228, 130);
-            this.Pcb_Mapa.Name = "Pcb_Mapa";
-            this.Pcb_Mapa.Size = new System.Drawing.Size(479, 319);
-            this.Pcb_Mapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pcb_Mapa.TabIndex = 3;
-            this.Pcb_Mapa.TabStop = false;
-            // 
-            // Pcb_Capa
-            // 
-            this.Pcb_Capa.Location = new System.Drawing.Point(13, 130);
-            this.Pcb_Capa.Name = "Pcb_Capa";
-            this.Pcb_Capa.Size = new System.Drawing.Size(209, 319);
-            this.Pcb_Capa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pcb_Capa.TabIndex = 2;
-            this.Pcb_Capa.TabStop = false;
-            // 
             // Lbl_Master
             // 
             this.Lbl_Master.AutoSize = true;
@@ -180,6 +163,7 @@
             this.Dgv_Board.TabIndex = 2;
             this.Dgv_Board.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Board_CellClick);
             this.Dgv_Board.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Board_CellContentClick);
+            this.Dgv_Board.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Board_CellContentDoubleClick);
             // 
             // dataGridViewImageColumn1
             // 
@@ -187,6 +171,7 @@
             this.dataGridViewImageColumn1.Image = global::Master_Shield_System.Properties.Resources.editar1;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ToolTipText = "Clique aqui para editar";
+            this.dataGridViewImageColumn1.Width = 25;
             // 
             // dataGridViewImageColumn2
             // 
@@ -194,6 +179,25 @@
             this.dataGridViewImageColumn2.Image = global::Master_Shield_System.Properties.Resources.excluir1;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
+            this.dataGridViewImageColumn2.Width = 25;
+            // 
+            // Pcb_Mapa
+            // 
+            this.Pcb_Mapa.Location = new System.Drawing.Point(228, 130);
+            this.Pcb_Mapa.Name = "Pcb_Mapa";
+            this.Pcb_Mapa.Size = new System.Drawing.Size(479, 319);
+            this.Pcb_Mapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pcb_Mapa.TabIndex = 3;
+            this.Pcb_Mapa.TabStop = false;
+            // 
+            // Pcb_Capa
+            // 
+            this.Pcb_Capa.Location = new System.Drawing.Point(13, 130);
+            this.Pcb_Capa.Name = "Pcb_Capa";
+            this.Pcb_Capa.Size = new System.Drawing.Size(209, 319);
+            this.Pcb_Capa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pcb_Capa.TabIndex = 2;
+            this.Pcb_Capa.TabStop = false;
             // 
             // editar
             // 
@@ -211,10 +215,23 @@
             this.excluir.ToolTipText = "Clique aqui para excluir";
             this.excluir.Width = 25;
             // 
+            // Btn_Selecionar
+            // 
+            this.Btn_Selecionar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Selecionar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Selecionar.Location = new System.Drawing.Point(1211, 566);
+            this.Btn_Selecionar.Name = "Btn_Selecionar";
+            this.Btn_Selecionar.Size = new System.Drawing.Size(82, 23);
+            this.Btn_Selecionar.TabIndex = 7;
+            this.Btn_Selecionar.Text = "Selecionar";
+            this.Btn_Selecionar.UseVisualStyleBackColor = true;
+            this.Btn_Selecionar.Click += new System.EventHandler(this.Btn_Selecionar_Click);
+            // 
             // BoardMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Btn_Selecionar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Btn_Incluir);
             this.Controls.Add(this.Cbb_BoardFilter);
@@ -226,9 +243,9 @@
             this.Size = new System.Drawing.Size(1336, 641);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Mapa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Capa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +268,6 @@
         private System.Windows.Forms.Label Lbl_Master;
         private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridViewImageColumn excluir;
+        private System.Windows.Forms.Button Btn_Selecionar;
     }
 }

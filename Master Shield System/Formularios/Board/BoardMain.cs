@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Master_Shield_System.Formularios.City;
 using MSSLibrary;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -19,6 +20,7 @@ namespace Master_Shield_System.Formularios.Board
     {
         private DataTable dt = new DataTable();
         public int ConfirmBoardId;
+        CityMain cityMain = new CityMain();
         public BoardMain()
         {
             InitializeComponent();
@@ -63,7 +65,6 @@ namespace Master_Shield_System.Formularios.Board
             Dgv_Board.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // Cor do texto dos cabeçalhos
             Dgv_Board.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray; // Cor de fundo dos cabeçalhos
             Dgv_Board.RowsDefaultCellStyle.ForeColor = Color.Black; // Cor do texto das linhas
-            Dgv_Board.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray; // Cor de fundo das linhas alternadas
             Dgv_Board.ReadOnly = true;
 
             // Configuração da coluna BoardId
@@ -326,5 +327,49 @@ namespace Master_Shield_System.Formularios.Board
             this.dt.DefaultView.RowFilter = filterExpression;
         }
 
+        private void Dgv_Board_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica se o clique foi em uma célula válida
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            // Obtém o nome da coluna clicada
+            string columnName = this.Dgv_Board.Columns[e.ColumnIndex].Name;
+
+            // Verifica se a coluna clicada não é "Editar" ou "Excluir"
+            if (columnName != "editar" && columnName != "excluir")
+            {
+                try
+                {
+                    // Obtém o valor da célula "BoardId" e converte para int
+                    if (int.TryParse(this.Dgv_Board.Rows[e.RowIndex].Cells["BoardId"].Value?.ToString(), out int boardId))
+                    {
+                        // Atualiza a interface do usuário
+                        this.SuspendLayout();
+                        cityMain.SetBoardId(this.ConfirmBoardId);
+                        this.Controls.Clear();
+                        this.Controls.Add(cityMain);
+                        cityMain.BringToFront();
+                        this.ResumeLayout();
+                    }
+                    else
+                    {
+                        MessageBox.Show("ID da campanha não é válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao processar a ação: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void Btn_Selecionar_Click(object sender, EventArgs e)
+        {
+            cityMain.SetBoardId(this.ConfirmBoardId);
+            this.Controls.Clear();
+            this.Controls.Add((Control)cityMain);
+            cityMain.BringToFront();
+        }
     }
 }
