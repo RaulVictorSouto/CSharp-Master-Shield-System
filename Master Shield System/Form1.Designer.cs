@@ -45,7 +45,7 @@
             this.panelContainer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelContainer.Location = new System.Drawing.Point(0, 24);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1120, 641);
+            this.panelContainer.Size = new System.Drawing.Size(1320, 637);
             this.panelContainer.TabIndex = 0;
             // 
             // menuStrip1
@@ -56,7 +56,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1120, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1320, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 665);
+            this.ClientSize = new System.Drawing.Size(1320, 661);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

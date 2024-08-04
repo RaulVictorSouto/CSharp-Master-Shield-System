@@ -35,10 +35,10 @@
             this.Btn_Incluir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Dgv_Board = new System.Windows.Forms.DataGridView();
-            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +88,7 @@
             // 
             this.Btn_Incluir.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Incluir.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Incluir.Location = new System.Drawing.Point(386, 566);
+            this.Btn_Incluir.Location = new System.Drawing.Point(461, 566);
             this.Btn_Incluir.Name = "Btn_Incluir";
             this.Btn_Incluir.Size = new System.Drawing.Size(113, 23);
             this.Btn_Incluir.TabIndex = 5;
@@ -98,37 +98,25 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(505, 104);
+            this.groupBox1.Location = new System.Drawing.Point(580, 104);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(568, 455);
+            this.groupBox1.Size = new System.Drawing.Size(713, 455);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // Dgv_Board
             // 
+            this.Dgv_Board.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.Dgv_Board.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Board.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.editar,
             this.excluir});
+            this.Dgv_Board.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Dgv_Board.Location = new System.Drawing.Point(25, 104);
             this.Dgv_Board.Name = "Dgv_Board";
-            this.Dgv_Board.Size = new System.Drawing.Size(474, 456);
+            this.Dgv_Board.Size = new System.Drawing.Size(549, 456);
             this.Dgv_Board.TabIndex = 2;
             this.Dgv_Board.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // editar
-            // 
-            this.editar.HeaderText = "";
-            this.editar.Image = global::Master_Shield_System.Properties.Resources.editar1;
-            this.editar.Name = "editar";
-            this.editar.ToolTipText = "Clique aqui para editar";
-            // 
-            // excluir
-            // 
-            this.excluir.HeaderText = "";
-            this.excluir.Image = global::Master_Shield_System.Properties.Resources.excluir1;
-            this.excluir.Name = "excluir";
-            this.excluir.ToolTipText = "Clique aqui para excluir";
             // 
             // dataGridViewImageColumn1
             // 
@@ -144,6 +132,22 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
             // 
+            // editar
+            // 
+            this.editar.HeaderText = "";
+            this.editar.Image = global::Master_Shield_System.Properties.Resources.editar1;
+            this.editar.Name = "editar";
+            this.editar.ToolTipText = "Clique aqui para editar";
+            this.editar.Width = 25;
+            // 
+            // excluir
+            // 
+            this.excluir.HeaderText = "";
+            this.excluir.Image = global::Master_Shield_System.Properties.Resources.excluir1;
+            this.excluir.Name = "excluir";
+            this.excluir.ToolTipText = "Clique aqui para excluir";
+            this.excluir.Width = 25;
+            // 
             // BoardMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,7 +160,7 @@
             this.Controls.Add(this.Btn_Pesquisar);
             this.Controls.Add(this.Txt_Pesquisa);
             this.Name = "BoardMain";
-            this.Size = new System.Drawing.Size(1120, 641);
+            this.Size = new System.Drawing.Size(1336, 641);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,8 +177,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridViewImageColumn excluir;
-        private System.Windows.Forms.DataGridViewImageColumn editar;
         private System.Windows.Forms.DataGridView Dgv_Board;
+        private System.Windows.Forms.DataGridViewImageColumn editar;
+        private System.Windows.Forms.DataGridViewImageColumn excluir;
     }
 }

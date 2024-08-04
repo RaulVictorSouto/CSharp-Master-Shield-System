@@ -94,19 +94,30 @@ namespace SGRPGLibrary
         {
             DataTable dataTable = new DataTable();
             string selectCommandText = "SELECT BoardId, BoardTitle, BoardMaster FROM sgrpg.tblboard";
+
             try
             {
+                // Cria e abre uma conexão com o banco de dados
                 using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
                 {
                     connection.Open();
+
+                    // Cria um adaptador para preencher o DataTable
                     using (MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(selectCommandText, connection))
+                    {
                         mySqlDataAdapter.Fill(dataTable);
+                    }
                 }
+            }
+            catch (MySqlException mySqlEx)
+            {
+                MessageBox.Show("Erro no banco de dados: " + mySqlEx.Message);
             }
             catch (Exception ex)
             {
-                int num = (int)MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro: " + ex.Message);
             }
+
             return dataTable;
         }
     }
