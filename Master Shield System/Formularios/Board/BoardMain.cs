@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SGRPGLibrary;
+using MSSLibrary;
 
 namespace Master_Shield_System.Formularios.Board
 {

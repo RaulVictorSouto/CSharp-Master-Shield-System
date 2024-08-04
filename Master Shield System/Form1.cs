@@ -19,12 +19,5 @@ namespace Master_Shield_System
             InitializeComponent();
             UCClass.AddUserControl(this.panelContainer, (UserControl)new BoardMain());
         }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
     }
 }

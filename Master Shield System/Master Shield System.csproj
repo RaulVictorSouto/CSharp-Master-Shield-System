@@ -37,6 +37,7 @@
       <HintPath>..\..\..\Users\raulv\Downloads\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />

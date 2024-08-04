@@ -6,18 +6,18 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace SGRPGLibrary
+namespace MSSLibrary
 {
     public class BoardClass
     {
         public int BoardId { get; set; }
 
-        //[Required(ErrorMessage = "O Título da Mesa é obrigatório")]
-        //[StringLength(100, ErrorMessage = "O Título da Mesa deve ter no máximo 50 caracteres.")]
+        [Required(ErrorMessage = "O Título da Mesa é obrigatório")]
+        [StringLength(100, ErrorMessage = "O Título da Mesa deve ter no máximo 50 caracteres.")]
         public string BoardTitle { get; set; }
 
-        //[Required(ErrorMessage = "O Nome do Mestre é obrigatório")]
-        //[StringLength(255, ErrorMessage = "O Nome do Mestre deve ter no máximo 255 caracteres.")]
+        [Required(ErrorMessage = "O Nome do Mestre é obrigatório")]
+        [StringLength(255, ErrorMessage = "O Nome do Mestre deve ter no máximo 255 caracteres.")]
         public string BoardMaster { get; set; }
 
         public byte[] BoardCover { get; set; }

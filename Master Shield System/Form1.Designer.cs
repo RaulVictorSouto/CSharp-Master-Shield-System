@@ -59,7 +59,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1320, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // menuToolStripMenuItem
             // 
@@ -95,7 +94,6 @@
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // Form1
             // 
