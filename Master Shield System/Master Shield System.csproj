@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>..\..\..\Users\raulv\Downloads\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,10 +56,37 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Board\BoardDataInsert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Board\BoardDataInsert.Designer.cs">
+      <DependentUpon>BoardDataInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Board\BoardDataUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Board\BoardDataUpdate.Designer.cs">
+      <DependentUpon>BoardDataUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Board\BoardMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Board\BoardMain.Designer.cs">
+      <DependentUpon>BoardMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Board\BoardDataInsert.resx">
+      <DependentUpon>BoardDataInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Board\BoardDataUpdate.resx">
+      <DependentUpon>BoardDataUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Board\BoardMain.resx">
+      <DependentUpon>BoardMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,6 +96,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,7 +112,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Formularios\" />
+    <ProjectReference Include="..\MSSLibrary\MSSLibrary.csproj">
+      <Project>{4ed3e1b5-b29c-400b-9daf-5c766ad7a64d}</Project>
+      <Name>MSSLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconForm.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\morte.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vida.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excluir.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excluir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

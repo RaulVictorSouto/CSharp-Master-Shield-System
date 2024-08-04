@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Master_Shield_System.Formularios.Board;
+using MSSLibrary;
 
 namespace Master_Shield_System
 {
@@ -15,6 +17,7 @@ namespace Master_Shield_System
         public Form1()
         {
             InitializeComponent();
+            UCClass.AddUserControl(this.panelContainer, (UserControl)new BoardMain());
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
