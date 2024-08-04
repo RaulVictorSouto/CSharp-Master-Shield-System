@@ -163,9 +163,9 @@
             // 
             // Pcb_Mapa
             // 
-            this.Pcb_Mapa.Location = new System.Drawing.Point(411, 39);
+            this.Pcb_Mapa.Location = new System.Drawing.Point(495, 39);
             this.Pcb_Mapa.Name = "Pcb_Mapa";
-            this.Pcb_Mapa.Size = new System.Drawing.Size(847, 313);
+            this.Pcb_Mapa.Size = new System.Drawing.Size(763, 313);
             this.Pcb_Mapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pcb_Mapa.TabIndex = 10;
             this.Pcb_Mapa.TabStop = false;
@@ -183,7 +183,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(407, 16);
+            this.label4.Location = new System.Drawing.Point(491, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 20);
             this.label4.TabIndex = 8;

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.Btn_ApagarMapa = new System.Windows.Forms.Button();
-            this.Btn_IncluirCapa = new System.Windows.Forms.Button();
+            this.Btn_AlterarCapa = new System.Windows.Forms.Button();
             this.Btn_ApagarCapa = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Btn_Incluir = new System.Windows.Forms.Button();
-            this.Btn_IncluirMapa = new System.Windows.Forms.Button();
+            this.Btn_Retornar = new System.Windows.Forms.Button();
+            this.Btn_Limpar = new System.Windows.Forms.Button();
+            this.Btn_Atualizar = new System.Windows.Forms.Button();
+            this.Btn_AlterarMapa = new System.Windows.Forms.Button();
             this.Pcb_Mapa = new System.Windows.Forms.PictureBox();
             this.Pcb_Capa = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,17 +61,19 @@
             this.Btn_ApagarMapa.Size = new System.Drawing.Size(44, 29);
             this.Btn_ApagarMapa.TabIndex = 13;
             this.Btn_ApagarMapa.UseVisualStyleBackColor = true;
+            this.Btn_ApagarMapa.Click += new System.EventHandler(this.Btn_ApagarMapa_Click);
             // 
-            // Btn_IncluirCapa
+            // Btn_AlterarCapa
             // 
-            this.Btn_IncluirCapa.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_IncluirCapa.ForeColor = System.Drawing.Color.Black;
-            this.Btn_IncluirCapa.Location = new System.Drawing.Point(187, 358);
-            this.Btn_IncluirCapa.Name = "Btn_IncluirCapa";
-            this.Btn_IncluirCapa.Size = new System.Drawing.Size(91, 29);
-            this.Btn_IncluirCapa.TabIndex = 12;
-            this.Btn_IncluirCapa.Text = "Incluir capa";
-            this.Btn_IncluirCapa.UseVisualStyleBackColor = true;
+            this.Btn_AlterarCapa.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_AlterarCapa.ForeColor = System.Drawing.Color.Black;
+            this.Btn_AlterarCapa.Location = new System.Drawing.Point(187, 358);
+            this.Btn_AlterarCapa.Name = "Btn_AlterarCapa";
+            this.Btn_AlterarCapa.Size = new System.Drawing.Size(91, 29);
+            this.Btn_AlterarCapa.TabIndex = 12;
+            this.Btn_AlterarCapa.Text = "Alterar capa";
+            this.Btn_AlterarCapa.UseVisualStyleBackColor = true;
+            this.Btn_AlterarCapa.Click += new System.EventHandler(this.Btn_AlterarCapa_Click);
             // 
             // Btn_ApagarCapa
             // 
@@ -83,56 +85,62 @@
             this.Btn_ApagarCapa.Size = new System.Drawing.Size(44, 29);
             this.Btn_ApagarCapa.TabIndex = 11;
             this.Btn_ApagarCapa.UseVisualStyleBackColor = true;
+            this.Btn_ApagarCapa.Click += new System.EventHandler(this.Btn_ApagarCapa_Click);
             // 
-            // button2
+            // Btn_Retornar
             // 
-            this.button2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(28, 583);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 29);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Retornar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Btn_Retornar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Retornar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Retornar.Location = new System.Drawing.Point(28, 583);
+            this.Btn_Retornar.Name = "Btn_Retornar";
+            this.Btn_Retornar.Size = new System.Drawing.Size(91, 29);
+            this.Btn_Retornar.TabIndex = 22;
+            this.Btn_Retornar.Text = "Retornar";
+            this.Btn_Retornar.UseVisualStyleBackColor = true;
+            this.Btn_Retornar.Click += new System.EventHandler(this.Btn_Retornar_Click);
             // 
-            // button1
+            // Btn_Limpar
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(1121, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 29);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Limpar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Btn_Limpar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Limpar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Limpar.Location = new System.Drawing.Point(1121, 583);
+            this.Btn_Limpar.Name = "Btn_Limpar";
+            this.Btn_Limpar.Size = new System.Drawing.Size(91, 29);
+            this.Btn_Limpar.TabIndex = 21;
+            this.Btn_Limpar.Text = "Limpar";
+            this.Btn_Limpar.UseVisualStyleBackColor = true;
+            this.Btn_Limpar.Click += new System.EventHandler(this.Btn_Limpar_Click);
             // 
-            // Btn_Incluir
+            // Btn_Atualizar
             // 
-            this.Btn_Incluir.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Incluir.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Incluir.Location = new System.Drawing.Point(1218, 583);
-            this.Btn_Incluir.Name = "Btn_Incluir";
-            this.Btn_Incluir.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Incluir.TabIndex = 20;
-            this.Btn_Incluir.Text = "Incluir";
-            this.Btn_Incluir.UseVisualStyleBackColor = true;
+            this.Btn_Atualizar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Atualizar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Atualizar.Location = new System.Drawing.Point(1218, 583);
+            this.Btn_Atualizar.Name = "Btn_Atualizar";
+            this.Btn_Atualizar.Size = new System.Drawing.Size(91, 29);
+            this.Btn_Atualizar.TabIndex = 20;
+            this.Btn_Atualizar.Text = "Atualizar";
+            this.Btn_Atualizar.UseVisualStyleBackColor = true;
+            this.Btn_Atualizar.Click += new System.EventHandler(this.Btn_Atualizar_Click);
             // 
-            // Btn_IncluirMapa
+            // Btn_AlterarMapa
             // 
-            this.Btn_IncluirMapa.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_IncluirMapa.ForeColor = System.Drawing.Color.Black;
-            this.Btn_IncluirMapa.Location = new System.Drawing.Point(1167, 358);
-            this.Btn_IncluirMapa.Name = "Btn_IncluirMapa";
-            this.Btn_IncluirMapa.Size = new System.Drawing.Size(91, 29);
-            this.Btn_IncluirMapa.TabIndex = 14;
-            this.Btn_IncluirMapa.Text = "Incluir mapa";
-            this.Btn_IncluirMapa.UseVisualStyleBackColor = true;
+            this.Btn_AlterarMapa.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_AlterarMapa.ForeColor = System.Drawing.Color.Black;
+            this.Btn_AlterarMapa.Location = new System.Drawing.Point(1167, 358);
+            this.Btn_AlterarMapa.Name = "Btn_AlterarMapa";
+            this.Btn_AlterarMapa.Size = new System.Drawing.Size(91, 29);
+            this.Btn_AlterarMapa.TabIndex = 14;
+            this.Btn_AlterarMapa.Text = "Alterar mapa";
+            this.Btn_AlterarMapa.UseVisualStyleBackColor = true;
+            this.Btn_AlterarMapa.Click += new System.EventHandler(this.Btn_AlterarMapa_Click);
             // 
             // Pcb_Mapa
             // 
-            this.Pcb_Mapa.Location = new System.Drawing.Point(411, 39);
+            this.Pcb_Mapa.Location = new System.Drawing.Point(495, 39);
             this.Pcb_Mapa.Name = "Pcb_Mapa";
-            this.Pcb_Mapa.Size = new System.Drawing.Size(847, 313);
+            this.Pcb_Mapa.Size = new System.Drawing.Size(763, 313);
+            this.Pcb_Mapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pcb_Mapa.TabIndex = 10;
             this.Pcb_Mapa.TabStop = false;
             // 
@@ -141,6 +149,7 @@
             this.Pcb_Capa.Location = new System.Drawing.Point(19, 39);
             this.Pcb_Capa.Name = "Pcb_Capa";
             this.Pcb_Capa.Size = new System.Drawing.Size(259, 313);
+            this.Pcb_Capa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pcb_Capa.TabIndex = 9;
             this.Pcb_Capa.TabStop = false;
             // 
@@ -156,9 +165,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.Btn_IncluirMapa);
+            this.groupBox2.Controls.Add(this.Btn_AlterarMapa);
             this.groupBox2.Controls.Add(this.Btn_ApagarMapa);
-            this.groupBox2.Controls.Add(this.Btn_IncluirCapa);
+            this.groupBox2.Controls.Add(this.Btn_AlterarCapa);
             this.groupBox2.Controls.Add(this.Btn_ApagarCapa);
             this.groupBox2.Controls.Add(this.Pcb_Mapa);
             this.groupBox2.Controls.Add(this.Pcb_Capa);
@@ -174,7 +183,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(407, 16);
+            this.label4.Location = new System.Drawing.Point(491, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 20);
             this.label4.TabIndex = 8;
@@ -230,9 +239,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Btn_Incluir);
+            this.Controls.Add(this.Btn_Retornar);
+            this.Controls.Add(this.Btn_Limpar);
+            this.Controls.Add(this.Btn_Atualizar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "BoardDataUpdate";
@@ -250,12 +259,12 @@
         #endregion
 
         private System.Windows.Forms.Button Btn_ApagarMapa;
-        private System.Windows.Forms.Button Btn_IncluirCapa;
+        private System.Windows.Forms.Button Btn_AlterarCapa;
         private System.Windows.Forms.Button Btn_ApagarCapa;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button Btn_Incluir;
-        private System.Windows.Forms.Button Btn_IncluirMapa;
+        private System.Windows.Forms.Button Btn_Retornar;
+        private System.Windows.Forms.Button Btn_Limpar;
+        private System.Windows.Forms.Button Btn_Atualizar;
+        private System.Windows.Forms.Button Btn_AlterarMapa;
         private System.Windows.Forms.PictureBox Pcb_Mapa;
         private System.Windows.Forms.PictureBox Pcb_Capa;
         private System.Windows.Forms.Label label3;

@@ -27,35 +27,33 @@ namespace Master_Shield_System.Formularios.Board
 
         private BoardClass LeituraDeFormulario()
         {
-            //lê o nome da campanha
+            // Inicializa variáveis para os bytes das imagens
+            byte[] coverImageBytes = null;
+            byte[] mapImageBytes = null;
+
+            // Lê o nome da campanha
             bc.BoardTitle = Txt_NomeCampanha.Text;
-            //lê o nome do mestre
+
+            // Lê o nome do mestre
             bc.BoardMaster = Txt_NomeMestre.Text;
 
-            //lê o caminho da imagem da capa
+            // Lê o caminho da imagem da capa
             if (!string.IsNullOrEmpty(this.caminhoArquivoImagemCapa) && File.Exists(this.caminhoArquivoImagemCapa))
             {
                 coverImageBytes = File.ReadAllBytes(this.caminhoArquivoImagemCapa);
             }
-            else
-            {
-                Btn_IncluirCapa.Text = "Alterar Capa";
-            }
             bc.BoardCover = coverImageBytes;
 
-            //lê o caminho da imagem do mapa
+            // Lê o caminho da imagem do mapa
             if (!string.IsNullOrEmpty(this.caminhoArquivoImagemMapa) && File.Exists(this.caminhoArquivoImagemMapa))
             {
                 mapImageBytes = File.ReadAllBytes(this.caminhoArquivoImagemMapa);
-            }
-            else
-            {
-                Btn_IncluirMapa.Text = "Alterar Mapa";
             }
             bc.BoardMap = mapImageBytes;
 
             return bc;
         }
+
 
         private void Btn_Incluir_Click(object sender, EventArgs e)
         {
@@ -139,6 +137,9 @@ namespace Master_Shield_System.Formularios.Board
 
                     // Carrega a imagem e exibe no PictureBox
                     this.Pcb_Capa.Image = Image.FromFile(this.caminhoArquivoImagemCapa);
+
+                    // Atualiza o texto do botão para "Alterar Capa"
+                    AtualizarTextoBotaoCapa(true);
                 }
                 catch (Exception ex)
                 {
@@ -167,6 +168,9 @@ namespace Master_Shield_System.Formularios.Board
 
                     // Carrega a imagem e exibe no PictureBox
                     this.Pcb_Mapa.Image = Image.FromFile(this.caminhoArquivoImagemMapa);
+
+                    // Atualiza o texto do botão para "Alterar Mapa"
+                    AtualizarTextoBotaoMapa(true);
                 }
                 catch (Exception ex)
                 {
@@ -176,11 +180,13 @@ namespace Master_Shield_System.Formularios.Board
             }
         }
 
+
         private void Btn_ApagarCapa_Click(object sender, EventArgs e)
         {
             //remove a imagem de capa selecionada
             Pcb_Capa.Image = null;
             caminhoArquivoImagemCapa = null;
+            AtualizarTextoBotaoCapa(false);
             bc.BoardCover = null;
         }
 
@@ -189,7 +195,13 @@ namespace Master_Shield_System.Formularios.Board
             //remove a imagem de mapa selecionada
             Pcb_Mapa.Image = null;
             caminhoArquivoImagemMapa = null;
+            AtualizarTextoBotaoMapa(false);
             bc.BoardMap = null;
         }
+
+        private void AtualizarTextoBotaoCapa(bool imagemSelecionada) => Btn_IncluirCapa.Text = imagemSelecionada ? "Alterar Capa" : "Adicionar Capa";
+
+        private void AtualizarTextoBotaoMapa(bool imagemSelecionada) => Btn_IncluirMapa.Text = imagemSelecionada ? "Alterar Mapa" : "Adicionar Mapa";
+
     }
 }
