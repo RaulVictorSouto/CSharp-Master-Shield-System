@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MSSLibrary;
 using MySql.Data.MySqlClient;
+using static Org.BouncyCastle.Asn1.Cmp.Challenge;
 
 namespace Master_Shield_System.Formularios.City
 {
@@ -20,6 +21,9 @@ namespace Master_Shield_System.Formularios.City
         public int ConfirmCityId;
         public string ConfirmCityName;
         public string ConfirmCityBiome;
+        private Random random = new Random();
+        private List<string> cidadesSelecionadas = new List<string>();
+
         public CityMain()
         {
             InitializeComponent();
@@ -76,12 +80,12 @@ namespace Master_Shield_System.Formularios.City
             this.Dgv_City.Columns["CityName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             this.Dgv_City.Columns["CityBiome"].HeaderText = "Bioma";
-            this.Dgv_City.Columns["CityBiome"].Width = 199;
+            this.Dgv_City.Columns["CityBiome"].Width = 200;
             this.Dgv_City.Columns["CityBiome"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.Dgv_City.Columns["CityBiome"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             this.Dgv_City.Columns["NpcCount"].HeaderText = "População";
-            this.Dgv_City.Columns["NpcCount"].Width = 100;
+            this.Dgv_City.Columns["NpcCount"].Width = 115;
             this.Dgv_City.Columns["NpcCount"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.Dgv_City.Columns["NpcCount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -254,5 +258,183 @@ namespace Master_Shield_System.Formularios.City
             this.Controls.Add((Control)cityDataInsert);
             cityDataInsert.BringToFront();
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.G | Keys.Control:
+                    this.CriarCidadesRandon();
+                    return true;
+                case Keys.T | Keys.Control:
+                    this.GerarTextoAutomaticamente(this.ConfirmCityId);
+                    return true;
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
+            }
+        }
+
+        public async void GerarTextoAutomaticamente(int cityId)
+        {
+            DialogResult result = MessageBox.Show("Tem certeza que quer incluir uma descrição para a cidade selecionada?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+                return;
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(ConexaoSQLClass.ConnString))
+                {
+                    cn.Open();
+                    string sql = "SELECT * FROM sgrpg.tblcity WHERE CityId = @CityId";
+                    MySqlCommand command = new MySqlCommand(sql, cn);
+                    command.Parameters.AddWithValue("@CityId", (object)cityId);
+                    ApiClass.LoadApiKey();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, reader["CityName"].ToString(), reader["CityBiome"].ToString());
+                        }
+                        else
+                        {
+                            int num = (int)MessageBox.Show("ERRO ao ler os dados da cidade. ", "Ocorreu um erro ao gerar a descrição da cidade", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            return;
+                        }
+                    }
+                    string insertSql = "UPDATE sgrpg.tblcity SET CityDescription = @CityDescription WHERE CityId = @CityId";
+                    MySqlCommand insertCommand = new MySqlCommand(insertSql, cn);
+                    insertCommand.Parameters.AddWithValue("@CityDescription", (object)ApiClass.TextoGerado);
+                    insertCommand.Parameters.AddWithValue("@CityId", (object)cityId);
+                    insertCommand.ExecuteNonQuery();
+                    cn.Close();
+                    this.CarregarDetalhesCidade(this.ConfirmCityId);
+                    sql = (string)null;
+                    command = (MySqlCommand)null;
+                    insertSql = (string)null;
+                    insertCommand = (MySqlCommand)null;
+                }
+            }
+            catch (Exception ex)
+            {
+                int num = (int)MessageBox.Show("ERRO: " + ex.Message, "Ocorreu um erro ao gerar a descrição do NPC", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        public void CriarCidadesRandon()
+        {
+            try
+            {
+                if (MessageBox.Show("Tem certeza que deseja gerar cidades aleatórias?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    return;
+
+                for (int index = 0; index < 10; ++index)
+                {
+                    string cidade = SelecionarCidadeAleatoria();
+                    string bioma = biomesRandon[random.Next(biomesRandon.Length)];
+
+                    using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
+                    {
+                        connection.Open();
+                        using (MySqlCommand mySqlCommand = new MySqlCommand("INSERT INTO sgrpg.tblcity (BoardId, CityName, CityBiome) VALUES (@BoardId, @CityName, @CityBiome)", connection))
+                        {
+                            mySqlCommand.Parameters.AddWithValue("@BoardId", readBoardId);
+                            mySqlCommand.Parameters.AddWithValue("@CityName", cidade);
+                            mySqlCommand.Parameters.AddWithValue("@CityBiome", bioma);
+                            mySqlCommand.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                    }
+
+                    cidadesSelecionadas.Add(cidade);
+                }
+
+                MessageBox.Show("Inclusão de Cidades realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Inicializar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO ao inserir cidade: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private string SelecionarCidadeAleatoria()
+        {
+            string cidade;
+            do
+            {
+                cidade = cidadesRandon[random.Next(cidadesRandon.Length)];
+            }
+            while (cidadesSelecionadas.Contains(cidade));
+            return cidade;
+        }
+
+
+        private string[] cidadesRandon = new string[41]
+   {
+      "Valeria",
+      "Rivendell",
+      "Neverwinter",
+      "Stormwind",
+      "Baldur's Gate",
+      "Ankh-Morpork",
+      "Winterfell",
+      "Gotham",
+      "Mordheim",
+      "Midgar",
+      "Gondor",
+      "Whiterun",
+      "Novigrad",
+      "Silent Hill",
+      "Raccoon City",
+      "Eldoria",
+      "Ravenmoor",
+      "Silvervale",
+      "Frostholm",
+      "Stormreach",
+      "Shadowfen",
+      "Ironcrest",
+      "Emberfall",
+      "Sunhaven",
+      "Mistwood",
+      "Thunderbreak",
+      "Arkania",
+      "Mistyhollow",
+      "Goldenhold",
+      "Ironhold",
+      "Whogmar",
+      "Wrierheith",
+      "Schasmoe",
+      "Vrapcuum",
+      "Dukush",
+      "Ventobravo",
+      "Valdrakken",
+      "Orgrimmar",
+      "Luaprata",
+      "Marea Azul",
+      "Xique-Xique"
+   };
+        private string[] biomesRandon = new string[21]
+        {
+      "Campos",
+      "Cavernas",
+      "Deserto",
+      "Estepes",
+      "Floresta",
+      "Gélido",
+      "Litoral",
+      "Manguezal",
+      "Marinha",
+      "Montanha",
+      "Planaltos",
+      "Planície",
+      "Pântano",
+      "Savana",
+      "Selva",
+      "Subterrâneo",
+      "Taiga",
+      "Tundra",
+      "Tropical",
+      "Vulcânico",
+      "Outro"
+        };
     }
 }
