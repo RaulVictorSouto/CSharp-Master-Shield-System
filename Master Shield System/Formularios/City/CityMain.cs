@@ -436,5 +436,82 @@ namespace Master_Shield_System.Formularios.City
       "Vulcânico",
       "Outro"
         };
+
+        private void Dgv_City_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+            string name = this.Dgv_City.Columns[e.ColumnIndex].Name;
+            int result;
+            if (int.TryParse(this.Dgv_City.Rows[e.RowIndex].Cells["CityId"].Value?.ToString(), out result))
+            {
+                switch (name)
+                {
+                    case "editar":
+                        this.EditarCidade(result);
+                        break;
+                    case "excluir":
+                        this.ExcluirCidade(result, e.RowIndex);
+                        break;
+                }
+            }
+            else
+            {
+                int num = (int)MessageBox.Show("O ID da cidade não é válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void EditarCidade(int cityId)
+        {
+            try
+            {
+                CityDataUpdate cityDataUpdate = new CityDataUpdate();
+                this.Controls.Clear();
+                //cityDataUpdate.SetDados(cityId);
+                this.Controls.Add((Control)cityDataUpdate);
+                cityDataUpdate.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                int num = (int)MessageBox.Show("Erro ao carregar a cidade para edição: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void ExcluirCidade(int cityId, int rowIndex)
+        {
+            if (MessageBox.Show("Deseja excluir esta cidade?\n\nOBS: Ao excluí-la, todos os NPCs atribuídos a ela também serão excluídos. Deseja continuar?", "Exclusão de Cidade", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+            try
+            {
+                new CityClass().DeleteCity(cityId);
+                this.Dgv_City.Rows.RemoveAt(rowIndex);
+                if (this.Dgv_City.Rows.Count > 0)
+                {
+                    if (rowIndex > 0)
+                    {
+                        this.Dgv_City.ClearSelection();
+                        this.Dgv_City.Rows[rowIndex - 1].Selected = true;
+                        this.CarregarDetalhesCidade(Convert.ToInt32(this.Dgv_City.Rows[rowIndex - 1].Cells["CityId"].Value));
+                    }
+                    else if (this.Dgv_City.Rows.Count > 0)
+                    {
+                        this.Dgv_City.ClearSelection();
+                        this.Dgv_City.Rows[0].Selected = true;
+                        this.CarregarDetalhesCidade(Convert.ToInt32(this.Dgv_City.Rows[0].Cells["CityId"].Value));
+                    }
+                }
+                else
+                {
+                    this.Txt_Descricao.Text = (string)null;
+                    this.Pcb_City.Image = (Image)null;
+                }
+            }
+            catch (Exception ex)
+            {
+                int num = (int)MessageBox.Show("Erro ao excluir a cidade: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
     }
+
+
 }
