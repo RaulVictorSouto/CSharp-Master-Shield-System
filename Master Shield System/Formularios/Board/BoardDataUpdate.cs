@@ -198,6 +198,8 @@ namespace Master_Shield_System.Formularios.Board
             caminhoArquivoImagemCapa = null;
             Pcb_Mapa.Image = null;
             caminhoArquivoImagemMapa = null;
+            AtualizarTextoBotaoCapa(false);
+            AtualizarTextoBotaoMapa(false);
             bc.BoardCover = null;
             bc.BoardMap = null;
         }

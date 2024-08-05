@@ -467,7 +467,7 @@ namespace Master_Shield_System.Formularios.City
             {
                 CityDataUpdate cityDataUpdate = new CityDataUpdate();
                 this.Controls.Clear();
-                //cityDataUpdate.SetDados(cityId);
+                cityDataUpdate.SetDados(cityId);
                 this.Controls.Add((Control)cityDataUpdate);
                 cityDataUpdate.BringToFront();
             }

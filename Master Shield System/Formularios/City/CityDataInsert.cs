@@ -102,6 +102,7 @@ namespace Master_Shield_System.Formularios.City
             this.Txt_descricao.Text = "";
             this.Pcb_Imagem.Image = (Image)null;
             this.caminhoArquivoImagemCidade = (string)null;
+            AtualizarTextoBotao(false);
             this.cc.CityImage = (byte[])null;
         }
 
