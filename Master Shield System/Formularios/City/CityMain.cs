@@ -67,6 +67,8 @@ namespace Master_Shield_System.Formularios.City
             Dgv_City.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray; // Cor de fundo dos cabeçalhos
             Dgv_City.RowsDefaultCellStyle.ForeColor = Color.Black; // Cor do texto das linhas
             Dgv_City.ReadOnly = true;
+            Dgv_City.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Dgv_City.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             this.Dgv_City.Columns["CityId"].HeaderText = "ID Cidade";
             this.Dgv_City.Columns["CityId"].Visible = false;
@@ -76,18 +78,12 @@ namespace Master_Shield_System.Formularios.City
 
             this.Dgv_City.Columns["CityName"].HeaderText = "Cidade";
             this.Dgv_City.Columns["CityName"].Width = 300;
-            this.Dgv_City.Columns["CityName"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.Dgv_City.Columns["CityName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             this.Dgv_City.Columns["CityBiome"].HeaderText = "Bioma";
-            this.Dgv_City.Columns["CityBiome"].Width = 200;
-            this.Dgv_City.Columns["CityBiome"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.Dgv_City.Columns["CityBiome"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.Dgv_City.Columns["CityBiome"].Width = 170;
 
             this.Dgv_City.Columns["NpcCount"].HeaderText = "População";
-            this.Dgv_City.Columns["NpcCount"].Width = 115;
-            this.Dgv_City.Columns["NpcCount"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.Dgv_City.Columns["NpcCount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.Dgv_City.Columns["NpcCount"].Width = 100;
 
             this.Dgv_City.Columns["CityDescription"].HeaderText = "Descrição";
             this.Dgv_City.Columns["CityDescription"].Visible = false;

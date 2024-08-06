@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MSSLibrary;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing.Text;
 
 namespace Master_Shield_System.Formularios.Board
 {
@@ -21,6 +22,7 @@ namespace Master_Shield_System.Formularios.Board
         public BoardDataInsert()
         {
             InitializeComponent();
+            AtualizarEstadoBotoes();
         }
 
         private BoardClass LeituraDeFormulario()
@@ -101,6 +103,9 @@ namespace Master_Shield_System.Formularios.Board
             caminhoArquivoImagemCapa = null;
             Pcb_Mapa.Image = null;
             caminhoArquivoImagemMapa = null;
+            AtualizarTextoBotaoCapa(false);
+            AtualizarTextoBotaoMapa(false);
+            AtualizarEstadoBotoes();
             bc.BoardCover = null;
             bc.BoardMap = null;
         }
@@ -138,6 +143,7 @@ namespace Master_Shield_System.Formularios.Board
 
                     // Atualiza o texto do botão para "Alterar Capa"
                     AtualizarTextoBotaoCapa(true);
+                    AtualizarEstadoBotoes();
                 }
                 catch (Exception ex)
                 {
@@ -169,6 +175,7 @@ namespace Master_Shield_System.Formularios.Board
 
                     // Atualiza o texto do botão para "Alterar Mapa"
                     AtualizarTextoBotaoMapa(true);
+                    AtualizarEstadoBotoes();
                 }
                 catch (Exception ex)
                 {
@@ -185,6 +192,7 @@ namespace Master_Shield_System.Formularios.Board
             Pcb_Capa.Image = null;
             caminhoArquivoImagemCapa = null;
             AtualizarTextoBotaoCapa(false);
+            AtualizarEstadoBotoes();
             bc.BoardCover = null;
         }
 
@@ -194,12 +202,19 @@ namespace Master_Shield_System.Formularios.Board
             Pcb_Mapa.Image = null;
             caminhoArquivoImagemMapa = null;
             AtualizarTextoBotaoMapa(false);
+            AtualizarEstadoBotoes();
             bc.BoardMap = null;
         }
 
         private void AtualizarTextoBotaoCapa(bool imagemSelecionada) => Btn_IncluirCapa.Text = imagemSelecionada ? "Alterar Capa" : "Adicionar Capa";
 
         private void AtualizarTextoBotaoMapa(bool imagemSelecionada) => Btn_IncluirMapa.Text = imagemSelecionada ? "Alterar Mapa" : "Adicionar Mapa";
+
+        private void AtualizarEstadoBotoes()
+        {
+            Btn_ApagarCapa.Enabled = Pcb_Capa.Image != null || bc.BoardCover != null;
+            Btn_ApagarMapa.Enabled = Pcb_Mapa.Image != null || bc.BoardMap != null;
+        }
 
     }
 }

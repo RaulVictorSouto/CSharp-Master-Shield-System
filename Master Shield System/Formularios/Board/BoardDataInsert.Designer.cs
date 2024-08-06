@@ -121,7 +121,7 @@
             this.Btn_IncluirMapa.Name = "Btn_IncluirMapa";
             this.Btn_IncluirMapa.Size = new System.Drawing.Size(91, 29);
             this.Btn_IncluirMapa.TabIndex = 14;
-            this.Btn_IncluirMapa.Text = "Incluir mapa";
+            this.Btn_IncluirMapa.Text = "Adicionar mapa";
             this.Btn_IncluirMapa.UseVisualStyleBackColor = true;
             this.Btn_IncluirMapa.Click += new System.EventHandler(this.Btn_IncluirMapa_Click);
             // 
@@ -145,7 +145,7 @@
             this.Btn_IncluirCapa.Name = "Btn_IncluirCapa";
             this.Btn_IncluirCapa.Size = new System.Drawing.Size(91, 29);
             this.Btn_IncluirCapa.TabIndex = 12;
-            this.Btn_IncluirCapa.Text = "Incluir capa";
+            this.Btn_IncluirCapa.Text = "Adicionar capa";
             this.Btn_IncluirCapa.UseVisualStyleBackColor = true;
             this.Btn_IncluirCapa.Click += new System.EventHandler(this.Btn_IncluirCapa_Click);
             // 

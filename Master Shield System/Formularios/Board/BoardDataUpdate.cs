@@ -26,6 +26,7 @@ namespace Master_Shield_System.Formularios.Board
         public BoardDataUpdate()
         {
             InitializeComponent();
+            AtualizarEstadoBotoes();
         }
 
         public void SetDados(int boardId)
@@ -51,7 +52,7 @@ namespace Master_Shield_System.Formularios.Board
                                 this.ReadBoardCover = byteArrayIn;
                             }
                             else
-                                this.Btn_AlterarCapa.Text = "Incluir Capa";
+                                this.Btn_AlterarCapa.Text = "Adicionar Capa";
                             if (!mySqlDataReader.IsDBNull(mySqlDataReader.GetOrdinal("BoardMap")))
                             {
                                 byte[] byteArrayIn = (byte[])mySqlDataReader["BoardMap"];
@@ -59,7 +60,7 @@ namespace Master_Shield_System.Formularios.Board
                                 this.ReadBoardMap = byteArrayIn;
                             }
                             else
-                                this.Btn_AlterarMapa.Text = "Incluir Mapa";
+                                this.Btn_AlterarMapa.Text = "Adicionar Mapa";
                         }
                     }
                     connection.Close();
@@ -172,6 +173,7 @@ namespace Master_Shield_System.Formularios.Board
             Pcb_Capa.Image = null;
             caminhoArquivoImagemCapa = null;
             AtualizarTextoBotaoCapa(false);
+            AtualizarEstadoBotoes();
             bc.BoardCover = null;
         }
 
@@ -181,6 +183,7 @@ namespace Master_Shield_System.Formularios.Board
             Pcb_Mapa.Image = null;
             caminhoArquivoImagemMapa = null;
             AtualizarTextoBotaoMapa(false);
+            AtualizarEstadoBotoes();
             bc.BoardMap = null;
         }
 
@@ -200,6 +203,7 @@ namespace Master_Shield_System.Formularios.Board
             caminhoArquivoImagemMapa = null;
             AtualizarTextoBotaoCapa(false);
             AtualizarTextoBotaoMapa(false);
+            AtualizarEstadoBotoes();
             bc.BoardCover = null;
             bc.BoardMap = null;
         }
@@ -226,6 +230,7 @@ namespace Master_Shield_System.Formularios.Board
 
                     // Atualiza o texto do botão para "Alterar Capa"
                     AtualizarTextoBotaoCapa(true);
+                    AtualizarEstadoBotoes();
                 }
                 catch (Exception ex)
                 {
@@ -257,6 +262,7 @@ namespace Master_Shield_System.Formularios.Board
 
                     // Atualiza o texto do botão para "Alterar Mapa"
                     AtualizarTextoBotaoMapa(true);
+                    AtualizarEstadoBotoes();
                 }
                 catch (Exception ex)
                 {
@@ -266,6 +272,11 @@ namespace Master_Shield_System.Formularios.Board
             }
         }
 
-       
+        private void AtualizarEstadoBotoes()
+        {
+            Btn_ApagarCapa.Enabled = Pcb_Capa.Image != null || bc.BoardCover != null;
+            Btn_ApagarMapa.Enabled = Pcb_Mapa.Image != null || bc.BoardMap != null;
+        }
+
     }
 }

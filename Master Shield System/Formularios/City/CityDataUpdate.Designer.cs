@@ -133,11 +133,11 @@
             // 
             this.Btn_IncluirImagem.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_IncluirImagem.ForeColor = System.Drawing.Color.Black;
-            this.Btn_IncluirImagem.Location = new System.Drawing.Point(1191, 359);
+            this.Btn_IncluirImagem.Location = new System.Drawing.Point(1180, 359);
             this.Btn_IncluirImagem.Name = "Btn_IncluirImagem";
-            this.Btn_IncluirImagem.Size = new System.Drawing.Size(91, 29);
+            this.Btn_IncluirImagem.Size = new System.Drawing.Size(102, 29);
             this.Btn_IncluirImagem.TabIndex = 16;
-            this.Btn_IncluirImagem.Text = "Incluir imagem";
+            this.Btn_IncluirImagem.Text = "Alterar imagem";
             this.Btn_IncluirImagem.UseVisualStyleBackColor = true;
             this.Btn_IncluirImagem.Click += new System.EventHandler(this.Btn_IncluirImagem_Click);
             // 
@@ -146,7 +146,7 @@
             this.Btn_ApagarImagem.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ApagarImagem.ForeColor = System.Drawing.Color.Black;
             this.Btn_ApagarImagem.Image = global::Master_Shield_System.Properties.Resources.excluir1;
-            this.Btn_ApagarImagem.Location = new System.Drawing.Point(1141, 359);
+            this.Btn_ApagarImagem.Location = new System.Drawing.Point(1130, 359);
             this.Btn_ApagarImagem.Name = "Btn_ApagarImagem";
             this.Btn_ApagarImagem.Size = new System.Drawing.Size(44, 29);
             this.Btn_ApagarImagem.TabIndex = 15;
@@ -158,6 +158,7 @@
             this.Pcb_ImagemCidade.Location = new System.Drawing.Point(630, 19);
             this.Pcb_ImagemCidade.Name = "Pcb_ImagemCidade";
             this.Pcb_ImagemCidade.Size = new System.Drawing.Size(652, 334);
+            this.Pcb_ImagemCidade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pcb_ImagemCidade.TabIndex = 14;
             this.Pcb_ImagemCidade.TabStop = false;
             // 

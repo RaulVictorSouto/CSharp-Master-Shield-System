@@ -25,6 +25,7 @@ namespace Master_Shield_System.Formularios.City
         public CityDataUpdate()
         {
             InitializeComponent();
+            AtualizarEstadoBotoes();
         }
 
         public void SetDados(int cityId)
@@ -52,7 +53,7 @@ namespace Master_Shield_System.Formularios.City
                                 this.ReadCityImage = byteArrayIn;
                             }
                             else
-                                this.Btn_IncluirImagem.Text = "Incluir Imagem";
+                                this.Btn_IncluirImagem.Text = "Adicionar Imagem";
                         }
                     }
                     connection.Close();
@@ -162,6 +163,7 @@ namespace Master_Shield_System.Formularios.City
             this.Pcb_ImagemCidade.Image = (Image)null;
             this.caminhoArquivoImagem = (string)null;
             AtualizarTextoBotao(false);
+            AtualizarEstadoBotoes();
             this.cc.CityImage = (byte[])null;
         }
 
@@ -177,6 +179,7 @@ namespace Master_Shield_System.Formularios.City
             this.Pcb_ImagemCidade.Image = (Image)null;
             this.caminhoArquivoImagem = (string)null;
             AtualizarTextoBotao(false);
+            AtualizarEstadoBotoes();
             this.cc.CityImage = (byte[])null;
         }
 
@@ -202,6 +205,7 @@ namespace Master_Shield_System.Formularios.City
 
                     // Atualiza o texto do botão para "Alterar Capa"
                     AtualizarTextoBotao(true);
+                    AtualizarEstadoBotoes();
                 }
                 catch (Exception ex)
                 {
@@ -212,5 +216,6 @@ namespace Master_Shield_System.Formularios.City
         }
 
         private void AtualizarTextoBotao(bool imagemSelecionada) => Btn_IncluirImagem.Text = imagemSelecionada ? "Alterar Imagem" : "Adicionar Imagem";
+        private void AtualizarEstadoBotoes() => Btn_ApagarImagem.Enabled = Pcb_ImagemCidade.Image != null || ReadCityImage != null;
     }
 }

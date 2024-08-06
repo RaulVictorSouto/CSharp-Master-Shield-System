@@ -66,6 +66,8 @@ namespace Master_Shield_System.Formularios.Board
             Dgv_Board.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray; // Cor de fundo dos cabeçalhos
             Dgv_Board.RowsDefaultCellStyle.ForeColor = Color.Black; // Cor do texto das linhas
             Dgv_Board.ReadOnly = true;
+            Dgv_Board.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Dgv_Board.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Configuração da coluna BoardId
             if (this.Dgv_Board.Columns["BoardId"] != null)
@@ -79,8 +81,6 @@ namespace Master_Shield_System.Formularios.Board
             {
                 this.Dgv_Board.Columns["BoardTitle"].HeaderText = "Campanha";
                 this.Dgv_Board.Columns["BoardTitle"].Width = 300;
-                this.Dgv_Board.Columns["BoardTitle"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.Dgv_Board.Columns["BoardTitle"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
             // Configuração da coluna BoardMaster
@@ -88,8 +88,6 @@ namespace Master_Shield_System.Formularios.Board
             {
                 this.Dgv_Board.Columns["BoardMaster"].HeaderText = "Mestre";
                 this.Dgv_Board.Columns["BoardMaster"].Width = 155;
-                this.Dgv_Board.Columns["BoardMaster"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.Dgv_Board.Columns["BoardMaster"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
             // Configuração das colunas Editar e Excluir

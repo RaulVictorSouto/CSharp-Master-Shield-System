@@ -31,6 +31,7 @@ namespace Master_Shield_System.Formularios.City
             {
                 Cbb_Bioma.SelectedIndex = 0; // Seleciona o primeiro item
             }
+            AtualizarEstadoBotoes();
         }
 
         public void SetDados(int boardId) => this.ConfirmBoardId = boardId;
@@ -103,6 +104,7 @@ namespace Master_Shield_System.Formularios.City
             this.Pcb_Imagem.Image = (Image)null;
             this.caminhoArquivoImagemCidade = (string)null;
             AtualizarTextoBotao(false);
+            AtualizarEstadoBotoes();
             this.cc.CityImage = (byte[])null;
         }
 
@@ -139,6 +141,7 @@ namespace Master_Shield_System.Formularios.City
 
                     // Atualiza o texto do botão para "Alterar Capa"
                     AtualizarTextoBotao(true);
+                    AtualizarEstadoBotoes();
                 }
                 catch (Exception ex)
                 {
@@ -156,6 +159,7 @@ namespace Master_Shield_System.Formularios.City
             Pcb_Imagem.Image = null;
             caminhoArquivoImagemCidade = null;
             AtualizarTextoBotao(false);
+            AtualizarEstadoBotoes(); 
             cc.CityImage = null;
         }
 
@@ -165,5 +169,7 @@ namespace Master_Shield_System.Formularios.City
             await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCampanha.Text, this.Cbb_Bioma.Text);
             this.Txt_descricao.Text = ApiClass.TextoGerado;
         }
+
+        private void AtualizarEstadoBotoes() => Btn_ApagarImagem.Enabled = Pcb_Imagem.Image != null || cc.CityImage != null;
     }
 }
