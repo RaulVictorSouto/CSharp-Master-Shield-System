@@ -153,6 +153,7 @@
             this.Dgv_City.TabIndex = 9;
             this.Dgv_City.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_City_CellClick_1);
             this.Dgv_City.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_City_CellContentClick);
+            this.Dgv_City.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_City_CellContentDoubleClick);
             // 
             // Cbb_CityFilter
             // 

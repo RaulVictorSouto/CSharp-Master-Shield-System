@@ -186,7 +186,7 @@ namespace Master_Shield_System.Formularios.Npc
                         //this.ExcluirNpc(result, e.RowIndex);
                         break;
                     case "NpcIsDead":
-                        //this.AlterarStatus(result, e.RowIndex);
+                        this.AlterarStatus(result, e.RowIndex);
                         break;
                 }
             }
@@ -271,6 +271,26 @@ namespace Master_Shield_System.Formularios.Npc
             catch (Exception ex)
             {
                 int num = (int)MessageBox.Show("ERRO: " + ex.Message, "Ocorreu um erro ao carregar os detalhes do NPC: SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        public async void AlterarStatus(int npcId, int rowIndex)
+        {
+            int columnIndex = this.Dgv_Npc.Columns["NpcIsDead"].Index;
+            DataGridViewCell cell;
+            if (columnIndex == -1)
+            {
+                cell = (DataGridViewCell)null;
+            }
+            else
+            {
+                cell = this.Dgv_Npc.Rows[rowIndex].Cells[columnIndex];
+                bool currentValue = (bool)cell.Value;
+                bool newValue = !currentValue;
+                cell.Value = (object)newValue;
+                await this.nc.MatarRessucitarNPC(npcId, newValue);
+                this.CarregarDetalhesNpc(npcId);
+                cell = (DataGridViewCell)null;
             }
         }
 

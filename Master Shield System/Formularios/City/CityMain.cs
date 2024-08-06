@@ -517,6 +517,42 @@ namespace Master_Shield_System.Formularios.City
             this.Controls.Add((Control)npcMain);
             npcMain.BringToFront();
         }
+
+        private void Dgv_City_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica se o clique foi em uma célula válida
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            // Obtém o nome da coluna clicada
+            string columnName = this.Dgv_City.Columns[e.ColumnIndex].Name;
+
+            // Verifica se a coluna clicada não é "Editar" ou "Excluir"
+            if (columnName != "editar" && columnName != "excluir")
+            {
+                try
+                {
+                    // Obtém o valor da célula "BoardId" e converte para int
+                    if (int.TryParse(this.Dgv_City.Rows[e.RowIndex].Cells["BoardId"].Value?.ToString(), out int boardId))
+                    {
+                        // Atualiza a interface do usuário
+                        NpcMain npcMain = new NpcMain();
+                        npcMain.SetCityId(this.ConfirmCityId, this.readBoardId, this.ConfirmCityName, this.ConfirmCityBiome);
+                        this.Controls.Clear();
+                        this.Controls.Add((Control)npcMain);
+                        npcMain.BringToFront();
+                    }
+                    else
+                    {
+                        MessageBox.Show("ID da campanha não é válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao processar a ação: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 
 
