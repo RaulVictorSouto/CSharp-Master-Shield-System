@@ -145,6 +145,24 @@
     <Compile Include="Formularios\City\CityMain.Designer.cs">
       <DependentUpon>CityMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Npc\NpcDataInsert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Npc\NpcDataInsert.Designer.cs">
+      <DependentUpon>NpcDataInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Npc\NpcDataUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Npc\NpcDataUpdate.Designer.cs">
+      <DependentUpon>NpcDataUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Npc\NpcMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Npc\NpcMain.Designer.cs">
+      <DependentUpon>NpcMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -167,6 +185,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\City\CityMain.resx">
       <DependentUpon>CityMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Npc\NpcDataInsert.resx">
+      <DependentUpon>NpcDataInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Npc\NpcDataUpdate.resx">
+      <DependentUpon>NpcDataUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Npc\NpcMain.resx">
+      <DependentUpon>NpcMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -202,12 +229,6 @@
     <None Include="Resources\iconForm.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\morte.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\vida.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\editar.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +240,11 @@
   <ItemGroup>
     <None Include="Resources\excluir.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\morte.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vida.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

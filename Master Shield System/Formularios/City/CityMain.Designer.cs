@@ -32,22 +32,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Txt_Descricao = new System.Windows.Forms.RichTextBox();
-            this.Pcb_City = new System.Windows.Forms.PictureBox();
             this.Btn_Incluir = new System.Windows.Forms.Button();
             this.Cbb_Operadores = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Pesquisar = new System.Windows.Forms.Button();
             this.Txt_pesquisa = new System.Windows.Forms.TextBox();
             this.Dgv_City = new System.Windows.Forms.DataGridView();
-            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.Cbb_CityFilter = new System.Windows.Forms.ComboBox();
             this.Btn_Selecionar = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Pcb_City = new System.Windows.Forms.PictureBox();
+            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pcb_City)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_City)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pcb_City)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -69,15 +69,6 @@
             this.Txt_Descricao.Size = new System.Drawing.Size(538, 156);
             this.Txt_Descricao.TabIndex = 4;
             this.Txt_Descricao.Text = "";
-            // 
-            // Pcb_City
-            // 
-            this.Pcb_City.Location = new System.Drawing.Point(6, 181);
-            this.Pcb_City.Name = "Pcb_City";
-            this.Pcb_City.Size = new System.Drawing.Size(538, 268);
-            this.Pcb_City.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pcb_City.TabIndex = 3;
-            this.Pcb_City.TabStop = false;
             // 
             // Btn_Incluir
             // 
@@ -103,7 +94,7 @@
             "Maior ou igual a",
             "Menor ou igual a",
             "Diferente de"});
-            this.Cbb_Operadores.Location = new System.Drawing.Point(79, 55);
+            this.Cbb_Operadores.Location = new System.Drawing.Point(79, 38);
             this.Cbb_Operadores.Name = "Cbb_Operadores";
             this.Cbb_Operadores.Size = new System.Drawing.Size(134, 24);
             this.Cbb_Operadores.TabIndex = 11;
@@ -112,7 +103,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 55);
+            this.label1.Location = new System.Drawing.Point(20, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 10;
@@ -163,22 +154,6 @@
             this.Dgv_City.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_City_CellClick_1);
             this.Dgv_City.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_City_CellContentClick);
             // 
-            // editar
-            // 
-            this.editar.HeaderText = "";
-            this.editar.Image = global::Master_Shield_System.Properties.Resources.editar1;
-            this.editar.Name = "editar";
-            this.editar.ToolTipText = "Clique aqui para editar";
-            this.editar.Width = 25;
-            // 
-            // excluir
-            // 
-            this.excluir.HeaderText = "";
-            this.excluir.Image = global::Master_Shield_System.Properties.Resources.excluir1;
-            this.excluir.Name = "excluir";
-            this.excluir.ToolTipText = "Clique aqui para excluir";
-            this.excluir.Width = 25;
-            // 
             // Cbb_CityFilter
             // 
             this.Cbb_CityFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -188,7 +163,7 @@
             "Cidade",
             "Bioma",
             "População"});
-            this.Cbb_CityFilter.Location = new System.Drawing.Point(219, 55);
+            this.Cbb_CityFilter.Location = new System.Drawing.Point(219, 38);
             this.Cbb_CityFilter.Name = "Cbb_CityFilter";
             this.Cbb_CityFilter.Size = new System.Drawing.Size(198, 24);
             this.Cbb_CityFilter.TabIndex = 14;
@@ -203,6 +178,7 @@
             this.Btn_Selecionar.TabIndex = 15;
             this.Btn_Selecionar.Text = "Selecionar";
             this.Btn_Selecionar.UseVisualStyleBackColor = true;
+            this.Btn_Selecionar.Click += new System.EventHandler(this.Btn_Selecionar_Click);
             // 
             // dataGridViewImageColumn1
             // 
@@ -220,6 +196,31 @@
             this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
             this.dataGridViewImageColumn2.Width = 25;
             // 
+            // Pcb_City
+            // 
+            this.Pcb_City.Location = new System.Drawing.Point(6, 181);
+            this.Pcb_City.Name = "Pcb_City";
+            this.Pcb_City.Size = new System.Drawing.Size(538, 268);
+            this.Pcb_City.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pcb_City.TabIndex = 3;
+            this.Pcb_City.TabStop = false;
+            // 
+            // editar
+            // 
+            this.editar.HeaderText = "";
+            this.editar.Image = global::Master_Shield_System.Properties.Resources.editar1;
+            this.editar.Name = "editar";
+            this.editar.ToolTipText = "Clique aqui para editar";
+            this.editar.Width = 25;
+            // 
+            // excluir
+            // 
+            this.excluir.HeaderText = "";
+            this.excluir.Image = global::Master_Shield_System.Properties.Resources.excluir1;
+            this.excluir.Name = "excluir";
+            this.excluir.ToolTipText = "Clique aqui para excluir";
+            this.excluir.Width = 25;
+            // 
             // CityMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,8 +237,8 @@
             this.Name = "CityMain";
             this.Size = new System.Drawing.Size(1336, 641);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Pcb_City)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_City)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pcb_City)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

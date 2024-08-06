@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Master_Shield_System.Formularios.Npc;
 using MSSLibrary;
 using MySql.Data.MySqlClient;
 using static Org.BouncyCastle.Asn1.Cmp.Challenge;
@@ -506,6 +507,15 @@ namespace Master_Shield_System.Formularios.City
             {
                 int num = (int)MessageBox.Show("Erro ao excluir a cidade: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
+        }
+
+        private void Btn_Selecionar_Click(object sender, EventArgs e)
+        {
+            NpcMain npcMain = new NpcMain();
+            npcMain.SetCityId(this.ConfirmCityId, this.readBoardId, this.ConfirmCityName, this.ConfirmCityBiome);
+            this.Controls.Clear();
+            this.Controls.Add((Control)npcMain);
+            npcMain.BringToFront();
         }
     }
 

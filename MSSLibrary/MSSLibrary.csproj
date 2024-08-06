@@ -103,6 +103,7 @@
     <Compile Include="BoardClass.cs" />
     <Compile Include="CityClass.cs" />
     <Compile Include="ConexaoSQLClass.cs" />
+    <Compile Include="NpcClass.cs" />
     <Compile Include="ProgressForm.cs">
       <SubType>Form</SubType>
     </Compile>

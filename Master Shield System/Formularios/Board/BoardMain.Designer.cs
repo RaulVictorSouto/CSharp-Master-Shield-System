@@ -36,20 +36,20 @@
             this.Cbb_BoardFilter = new System.Windows.Forms.ComboBox();
             this.Btn_Incluir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Pcb_Mapa = new System.Windows.Forms.PictureBox();
+            this.Pcb_Capa = new System.Windows.Forms.PictureBox();
             this.Lbl_Master = new System.Windows.Forms.Label();
             this.Lbl_Title = new System.Windows.Forms.Label();
             this.Dgv_Board = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Pcb_Mapa = new System.Windows.Forms.PictureBox();
-            this.Pcb_Capa = new System.Windows.Forms.PictureBox();
             this.editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Btn_Selecionar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Mapa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Capa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).BeginInit();
             this.SuspendLayout();
             // 
             // Txt_Pesquisa
@@ -75,7 +75,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 57);
+            this.label1.Location = new System.Drawing.Point(21, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 3;
@@ -89,7 +89,7 @@
             this.Cbb_BoardFilter.Items.AddRange(new object[] {
             "Campanha",
             "Mestre"});
-            this.Cbb_BoardFilter.Location = new System.Drawing.Point(80, 57);
+            this.Cbb_BoardFilter.Location = new System.Drawing.Point(80, 40);
             this.Cbb_BoardFilter.Name = "Cbb_BoardFilter";
             this.Cbb_BoardFilter.Size = new System.Drawing.Size(338, 24);
             this.Cbb_BoardFilter.TabIndex = 4;
@@ -117,6 +117,24 @@
             this.groupBox1.Size = new System.Drawing.Size(713, 455);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
+            // 
+            // Pcb_Mapa
+            // 
+            this.Pcb_Mapa.Location = new System.Drawing.Point(228, 130);
+            this.Pcb_Mapa.Name = "Pcb_Mapa";
+            this.Pcb_Mapa.Size = new System.Drawing.Size(479, 319);
+            this.Pcb_Mapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pcb_Mapa.TabIndex = 3;
+            this.Pcb_Mapa.TabStop = false;
+            // 
+            // Pcb_Capa
+            // 
+            this.Pcb_Capa.Location = new System.Drawing.Point(13, 130);
+            this.Pcb_Capa.Name = "Pcb_Capa";
+            this.Pcb_Capa.Size = new System.Drawing.Size(209, 319);
+            this.Pcb_Capa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pcb_Capa.TabIndex = 2;
+            this.Pcb_Capa.TabStop = false;
             // 
             // Lbl_Master
             // 
@@ -165,40 +183,6 @@
             this.Dgv_Board.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Board_CellContentClick);
             this.Dgv_Board.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Board_CellContentDoubleClick);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Master_Shield_System.Properties.Resources.editar1;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ToolTipText = "Clique aqui para editar";
-            this.dataGridViewImageColumn1.Width = 25;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::Master_Shield_System.Properties.Resources.excluir1;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
-            this.dataGridViewImageColumn2.Width = 25;
-            // 
-            // Pcb_Mapa
-            // 
-            this.Pcb_Mapa.Location = new System.Drawing.Point(228, 130);
-            this.Pcb_Mapa.Name = "Pcb_Mapa";
-            this.Pcb_Mapa.Size = new System.Drawing.Size(479, 319);
-            this.Pcb_Mapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pcb_Mapa.TabIndex = 3;
-            this.Pcb_Mapa.TabStop = false;
-            // 
-            // Pcb_Capa
-            // 
-            this.Pcb_Capa.Location = new System.Drawing.Point(13, 130);
-            this.Pcb_Capa.Name = "Pcb_Capa";
-            this.Pcb_Capa.Size = new System.Drawing.Size(209, 319);
-            this.Pcb_Capa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pcb_Capa.TabIndex = 2;
-            this.Pcb_Capa.TabStop = false;
-            // 
             // editar
             // 
             this.editar.HeaderText = "";
@@ -214,6 +198,22 @@
             this.excluir.Name = "excluir";
             this.excluir.ToolTipText = "Clique aqui para excluir";
             this.excluir.Width = 25;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Master_Shield_System.Properties.Resources.editar1;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ToolTipText = "Clique aqui para editar";
+            this.dataGridViewImageColumn1.Width = 25;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::Master_Shield_System.Properties.Resources.excluir1;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
+            this.dataGridViewImageColumn2.Width = 25;
             // 
             // Btn_Selecionar
             // 
@@ -243,9 +243,9 @@
             this.Size = new System.Drawing.Size(1336, 641);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Mapa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Capa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Board)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
