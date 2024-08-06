@@ -62,6 +62,7 @@ namespace Master_Shield_System.Formularios.Board
                             else
                                 this.Btn_AlterarMapa.Text = "Adicionar Mapa";
                         }
+                        AtualizarEstadoBotoes();
                     }
                     connection.Close();
                 }
@@ -274,8 +275,8 @@ namespace Master_Shield_System.Formularios.Board
 
         private void AtualizarEstadoBotoes()
         {
-            Btn_ApagarCapa.Enabled = Pcb_Capa.Image != null || bc.BoardCover != null;
-            Btn_ApagarMapa.Enabled = Pcb_Mapa.Image != null || bc.BoardMap != null;
+            Btn_ApagarCapa.Enabled = Pcb_Capa.Image != null;
+            Btn_ApagarMapa.Enabled = Pcb_Mapa.Image != null;
         }
 
     }

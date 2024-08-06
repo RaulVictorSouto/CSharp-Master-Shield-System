@@ -55,6 +55,7 @@ namespace Master_Shield_System.Formularios.City
                             else
                                 this.Btn_IncluirImagem.Text = "Adicionar Imagem";
                         }
+                        AtualizarEstadoBotoes();
                     }
                     connection.Close();
                 }
@@ -216,6 +217,6 @@ namespace Master_Shield_System.Formularios.City
         }
 
         private void AtualizarTextoBotao(bool imagemSelecionada) => Btn_IncluirImagem.Text = imagemSelecionada ? "Alterar Imagem" : "Adicionar Imagem";
-        private void AtualizarEstadoBotoes() => Btn_ApagarImagem.Enabled = Pcb_ImagemCidade.Image != null || ReadCityImage != null;
+        private void AtualizarEstadoBotoes() => Btn_ApagarImagem.Enabled = Pcb_ImagemCidade.Image != null;
     }
 }
