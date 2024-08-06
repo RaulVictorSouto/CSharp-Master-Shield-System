@@ -23,6 +23,292 @@ namespace Master_Shield_System.Formularios.Npc
         public string readCityName;
         public string readCityBiome;
         private int readBoardId;
+        private Random random = new Random();
+        private List<string> nomesSelecionados = new List<string>();
+        private List<string> sobrenomesSelecionados = new List<string>();
+
+        private string[] nomesRandon = new string[69]
+    {
+      "Alana",
+      "Beatrix",
+      "Camille",
+      "Delilah",
+      "Elara",
+      "Freya",
+      "Gwendolyn",
+      "Hadley",
+      "Isla",
+      "Juniper",
+      "Kieran",
+      "Lilian",
+      "Maeve",
+      "Naomi",
+      "Olivia",
+      "Penelope",
+      "Quinn",
+      "Rowan",
+      "Seraphina",
+      "Tessa",
+      "Uma",
+      "Valerie",
+      "Willow",
+      "Xenia",
+      "Arya",
+      "Bryn",
+      "Calliope",
+      "Delaney",
+      "Elowen",
+      "Freya",
+      "Greer",
+      "Hadley",
+      "Imogen",
+      "Juniper",
+      "Kieran",
+      "Lyla",
+      "Maeve",
+      "Nora",
+      "Olive",
+      "Priya",
+      "Quinn",
+      "Rowan",
+      "Seraphina",
+      "Tabitha",
+      "Uma",
+      "Vanessa",
+      "Willow",
+      "Xanthe",
+      "Yara",
+      "Zelda",
+      "Alex",
+      "Avery",
+      "Blair",
+      "Cameron",
+      "Emery",
+      "Finley",
+      "Harper",
+      "Jamie",
+      "Jordan",
+      "Morgan",
+      "Parker",
+      "Quincy",
+      "Riley",
+      "Rowan",
+      "Skyler",
+      "Taylor",
+      "Tristan",
+      "Wren",
+      "Zephyr"
+    };
+        private string[] sobrenomesRandon = new string[119]
+        {
+      "Adler",
+      "Blackwood",
+      "Crawford",
+      "Davenport",
+      "Elara",
+      "Foster",
+      "Grey",
+      "Hawke",
+      "Ironsmith",
+      "Johnson",
+      "Knight",
+      "Lawson",
+      "Moore",
+      "Nolan",
+      "Oliver",
+      "Parker",
+      "Quinn",
+      "Reed",
+      "Stone",
+      "Thompson",
+      "Vance",
+      "Walker",
+      "Anderson",
+      "Bailey",
+      "Carter",
+      "Davis",
+      "Edwards",
+      "Fisher",
+      "Garcia",
+      "Harris",
+      "Jackson",
+      "Kelly",
+      "Miller",
+      "Parker",
+      "Perez",
+      "Robinson",
+      "Smith",
+      "Taylor",
+      "Williams",
+      "Brown",
+      "Campbell",
+      "Evans",
+      "Green",
+      "Jones",
+      "Lewis",
+      "Martinez",
+      "Scott",
+      "Turner",
+      "White",
+      "Archer",
+      "Bell",
+      "Carter",
+      "Davis",
+      "Ellis",
+      "Finch",
+      "Grey",
+      "Hunter",
+      "Jackson",
+      "Knight",
+      "Lawson",
+      "Miller",
+      "Norris",
+      "Olsen",
+      "Parker",
+      "Quinn",
+      "Reed",
+      "Stone",
+      "Thompson",
+      "Vance",
+      "Walker",
+      "Anderson",
+      "Bailey",
+      "Carter",
+      "Davis",
+      "Edwards",
+      "Fisher",
+      "Garcia",
+      "Harris",
+      "Jackson",
+      "Kelly",
+      "Miller",
+      "Parker",
+      "Perez",
+      "Robinson",
+      "Smith",
+      "Taylor",
+      "Williams",
+      "Brown",
+      "Campbell",
+      "Evans",
+      "Green",
+      "Jones",
+      "Lewis",
+      "Martinez",
+      "Scott",
+      "Turner",
+      "White",
+      "Ashwood",
+      "Blackwood",
+      "Emberwood",
+      "Evergreen",
+      "Frostwood",
+      "Glenwood",
+      "Hillwood",
+      "Hollowwood",
+      "Leafwood",
+      "Meadowood",
+      "Mosswood",
+      "Nightwood",
+      "Oakwood",
+      "Pinewood",
+      "Ravenwood",
+      "Riverwood",
+      "Shadowwood",
+      "Skywood",
+      "Stonewood",
+      "Stormwood",
+      "Sunwood",
+      "Whisperwood"
+        };
+        private string[] raceRandon = new string[36]
+        {
+      "Humano",
+      "Elfo",
+      "Anão",
+      "Aarakocra",
+      "Aasimar",
+      "Cambion",
+      "Centauro",
+      "Draenei",
+      "Draconato",
+      "Dragonborn",
+      "Elfo Sombrio",
+      "Firbolg",
+      "Gnomo",
+      "Goblin",
+      "Githzerai",
+      "Gigante das Montanhas",
+      "Golem",
+      "Halfling",
+      "Kenku",
+      "Lizardfolk",
+      "Meio-Anão",
+      "Meio-Elfo",
+      "Merfolk",
+      "Merenian",
+      "Minotauro",
+      "Morto-Vivo",
+      "Naga",
+      "Orc",
+      "Sátiro",
+      "Tabaxi",
+      "Tauren",
+      "Tiefling",
+      "Tritão",
+      "Troll",
+      "Warforged",
+      "Worgen"
+        };
+        private string[] classesRandon = new string[26]
+        {
+      "Guerreiro",
+      "Bárbaro",
+      "Mago",
+      "Druida",
+      "Monge",
+      "Assassino",
+      "Ladino",
+      "Curandeiro",
+      "Arqueiro",
+      "Paladino",
+      "Alquimista",
+      "Arcanista",
+      "Bardo",
+      "Bruxo",
+      "Caçador de Demônios",
+      "Camponês",
+      "Cavaleiro",
+      "Clérigo",
+      "Comerciante",
+      "Feiticeiro",
+      "Ferreiro",
+      "Necromante",
+      "Patrulheiro",
+      "Pistoleiro",
+      "Samurai",
+      "Xamã"
+        };
+        private string[] genderRandon = new string[3]
+        {
+      "Masculino",
+      "Feminino",
+      "Não definido"
+        };
+
+        private string[] moralRandon = new string[9]
+       {
+      "Ordeiro e Bom",
+      "Ordeiro e Neutro",
+      "Ordeiro e Mau",
+      "Neutro e Bom",
+      "Neutro",
+      "Neutro e Mau",
+      "Caótico e Bom",
+      "Caótico e Neutro",
+      "Caótico e Mau"
+       };
+
         public NpcMain()
         {
             InitializeComponent();
@@ -92,7 +378,7 @@ namespace Master_Shield_System.Formularios.Npc
 
             // Configurações da coluna "Nome"
             Dgv_Npc.Columns["NpcFullName"].HeaderText = "Nome";
-            Dgv_Npc.Columns["NpcFullName"].Width = 260;
+            Dgv_Npc.Columns["NpcFullName"].Width = 210;
 
             // Configurações da coluna "Raça"
             Dgv_Npc.Columns["NpcRace"].HeaderText = "Raça";
@@ -106,15 +392,14 @@ namespace Master_Shield_System.Formularios.Npc
             Dgv_Npc.Columns["NpcGender"].HeaderText = "Gênero";
             Dgv_Npc.Columns["NpcGender"].Width = 180;
 
+            // Configurações da coluna "Alinhamento"
+            Dgv_Npc.Columns["NpcMoralAlignment"].HeaderText = "Alinhamento";
+            Dgv_Npc.Columns["NpcMoralAlignment"].Width = 120;
+
             // Configurações da coluna "Status"
             Dgv_Npc.Columns["NpcIsDead"].HeaderText = "Status";
             Dgv_Npc.Columns["NpcIsDead"].Width = 60;
-            Dgv_Npc.Columns["NpcIsDead"].DisplayIndex = 9;
             Dgv_Npc.Columns["NpcIsDead"].CellTemplate = new DataGridViewCheckBoxCell();
-
-            // Configurações de índices das colunas "Editar" e "Excluir"
-            Dgv_Npc.Columns["Editar"].DisplayIndex = 10;
-            Dgv_Npc.Columns["Excluir"].DisplayIndex = 10;
 
             // Configurações de visibilidade das colunas adicionais
             Dgv_Npc.Columns["NpcEnergy"].Visible = false;
@@ -128,9 +413,15 @@ namespace Master_Shield_System.Formularios.Npc
             Dgv_Npc.Columns["NpcImage"].Visible = false;
             Dgv_Npc.Columns["NpcDescription"].Visible = false;
 
+            int contarColunas = Dgv_Npc.Columns.Count;
+
+            Dgv_Npc.Columns["Editar"].DisplayIndex = contarColunas - 2;
+            Dgv_Npc.Columns["Excluir"].DisplayIndex = contarColunas - 1;
+
             // Evento de pintura de células
             Dgv_Npc.CellPainting += new DataGridViewCellPaintingEventHandler(Dgv_Npc_CellPainting);
         }
+
 
         private Image IconToImage(Icon icon)
         {
@@ -236,6 +527,7 @@ namespace Master_Shield_System.Formularios.Npc
                             else
                                 this.Lbl_Status.Text = "Desconhecido";
                             this.Lbl_Genero.Text = mySqlDataReader["NpcGender"].ToString();
+                            this.Lbl_Alinhamento.Text = mySqlDataReader["NpcMoralAlignment"].ToString();
                             this.Lbl_Nivel.Text = mySqlDataReader["NpcLevel"].ToString();
                             this.Lbl_Hp.Text = mySqlDataReader["NpcHp"].ToString();
                             this.Lbl_Energia.Text = mySqlDataReader["NpcEnergy"].ToString();
@@ -254,6 +546,7 @@ namespace Master_Shield_System.Formularios.Npc
                             this.Lbl_Classe.Text = "";
                             this.Lbl_Status.Text = "";
                             this.Lbl_Genero.Text = "";
+                            this.Lbl_Alinhamento.Text = "";
                             this.Lbl_Nivel.Text = "";
                             this.Lbl_Hp.Text = "";
                             this.Lbl_Energia.Text = "";
@@ -291,6 +584,119 @@ namespace Master_Shield_System.Formularios.Npc
                 await this.nc.MatarRessucitarNPC(npcId, newValue);
                 this.CarregarDetalhesNpc(npcId);
                 cell = (DataGridViewCell)null;
+            }
+        }
+
+        //Adicionar NPC randomicamente
+
+        //Estas funções não permitem que um mesmo nome/sobrenome seja selecionado duas vezes
+        private string SelecionarNomesAleatorio()
+        {
+            string str;
+            do
+            {
+                str = this.nomesRandon[this.random.Next(this.nomesRandon.Length)];
+            }
+            while (this.nomesSelecionados.Contains(str));
+            this.nomesSelecionados.Add(str);
+            return str;
+        }
+
+        private string SelecionarSobrenomesAleatorio()
+        {
+            string str;
+            do
+            {
+                str = this.sobrenomesRandon[this.random.Next(this.sobrenomesRandon.Length)];
+            }
+            while (this.sobrenomesSelecionados.Contains(str));
+            this.sobrenomesSelecionados.Add(str);
+            return str;
+        }
+
+        public void CriarNPCRandon()
+        {
+            try
+            {
+                if (MessageBox.Show("Tem certeza que deseja gerar NPC's aleatórios?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    return;
+
+                Random random = new Random();
+                for (int index = 0; index < 10; ++index)
+                {
+                    string firstName = SelecionarNomesAleatorio();
+                    string lastName = SelecionarSobrenomesAleatorio();
+                    string npcClass = classesRandon.Length != 0 ? classesRandon[random.Next(classesRandon.Length)] : "";
+                    string npcRace = raceRandon.Length != 0 ? raceRandon[random.Next(raceRandon.Length)] : "";
+                    string npcGender = genderRandon.Length != 0 ? genderRandon[random.Next(genderRandon.Length)] : "";
+                    string npcMoralAlignment = moralRandon.Length != 0 ? moralRandon[random.Next(moralRandon.Length)] : "";
+                    int hp = random.Next(1, 11);
+                    int level = random.Next(1, 11);
+                    int energy = random.Next(1, 11);
+                    int strength = random.Next(-6, 7);
+                    int speed = random.Next(-6, 7);
+                    int intelligence = random.Next(-6, 7);
+                    int charisma = random.Next(-6, 7);
+                    int luck = random.Next(-6, 7);
+
+                    using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
+                    {
+                        connection.Open();
+                        string query = @"
+                    INSERT INTO sgrpg.tblnpc 
+                    (BoardId, CityId, NpcFirstName, NpcLastName, NpcRace, NpcClass, NpcGender, NpcMoralAlignment, NpcHp, NpcLevel, NpcEnergy, NpcIsDead, NpcStrength, NpcSpeed, NpcIntelligence, NpcCharisma, NpcLuck) 
+                    VALUES 
+                    (@BoardId, @CityId, @NpcFirstName, @NpcLastName, @NpcRace, @NpcClass, @NpcGender, @NpcMoralAlignment, @NpcHp, @NpcLevel, @NpcEnergy, @NpcIsDead, @NpcStrength, @NpcSpeed, @NpcIntelligence, @NpcCharisma, @NpcLuck)";
+
+                        using (MySqlCommand mySqlCommand = new MySqlCommand(query, connection))
+                        {
+                            mySqlCommand.Parameters.AddWithValue("@BoardId", readBoardId);
+                            mySqlCommand.Parameters.AddWithValue("@CityId", readCityId);
+                            mySqlCommand.Parameters.AddWithValue("@NpcFirstName", firstName);
+                            mySqlCommand.Parameters.AddWithValue("@NpcLastName", lastName);
+                            mySqlCommand.Parameters.AddWithValue("@NpcRace", npcRace);
+                            mySqlCommand.Parameters.AddWithValue("@NpcClass", npcClass);
+                            mySqlCommand.Parameters.AddWithValue("@NpcGender", npcGender);
+                            mySqlCommand.Parameters.AddWithValue("@NpcMoralAlignment", npcMoralAlignment);
+                            mySqlCommand.Parameters.AddWithValue("@NpcHp", hp);
+                            mySqlCommand.Parameters.AddWithValue("@NpcLevel", level);
+                            mySqlCommand.Parameters.AddWithValue("@NpcEnergy", energy);
+                            mySqlCommand.Parameters.AddWithValue("@NpcIsDead", 0);
+                            mySqlCommand.Parameters.AddWithValue("@NpcStrength", strength);
+                            mySqlCommand.Parameters.AddWithValue("@NpcSpeed", speed);
+                            mySqlCommand.Parameters.AddWithValue("@NpcIntelligence", intelligence);
+                            mySqlCommand.Parameters.AddWithValue("@NpcCharisma", charisma);
+                            mySqlCommand.Parameters.AddWithValue("@NpcLuck", luck);
+
+                            mySqlCommand.ExecuteNonQuery();
+                        }
+
+                        connection.Close();
+                    }
+                }
+
+                MessageBox.Show("Inclusão de NPC's realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Inicializar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO ao inserir NPC's: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.G | Keys.Control:
+                    this.CriarNPCRandon();
+                    return true;
+                case Keys.T | Keys.Control:
+                    //this.GerarTextoAutomaticamente(this.readNpcId);
+                    return true;
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
             }
         }
 

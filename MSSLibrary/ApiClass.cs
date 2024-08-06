@@ -25,6 +25,7 @@ namespace MSSLibrary
             string raca,
             string classe,
             string genero,
+            string moral,
             string nivel,
             string hp,
             string energia,
@@ -41,7 +42,7 @@ namespace MSSLibrary
                 progressForm.Show();
                 Cursor.Current = Cursors.WaitCursor;
 
-                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Nível: {nivel}, HP: {hp}, Energia: {energia}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}.";
+                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Alinhamento Moral: {moral} Nível: {nivel}, HP: {hp}, Energia: {energia}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}.";
 
                 var jsonBody = new
                 {

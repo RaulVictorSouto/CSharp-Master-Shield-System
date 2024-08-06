@@ -28,15 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cbb_CityFilter = new System.Windows.Forms.ComboBox();
             this.Cbb_Operadores = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Pesquisar = new System.Windows.Forms.Button();
             this.Txt_pesquisa = new System.Windows.Forms.TextBox();
             this.Dgv_Npc = new System.Windows.Forms.DataGridView();
+            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Lbl_Sorte = new System.Windows.Forms.Label();
+            this.Lbl_Carisma = new System.Windows.Forms.Label();
+            this.Lbl_Inteligencia = new System.Windows.Forms.Label();
+            this.Lbl_Velocidade = new System.Windows.Forms.Label();
+            this.Lbl_Forca = new System.Windows.Forms.Label();
+            this.Lbl_Energia = new System.Windows.Forms.Label();
+            this.Lbl_Hp = new System.Windows.Forms.Label();
+            this.Lbl_Nivel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,32 +56,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Lbl_Status = new System.Windows.Forms.Label();
+            this.Lbl_Genero = new System.Windows.Forms.Label();
+            this.Lbl_Classe = new System.Windows.Forms.Label();
+            this.Lbl_Raca = new System.Windows.Forms.Label();
+            this.Lbl_Nome = new System.Windows.Forms.Label();
+            this.Pcb_Imagem = new System.Windows.Forms.PictureBox();
+            this.Txt_Descricao = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.Btn_Retornar = new System.Windows.Forms.Button();
             this.Btn_Incluir = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.Txt_Descricao = new System.Windows.Forms.RichTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Pcb_Imagem = new System.Windows.Forms.PictureBox();
-            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Lbl_Nome = new System.Windows.Forms.Label();
-            this.Lbl_Raca = new System.Windows.Forms.Label();
-            this.Lbl_Classe = new System.Windows.Forms.Label();
-            this.Lbl_Genero = new System.Windows.Forms.Label();
-            this.Lbl_Status = new System.Windows.Forms.Label();
-            this.Lbl_Nivel = new System.Windows.Forms.Label();
-            this.Lbl_Hp = new System.Windows.Forms.Label();
-            this.Lbl_Energia = new System.Windows.Forms.Label();
-            this.Lbl_Forca = new System.Windows.Forms.Label();
-            this.Lbl_Velocidade = new System.Windows.Forms.Label();
-            this.Lbl_Inteligencia = new System.Windows.Forms.Label();
-            this.Lbl_Carisma = new System.Windows.Forms.Label();
-            this.Lbl_Sorte = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Lbl_Alinhamento = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Npc)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -151,17 +153,17 @@
             // Dgv_Npc
             // 
             this.Dgv_Npc.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            this.Dgv_Npc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.Dgv_Npc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Dgv_Npc.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Npc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Npc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv_Npc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Npc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.editar,
@@ -171,6 +173,22 @@
             this.Dgv_Npc.Name = "Dgv_Npc";
             this.Dgv_Npc.Size = new System.Drawing.Size(1003, 276);
             this.Dgv_Npc.TabIndex = 20;
+            // 
+            // editar
+            // 
+            this.editar.HeaderText = "";
+            this.editar.Image = global::Master_Shield_System.Properties.Resources.editar1;
+            this.editar.Name = "editar";
+            this.editar.ToolTipText = "Clique aqui para editar";
+            this.editar.Width = 25;
+            // 
+            // excluir
+            // 
+            this.excluir.HeaderText = "";
+            this.excluir.Image = global::Master_Shield_System.Properties.Resources.excluir1;
+            this.excluir.Name = "excluir";
+            this.excluir.ToolTipText = "Clique aqui para excluir";
+            this.excluir.Width = 25;
             // 
             // groupBox1
             // 
@@ -195,6 +213,94 @@
             this.groupBox1.Size = new System.Drawing.Size(262, 276);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
+            // 
+            // Lbl_Sorte
+            // 
+            this.Lbl_Sorte.AutoSize = true;
+            this.Lbl_Sorte.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Sorte.Location = new System.Drawing.Point(125, 248);
+            this.Lbl_Sorte.Name = "Lbl_Sorte";
+            this.Lbl_Sorte.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Sorte.TabIndex = 20;
+            this.Lbl_Sorte.Text = "label14";
+            this.Lbl_Sorte.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Lbl_Carisma
+            // 
+            this.Lbl_Carisma.AutoSize = true;
+            this.Lbl_Carisma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Carisma.Location = new System.Drawing.Point(125, 215);
+            this.Lbl_Carisma.Name = "Lbl_Carisma";
+            this.Lbl_Carisma.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Carisma.TabIndex = 19;
+            this.Lbl_Carisma.Text = "label14";
+            this.Lbl_Carisma.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Lbl_Inteligencia
+            // 
+            this.Lbl_Inteligencia.AutoSize = true;
+            this.Lbl_Inteligencia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Inteligencia.Location = new System.Drawing.Point(125, 182);
+            this.Lbl_Inteligencia.Name = "Lbl_Inteligencia";
+            this.Lbl_Inteligencia.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Inteligencia.TabIndex = 18;
+            this.Lbl_Inteligencia.Text = "label14";
+            this.Lbl_Inteligencia.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Lbl_Velocidade
+            // 
+            this.Lbl_Velocidade.AutoSize = true;
+            this.Lbl_Velocidade.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Velocidade.Location = new System.Drawing.Point(125, 149);
+            this.Lbl_Velocidade.Name = "Lbl_Velocidade";
+            this.Lbl_Velocidade.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Velocidade.TabIndex = 17;
+            this.Lbl_Velocidade.Text = "label14";
+            this.Lbl_Velocidade.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Lbl_Forca
+            // 
+            this.Lbl_Forca.AutoSize = true;
+            this.Lbl_Forca.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Forca.Location = new System.Drawing.Point(125, 116);
+            this.Lbl_Forca.Name = "Lbl_Forca";
+            this.Lbl_Forca.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Forca.TabIndex = 16;
+            this.Lbl_Forca.Text = "label14";
+            this.Lbl_Forca.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Lbl_Energia
+            // 
+            this.Lbl_Energia.AutoSize = true;
+            this.Lbl_Energia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Energia.Location = new System.Drawing.Point(125, 83);
+            this.Lbl_Energia.Name = "Lbl_Energia";
+            this.Lbl_Energia.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Energia.TabIndex = 15;
+            this.Lbl_Energia.Text = "label14";
+            this.Lbl_Energia.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Lbl_Hp
+            // 
+            this.Lbl_Hp.AutoSize = true;
+            this.Lbl_Hp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Hp.Location = new System.Drawing.Point(125, 50);
+            this.Lbl_Hp.Name = "Lbl_Hp";
+            this.Lbl_Hp.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Hp.TabIndex = 14;
+            this.Lbl_Hp.Text = "label14";
+            this.Lbl_Hp.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Lbl_Nivel
+            // 
+            this.Lbl_Nivel.AutoSize = true;
+            this.Lbl_Nivel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Nivel.Location = new System.Drawing.Point(125, 17);
+            this.Lbl_Nivel.Name = "Lbl_Nivel";
+            this.Lbl_Nivel.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Nivel.TabIndex = 13;
+            this.Lbl_Nivel.Text = "label14";
+            this.Lbl_Nivel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label9
             // 
@@ -278,6 +384,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Lbl_Alinhamento);
+            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.Lbl_Status);
             this.groupBox2.Controls.Add(this.Lbl_Genero);
             this.groupBox2.Controls.Add(this.Lbl_Classe);
@@ -295,6 +403,125 @@
             this.groupBox2.Size = new System.Drawing.Size(1271, 226);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
+            // 
+            // Lbl_Status
+            // 
+            this.Lbl_Status.AutoSize = true;
+            this.Lbl_Status.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Status.Location = new System.Drawing.Point(755, 44);
+            this.Lbl_Status.Name = "Lbl_Status";
+            this.Lbl_Status.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Status.TabIndex = 12;
+            this.Lbl_Status.Text = "label14";
+            // 
+            // Lbl_Genero
+            // 
+            this.Lbl_Genero.AutoSize = true;
+            this.Lbl_Genero.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Genero.Location = new System.Drawing.Point(531, 44);
+            this.Lbl_Genero.Name = "Lbl_Genero";
+            this.Lbl_Genero.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Genero.TabIndex = 11;
+            this.Lbl_Genero.Text = "label14";
+            // 
+            // Lbl_Classe
+            // 
+            this.Lbl_Classe.AutoSize = true;
+            this.Lbl_Classe.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Classe.Location = new System.Drawing.Point(300, 44);
+            this.Lbl_Classe.Name = "Lbl_Classe";
+            this.Lbl_Classe.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Classe.TabIndex = 10;
+            this.Lbl_Classe.Text = "label14";
+            // 
+            // Lbl_Raca
+            // 
+            this.Lbl_Raca.AutoSize = true;
+            this.Lbl_Raca.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Raca.Location = new System.Drawing.Point(79, 44);
+            this.Lbl_Raca.Name = "Lbl_Raca";
+            this.Lbl_Raca.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Raca.TabIndex = 9;
+            this.Lbl_Raca.Text = "label14";
+            // 
+            // Lbl_Nome
+            // 
+            this.Lbl_Nome.AutoSize = true;
+            this.Lbl_Nome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Nome.Location = new System.Drawing.Point(79, 16);
+            this.Lbl_Nome.Name = "Lbl_Nome";
+            this.Lbl_Nome.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Nome.TabIndex = 8;
+            this.Lbl_Nome.Text = "label14";
+            // 
+            // Pcb_Imagem
+            // 
+            this.Pcb_Imagem.Location = new System.Drawing.Point(1009, 16);
+            this.Pcb_Imagem.Name = "Pcb_Imagem";
+            this.Pcb_Imagem.Size = new System.Drawing.Size(256, 204);
+            this.Pcb_Imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pcb_Imagem.TabIndex = 7;
+            this.Pcb_Imagem.TabStop = false;
+            // 
+            // Txt_Descricao
+            // 
+            this.Txt_Descricao.Font = new System.Drawing.Font("Baskerville Old Face", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Descricao.Location = new System.Drawing.Point(17, 66);
+            this.Txt_Descricao.Name = "Txt_Descricao";
+            this.Txt_Descricao.ReadOnly = true;
+            this.Txt_Descricao.Size = new System.Drawing.Size(986, 156);
+            this.Txt_Descricao.TabIndex = 6;
+            this.Txt_Descricao.Text = "";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(685, 44);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 19);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Status:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(454, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 19);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Gênero:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(227, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 19);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Classe:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(13, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 19);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Raça:";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(13, 16);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(60, 19);
+            this.label.TabIndex = 1;
+            this.label.Text = "Nome:";
             // 
             // Btn_Retornar
             // 
@@ -316,66 +543,6 @@
             this.Btn_Incluir.Text = "Incluir NPC";
             this.Btn_Incluir.UseVisualStyleBackColor = true;
             // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.Location = new System.Drawing.Point(13, 16);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(60, 19);
-            this.label.TabIndex = 1;
-            this.label.Text = "Nome:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(13, 44);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 19);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Raça:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(227, 44);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 19);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Classe:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(454, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 19);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Gênero:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(685, 44);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 19);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Status:";
-            // 
-            // Txt_Descricao
-            // 
-            this.Txt_Descricao.Font = new System.Drawing.Font("Baskerville Old Face", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Descricao.Location = new System.Drawing.Point(17, 66);
-            this.Txt_Descricao.Name = "Txt_Descricao";
-            this.Txt_Descricao.ReadOnly = true;
-            this.Txt_Descricao.Size = new System.Drawing.Size(986, 156);
-            this.Txt_Descricao.TabIndex = 6;
-            this.Txt_Descricao.Text = "";
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -392,160 +559,25 @@
             this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
             this.dataGridViewImageColumn2.Width = 25;
             // 
-            // Pcb_Imagem
+            // label14
             // 
-            this.Pcb_Imagem.Location = new System.Drawing.Point(1009, 16);
-            this.Pcb_Imagem.Name = "Pcb_Imagem";
-            this.Pcb_Imagem.Size = new System.Drawing.Size(256, 204);
-            this.Pcb_Imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pcb_Imagem.TabIndex = 7;
-            this.Pcb_Imagem.TabStop = false;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(454, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 19);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Nome:";
             // 
-            // editar
+            // Lbl_Alinhamento
             // 
-            this.editar.HeaderText = "";
-            this.editar.Image = global::Master_Shield_System.Properties.Resources.editar1;
-            this.editar.Name = "editar";
-            this.editar.ToolTipText = "Clique aqui para editar";
-            this.editar.Width = 25;
-            // 
-            // excluir
-            // 
-            this.excluir.HeaderText = "";
-            this.excluir.Image = global::Master_Shield_System.Properties.Resources.excluir1;
-            this.excluir.Name = "excluir";
-            this.excluir.ToolTipText = "Clique aqui para excluir";
-            this.excluir.Width = 25;
-            // 
-            // Lbl_Nome
-            // 
-            this.Lbl_Nome.AutoSize = true;
-            this.Lbl_Nome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Nome.Location = new System.Drawing.Point(79, 16);
-            this.Lbl_Nome.Name = "Lbl_Nome";
-            this.Lbl_Nome.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Nome.TabIndex = 8;
-            this.Lbl_Nome.Text = "label14";
-            // 
-            // Lbl_Raca
-            // 
-            this.Lbl_Raca.AutoSize = true;
-            this.Lbl_Raca.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Raca.Location = new System.Drawing.Point(79, 44);
-            this.Lbl_Raca.Name = "Lbl_Raca";
-            this.Lbl_Raca.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Raca.TabIndex = 9;
-            this.Lbl_Raca.Text = "label14";
-            // 
-            // Lbl_Classe
-            // 
-            this.Lbl_Classe.AutoSize = true;
-            this.Lbl_Classe.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Classe.Location = new System.Drawing.Point(300, 44);
-            this.Lbl_Classe.Name = "Lbl_Classe";
-            this.Lbl_Classe.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Classe.TabIndex = 10;
-            this.Lbl_Classe.Text = "label14";
-            // 
-            // Lbl_Genero
-            // 
-            this.Lbl_Genero.AutoSize = true;
-            this.Lbl_Genero.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Genero.Location = new System.Drawing.Point(531, 44);
-            this.Lbl_Genero.Name = "Lbl_Genero";
-            this.Lbl_Genero.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Genero.TabIndex = 11;
-            this.Lbl_Genero.Text = "label14";
-            // 
-            // Lbl_Status
-            // 
-            this.Lbl_Status.AutoSize = true;
-            this.Lbl_Status.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Status.Location = new System.Drawing.Point(755, 44);
-            this.Lbl_Status.Name = "Lbl_Status";
-            this.Lbl_Status.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Status.TabIndex = 12;
-            this.Lbl_Status.Text = "label14";
-            // 
-            // Lbl_Nivel
-            // 
-            this.Lbl_Nivel.AutoSize = true;
-            this.Lbl_Nivel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Nivel.Location = new System.Drawing.Point(125, 17);
-            this.Lbl_Nivel.Name = "Lbl_Nivel";
-            this.Lbl_Nivel.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Nivel.TabIndex = 13;
-            this.Lbl_Nivel.Text = "label14";
-            // 
-            // Lbl_Hp
-            // 
-            this.Lbl_Hp.AutoSize = true;
-            this.Lbl_Hp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Hp.Location = new System.Drawing.Point(125, 50);
-            this.Lbl_Hp.Name = "Lbl_Hp";
-            this.Lbl_Hp.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Hp.TabIndex = 14;
-            this.Lbl_Hp.Text = "label14";
-            // 
-            // Lbl_Energia
-            // 
-            this.Lbl_Energia.AutoSize = true;
-            this.Lbl_Energia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Energia.Location = new System.Drawing.Point(125, 83);
-            this.Lbl_Energia.Name = "Lbl_Energia";
-            this.Lbl_Energia.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Energia.TabIndex = 15;
-            this.Lbl_Energia.Text = "label14";
-            // 
-            // Lbl_Forca
-            // 
-            this.Lbl_Forca.AutoSize = true;
-            this.Lbl_Forca.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Forca.Location = new System.Drawing.Point(125, 116);
-            this.Lbl_Forca.Name = "Lbl_Forca";
-            this.Lbl_Forca.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Forca.TabIndex = 16;
-            this.Lbl_Forca.Text = "label14";
-            // 
-            // Lbl_Velocidade
-            // 
-            this.Lbl_Velocidade.AutoSize = true;
-            this.Lbl_Velocidade.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Velocidade.Location = new System.Drawing.Point(125, 149);
-            this.Lbl_Velocidade.Name = "Lbl_Velocidade";
-            this.Lbl_Velocidade.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Velocidade.TabIndex = 17;
-            this.Lbl_Velocidade.Text = "label14";
-            // 
-            // Lbl_Inteligencia
-            // 
-            this.Lbl_Inteligencia.AutoSize = true;
-            this.Lbl_Inteligencia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Inteligencia.Location = new System.Drawing.Point(125, 182);
-            this.Lbl_Inteligencia.Name = "Lbl_Inteligencia";
-            this.Lbl_Inteligencia.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Inteligencia.TabIndex = 18;
-            this.Lbl_Inteligencia.Text = "label14";
-            // 
-            // Lbl_Carisma
-            // 
-            this.Lbl_Carisma.AutoSize = true;
-            this.Lbl_Carisma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Carisma.Location = new System.Drawing.Point(125, 215);
-            this.Lbl_Carisma.Name = "Lbl_Carisma";
-            this.Lbl_Carisma.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Carisma.TabIndex = 19;
-            this.Lbl_Carisma.Text = "label14";
-            // 
-            // Lbl_Sorte
-            // 
-            this.Lbl_Sorte.AutoSize = true;
-            this.Lbl_Sorte.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Sorte.Location = new System.Drawing.Point(125, 248);
-            this.Lbl_Sorte.Name = "Lbl_Sorte";
-            this.Lbl_Sorte.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Sorte.TabIndex = 20;
-            this.Lbl_Sorte.Text = "label14";
+            this.Lbl_Alinhamento.AutoSize = true;
+            this.Lbl_Alinhamento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Alinhamento.Location = new System.Drawing.Point(531, 16);
+            this.Lbl_Alinhamento.Name = "Lbl_Alinhamento";
+            this.Lbl_Alinhamento.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Alinhamento.TabIndex = 14;
+            this.Lbl_Alinhamento.Text = "label14";
             // 
             // NpcMain
             // 
@@ -618,5 +650,7 @@
         private System.Windows.Forms.Label Lbl_Genero;
         private System.Windows.Forms.Label Lbl_Classe;
         private System.Windows.Forms.Label Lbl_Raca;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label Lbl_Alinhamento;
     }
 }
