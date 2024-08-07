@@ -795,49 +795,46 @@ namespace Master_Shield_System.Formularios.Npc
 
         private void ExcluirNpc(int npcId, int rowIndex)
         {
+            // Confirmação antes da exclusão
             if (MessageBox.Show("Deseja excluir este NPC?", "Exclusão de NPC", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
+
             try
             {
+                // Excluir o NPC do banco de dados
                 new NpcClass().DeleteNpc(npcId);
-                this.Dgv_Npc.Rows.RemoveAt(rowIndex);
-                if (this.Dgv_Npc.Rows.Count > 0)
+
+                // Remover a linha da DataGridView
+                if (rowIndex >= 0 && rowIndex < this.Dgv_Npc.Rows.Count)
                 {
-                    if (rowIndex > 0)
+                    this.Dgv_Npc.Rows.RemoveAt(rowIndex);
+
+                    // Atualizar a seleção
+                    if (this.Dgv_Npc.Rows.Count > 0)
                     {
+                        int newRowIndex = rowIndex > 0 ? rowIndex - 1 : 0;
                         this.Dgv_Npc.ClearSelection();
-                        this.Dgv_Npc.Rows[rowIndex - 1].Selected = true;
-                        this.CarregarDetalhesNpc(Convert.ToInt32(this.Dgv_Npc.Rows[rowIndex - 1].Cells["NpcId"].Value));
+                        this.Dgv_Npc.Rows[newRowIndex].Selected = true;
+
+                        // Carregar detalhes do NPC selecionado
+                        int newNpcId = Convert.ToInt32(this.Dgv_Npc.Rows[newRowIndex].Cells["NpcId"].Value);
+                        this.CarregarDetalhesNpc(newNpcId);
                     }
-                    else if (this.Dgv_Npc.Rows.Count > 0)
+                    else
                     {
-                        this.Dgv_Npc.ClearSelection();
-                        this.Dgv_Npc.Rows[0].Selected = true;
-                        this.CarregarDetalhesNpc(Convert.ToInt32(this.Dgv_Npc.Rows[0].Cells["NpcId"].Value));
+                        // Limpar detalhes se não houver linhas na DataGridView
+                        LimparDetalhesNpc();
                     }
                 }
                 else
                 {
-                    this.Txt_Descricao.Text = (string)null;
-                    this.Lbl_Nome.Text = (string)null;
-                    this.Lbl_Raca.Text = (string)null;
-                    this.Lbl_Classe.Text = (string)null;
-                    this.Lbl_Status.Text = (string)null;
-                    this.Lbl_Genero.Text = (string)null;
-                    this.Lbl_Nivel.Text = (string)null;
-                    this.Lbl_Hp.Text = (string)null;
-                    this.Lbl_Energia.Text = (string)null;
-                    this.Lbl_Forca.Text = (string)null;
-                    this.Lbl_Velocidade.Text = (string)null;
-                    this.Lbl_Inteligencia.Text = (string)null;
-                    this.Lbl_Carisma.Text = (string)null;
-                    this.Lbl_Sorte.Text = (string)null;
-                    this.Pcb_Imagem.Image = (Image)null;
+                    // Se o índice da linha for inválido
+                    LimparDetalhesNpc();
                 }
             }
             catch (Exception ex)
             {
-                int num = (int)MessageBox.Show("Erro ao excluir o NPC: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Erro ao excluir o NPC: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
 

@@ -176,18 +176,29 @@ namespace MSSLibrary
                 using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
                 {
                     connection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand("DELETE FROM sgrpg.tblnpc WHERE NpcId = @NpcId", connection);
-                    mySqlCommand.Parameters.AddWithValue("@NpcId", (object)this.NpcId);
-                    mySqlCommand.ExecuteNonQuery();
-                    int num = (int)MessageBox.Show("Exclusão de NPC realizada com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    connection.Close();
+
+                    // Comando SQL para deletar o NPC com o ID fornecido
+                    string query = "DELETE FROM sgrpg.tblnpc WHERE NpcId = @NpcId";
+                    using (MySqlCommand mySqlCommand = new MySqlCommand(query, connection))
+                    {
+                        // Adicionar o parâmetro ao comando
+                        mySqlCommand.Parameters.AddWithValue("@NpcId", npcId);
+
+                        // Executar o comando
+                        mySqlCommand.ExecuteNonQuery();
+                    }
                 }
+
+                // Mensagem de sucesso (pode ser movida para onde o método é chamado)
+                MessageBox.Show("Exclusão de NPC realizada com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch (Exception ex)
             {
-                int num = (int)MessageBox.Show("ERRO: " + ex.Message, "Ocorreu um erro: SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                // Mensagem de erro
+                MessageBox.Show("ERRO: " + ex.Message, "Ocorreu um erro: SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
+
 
         public static DataTable GetNpc(bool ativos, int readCityId)
         {
