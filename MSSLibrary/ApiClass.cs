@@ -17,23 +17,23 @@ namespace MSSLibrary
         public static string TextoGerado { get; set; }
 
         public static async Task GerarTextoNpc(
-            string apiKey,
-            string nome,
-            string sobrenome,
-            string localizacao,
-            string bioma,
-            string raca,
-            string classe,
-            string genero,
-            string moral,
-            string nivel,
-            string hp,
-            string energia,
-            string forca,
-            string velocidade,
-            string inteligencia,
-            string carisma,
-            string sorte)
+     string apiKey,
+     string nome,
+     string sobrenome,
+     string localizacao,
+     string bioma,
+     string raca,
+     string classe,
+     string genero,
+     string moral,
+     string nivel,
+     string hp,
+     string energia,
+     string forca,
+     string velocidade,
+     string inteligencia,
+     string carisma,
+     string sorte)
         {
             ProgressForm progressForm = null;
             try
@@ -42,36 +42,36 @@ namespace MSSLibrary
                 progressForm.Show();
                 Cursor.Current = Cursors.WaitCursor;
 
-                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Alinhamento Moral: {moral} Nível: {nivel}, HP: {hp}, Energia: {energia}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}.\nConsidere que, no que tange os atributos numéricos, -6 é 'horrivel' e 6 é 'ótimo'";
+                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Alinhamento Moral: {moral} Nível: {nivel}, HP: {hp}, Energia: {energia}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}. Considere que, no que tange os atributos numéricos, -6 é horrivel e 6 é ótimo";
 
                 var jsonBody = new
                 {
                     contents = new[]
                     {
-                        new
-                        {
-                            role = "",
-                            parts = new[]
-                            {
-                                new { text = promptString }
-                            }
-                        }
-                    },
+                new
+                {
+                    role = "",
+                    parts = new[]
+                    {
+                        new { text = promptString }
+                    }
+                }
+            },
                     generationConfig = new
                     {
-                        temperature = 0.7,
+                        temperature = 1.0,
                         topK = 40,
                         topP = 0.9,
                         maxOutputTokens = 600
                     },
                     safetySettings = new[]
                     {
-                        new
-                        {
-                            category = "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                            threshold = "BLOCK_LOW_AND_ABOVE"
-                        }
-                    }
+                new
+                {
+                    category = "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                    threshold = "BLOCK_LOW_AND_ABOVE"
+                }
+            }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(jsonBody);
@@ -87,10 +87,10 @@ namespace MSSLibrary
                     string responseBody = await response.Content.ReadAsStringAsync();
                     var responseObject = JsonConvert.DeserializeObject<GeminiResponse>(responseBody);
 
-                    if (responseObject?.candidates != null && responseObject.candidates.Length != 0)
+                    if (responseObject?.candidates != null && responseObject.candidates.Length > 0 && responseObject.candidates[0].content.parts.Length > 0)
                     {
                         string generatedText = responseObject.candidates[0].content.parts[0].text;
-                        TextoGerado = generatedText;
+                        ApiClass.TextoGerado = generatedText;
                         MessageBox.Show($"Descrição do NPC {nome} {sobrenome} adicionada com sucesso!", "Descrição adicionada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
@@ -118,11 +118,15 @@ namespace MSSLibrary
             }
             finally
             {
-                progressForm?.Close();
-                progressForm?.Dispose();
+                if (progressForm != null)
+                {
+                    progressForm.Close();
+                    progressForm.Dispose();
+                }
                 Cursor.Current = Cursors.Default;
             }
         }
+
 
         public static async Task GerarTextoCidade(string apiKey, string nome, string bioma)
         {
@@ -139,15 +143,15 @@ namespace MSSLibrary
                 {
                     contents = new[]
                     {
-                        new
-                        {
-                            role = "",
-                            parts = new[]
-                            {
-                                new { text = promptString }
-                            }
-                        }
-                    },
+                new
+                {
+                    role = "",
+                    parts = new[]
+                    {
+                        new { text = promptString }
+                    }
+                }
+            },
                     generationConfig = new
                     {
                         temperature = 0.7,
@@ -157,12 +161,12 @@ namespace MSSLibrary
                     },
                     safetySettings = new[]
                     {
-                        new
-                        {
-                            category = "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                            threshold = "BLOCK_LOW_AND_ABOVE"
-                        }
-                    }
+                new
+                {
+                    category = "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                    threshold = "BLOCK_LOW_AND_ABOVE"
+                }
+            }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(jsonBody);
@@ -178,10 +182,10 @@ namespace MSSLibrary
                     string responseBody = await response.Content.ReadAsStringAsync();
                     var responseObject = JsonConvert.DeserializeObject<GeminiResponse>(responseBody);
 
-                    if (responseObject?.candidates != null && responseObject.candidates.Length != 0)
+                    if (responseObject?.candidates != null && responseObject.candidates.Length > 0 && responseObject.candidates[0].content.parts.Length > 0)
                     {
                         string generatedText = responseObject.candidates[0].content.parts[0].text;
-                        TextoGerado = generatedText;
+                        ApiClass.TextoGerado = generatedText;
                         MessageBox.Show($"Descrição da cidade {nome} adicionada com sucesso!", "Descrição adicionada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
@@ -209,11 +213,15 @@ namespace MSSLibrary
             }
             finally
             {
-                progressForm?.Close();
-                progressForm?.Dispose();
+                if (progressForm != null)
+                {
+                    progressForm.Close();
+                    progressForm.Dispose();
+                }
                 Cursor.Current = Cursors.Default;
             }
         }
+
 
         public void UpdateKey()
         {
