@@ -350,7 +350,7 @@ namespace Master_Shield_System.Formularios.Npc
         }
 
 
-        public void SetCityId(int ConfirmCityId,int ConfirmBoardId,string ConfirmCityName,string ConfirmCityBiome)
+        public void SetCityId(int ConfirmCityId, int ConfirmBoardId, string ConfirmCityName, string ConfirmCityBiome)
         {
             this.readCityId = ConfirmCityId;
             this.readBoardId = ConfirmBoardId;
@@ -733,7 +733,7 @@ namespace Master_Shield_System.Formularios.Npc
                     this.CriarNPCRandon();
                     return true;
                 case Keys.T | Keys.Control:
-                    //this.GerarTextoAutomaticamente(this.readNpcId);
+                    this.GerarTextoAutomaticamente(this.readNpcId);
                     return true;
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
@@ -827,5 +827,54 @@ namespace Master_Shield_System.Formularios.Npc
                 int num = (int)MessageBox.Show("Erro ao excluir o NPC: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
+
+        #region Gerar Descrição NPC
+
+        public async void GerarTextoAutomaticamente(int npcId)
+        {
+            DialogResult result = MessageBox.Show("Tem certeza que quer incluir uma descrição para o NPC selecionado?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+                return;
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(ConexaoSQLClass.ConnString))
+                {
+                    cn.Open();
+                    string sql = "SELECT * FROM sgrpg.tblnpc WHERE NpcId = @NpcId";
+                    MySqlCommand command = new MySqlCommand(sql, cn);
+                    command.Parameters.AddWithValue("@NpcId", (object)npcId);
+                    ApiClass.LoadApiKey();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            await ApiClass.GerarTextoNpc(ApiClass.GeminiKey, reader["NpcFirstName"].ToString(), reader["NpcLastName"].ToString(), this.readCityName, this.readCityBiome, reader["NpcRace"].ToString(), reader["NpcClass"].ToString(), reader["NpcGender"].ToString(), reader["NpcMoralAlignment"].ToString(), reader["NpcLevel"].ToString(), reader["NpcHp"].ToString(), reader["NpcEnergy"].ToString(), reader["NpcStrength"].ToString(), reader["NpcSpeed"].ToString(), reader["NpcCharisma"].ToString(), reader["NpcLuck"].ToString(), reader["NpcIntelligence"].ToString());
+                        }
+                        else
+                        {
+                            int num = (int)MessageBox.Show("ERRO ao ler os dados do NPC. ", "Ocorreu um erro ao gerar a descrição do NPC", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            return;
+                        }
+                    }
+                    string insertSql = "UPDATE sgrpg.tblnpc SET NpcDescription = @NpcDescription WHERE NpcId = @NpcId";
+                    MySqlCommand insertCommand = new MySqlCommand(insertSql, cn);
+                    insertCommand.Parameters.AddWithValue("@NpcDescription", (object)ApiClass.TextoGerado);
+                    insertCommand.Parameters.AddWithValue("@NpcId", (object)npcId);
+                    insertCommand.ExecuteNonQuery();
+                    cn.Close();
+                    this.CarregarDetalhesNpc(npcId);
+                    sql = (string)null;
+                    command = (MySqlCommand)null;
+                    insertSql = (string)null;
+                    insertCommand = (MySqlCommand)null;
+                }
+            }
+            catch (Exception ex)
+            {
+                int num = (int)MessageBox.Show("ERRO: " + ex.Message, "Ocorreu um erro ao gerar a descrição do NPC", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        #endregion
     }
 }
