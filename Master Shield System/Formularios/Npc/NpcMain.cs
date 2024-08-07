@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Master_Shield_System.Formularios.City;
 using Master_Shield_System.Properties;
 using MSSLibrary;
 using MySql.Data.MySqlClient;
@@ -26,6 +27,8 @@ namespace Master_Shield_System.Formularios.Npc
         private Random random = new Random();
         private List<string> nomesSelecionados = new List<string>();
         private List<string> sobrenomesSelecionados = new List<string>();
+
+        #region Arrays para criação randomica
 
         private string[] nomesRandon = new string[69]
     {
@@ -309,6 +312,8 @@ namespace Master_Shield_System.Formularios.Npc
       "Caótico e Mau"
        };
 
+        #endregion
+
         public NpcMain()
         {
             InitializeComponent();
@@ -318,29 +323,32 @@ namespace Master_Shield_System.Formularios.Npc
         private void Inicializar()
         {
             this.dt = NpcClass.GetNpc(true, this.readCityId);
-            this.Dgv_Npc.DataSource = (object)this.dt;
+            this.Dgv_Npc.DataSource = this.dt;
+
             if (this.Dgv_Npc.Rows.Count <= 0)
                 return;
+
             this.Dgv_Npc.Rows[0].Selected = true;
+
             if (this.Dgv_Npc.Columns.Contains("NpcId"))
             {
                 object obj = this.Dgv_Npc.Rows[0].Cells["NpcId"].Value;
-                int result;
-                if (obj != null && int.TryParse(obj.ToString(), out result))
+                if (obj != null && int.TryParse(obj.ToString(), out int result))
                 {
                     this.readNpcId = result;
-                    this.Dgv_Npc_CellClick((object)this.Dgv_Npc, new DataGridViewCellEventArgs(0, 0));
+                    this.Dgv_Npc_CellClick(this.Dgv_Npc, new DataGridViewCellEventArgs(0, 0));
                 }
                 else
                 {
-                    int num = (int)MessageBox.Show("Erro ao converter o valor da célula 'NpcId' para inteiro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("Erro ao converter o valor da célula 'NpcId' para inteiro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
             }
             else
             {
-                int num1 = (int)MessageBox.Show("A coluna 'NpcId' não foi encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("A coluna 'NpcId' não foi encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
+
 
         public void SetCityId(int ConfirmCityId,int ConfirmBoardId,string ConfirmCityName,string ConfirmCityBiome)
         {
@@ -422,6 +430,160 @@ namespace Master_Shield_System.Formularios.Npc
             Dgv_Npc.CellPainting += new DataGridViewCellPaintingEventHandler(Dgv_Npc_CellPainting);
         }
 
+        private void Dgv_Npc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+            string name = this.Dgv_Npc.Columns[e.ColumnIndex].Name;
+            int result;
+            if (int.TryParse(this.Dgv_Npc.Rows[e.RowIndex].Cells["NpcId"].Value?.ToString(), out result))
+            {
+                switch (name)
+                {
+                    case "editar":
+                        this.EditarNpc(result);
+                        break;
+                    case "excluir":
+                        this.ExcluirNpc(result, e.RowIndex);
+                        break;
+                    case "NpcIsDead":
+                        this.AlterarStatus(result, e.RowIndex);
+                        break;
+                }
+            }
+            else
+            {
+                int num = (int)MessageBox.Show("O ID do NPC não é válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void Dgv_Npc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            if (this.Dgv_Npc.Columns.Contains("NpcId"))
+            {
+                if (int.TryParse(this.Dgv_Npc.Rows[e.RowIndex].Cells["NpcId"].Value?.ToString(), out int result))
+                {
+                    this.CarregarDetalhesNpc(result);
+                }
+                else
+                {
+                    MessageBox.Show("O ID do NPC não é válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+            }
+        }
+
+        private void CarregarDetalhesNpc(int npcId)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
+                {
+                    connection.Open();
+                    string query = "SELECT *, CONCAT(NpcFirstName, ' ', NpcLastName) AS NpcFullName FROM sgrpg.tblnpc WHERE NpcId = @NpcId";
+                    MySqlCommand mySqlCommand = new MySqlCommand(query, connection);
+                    mySqlCommand.Parameters.AddWithValue("@NpcId", npcId);
+
+                    using (MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader())
+                    {
+                        if (mySqlDataReader.Read())
+                        {
+                            Txt_Descricao.Text = mySqlDataReader["NpcDescription"]?.ToString() ?? "Sem Descrição";
+                            Lbl_Nome.Text = mySqlDataReader["NpcFullName"]?.ToString() ?? "";
+                            Lbl_Raca.Text = mySqlDataReader["NpcRace"]?.ToString() ?? "";
+                            Lbl_Classe.Text = mySqlDataReader["NpcClass"]?.ToString() ?? "";
+
+                            bool isDead;
+                            if (bool.TryParse(mySqlDataReader["NpcIsDead"]?.ToString(), out isDead))
+                            {
+                                Lbl_Status.Text = isDead ? "Morto" : "Vivo";
+                            }
+                            else
+                            {
+                                Lbl_Status.Text = "Desconhecido";
+                            }
+
+                            Lbl_Genero.Text = mySqlDataReader["NpcGender"]?.ToString() ?? "";
+                            Lbl_Alinhamento.Text = mySqlDataReader["NpcMoralAlignment"]?.ToString() ?? "";
+                            Lbl_Nivel.Text = mySqlDataReader["NpcLevel"]?.ToString() ?? "";
+                            Lbl_Hp.Text = mySqlDataReader["NpcHp"]?.ToString() ?? "";
+                            Lbl_Energia.Text = mySqlDataReader["NpcEnergy"]?.ToString() ?? "";
+                            Lbl_Forca.Text = mySqlDataReader["NpcStrength"]?.ToString() ?? "";
+                            Lbl_Velocidade.Text = mySqlDataReader["NpcSpeed"]?.ToString() ?? "";
+                            Lbl_Inteligencia.Text = mySqlDataReader["NpcIntelligence"]?.ToString() ?? "";
+                            Lbl_Carisma.Text = mySqlDataReader["NpcCharisma"]?.ToString() ?? "";
+                            Lbl_Sorte.Text = mySqlDataReader["NpcLuck"]?.ToString() ?? "";
+
+                            if (!mySqlDataReader.IsDBNull(mySqlDataReader.GetOrdinal("NpcImage")))
+                            {
+                                byte[] imgData = (byte[])mySqlDataReader["NpcImage"];
+                                Pcb_Imagem.Image = ByteArrayToImage(imgData);
+                            }
+                            else
+                            {
+                                Pcb_Imagem.Image = null;
+                            }
+                        }
+                        else
+                        {
+                            LimparDetalhesNpc();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO: " + ex.Message, "Ocorreu um erro ao carregar os detalhes do NPC: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        // Método auxiliar para limpar os detalhes do NPC
+        private void LimparDetalhesNpc()
+        {
+            Txt_Descricao.Text = "";
+            Lbl_Nome.Text = "";
+            Lbl_Raca.Text = "";
+            Lbl_Classe.Text = "";
+            Lbl_Status.Text = "";
+            Lbl_Genero.Text = "";
+            Lbl_Alinhamento.Text = "";
+            Lbl_Nivel.Text = "";
+            Lbl_Hp.Text = "";
+            Lbl_Energia.Text = "";
+            Lbl_Forca.Text = "";
+            Lbl_Velocidade.Text = "";
+            Lbl_Inteligencia.Text = "";
+            Lbl_Carisma.Text = "";
+            Lbl_Sorte.Text = "";
+            Pcb_Imagem.Image = null;
+        }
+
+
+
+        #region alterar status
+
+        public async void AlterarStatus(int npcId, int rowIndex)
+        {
+            int columnIndex = this.Dgv_Npc.Columns["NpcIsDead"].Index;
+            DataGridViewCell cell;
+            if (columnIndex == -1)
+            {
+                cell = (DataGridViewCell)null;
+            }
+            else
+            {
+                cell = this.Dgv_Npc.Rows[rowIndex].Cells[columnIndex];
+                bool currentValue = (bool)cell.Value;
+                bool newValue = !currentValue;
+                cell.Value = (object)newValue;
+                await this.nc.MatarRessucitarNPC(npcId, newValue);
+                this.CarregarDetalhesNpc(npcId);
+                cell = (DataGridViewCell)null;
+            }
+        }
 
         private Image IconToImage(Icon icon)
         {
@@ -460,133 +622,9 @@ namespace Master_Shield_System.Formularios.Npc
             e.Handled = true;
         }
 
-        private void Dgv_Npc_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-                return;
-            string name = this.Dgv_Npc.Columns[e.ColumnIndex].Name;
-            int result;
-            if (int.TryParse(this.Dgv_Npc.Rows[e.RowIndex].Cells["NpcId"].Value?.ToString(), out result))
-            {
-                switch (name)
-                {
-                    case "editar":
-                       // this.EditarNpc(result);
-                        break;
-                    case "excluir":
-                        //this.ExcluirNpc(result, e.RowIndex);
-                        break;
-                    case "NpcIsDead":
-                        this.AlterarStatus(result, e.RowIndex);
-                        break;
-                }
-            }
-            else
-            {
-                int num = (int)MessageBox.Show("O ID do NPC não é válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
-        }
+        #endregion
 
-        private void Dgv_Npc_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-                return;
-            int int32 = Convert.ToInt32(this.Dgv_Npc.Rows[e.RowIndex].Cells["NpcId"].Value);
-            this.CarregarDetalhesNpc(int32);
-            this.readNpcId = int32;
-        }
-
-        private Image ByteArrayToImage(byte[] byteArrayIn)
-        {
-            using (MemoryStream memoryStream = new MemoryStream(byteArrayIn))
-                return Image.FromStream((Stream)memoryStream);
-        }
-
-        private void CarregarDetalhesNpc(int npcId)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
-                {
-                    connection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand("SELECT *, CONCAT(NpcFirstName, ' ', NpcLastName) AS NpcFullName FROM sgrpg.tblnpc WHERE NpcId = @NpcId", connection);
-                    mySqlCommand.Parameters.AddWithValue("@NpcId", (object)npcId);
-                    using (MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader())
-                    {
-                        if (mySqlDataReader.Read())
-                        {
-                            this.Txt_Descricao.Text = mySqlDataReader["NpcDescription"].ToString();
-                            if (this.Txt_Descricao.Text == "")
-                                this.Txt_Descricao.Text = "Sem Descrição";
-                            this.Lbl_Nome.Text = mySqlDataReader["NpcFullName"].ToString();
-                            this.Lbl_Raca.Text = mySqlDataReader["NpcRace"].ToString();
-                            this.Lbl_Classe.Text = mySqlDataReader["NpcClass"].ToString();
-                            bool result;
-                            if (bool.TryParse(mySqlDataReader["NpcIsDead"].ToString(), out result))
-                                this.Lbl_Status.Text = result ? "Morto" : "Vivo";
-                            else
-                                this.Lbl_Status.Text = "Desconhecido";
-                            this.Lbl_Genero.Text = mySqlDataReader["NpcGender"].ToString();
-                            this.Lbl_Alinhamento.Text = mySqlDataReader["NpcMoralAlignment"].ToString();
-                            this.Lbl_Nivel.Text = mySqlDataReader["NpcLevel"].ToString();
-                            this.Lbl_Hp.Text = mySqlDataReader["NpcHp"].ToString();
-                            this.Lbl_Energia.Text = mySqlDataReader["NpcEnergy"].ToString();
-                            this.Lbl_Forca.Text = mySqlDataReader["NpcStrength"].ToString();
-                            this.Lbl_Velocidade.Text = mySqlDataReader["NpcSpeed"].ToString();
-                            this.Lbl_Inteligencia.Text = mySqlDataReader["NpcIntelligence"].ToString();
-                            this.Lbl_Carisma.Text = mySqlDataReader["NpcCharisma"].ToString();
-                            this.Lbl_Sorte.Text = mySqlDataReader["NpcLuck"].ToString();
-                            this.Pcb_Imagem.Image = mySqlDataReader.IsDBNull(mySqlDataReader.GetOrdinal("NpcImage")) ? (Image)null : this.ByteArrayToImage((byte[])mySqlDataReader["NpcImage"]);
-                        }
-                        else
-                        {
-                            this.Txt_Descricao.Text = "";
-                            this.Lbl_Nome.Text = "";
-                            this.Lbl_Raca.Text = "";
-                            this.Lbl_Classe.Text = "";
-                            this.Lbl_Status.Text = "";
-                            this.Lbl_Genero.Text = "";
-                            this.Lbl_Alinhamento.Text = "";
-                            this.Lbl_Nivel.Text = "";
-                            this.Lbl_Hp.Text = "";
-                            this.Lbl_Energia.Text = "";
-                            this.Lbl_Forca.Text = "";
-                            this.Lbl_Velocidade.Text = "";
-                            this.Lbl_Inteligencia.Text = "";
-                            this.Lbl_Carisma.Text = "";
-                            this.Lbl_Sorte.Text = "";
-                            this.Pcb_Imagem.Image = (Image)null;
-                        }
-                    }
-                    connection.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                int num = (int)MessageBox.Show("ERRO: " + ex.Message, "Ocorreu um erro ao carregar os detalhes do NPC: SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
-        }
-
-        public async void AlterarStatus(int npcId, int rowIndex)
-        {
-            int columnIndex = this.Dgv_Npc.Columns["NpcIsDead"].Index;
-            DataGridViewCell cell;
-            if (columnIndex == -1)
-            {
-                cell = (DataGridViewCell)null;
-            }
-            else
-            {
-                cell = this.Dgv_Npc.Rows[rowIndex].Cells[columnIndex];
-                bool currentValue = (bool)cell.Value;
-                bool newValue = !currentValue;
-                cell.Value = (object)newValue;
-                await this.nc.MatarRessucitarNPC(npcId, newValue);
-                this.CarregarDetalhesNpc(npcId);
-                cell = (DataGridViewCell)null;
-            }
-        }
-
+        #region Criar NPC Aleatóriamente
         //Adicionar NPC randomicamente
 
         //Estas funções não permitem que um mesmo nome/sobrenome seja selecionado duas vezes
@@ -684,7 +722,9 @@ namespace Master_Shield_System.Formularios.Npc
             }
         }
 
+        #endregion
 
+        //Atalhos especificos do tela de NPC
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -700,6 +740,92 @@ namespace Master_Shield_System.Formularios.Npc
             }
         }
 
+        private Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            using (MemoryStream memoryStream = new MemoryStream(byteArrayIn))
+                return Image.FromStream((Stream)memoryStream);
+        }
 
+        private void Btn_Retornar_Click(object sender, EventArgs e)
+        {
+            CityMain cityMain = new CityMain();
+            this.Controls.Clear();
+            cityMain.SetBoardId(this.readBoardId);
+            this.Controls.Add((Control)cityMain);
+            cityMain.BringToFront();
+        }
+
+        private void Btn_Incluir_Click(object sender, EventArgs e)
+        {
+            NpcDataInsert npcDataInsert = new NpcDataInsert();
+            this.Controls.Clear();
+            //npcDataInsert.SetDados(this.readBoardId, this.readCityId);
+            this.Controls.Add((Control)npcDataInsert);
+            npcDataInsert.BringToFront();
+        }
+
+        private void EditarNpc(int npcId)
+        {
+            try
+            {
+                NpcDataUpdate npcDataUpdate = new NpcDataUpdate();
+                this.Controls.Clear();
+                //npcDataUpdate.SetDados(npcId);
+                this.Controls.Add((Control)npcDataUpdate);
+                npcDataUpdate.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                int num = (int)MessageBox.Show("Erro ao carregar o NPC para edição: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void ExcluirNpc(int npcId, int rowIndex)
+        {
+            if (MessageBox.Show("Deseja excluir este NPC?", "Exclusão de NPC", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+            try
+            {
+                new NpcClass().DeleteNpc(npcId);
+                this.Dgv_Npc.Rows.RemoveAt(rowIndex);
+                if (this.Dgv_Npc.Rows.Count > 0)
+                {
+                    if (rowIndex > 0)
+                    {
+                        this.Dgv_Npc.ClearSelection();
+                        this.Dgv_Npc.Rows[rowIndex - 1].Selected = true;
+                        this.CarregarDetalhesNpc(Convert.ToInt32(this.Dgv_Npc.Rows[rowIndex - 1].Cells["NpcId"].Value));
+                    }
+                    else if (this.Dgv_Npc.Rows.Count > 0)
+                    {
+                        this.Dgv_Npc.ClearSelection();
+                        this.Dgv_Npc.Rows[0].Selected = true;
+                        this.CarregarDetalhesNpc(Convert.ToInt32(this.Dgv_Npc.Rows[0].Cells["NpcId"].Value));
+                    }
+                }
+                else
+                {
+                    this.Txt_Descricao.Text = (string)null;
+                    this.Lbl_Nome.Text = (string)null;
+                    this.Lbl_Raca.Text = (string)null;
+                    this.Lbl_Classe.Text = (string)null;
+                    this.Lbl_Status.Text = (string)null;
+                    this.Lbl_Genero.Text = (string)null;
+                    this.Lbl_Nivel.Text = (string)null;
+                    this.Lbl_Hp.Text = (string)null;
+                    this.Lbl_Energia.Text = (string)null;
+                    this.Lbl_Forca.Text = (string)null;
+                    this.Lbl_Velocidade.Text = (string)null;
+                    this.Lbl_Inteligencia.Text = (string)null;
+                    this.Lbl_Carisma.Text = (string)null;
+                    this.Lbl_Sorte.Text = (string)null;
+                    this.Pcb_Imagem.Image = (Image)null;
+                }
+            }
+            catch (Exception ex)
+            {
+                int num = (int)MessageBox.Show("Erro ao excluir o NPC: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
     }
 }

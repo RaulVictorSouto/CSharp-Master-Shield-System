@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cbb_CityFilter = new System.Windows.Forms.ComboBox();
             this.Cbb_Operadores = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,6 +56,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Lbl_Alinhamento = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.Lbl_Status = new System.Windows.Forms.Label();
             this.Lbl_Genero = new System.Windows.Forms.Label();
             this.Lbl_Classe = new System.Windows.Forms.Label();
@@ -72,8 +74,6 @@
             this.Btn_Incluir = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label14 = new System.Windows.Forms.Label();
-            this.Lbl_Alinhamento = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Npc)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -153,17 +153,17 @@
             // Dgv_Npc
             // 
             this.Dgv_Npc.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.Dgv_Npc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            this.Dgv_Npc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.Dgv_Npc.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Npc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Npc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.Dgv_Npc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Npc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.editar,
@@ -173,6 +173,8 @@
             this.Dgv_Npc.Name = "Dgv_Npc";
             this.Dgv_Npc.Size = new System.Drawing.Size(1003, 276);
             this.Dgv_Npc.TabIndex = 20;
+            this.Dgv_Npc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Npc_CellClick);
+            this.Dgv_Npc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Npc_CellContentClick);
             // 
             // editar
             // 
@@ -404,6 +406,26 @@
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
+            // Lbl_Alinhamento
+            // 
+            this.Lbl_Alinhamento.AutoSize = true;
+            this.Lbl_Alinhamento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Alinhamento.Location = new System.Drawing.Point(617, 16);
+            this.Lbl_Alinhamento.Name = "Lbl_Alinhamento";
+            this.Lbl_Alinhamento.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Alinhamento.TabIndex = 14;
+            this.Lbl_Alinhamento.Text = "label14";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(454, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(157, 19);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Alinhamento Moral:";
+            // 
             // Lbl_Status
             // 
             this.Lbl_Status.AutoSize = true;
@@ -532,6 +554,7 @@
             this.Btn_Retornar.TabIndex = 0;
             this.Btn_Retornar.Text = "Retornar";
             this.Btn_Retornar.UseVisualStyleBackColor = true;
+            this.Btn_Retornar.Click += new System.EventHandler(this.Btn_Retornar_Click);
             // 
             // Btn_Incluir
             // 
@@ -542,6 +565,7 @@
             this.Btn_Incluir.TabIndex = 23;
             this.Btn_Incluir.Text = "Incluir NPC";
             this.Btn_Incluir.UseVisualStyleBackColor = true;
+            this.Btn_Incluir.Click += new System.EventHandler(this.Btn_Incluir_Click);
             // 
             // dataGridViewImageColumn1
             // 
@@ -558,26 +582,6 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
             this.dataGridViewImageColumn2.Width = 25;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(454, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 19);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Nome:";
-            // 
-            // Lbl_Alinhamento
-            // 
-            this.Lbl_Alinhamento.AutoSize = true;
-            this.Lbl_Alinhamento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Alinhamento.Location = new System.Drawing.Point(531, 16);
-            this.Lbl_Alinhamento.Name = "Lbl_Alinhamento";
-            this.Lbl_Alinhamento.Size = new System.Drawing.Size(59, 18);
-            this.Lbl_Alinhamento.TabIndex = 14;
-            this.Lbl_Alinhamento.Text = "label14";
             // 
             // NpcMain
             // 
