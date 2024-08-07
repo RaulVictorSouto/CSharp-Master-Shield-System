@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Cbb_CityFilter = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.Cbb_Filter = new System.Windows.Forms.ComboBox();
             this.Cbb_Operadores = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Pesquisar = new System.Windows.Forms.Button();
@@ -80,17 +80,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Imagem)).BeginInit();
             this.SuspendLayout();
             // 
-            // Cbb_CityFilter
+            // Cbb_Filter
             // 
-            this.Cbb_CityFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Cbb_CityFilter.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cbb_CityFilter.FormattingEnabled = true;
-            this.Cbb_CityFilter.Items.AddRange(new object[] {
+            this.Cbb_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbb_Filter.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbb_Filter.FormattingEnabled = true;
+            this.Cbb_Filter.Items.AddRange(new object[] {
             "Nome",
             "Nível",
             "Raça",
             "Classe",
             "Gênero",
+            "Alinhamento Moral",
             "HP",
             "Energia",
             "Força",
@@ -100,10 +101,10 @@
             "Sorte",
             "Morto",
             "Vivo"});
-            this.Cbb_CityFilter.Location = new System.Drawing.Point(219, 39);
-            this.Cbb_CityFilter.Name = "Cbb_CityFilter";
-            this.Cbb_CityFilter.Size = new System.Drawing.Size(198, 24);
-            this.Cbb_CityFilter.TabIndex = 19;
+            this.Cbb_Filter.Location = new System.Drawing.Point(219, 39);
+            this.Cbb_Filter.Name = "Cbb_Filter";
+            this.Cbb_Filter.Size = new System.Drawing.Size(198, 24);
+            this.Cbb_Filter.TabIndex = 19;
             // 
             // Cbb_Operadores
             // 
@@ -142,6 +143,7 @@
             this.Btn_Pesquisar.TabIndex = 16;
             this.Btn_Pesquisar.Text = "Pesquisar";
             this.Btn_Pesquisar.UseVisualStyleBackColor = true;
+            this.Btn_Pesquisar.Click += new System.EventHandler(this.Btn_Pesquisar_Click);
             // 
             // Txt_pesquisa
             // 
@@ -153,17 +155,17 @@
             // Dgv_Npc
             // 
             this.Dgv_Npc.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            this.Dgv_Npc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            this.Dgv_Npc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Dgv_Npc.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Npc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Npc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Dgv_Npc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Npc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.editar,
@@ -592,7 +594,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Dgv_Npc);
-            this.Controls.Add(this.Cbb_CityFilter);
+            this.Controls.Add(this.Cbb_Filter);
             this.Controls.Add(this.Cbb_Operadores);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Btn_Pesquisar);
@@ -612,7 +614,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox Cbb_CityFilter;
+        private System.Windows.Forms.ComboBox Cbb_Filter;
         private System.Windows.Forms.ComboBox Cbb_Operadores;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Btn_Pesquisar;

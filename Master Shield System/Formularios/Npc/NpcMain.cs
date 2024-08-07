@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -346,6 +347,17 @@ namespace Master_Shield_System.Formularios.Npc
             else
             {
                 MessageBox.Show("A coluna 'NpcId' não foi encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+
+            if (Cbb_Filter.Items.Count > 0)
+            {
+                Cbb_Filter.SelectedIndex = 0; // Seleciona o primeiro item
+            }
+
+            if (Cbb_Operadores.Items.Count > 0)
+            {
+                Cbb_Operadores.SelectedIndex = 0; // Seleciona o primeiro item
             }
         }
 
@@ -893,5 +905,139 @@ namespace Master_Shield_System.Formularios.Npc
 
 
         #endregion
+
+        #region Pesquisa
+
+        private void Btn_Pesquisar_Click(object sender, EventArgs e) => FiltrarGrade();
+
+        public void FiltrarGrade()
+        {
+            bool flag1 = false;
+            string name;
+            switch (this.Cbb_Filter.Text.Trim())
+            {
+                case "Carisma":
+                    name = "NpcCharisma";
+                    break;
+                case "Classe":
+                    name = "NpcClass";
+                    break;
+                case "Energia":
+                    name = "NpcEnergy";
+                    break;
+                case "Força":
+                    name = "NpcStrength";
+                    break;
+                case "Gênero":
+                    name = "NpcGender";
+                    break;
+                case "HP":
+                    name = "NpcHp";
+                    break;
+                case "Inteligência":
+                    name = "NpcIntelligence";
+                    break;
+                case "Morto":
+                    name = "NpcIsDead";
+                    flag1 = true;
+                    break;
+                case "Nome":
+                    name = "NpcFullName";
+                    break;
+                case "Nível":
+                    name = "NpcLevel";
+                    break;
+                case "Raça":
+                    name = "NpcRace";
+                    break;
+                case "Sorte":
+                    name = "NpcLuck";
+                    break;
+                case "Velocidade":
+                    name = "NpcSpeed";
+                    break;
+                case "Vivo":
+                    name = "NpcIsDead";
+                    flag1 = true;
+                    break;
+                default:
+                    int num1 = (int)MessageBox.Show("Selecione uma coluna válida para filtrar.", "Coluna Inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+            }
+            bool flag2 = false;
+            if (this.dt.Columns.Contains(name))
+            {
+                Type dataType = this.dt.Columns[name].DataType;
+                flag2 = dataType == typeof(int) || dataType == typeof(Decimal) || dataType == typeof(double);
+            }
+            string str1 = "";
+            if (flag1)
+            {
+                if (this.Cbb_Filter.Text.Trim() == "Morto")
+                    str1 = name + " = true";
+                else if (this.Cbb_Filter.Text.Trim() == "Vivo")
+                    str1 = name + " = false";
+            }
+            else if (!string.IsNullOrWhiteSpace(this.Txt_pesquisa.Text))
+            {
+                if (flag2)
+                {
+                    string str2;
+                    switch (this.Cbb_Operadores.Text.Trim())
+                    {
+                        case "Igual a":
+                            str2 = "=";
+                            break;
+                        case "Maior do que":
+                            str2 = ">";
+                            break;
+                        case "Menor do que":
+                            str2 = "<";
+                            break;
+                        case "Maior ou igual a":
+                            str2 = ">=";
+                            break;
+                        case "Menor ou igual a":
+                            str2 = "<=";
+                            break;
+                        case "Diferente de":
+                            str2 = "<>";
+                            break;
+                        default:
+                            int num2 = (int)MessageBox.Show("Selecione um operador válido para valores numéricos.", "Operador Inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                    }
+                    str1 = name + " " + str2 + " " + this.Txt_pesquisa.Text;
+                }
+                else
+                {
+                    switch (this.Cbb_Operadores.Text.Trim())
+                    {
+                        case "Igual a":
+                            str1 = name + " LIKE '%" + this.Txt_pesquisa.Text + "%'";
+                            break;
+                        case "Diferente de":
+                            str1 = name + " NOT LIKE '%" + this.Txt_pesquisa.Text + "%'";
+                            break;
+                        default:
+                            str1 = name + " LIKE '%" + this.Txt_pesquisa.Text + "%'";
+                            break;
+                    }
+                }
+            }
+            try
+            {
+                this.dt.DefaultView.RowFilter = !string.IsNullOrWhiteSpace(this.Txt_pesquisa.Text) || flag1 ? str1 : "";
+                this.Dgv_Npc.DataSource = (object)this.dt;
+            }
+            catch (Exception ex)
+            {
+                int num3 = (int)MessageBox.Show("Erro ao aplicar filtro: " + ex.Message, "Erro de Filtro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        #endregion
+
+
     }
 }
