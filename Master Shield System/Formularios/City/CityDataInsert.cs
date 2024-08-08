@@ -171,5 +171,7 @@ namespace Master_Shield_System.Formularios.City
         }
 
         private void AtualizarEstadoBotoes() => Btn_ApagarImagem.Enabled = Pcb_Imagem.Image != null || cc.CityImage != null;
+
+        
     }
 }

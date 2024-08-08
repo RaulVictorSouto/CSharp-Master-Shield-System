@@ -42,6 +42,8 @@
             this.Btn_Limpar = new System.Windows.Forms.Button();
             this.Btn_Atualizar = new System.Windows.Forms.Button();
             this.Btn_Retornar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_ImagemCidade)).BeginInit();
@@ -118,6 +120,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.Btn_IncluirImagem);
             this.groupBox2.Controls.Add(this.Btn_ApagarImagem);
             this.groupBox2.Controls.Add(this.Pcb_ImagemCidade);
@@ -155,9 +159,9 @@
             // 
             // Pcb_ImagemCidade
             // 
-            this.Pcb_ImagemCidade.Location = new System.Drawing.Point(630, 19);
+            this.Pcb_ImagemCidade.Location = new System.Drawing.Point(630, 39);
             this.Pcb_ImagemCidade.Name = "Pcb_ImagemCidade";
-            this.Pcb_ImagemCidade.Size = new System.Drawing.Size(652, 334);
+            this.Pcb_ImagemCidade.Size = new System.Drawing.Size(652, 314);
             this.Pcb_ImagemCidade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pcb_ImagemCidade.TabIndex = 14;
             this.Pcb_ImagemCidade.TabStop = false;
@@ -176,9 +180,9 @@
             // 
             // Txt_descricao
             // 
-            this.Txt_descricao.Location = new System.Drawing.Point(10, 19);
+            this.Txt_descricao.Location = new System.Drawing.Point(10, 39);
             this.Txt_descricao.Name = "Txt_descricao";
-            this.Txt_descricao.Size = new System.Drawing.Size(614, 334);
+            this.Txt_descricao.Size = new System.Drawing.Size(614, 314);
             this.Txt_descricao.TabIndex = 0;
             this.Txt_descricao.Text = "";
             // 
@@ -218,6 +222,26 @@
             this.Btn_Retornar.UseVisualStyleBackColor = true;
             this.Btn_Retornar.Click += new System.EventHandler(this.Btn_Retornar_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Descrição";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(630, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 20);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Imagem da Cidade";
+            // 
             // CityDataUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +256,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_ImagemCidade)).EndInit();
             this.ResumeLayout(false);
 
@@ -253,5 +278,7 @@
         private System.Windows.Forms.Button Btn_Limpar;
         private System.Windows.Forms.Button Btn_Atualizar;
         private System.Windows.Forms.Button Btn_Retornar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

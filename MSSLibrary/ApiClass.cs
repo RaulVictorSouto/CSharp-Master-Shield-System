@@ -17,23 +17,23 @@ namespace MSSLibrary
         public static string TextoGerado { get; set; }
 
         public static async Task GerarTextoNpc(
-     string apiKey,
-     string nome,
-     string sobrenome,
-     string localizacao,
-     string bioma,
-     string raca,
-     string classe,
-     string genero,
-     string moral,
-     string nivel,
-     string hp,
-     string energia,
-     string forca,
-     string velocidade,
-     string inteligencia,
-     string carisma,
-     string sorte)
+    string apiKey,
+    string nome,
+    string sobrenome,
+    string localizacao,
+    string bioma,
+    string raca,
+    string classe,
+    string genero,
+    string moral,
+    string nivel,
+    string hp,
+    string energia,
+    string forca,
+    string velocidade,
+    string inteligencia,
+    string carisma,
+    string sorte)
         {
             ProgressForm progressForm = null;
             try
@@ -42,7 +42,7 @@ namespace MSSLibrary
                 progressForm.Show();
                 Cursor.Current = Cursors.WaitCursor;
 
-                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Alinhamento Moral: {moral} Nível: {nivel}, HP: {hp}, Energia: {energia}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}. Considere que, no que tange os atributos numéricos, -6 é horrivel e 6 é ótimo";
+                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Alinhamento Moral: {moral} Nível: {nivel}, HP: {hp}, Energia: {energia}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}. Considere que, no que tange os atributos numéricos, -6 é horrível e 6 é ótimo";
 
                 var jsonBody = new
                 {
@@ -80,6 +80,7 @@ namespace MSSLibrary
                     Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
                 };
 
+                HttpClient client = new HttpClient();  // Adicionar instância de HttpClient
                 HttpResponseMessage response = await client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
@@ -128,17 +129,21 @@ namespace MSSLibrary
         }
 
 
+
         public static async Task GerarTextoCidade(string apiKey, string nome, string bioma)
         {
             ProgressForm progressForm = null;
             try
             {
+                // Exibe o formulário de progresso
                 progressForm = new ProgressForm();
                 progressForm.Show();
                 Cursor.Current = Cursors.WaitCursor;
 
-                string promptString = $"Crie uma descrição resumida para um cidade/localização de RPG. Segue suas caracterisitcas: Nome: {nome}, Bioma: {bioma}.";
+                // Constrói o prompt para a geração de conteúdo
+                string promptString = $"Crie uma descrição resumida para uma cidade/localização de RPG com as seguintes características: Nome: {nome}, Bioma: {bioma}.";
 
+                // Cria o corpo da requisição JSON
                 var jsonBody = new
                 {
                     contents = new[]
@@ -170,11 +175,14 @@ namespace MSSLibrary
                 };
 
                 string jsonString = JsonConvert.SerializeObject(jsonBody);
+
+                // Cria a requisição HTTP
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={apiKey}")
                 {
                     Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
                 };
 
+                // Envia a requisição
                 HttpResponseMessage response = await client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
@@ -190,7 +198,7 @@ namespace MSSLibrary
                     }
                     else
                     {
-                        Console.WriteLine("Error: No candidates found in the response.");
+                        Console.WriteLine("Erro: Nenhum candidato encontrado na resposta.");
                     }
                 }
                 else if (response.StatusCode == HttpStatusCode.Forbidden)
@@ -201,9 +209,9 @@ namespace MSSLibrary
                 }
                 else
                 {
-                    string str1 = response.StatusCode.ToString();
-                    string str2 = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"Error: {str1} - {str2}");
+                    string statusCode = response.StatusCode.ToString();
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Erro: {statusCode} - {responseBody}");
                 }
             }
             catch (Exception ex)
@@ -213,6 +221,7 @@ namespace MSSLibrary
             }
             finally
             {
+                // Fecha e descarta o formulário de progresso
                 if (progressForm != null)
                 {
                     progressForm.Close();
@@ -221,6 +230,7 @@ namespace MSSLibrary
                 Cursor.Current = Cursors.Default;
             }
         }
+
 
 
         public void UpdateKey()
