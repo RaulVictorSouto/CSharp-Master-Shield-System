@@ -17,6 +17,6 @@ namespace Master_Shield_System.Formularios.Npc
             InitializeComponent();
         }
 
-      
+        
     }
 }

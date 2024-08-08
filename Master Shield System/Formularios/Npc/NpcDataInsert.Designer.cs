@@ -34,7 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.Cbb_Status = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Cbb_Moral = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.Cbb_Genero = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -58,17 +62,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_Nivel = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.Txt_descricao = new System.Windows.Forms.RichTextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Btn_GerarDescricao = new System.Windows.Forms.Button();
             this.Btn_IncluirImagem = new System.Windows.Forms.Button();
             this.Btn_ApagarImagem = new System.Windows.Forms.Button();
+            this.Btn_GerarDescricao = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Txt_descricao = new System.Windows.Forms.RichTextBox();
             this.Btn_Limpar = new System.Windows.Forms.Button();
             this.Btn_Incluir = new System.Windows.Forms.Button();
             this.Btn_Retornar = new System.Windows.Forms.Button();
@@ -85,9 +85,9 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Txt_Nome);
-            this.groupBox1.Location = new System.Drawing.Point(13, 27);
+            this.groupBox1.Location = new System.Drawing.Point(23, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1303, 88);
+            this.groupBox1.Size = new System.Drawing.Size(1271, 88);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -95,7 +95,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(612, 16);
+            this.label2.Location = new System.Drawing.Point(573, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 12;
@@ -103,7 +103,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(616, 39);
+            this.textBox1.Location = new System.Drawing.Point(577, 39);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(665, 20);
             this.textBox1.TabIndex = 11;
@@ -127,57 +127,88 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.Cbb_Status);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.Cbb_Moral);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.Cbb_Genero);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.Cbb_Bioma);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(13, 121);
+            this.groupBox2.Location = new System.Drawing.Point(23, 111);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(780, 144);
+            this.groupBox2.Size = new System.Drawing.Size(735, 144);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // comboBox2
+            // Cbb_Status
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Campos",
-            "Caverna",
-            "Deserto",
-            "Estepes",
-            "Floresta",
-            "Gélido",
-            "Litoral",
-            "Manguezal",
-            "Marinha",
-            "Montanha",
-            "Planaltos",
-            "Planície",
-            "Pântano",
-            "Savana",
-            "Selva",
-            "Subterrâneo",
-            "Taiga",
-            "Tundra",
-            "Tropical",
-            "Vulcânico",
-            "Outro"});
-            this.comboBox2.Location = new System.Drawing.Point(532, 49);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(215, 21);
-            this.comboBox2.TabIndex = 32;
+            this.Cbb_Status.FormattingEnabled = true;
+            this.Cbb_Status.Items.AddRange(new object[] {
+            "Vivo",
+            "Morto"});
+            this.Cbb_Status.Location = new System.Drawing.Point(252, 99);
+            this.Cbb_Status.Name = "Cbb_Status";
+            this.Cbb_Status.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Status.TabIndex = 36;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(248, 76);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 20);
+            this.label14.TabIndex = 35;
+            this.label14.Text = "Status";
+            // 
+            // Cbb_Moral
+            // 
+            this.Cbb_Moral.FormattingEnabled = true;
+            this.Cbb_Moral.Items.AddRange(new object[] {
+            "Ordeiro e Bom",
+            "Ordeiro e Neutro",
+            "Ordeiro e Mau",
+            "Neutro e Bom",
+            "Neutro",
+            "Neutro e Mau",
+            "Caótico e Bom",
+            "Caótico e Neutro",
+            "Caótico e Mau"});
+            this.Cbb_Moral.Location = new System.Drawing.Point(10, 99);
+            this.Cbb_Moral.Name = "Cbb_Moral";
+            this.Cbb_Moral.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Moral.TabIndex = 34;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(6, 77);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(127, 20);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Alinhamento Moral";
+            // 
+            // Cbb_Genero
+            // 
+            this.Cbb_Genero.FormattingEnabled = true;
+            this.Cbb_Genero.Items.AddRange(new object[] {
+            "Masculino",
+            "Feminino",
+            "Não definido"});
+            this.Cbb_Genero.Location = new System.Drawing.Point(492, 49);
+            this.Cbb_Genero.Name = "Cbb_Genero";
+            this.Cbb_Genero.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Genero.TabIndex = 32;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(528, 26);
+            this.label13.Location = new System.Drawing.Point(488, 26);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 20);
             this.label13.TabIndex = 31;
@@ -187,28 +218,34 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Campos",
-            "Caverna",
-            "Deserto",
-            "Estepes",
-            "Floresta",
-            "Gélido",
-            "Litoral",
-            "Manguezal",
-            "Marinha",
-            "Montanha",
-            "Planaltos",
-            "Planície",
-            "Pântano",
-            "Savana",
-            "Selva",
-            "Subterrâneo",
-            "Taiga",
-            "Tundra",
-            "Tropical",
-            "Vulcânico",
+            "Guerreiro",
+            "Bárbaro",
+            "Mago",
+            "Druida",
+            "Monge",
+            "Assassino",
+            "Ladino",
+            "Curandeiro",
+            "Arqueiro",
+            "Paladino",
+            "Alquimista",
+            "Arcanista",
+            "Bardo",
+            "Bruxo",
+            "Caçador de Demônios",
+            "Camponês",
+            "Cavaleiro",
+            "Clérigo",
+            "Comerciante",
+            "Feiticeiro",
+            "Ferreiro",
+            "Necromante",
+            "Patrulheiro",
+            "Pistoleiro",
+            "Samurai",
+            "Xamã",
             "Outro"});
-            this.comboBox1.Location = new System.Drawing.Point(271, 49);
+            this.comboBox1.Location = new System.Drawing.Point(252, 49);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(215, 21);
             this.comboBox1.TabIndex = 30;
@@ -217,7 +254,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(267, 26);
+            this.label12.Location = new System.Drawing.Point(248, 26);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 20);
             this.label12.TabIndex = 29;
@@ -227,26 +264,77 @@
             // 
             this.Cbb_Bioma.FormattingEnabled = true;
             this.Cbb_Bioma.Items.AddRange(new object[] {
-            "Campos",
-            "Caverna",
-            "Deserto",
-            "Estepes",
-            "Floresta",
-            "Gélido",
-            "Litoral",
-            "Manguezal",
-            "Marinha",
-            "Montanha",
-            "Planaltos",
-            "Planície",
-            "Pântano",
-            "Savana",
-            "Selva",
-            "Subterrâneo",
-            "Taiga",
-            "Tundra",
-            "Tropical",
-            "Vulcânico",
+            "Humano",
+            "",
+            "Elfo",
+            "",
+            "Anão",
+            "",
+            "Aarakocra",
+            "",
+            "Aasimar",
+            "",
+            "Cambion",
+            "",
+            "Centauro",
+            "",
+            "Draenei",
+            "",
+            "Draconato",
+            "",
+            "Dragonborn",
+            "",
+            "Elfo Sombrio",
+            "",
+            "Firbolg",
+            "",
+            "Gnomo",
+            "",
+            "Goblin",
+            "",
+            "Githzerai",
+            "",
+            "Gigante das Montanhas",
+            "",
+            "Golem",
+            "",
+            "Halfling",
+            "",
+            "Kenku",
+            "",
+            "Lizardfolk",
+            "",
+            "Meio-Anão",
+            "",
+            "Meio-Elfo",
+            "",
+            "Merfolk",
+            "",
+            "Merenian",
+            "",
+            "Minotauro",
+            "",
+            "Morto-Vivo",
+            "",
+            "Naga",
+            "",
+            "Orc",
+            "",
+            "Sátiro",
+            "",
+            "Tabaxi",
+            "",
+            "Tauren",
+            "",
+            "Tiefling",
+            "",
+            "Tritão",
+            "",
+            "Troll",
+            "",
+            "Warforged",
+            "",
+            "Worgen",
             "Outro"});
             this.Cbb_Bioma.Location = new System.Drawing.Point(10, 49);
             this.Cbb_Bioma.Name = "Cbb_Bioma";
@@ -281,7 +369,7 @@
             this.groupBox3.Controls.Add(this.Txt_Hp);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.Txt_Nivel);
-            this.groupBox3.Location = new System.Drawing.Point(799, 121);
+            this.groupBox3.Location = new System.Drawing.Point(777, 111);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(517, 144);
             this.groupBox3.TabIndex = 2;
@@ -440,144 +528,17 @@
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.Txt_descricao);
-            this.groupBox4.Location = new System.Drawing.Point(13, 271);
+            this.groupBox4.Location = new System.Drawing.Point(23, 261);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1303, 315);
+            this.groupBox4.Size = new System.Drawing.Size(1271, 315);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Campos",
-            "Caverna",
-            "Deserto",
-            "Estepes",
-            "Floresta",
-            "Gélido",
-            "Litoral",
-            "Manguezal",
-            "Marinha",
-            "Montanha",
-            "Planaltos",
-            "Planície",
-            "Pântano",
-            "Savana",
-            "Selva",
-            "Subterrâneo",
-            "Taiga",
-            "Tundra",
-            "Tropical",
-            "Vulcânico",
-            "Outro"});
-            this.comboBox3.Location = new System.Drawing.Point(271, 99);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(215, 21);
-            this.comboBox3.TabIndex = 36;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(267, 76);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 20);
-            this.label14.TabIndex = 35;
-            this.label14.Text = "Status";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Campos",
-            "Caverna",
-            "Deserto",
-            "Estepes",
-            "Floresta",
-            "Gélido",
-            "Litoral",
-            "Manguezal",
-            "Marinha",
-            "Montanha",
-            "Planaltos",
-            "Planície",
-            "Pântano",
-            "Savana",
-            "Selva",
-            "Subterrâneo",
-            "Taiga",
-            "Tundra",
-            "Tropical",
-            "Vulcânico",
-            "Outro"});
-            this.comboBox4.Location = new System.Drawing.Point(10, 99);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(215, 21);
-            this.comboBox4.TabIndex = 34;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(6, 77);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(127, 20);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "Alinhamento Moral";
-            // 
-            // Txt_descricao
-            // 
-            this.Txt_descricao.Location = new System.Drawing.Point(10, 39);
-            this.Txt_descricao.Name = "Txt_descricao";
-            this.Txt_descricao.Size = new System.Drawing.Size(974, 230);
-            this.Txt_descricao.TabIndex = 1;
-            this.Txt_descricao.Text = "";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(6, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(70, 20);
-            this.label16.TabIndex = 13;
-            this.label16.Text = "Descrição";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(1004, 16);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(110, 20);
-            this.label17.TabIndex = 14;
-            this.label17.Text = "Imagem do NPC";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(1008, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(273, 229);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Btn_GerarDescricao
-            // 
-            this.Btn_GerarDescricao.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_GerarDescricao.ForeColor = System.Drawing.Color.Black;
-            this.Btn_GerarDescricao.Location = new System.Drawing.Point(871, 275);
-            this.Btn_GerarDescricao.Name = "Btn_GerarDescricao";
-            this.Btn_GerarDescricao.Size = new System.Drawing.Size(113, 29);
-            this.Btn_GerarDescricao.TabIndex = 16;
-            this.Btn_GerarDescricao.Text = "Gerar Descrição";
-            this.Btn_GerarDescricao.UseVisualStyleBackColor = true;
             // 
             // Btn_IncluirImagem
             // 
             this.Btn_IncluirImagem.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_IncluirImagem.ForeColor = System.Drawing.Color.Black;
-            this.Btn_IncluirImagem.Location = new System.Drawing.Point(1167, 275);
+            this.Btn_IncluirImagem.Location = new System.Drawing.Point(1135, 274);
             this.Btn_IncluirImagem.Name = "Btn_IncluirImagem";
             this.Btn_IncluirImagem.Size = new System.Drawing.Size(114, 29);
             this.Btn_IncluirImagem.TabIndex = 18;
@@ -589,17 +550,64 @@
             this.Btn_ApagarImagem.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ApagarImagem.ForeColor = System.Drawing.Color.Black;
             this.Btn_ApagarImagem.Image = global::Master_Shield_System.Properties.Resources.excluir1;
-            this.Btn_ApagarImagem.Location = new System.Drawing.Point(1117, 275);
+            this.Btn_ApagarImagem.Location = new System.Drawing.Point(1085, 274);
             this.Btn_ApagarImagem.Name = "Btn_ApagarImagem";
             this.Btn_ApagarImagem.Size = new System.Drawing.Size(44, 29);
             this.Btn_ApagarImagem.TabIndex = 17;
             this.Btn_ApagarImagem.UseVisualStyleBackColor = true;
             // 
+            // Btn_GerarDescricao
+            // 
+            this.Btn_GerarDescricao.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_GerarDescricao.ForeColor = System.Drawing.Color.Black;
+            this.Btn_GerarDescricao.Location = new System.Drawing.Point(842, 275);
+            this.Btn_GerarDescricao.Name = "Btn_GerarDescricao";
+            this.Btn_GerarDescricao.Size = new System.Drawing.Size(113, 29);
+            this.Btn_GerarDescricao.TabIndex = 16;
+            this.Btn_GerarDescricao.Text = "Gerar Descrição";
+            this.Btn_GerarDescricao.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(976, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(273, 229);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(972, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(110, 20);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "Imagem do NPC";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(6, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(70, 20);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Descrição";
+            // 
+            // Txt_descricao
+            // 
+            this.Txt_descricao.Location = new System.Drawing.Point(10, 39);
+            this.Txt_descricao.Name = "Txt_descricao";
+            this.Txt_descricao.Size = new System.Drawing.Size(945, 230);
+            this.Txt_descricao.TabIndex = 1;
+            this.Txt_descricao.Text = "";
+            // 
             // Btn_Limpar
             // 
             this.Btn_Limpar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Limpar.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Limpar.Location = new System.Drawing.Point(1128, 592);
+            this.Btn_Limpar.Location = new System.Drawing.Point(1106, 582);
             this.Btn_Limpar.Name = "Btn_Limpar";
             this.Btn_Limpar.Size = new System.Drawing.Size(91, 29);
             this.Btn_Limpar.TabIndex = 23;
@@ -610,7 +618,7 @@
             // 
             this.Btn_Incluir.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Incluir.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Incluir.Location = new System.Drawing.Point(1225, 592);
+            this.Btn_Incluir.Location = new System.Drawing.Point(1203, 582);
             this.Btn_Incluir.Name = "Btn_Incluir";
             this.Btn_Incluir.Size = new System.Drawing.Size(91, 29);
             this.Btn_Incluir.TabIndex = 22;
@@ -621,7 +629,7 @@
             // 
             this.Btn_Retornar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Retornar.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Retornar.Location = new System.Drawing.Point(13, 592);
+            this.Btn_Retornar.Location = new System.Drawing.Point(23, 582);
             this.Btn_Retornar.Name = "Btn_Retornar";
             this.Btn_Retornar.Size = new System.Drawing.Size(91, 29);
             this.Btn_Retornar.TabIndex = 21;
@@ -681,14 +689,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox Cbb_Genero;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox Cbb_Bioma;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox Cbb_Status;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox Cbb_Moral;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RichTextBox Txt_descricao;
         private System.Windows.Forms.PictureBox pictureBox1;
