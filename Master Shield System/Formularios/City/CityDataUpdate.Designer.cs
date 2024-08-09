@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_NomeCidade = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.Btn_IncluirImagem = new System.Windows.Forms.Button();
             this.Btn_ApagarImagem = new System.Windows.Forms.Button();
             this.Pcb_ImagemCidade = new System.Windows.Forms.PictureBox();
@@ -42,8 +44,6 @@
             this.Btn_Limpar = new System.Windows.Forms.Button();
             this.Btn_Atualizar = new System.Windows.Forms.Button();
             this.Btn_Retornar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_ImagemCidade)).BeginInit();
@@ -63,6 +63,7 @@
             // 
             // Cbb_Bioma
             // 
+            this.Cbb_Bioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_Bioma.FormattingEnabled = true;
             this.Cbb_Bioma.Items.AddRange(new object[] {
             "Campos",
@@ -132,6 +133,26 @@
             this.groupBox2.Size = new System.Drawing.Size(1288, 403);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(630, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 20);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Imagem da Cidade";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Descrição";
             // 
             // Btn_IncluirImagem
             // 
@@ -221,26 +242,6 @@
             this.Btn_Retornar.Text = "Retornar";
             this.Btn_Retornar.UseVisualStyleBackColor = true;
             this.Btn_Retornar.Click += new System.EventHandler(this.Btn_Retornar_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Descrição";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(630, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 20);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Imagem da Cidade";
             // 
             // CityDataUpdate
             // 

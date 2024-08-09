@@ -772,7 +772,7 @@ namespace Master_Shield_System.Formularios.Npc
         {
             NpcDataInsert npcDataInsert = new NpcDataInsert();
             this.Controls.Clear();
-            //npcDataInsert.SetDados(this.readBoardId, this.readCityId);
+            npcDataInsert.SetDados(this.readBoardId, this.readCityId);
             this.Controls.Add((Control)npcDataInsert);
             npcDataInsert.BringToFront();
         }

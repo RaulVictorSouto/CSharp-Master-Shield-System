@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_NomeCampanha = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Btn_IncluirImagem = new System.Windows.Forms.Button();
             this.Btn_ApagarImagem = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.Btn_Retornar = new System.Windows.Forms.Button();
             this.Btn_Limpar = new System.Windows.Forms.Button();
             this.Btn_Incluir = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Imagem)).BeginInit();
@@ -63,6 +63,7 @@
             // 
             // Cbb_Bioma
             // 
+            this.Cbb_Bioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_Bioma.FormattingEnabled = true;
             this.Cbb_Bioma.Items.AddRange(new object[] {
             "Campos",
@@ -132,6 +133,16 @@
             this.groupBox2.Size = new System.Drawing.Size(1288, 403);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(626, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 20);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Imagem da Cidade";
             // 
             // label3
             // 
@@ -231,16 +242,6 @@
             this.Btn_Incluir.Text = "Incluir";
             this.Btn_Incluir.UseVisualStyleBackColor = true;
             this.Btn_Incluir.Click += new System.EventHandler(this.Btn_Incluir_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(626, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 20);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Imagem da Cidade";
             // 
             // CityDataInsert
             // 
