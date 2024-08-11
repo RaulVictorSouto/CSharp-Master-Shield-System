@@ -141,7 +141,7 @@ namespace MSSLibrary
                     mySqlCommand.Parameters.AddWithValue("@NpcRace", this.NpcRace);
                     mySqlCommand.Parameters.AddWithValue("@NpcClass", this.NpcCls);
                     mySqlCommand.Parameters.AddWithValue("@NpcGender", this.NpcGender);
-                    mySqlCommand.Parameters.AddWithValue("@NpcMoralAlignment", this.NpcMoral); // Novo parâmetro adicionado
+                    mySqlCommand.Parameters.AddWithValue("@NpcMoralAlignment", this.NpcMoral); 
                     mySqlCommand.Parameters.AddWithValue("@NpcHp", this.NpcHp);
                     mySqlCommand.Parameters.AddWithValue("@NpcLevel", this.NpcLevel);
                     mySqlCommand.Parameters.AddWithValue("@NpcEnergy", this.NpcEnergy);

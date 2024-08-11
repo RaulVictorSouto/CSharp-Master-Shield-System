@@ -783,7 +783,7 @@ namespace Master_Shield_System.Formularios.Npc
             {
                 NpcDataUpdate npcDataUpdate = new NpcDataUpdate();
                 this.Controls.Clear();
-                //npcDataUpdate.SetDados(npcId);
+                npcDataUpdate.SetDados(npcId);
                 this.Controls.Add((Control)npcDataUpdate);
                 npcDataUpdate.BringToFront();
             }

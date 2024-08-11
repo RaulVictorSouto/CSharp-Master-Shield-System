@@ -127,7 +127,7 @@ namespace Master_Shield_System.Formularios.Board
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 // Define os filtros para os tipos de arquivo suportados
-                Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.gif;*.bmp|Todos os Arquivos|*.*"
+                Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp|Todos os Arquivos|*.*"
             };
 
             // Verifica se o usuário selecionou um arquivo e clicou em "OK"
@@ -159,7 +159,7 @@ namespace Master_Shield_System.Formularios.Board
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 // Define os filtros para os tipos de arquivo suportados
-                Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.gif;*.bmp|Todos os Arquivos|*.*"
+                Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp|Todos os Arquivos|*.*"
             };
 
             // Verifica se o usuário selecionou um arquivo e clicou em "OK"

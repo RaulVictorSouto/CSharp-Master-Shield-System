@@ -99,7 +99,7 @@ namespace Master_Shield_System.Formularios.Npc
         private void Btn_IncluirImagem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.gif;*.bmp|Todos os Arquivos|*.*";
+            openFileDialog.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp|Todos os Arquivos|*.*";
             if (openFileDialog.ShowDialog() != DialogResult.OK)
                 return;
             try

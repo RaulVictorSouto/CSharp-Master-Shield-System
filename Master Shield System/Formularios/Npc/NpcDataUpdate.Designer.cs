@@ -33,21 +33,21 @@
             this.Btn_IncluirImagem = new System.Windows.Forms.Button();
             this.Btn_ApagarImagem = new System.Windows.Forms.Button();
             this.Btn_GerarDescricao = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Pcb_Image = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.Txt_descricao = new System.Windows.Forms.RichTextBox();
+            this.Txt_Descricao = new System.Windows.Forms.RichTextBox();
             this.Btn_Alterar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Txt_Sorte = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Txt_Carisma = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Txt_Inteligencia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Txt_Velocidade = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Txt_Forca = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,6 +57,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_Nivel = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Cbb_Status = new System.Windows.Forms.ComboBox();
+            this.Cbb_Moral = new System.Windows.Forms.ComboBox();
+            this.Cbb_Genero = new System.Windows.Forms.ComboBox();
+            this.Cbb_Class = new System.Windows.Forms.ComboBox();
+            this.Cbb_Race = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -64,15 +69,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Sobrenome = new System.Windows.Forms.TextBox();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Cbb_Bioma = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Cbb_Genero = new System.Windows.Forms.ComboBox();
-            this.Cbb_Moral = new System.Windows.Forms.ComboBox();
-            this.Cbb_Status = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pcb_Image)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -89,6 +89,7 @@
             this.Btn_Limpar.TabIndex = 30;
             this.Btn_Limpar.Text = "Limpar";
             this.Btn_Limpar.UseVisualStyleBackColor = true;
+            this.Btn_Limpar.Click += new System.EventHandler(this.Btn_Limpar_Click);
             // 
             // Btn_Retornar
             // 
@@ -100,6 +101,7 @@
             this.Btn_Retornar.TabIndex = 28;
             this.Btn_Retornar.Text = "Retornar";
             this.Btn_Retornar.UseVisualStyleBackColor = true;
+            this.Btn_Retornar.Click += new System.EventHandler(this.Btn_Retornar_Click);
             // 
             // Btn_IncluirImagem
             // 
@@ -111,6 +113,7 @@
             this.Btn_IncluirImagem.TabIndex = 18;
             this.Btn_IncluirImagem.Text = "Adicionar imagem";
             this.Btn_IncluirImagem.UseVisualStyleBackColor = true;
+            this.Btn_IncluirImagem.Click += new System.EventHandler(this.Btn_IncluirImagem_Click);
             // 
             // Btn_ApagarImagem
             // 
@@ -122,6 +125,7 @@
             this.Btn_ApagarImagem.Size = new System.Drawing.Size(44, 29);
             this.Btn_ApagarImagem.TabIndex = 17;
             this.Btn_ApagarImagem.UseVisualStyleBackColor = true;
+            this.Btn_ApagarImagem.Click += new System.EventHandler(this.Btn_ApagarImagem_Click);
             // 
             // Btn_GerarDescricao
             // 
@@ -133,14 +137,16 @@
             this.Btn_GerarDescricao.TabIndex = 16;
             this.Btn_GerarDescricao.Text = "Gerar Descrição";
             this.Btn_GerarDescricao.UseVisualStyleBackColor = true;
+            this.Btn_GerarDescricao.Click += new System.EventHandler(this.Btn_GerarDescricao_Click);
             // 
-            // pictureBox1
+            // Pcb_Image
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(976, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(273, 229);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.Pcb_Image.Location = new System.Drawing.Point(976, 39);
+            this.Pcb_Image.Name = "Pcb_Image";
+            this.Pcb_Image.Size = new System.Drawing.Size(273, 229);
+            this.Pcb_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pcb_Image.TabIndex = 15;
+            this.Pcb_Image.TabStop = false;
             // 
             // label17
             // 
@@ -162,13 +168,13 @@
             this.label16.TabIndex = 13;
             this.label16.Text = "Descrição";
             // 
-            // Txt_descricao
+            // Txt_Descricao
             // 
-            this.Txt_descricao.Location = new System.Drawing.Point(10, 39);
-            this.Txt_descricao.Name = "Txt_descricao";
-            this.Txt_descricao.Size = new System.Drawing.Size(945, 230);
-            this.Txt_descricao.TabIndex = 1;
-            this.Txt_descricao.Text = "";
+            this.Txt_Descricao.Location = new System.Drawing.Point(10, 39);
+            this.Txt_Descricao.Name = "Txt_Descricao";
+            this.Txt_Descricao.Size = new System.Drawing.Size(945, 230);
+            this.Txt_Descricao.TabIndex = 1;
+            this.Txt_Descricao.Text = "";
             // 
             // Btn_Alterar
             // 
@@ -180,16 +186,17 @@
             this.Btn_Alterar.TabIndex = 29;
             this.Btn_Alterar.Text = "Alterar";
             this.Btn_Alterar.UseVisualStyleBackColor = true;
+            this.Btn_Alterar.Click += new System.EventHandler(this.Btn_Alterar_Click);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.Btn_IncluirImagem);
             this.groupBox4.Controls.Add(this.Btn_ApagarImagem);
             this.groupBox4.Controls.Add(this.Btn_GerarDescricao);
-            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Controls.Add(this.Pcb_Image);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.Txt_descricao);
+            this.groupBox4.Controls.Add(this.Txt_Descricao);
             this.groupBox4.Location = new System.Drawing.Point(33, 267);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1271, 315);
@@ -206,13 +213,13 @@
             this.label10.TabIndex = 26;
             this.label10.Text = "Sorte";
             // 
-            // textBox5
+            // Txt_Sorte
             // 
-            this.textBox5.Location = new System.Drawing.Point(418, 99);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(77, 20);
-            this.textBox5.TabIndex = 25;
-            this.textBox5.Text = "0";
+            this.Txt_Sorte.Location = new System.Drawing.Point(418, 99);
+            this.Txt_Sorte.Name = "Txt_Sorte";
+            this.Txt_Sorte.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Sorte.TabIndex = 25;
+            this.Txt_Sorte.Text = "0";
             // 
             // label9
             // 
@@ -224,24 +231,24 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "Carisma";
             // 
-            // textBox4
+            // Txt_Carisma
             // 
-            this.textBox4.Location = new System.Drawing.Point(320, 99);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(77, 20);
-            this.textBox4.TabIndex = 23;
-            this.textBox4.Text = "0";
+            this.Txt_Carisma.Location = new System.Drawing.Point(320, 99);
+            this.Txt_Carisma.Name = "Txt_Carisma";
+            this.Txt_Carisma.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Carisma.TabIndex = 23;
+            this.Txt_Carisma.Text = "0";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.Txt_Sorte);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.Txt_Carisma);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.Txt_Inteligencia);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.Txt_Velocidade);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.Txt_Forca);
             this.groupBox3.Controls.Add(this.label5);
@@ -266,13 +273,13 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Inteligência";
             // 
-            // textBox3
+            // Txt_Inteligencia
             // 
-            this.textBox3.Location = new System.Drawing.Point(222, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(77, 20);
-            this.textBox3.TabIndex = 21;
-            this.textBox3.Text = "0";
+            this.Txt_Inteligencia.Location = new System.Drawing.Point(222, 99);
+            this.Txt_Inteligencia.Name = "Txt_Inteligencia";
+            this.Txt_Inteligencia.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Inteligencia.TabIndex = 21;
+            this.Txt_Inteligencia.Text = "0";
             // 
             // label7
             // 
@@ -284,13 +291,13 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "Velocidade";
             // 
-            // textBox2
+            // Txt_Velocidade
             // 
-            this.textBox2.Location = new System.Drawing.Point(124, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(77, 20);
-            this.textBox2.TabIndex = 19;
-            this.textBox2.Text = "0";
+            this.Txt_Velocidade.Location = new System.Drawing.Point(124, 99);
+            this.Txt_Velocidade.Name = "Txt_Velocidade";
+            this.Txt_Velocidade.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Velocidade.TabIndex = 19;
+            this.Txt_Velocidade.Text = "0";
             // 
             // label6
             // 
@@ -369,8 +376,8 @@
             this.groupBox2.Controls.Add(this.Cbb_Status);
             this.groupBox2.Controls.Add(this.Cbb_Moral);
             this.groupBox2.Controls.Add(this.Cbb_Genero);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.Cbb_Bioma);
+            this.groupBox2.Controls.Add(this.Cbb_Class);
+            this.groupBox2.Controls.Add(this.Cbb_Race);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label13);
@@ -381,6 +388,129 @@
             this.groupBox2.Size = new System.Drawing.Size(735, 144);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
+            // 
+            // Cbb_Status
+            // 
+            this.Cbb_Status.FormattingEnabled = true;
+            this.Cbb_Status.Items.AddRange(new object[] {
+            "Vivo",
+            "Morto"});
+            this.Cbb_Status.Location = new System.Drawing.Point(252, 99);
+            this.Cbb_Status.Name = "Cbb_Status";
+            this.Cbb_Status.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Status.TabIndex = 41;
+            // 
+            // Cbb_Moral
+            // 
+            this.Cbb_Moral.FormattingEnabled = true;
+            this.Cbb_Moral.Items.AddRange(new object[] {
+            "Ordeiro e Bom",
+            "Ordeiro e Neutro",
+            "Ordeiro e Mau",
+            "Neutro e Bom",
+            "Neutro",
+            "Neutro e Mau",
+            "Caótico e Bom",
+            "Caótico e Neutro",
+            "Caótico e Mau"});
+            this.Cbb_Moral.Location = new System.Drawing.Point(10, 99);
+            this.Cbb_Moral.Name = "Cbb_Moral";
+            this.Cbb_Moral.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Moral.TabIndex = 40;
+            // 
+            // Cbb_Genero
+            // 
+            this.Cbb_Genero.FormattingEnabled = true;
+            this.Cbb_Genero.Items.AddRange(new object[] {
+            "Masculino",
+            "Feminino",
+            "Não definido"});
+            this.Cbb_Genero.Location = new System.Drawing.Point(492, 49);
+            this.Cbb_Genero.Name = "Cbb_Genero";
+            this.Cbb_Genero.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Genero.TabIndex = 39;
+            // 
+            // Cbb_Class
+            // 
+            this.Cbb_Class.FormattingEnabled = true;
+            this.Cbb_Class.Items.AddRange(new object[] {
+            "Guerreiro",
+            "Bárbaro",
+            "Mago",
+            "Druida",
+            "Monge",
+            "Assassino",
+            "Ladino",
+            "Curandeiro",
+            "Arqueiro",
+            "Paladino",
+            "Alquimista",
+            "Arcanista",
+            "Bardo",
+            "Bruxo",
+            "Caçador de Demônios",
+            "Camponês",
+            "Cavaleiro",
+            "Clérigo",
+            "Comerciante",
+            "Feiticeiro",
+            "Ferreiro",
+            "Necromante",
+            "Patrulheiro",
+            "Pistoleiro",
+            "Samurai",
+            "Xamã",
+            "Outro"});
+            this.Cbb_Class.Location = new System.Drawing.Point(252, 49);
+            this.Cbb_Class.Name = "Cbb_Class";
+            this.Cbb_Class.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Class.TabIndex = 38;
+            // 
+            // Cbb_Race
+            // 
+            this.Cbb_Race.FormattingEnabled = true;
+            this.Cbb_Race.Items.AddRange(new object[] {
+            "Humano",
+            "Elfo",
+            "Anão",
+            "Aarakocra",
+            "Aasimar",
+            "Cambion",
+            "Centauro",
+            "Draenei",
+            "Draconato",
+            "Dragonborn",
+            "Elfo Sombrio",
+            "Firbolg",
+            "Gnomo",
+            "Goblin",
+            "Githzerai",
+            "Gigante das Montanhas",
+            "Golem",
+            "Halfling",
+            "Kenku",
+            "Lizardfolk",
+            "Meio-Anão",
+            "Meio-Elfo",
+            "Merfolk",
+            "Merenian",
+            "Minotauro",
+            "Morto-Vivo",
+            "Naga",
+            "Orc",
+            "Sátiro",
+            "Tabaxi",
+            "Tauren",
+            "Tiefling",
+            "Tritão",
+            "Troll",
+            "Warforged",
+            "Worgen",
+            "Outro"});
+            this.Cbb_Race.Location = new System.Drawing.Point(10, 49);
+            this.Cbb_Race.Name = "Cbb_Race";
+            this.Cbb_Race.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Race.TabIndex = 37;
             // 
             // label14
             // 
@@ -452,12 +582,12 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Sobrenome";
             // 
-            // textBox1
+            // Txt_Sobrenome
             // 
-            this.textBox1.Location = new System.Drawing.Point(577, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(665, 20);
-            this.textBox1.TabIndex = 11;
+            this.Txt_Sobrenome.Location = new System.Drawing.Point(577, 39);
+            this.Txt_Sobrenome.Name = "Txt_Sobrenome";
+            this.Txt_Sobrenome.Size = new System.Drawing.Size(665, 20);
+            this.Txt_Sobrenome.TabIndex = 11;
             // 
             // Txt_Nome
             // 
@@ -469,7 +599,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Txt_Sobrenome);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Txt_Nome);
             this.groupBox1.Location = new System.Drawing.Point(33, 23);
@@ -477,164 +607,6 @@
             this.groupBox1.Size = new System.Drawing.Size(1271, 88);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
-            // 
-            // Cbb_Bioma
-            // 
-            this.Cbb_Bioma.FormattingEnabled = true;
-            this.Cbb_Bioma.Items.AddRange(new object[] {
-            "Humano",
-            "",
-            "Elfo",
-            "",
-            "Anão",
-            "",
-            "Aarakocra",
-            "",
-            "Aasimar",
-            "",
-            "Cambion",
-            "",
-            "Centauro",
-            "",
-            "Draenei",
-            "",
-            "Draconato",
-            "",
-            "Dragonborn",
-            "",
-            "Elfo Sombrio",
-            "",
-            "Firbolg",
-            "",
-            "Gnomo",
-            "",
-            "Goblin",
-            "",
-            "Githzerai",
-            "",
-            "Gigante das Montanhas",
-            "",
-            "Golem",
-            "",
-            "Halfling",
-            "",
-            "Kenku",
-            "",
-            "Lizardfolk",
-            "",
-            "Meio-Anão",
-            "",
-            "Meio-Elfo",
-            "",
-            "Merfolk",
-            "",
-            "Merenian",
-            "",
-            "Minotauro",
-            "",
-            "Morto-Vivo",
-            "",
-            "Naga",
-            "",
-            "Orc",
-            "",
-            "Sátiro",
-            "",
-            "Tabaxi",
-            "",
-            "Tauren",
-            "",
-            "Tiefling",
-            "",
-            "Tritão",
-            "",
-            "Troll",
-            "",
-            "Warforged",
-            "",
-            "Worgen",
-            "Outro"});
-            this.Cbb_Bioma.Location = new System.Drawing.Point(10, 49);
-            this.Cbb_Bioma.Name = "Cbb_Bioma";
-            this.Cbb_Bioma.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Bioma.TabIndex = 37;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Guerreiro",
-            "Bárbaro",
-            "Mago",
-            "Druida",
-            "Monge",
-            "Assassino",
-            "Ladino",
-            "Curandeiro",
-            "Arqueiro",
-            "Paladino",
-            "Alquimista",
-            "Arcanista",
-            "Bardo",
-            "Bruxo",
-            "Caçador de Demônios",
-            "Camponês",
-            "Cavaleiro",
-            "Clérigo",
-            "Comerciante",
-            "Feiticeiro",
-            "Ferreiro",
-            "Necromante",
-            "Patrulheiro",
-            "Pistoleiro",
-            "Samurai",
-            "Xamã",
-            "Outro"});
-            this.comboBox1.Location = new System.Drawing.Point(252, 49);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(215, 21);
-            this.comboBox1.TabIndex = 38;
-            // 
-            // Cbb_Genero
-            // 
-            this.Cbb_Genero.FormattingEnabled = true;
-            this.Cbb_Genero.Items.AddRange(new object[] {
-            "Masculino",
-            "Feminino",
-            "Não definido"});
-            this.Cbb_Genero.Location = new System.Drawing.Point(492, 49);
-            this.Cbb_Genero.Name = "Cbb_Genero";
-            this.Cbb_Genero.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Genero.TabIndex = 39;
-            // 
-            // Cbb_Moral
-            // 
-            this.Cbb_Moral.FormattingEnabled = true;
-            this.Cbb_Moral.Items.AddRange(new object[] {
-            "Ordeiro e Bom",
-            "Ordeiro e Neutro",
-            "Ordeiro e Mau",
-            "Neutro e Bom",
-            "Neutro",
-            "Neutro e Mau",
-            "Caótico e Bom",
-            "Caótico e Neutro",
-            "Caótico e Mau"});
-            this.Cbb_Moral.Location = new System.Drawing.Point(10, 99);
-            this.Cbb_Moral.Name = "Cbb_Moral";
-            this.Cbb_Moral.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Moral.TabIndex = 40;
-            // 
-            // Cbb_Status
-            // 
-            this.Cbb_Status.FormattingEnabled = true;
-            this.Cbb_Status.Items.AddRange(new object[] {
-            "Vivo",
-            "Morto"});
-            this.Cbb_Status.Location = new System.Drawing.Point(252, 99);
-            this.Cbb_Status.Name = "Cbb_Status";
-            this.Cbb_Status.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Status.TabIndex = 41;
             // 
             // NpcDataUpdate
             // 
@@ -649,7 +621,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "NpcDataUpdate";
             this.Size = new System.Drawing.Size(1336, 641);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pcb_Image)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -669,21 +641,21 @@
         private System.Windows.Forms.Button Btn_IncluirImagem;
         private System.Windows.Forms.Button Btn_ApagarImagem;
         private System.Windows.Forms.Button Btn_GerarDescricao;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Pcb_Image;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.RichTextBox Txt_descricao;
+        private System.Windows.Forms.RichTextBox Txt_Descricao;
         private System.Windows.Forms.Button Btn_Alterar;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox Txt_Sorte;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Txt_Carisma;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox Txt_Inteligencia;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Txt_Velocidade;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Txt_Forca;
         private System.Windows.Forms.Label label5;
@@ -700,11 +672,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Sobrenome;
         private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox Cbb_Bioma;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Cbb_Race;
+        private System.Windows.Forms.ComboBox Cbb_Class;
         private System.Windows.Forms.ComboBox Cbb_Genero;
         private System.Windows.Forms.ComboBox Cbb_Moral;
         private System.Windows.Forms.ComboBox Cbb_Status;
