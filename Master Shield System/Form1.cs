@@ -24,5 +24,10 @@ namespace Master_Shield_System
         {
             UCClass.AddUserControl(this.panelContainer, (UserControl)new BoardMain());
         }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
+
+        private void chaveDeAPIToolStripMenuItem_Click(object sender, EventArgs e) => new ChaveApiForm().ShowDialog();
+      
     }
 }

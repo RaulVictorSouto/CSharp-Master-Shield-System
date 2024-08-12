@@ -83,6 +83,7 @@
             this.chaveDeAPIToolStripMenuItem.Name = "chaveDeAPIToolStripMenuItem";
             this.chaveDeAPIToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.chaveDeAPIToolStripMenuItem.Text = "Chave de API";
+            this.chaveDeAPIToolStripMenuItem.Click += new System.EventHandler(this.chaveDeAPIToolStripMenuItem_Click);
             // 
             // instruçõesToolStripMenuItem
             // 
@@ -95,6 +96,7 @@
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // Form1
             // 
