@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelContainer = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +91,7 @@
             this.instruçõesToolStripMenuItem.Name = "instruçõesToolStripMenuItem";
             this.instruçõesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.instruçõesToolStripMenuItem.Text = "Instruções ";
+            this.instruçõesToolStripMenuItem.Click += new System.EventHandler(this.instruçõesToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -105,9 +107,10 @@
             this.ClientSize = new System.Drawing.Size(1320, 661);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Master Shield System";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

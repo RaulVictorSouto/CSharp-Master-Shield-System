@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChaveApiForm));
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_ChaveGemini = new System.Windows.Forms.TextBox();
             this.Btn_Sair = new System.Windows.Forms.Button();
@@ -79,11 +80,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(567, 132);
             this.Controls.Add(this.Btn_Confirmar);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Txt_ChaveGemini);
+            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChaveApiForm";
             this.Text = "Chave de API";
             this.ResumeLayout(false);
