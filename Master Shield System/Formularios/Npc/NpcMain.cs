@@ -1069,18 +1069,20 @@ namespace Master_Shield_System.Formularios.Npc
                 this.dt.DefaultView.RowFilter = !string.IsNullOrWhiteSpace(this.Txt_pesquisa.Text) || flag1 ? str1 : "";
                 this.Dgv_Npc.DataSource = (object)this.dt;
 
-                // Selecionar o primeiro item da lista, se houver itens
-                if (this.Dgv_Npc.Rows.Count > 0)
-                {
-                    this.Dgv_Npc.Rows[0].Selected = true;
-                    this.Dgv_Npc.FirstDisplayedScrollingRowIndex = 0;
-                    int primeiroId = this.Dgv_Npc.Rows[0].Cells["NpcId"].Value;
-                    CarregarDetalhesNpc(primeiroId);
-                }
+               
             }
             catch (Exception ex)
             {
                 int num3 = (int)MessageBox.Show("Erro ao aplicar filtro: " + ex.Message, "Erro de Filtro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+            // Selecionar o primeiro item da lista, se houver itens
+            if (this.Dgv_Npc.Rows.Count > 0)
+            {
+                this.Dgv_Npc.Rows[0].Selected = true;
+                this.Dgv_Npc.FirstDisplayedScrollingRowIndex = 0;
+                int primeiroId = Convert.ToInt32(Dgv_Npc.Rows[0].Cells["NpcId"].Value);
+                CarregarDetalhesNpc(primeiroId);
             }
         }
 

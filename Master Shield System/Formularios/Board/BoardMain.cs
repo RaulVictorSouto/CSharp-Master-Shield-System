@@ -323,6 +323,15 @@ namespace Master_Shield_System.Formularios.Board
             // Aplica o filtro à DefaultView do DataTable
             string filterExpression = $"{filterColumn} LIKE '%{this.Txt_Pesquisa.Text}%'";
             this.dt.DefaultView.RowFilter = filterExpression;
+
+            // Selecionar o primeiro item da lista, se houver itens
+            if (this.Dgv_Board.Rows.Count > 0)
+            {
+                this.Dgv_Board.Rows[0].Selected = true;
+                this.Dgv_Board.FirstDisplayedScrollingRowIndex = 0;
+                int primeiroId = Convert.ToInt32(Dgv_Board.Rows[0].Cells["BoardId"].Value);
+                CarregarDetalhesCampanha(primeiroId);
+            }
         }
 
         private void Dgv_Board_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

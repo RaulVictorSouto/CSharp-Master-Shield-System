@@ -240,10 +240,20 @@ namespace Master_Shield_System.Formularios.City
             {
                 this.dt.DefaultView.RowFilter = !string.IsNullOrWhiteSpace(this.Txt_pesquisa.Text) ? str1 : "";
                 this.Dgv_City.DataSource = (object)this.dt;
+
             }
             catch (Exception ex)
             {
                 int num3 = (int)MessageBox.Show("Erro ao aplicar filtro: " + ex.Message, "Erro de Filtro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+            // Selecionar o primeiro item da lista, se houver itens
+            if (this.Dgv_City.Rows.Count > 0)
+            {
+                this.Dgv_City.Rows[0].Selected = true;
+                this.Dgv_City.FirstDisplayedScrollingRowIndex = 0;
+                int primeiroId = Convert.ToInt32(Dgv_City.Rows[0].Cells["CityId"].Value);
+                CarregarDetalhesCidade(primeiroId);
             }
         }
 
