@@ -440,8 +440,50 @@ namespace Master_Shield_System.Formularios.Npc
 
             // Evento de pintura de células
             Dgv_Npc.CellPainting += new DataGridViewCellPaintingEventHandler(Dgv_Npc_CellPainting);
+
+            // Evento de formatação de células para mudar as cores do "Alinhamento"
+            Dgv_Npc.CellFormatting += new DataGridViewCellFormattingEventHandler(Dgv_Npc_CellFormatting);
         }
 
+        private void Dgv_Npc_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (Dgv_Npc.Columns[e.ColumnIndex].Name == "NpcMoralAlignment" && e.Value != null)
+            {
+                switch (e.Value.ToString())
+                {
+                    case "Ordeiro e Bom":
+                        e.CellStyle.ForeColor = Color.DarkGreen;
+                        break;
+                    case "Ordeiro e Neutro":
+                        e.CellStyle.ForeColor = Color.Green;
+                        break;
+                    case "Ordeiro e Mau":
+                        e.CellStyle.ForeColor = Color.DarkRed;
+                        break;
+                    case "Neutro e Bom":
+                        e.CellStyle.ForeColor = Color.Teal;
+                        break;
+                    case "Neutro":
+                        e.CellStyle.ForeColor = Color.FromArgb(54, 54, 54); 
+                        break;
+                    case "Neutro e Mau":
+                        e.CellStyle.ForeColor = Color.Brown;
+                        break;
+                    case "Caótico e Bom":
+                        e.CellStyle.ForeColor = Color.Purple;
+                        break;
+                    case "Caótico e Neutro":
+                        e.CellStyle.ForeColor = Color.OrangeRed;
+                        break;
+                    case "Caótico e Mau":
+                        e.CellStyle.ForeColor = Color.Red;
+                        break;
+                    default:
+                        e.CellStyle.ForeColor = Color.Black;
+                        break;
+                }
+            }
+        }
         private void Dgv_Npc_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
@@ -1026,6 +1068,15 @@ namespace Master_Shield_System.Formularios.Npc
             {
                 this.dt.DefaultView.RowFilter = !string.IsNullOrWhiteSpace(this.Txt_pesquisa.Text) || flag1 ? str1 : "";
                 this.Dgv_Npc.DataSource = (object)this.dt;
+
+                // Selecionar o primeiro item da lista, se houver itens
+                if (this.Dgv_Npc.Rows.Count > 0)
+                {
+                    this.Dgv_Npc.Rows[0].Selected = true;
+                    this.Dgv_Npc.FirstDisplayedScrollingRowIndex = 0;
+                    int primeiroId = this.Dgv_Npc.Rows[0].Cells["NpcId"].Value;
+                    CarregarDetalhesNpc(primeiroId);
+                }
             }
             catch (Exception ex)
             {
