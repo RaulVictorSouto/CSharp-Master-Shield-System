@@ -319,6 +319,17 @@ namespace Master_Shield_System.Formularios.Npc
         {
             InitializeComponent();
             Inicializar();
+
+            if (Cbb_Filter.Items.Count > 0)
+            {
+                Cbb_Filter.SelectedIndex = 0; // Seleciona o primeiro item
+            }
+
+
+            if (Cbb_Operadores.Items.Count > 0)
+            {
+                Cbb_Operadores.SelectedIndex = 0; // Seleciona o primeiro item
+            }
         }
 
         private void Inicializar()
@@ -327,7 +338,16 @@ namespace Master_Shield_System.Formularios.Npc
             this.Dgv_Npc.DataSource = this.dt;
 
             if (this.Dgv_Npc.Rows.Count <= 0)
+            {
+                Lbl_Alinhamento.Text = "";
+                Lbl_Classe.Text = "";
+                Lbl_Genero.Text = "";
+                Lbl_Nome.Text = "";
+                Lbl_Raca.Text = "";
+                Lbl_Status.Text = "";
+
                 return;
+            }
 
             this.Dgv_Npc.Rows[0].Selected = true;
 
@@ -349,16 +369,6 @@ namespace Master_Shield_System.Formularios.Npc
                 MessageBox.Show("A coluna 'NpcId' não foi encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
 
-
-            if (Cbb_Filter.Items.Count > 0)
-            {
-                Cbb_Filter.SelectedIndex = 0; // Seleciona o primeiro item
-            }
-
-            if (Cbb_Operadores.Items.Count > 0)
-            {
-                Cbb_Operadores.SelectedIndex = 0; // Seleciona o primeiro item
-            }
         }
 
 

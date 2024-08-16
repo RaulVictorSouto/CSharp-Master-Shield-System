@@ -7,14 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Master Shield System", "Mas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSSLibrary", "MSSLibrary\MSSLibrary.csproj", "{4ED3E1B5-B29C-400B-9DAF-5C766AD7A64D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dump - Sql Files", "Dump - Sql Files", "{F5A66F6C-3B8E-4D68-A170-88D5F3146305}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\Users\raulv\OneDrive\Documentos\dumps\Dump - SGRPG\sgrpg_tblapi.sql = ..\..\Users\raulv\OneDrive\Documentos\dumps\Dump - SGRPG\sgrpg_tblapi.sql
-		..\..\Users\raulv\OneDrive\Documentos\dumps\Dump - SGRPG\sgrpg_tblboard.sql = ..\..\Users\raulv\OneDrive\Documentos\dumps\Dump - SGRPG\sgrpg_tblboard.sql
-		..\..\Users\raulv\OneDrive\Documentos\dumps\Dump - SGRPG\sgrpg_tblcity.sql = ..\..\Users\raulv\OneDrive\Documentos\dumps\Dump - SGRPG\sgrpg_tblcity.sql
-		..\..\Users\raulv\OneDrive\Documentos\dumps\Dump - SGRPG\sgrpg_tblnpc.sql = ..\..\Users\raulv\OneDrive\Documentos\dumps\Dump - SGRPG\sgrpg_tblnpc.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

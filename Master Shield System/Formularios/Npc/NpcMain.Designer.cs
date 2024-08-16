@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cbb_Filter = new System.Windows.Forms.ComboBox();
             this.Cbb_Operadores = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -155,17 +155,17 @@
             // Dgv_Npc
             // 
             this.Dgv_Npc.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            this.Dgv_Npc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.Dgv_Npc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Dgv_Npc.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Npc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Npc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv_Npc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Npc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.editar,
@@ -224,9 +224,9 @@
             this.Lbl_Sorte.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Sorte.Location = new System.Drawing.Point(125, 248);
             this.Lbl_Sorte.Name = "Lbl_Sorte";
-            this.Lbl_Sorte.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Sorte.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Sorte.TabIndex = 20;
-            this.Lbl_Sorte.Text = "label14";
+            this.Lbl_Sorte.Text = "0";
             this.Lbl_Sorte.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Lbl_Carisma
@@ -235,9 +235,9 @@
             this.Lbl_Carisma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Carisma.Location = new System.Drawing.Point(125, 215);
             this.Lbl_Carisma.Name = "Lbl_Carisma";
-            this.Lbl_Carisma.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Carisma.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Carisma.TabIndex = 19;
-            this.Lbl_Carisma.Text = "label14";
+            this.Lbl_Carisma.Text = "0";
             this.Lbl_Carisma.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Lbl_Inteligencia
@@ -246,9 +246,9 @@
             this.Lbl_Inteligencia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Inteligencia.Location = new System.Drawing.Point(125, 182);
             this.Lbl_Inteligencia.Name = "Lbl_Inteligencia";
-            this.Lbl_Inteligencia.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Inteligencia.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Inteligencia.TabIndex = 18;
-            this.Lbl_Inteligencia.Text = "label14";
+            this.Lbl_Inteligencia.Text = "0";
             this.Lbl_Inteligencia.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Lbl_Velocidade
@@ -257,9 +257,9 @@
             this.Lbl_Velocidade.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Velocidade.Location = new System.Drawing.Point(125, 149);
             this.Lbl_Velocidade.Name = "Lbl_Velocidade";
-            this.Lbl_Velocidade.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Velocidade.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Velocidade.TabIndex = 17;
-            this.Lbl_Velocidade.Text = "label14";
+            this.Lbl_Velocidade.Text = "0";
             this.Lbl_Velocidade.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Lbl_Forca
@@ -268,9 +268,9 @@
             this.Lbl_Forca.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Forca.Location = new System.Drawing.Point(125, 116);
             this.Lbl_Forca.Name = "Lbl_Forca";
-            this.Lbl_Forca.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Forca.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Forca.TabIndex = 16;
-            this.Lbl_Forca.Text = "label14";
+            this.Lbl_Forca.Text = "0";
             this.Lbl_Forca.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Lbl_Energia
@@ -279,9 +279,9 @@
             this.Lbl_Energia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Energia.Location = new System.Drawing.Point(125, 83);
             this.Lbl_Energia.Name = "Lbl_Energia";
-            this.Lbl_Energia.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Energia.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Energia.TabIndex = 15;
-            this.Lbl_Energia.Text = "label14";
+            this.Lbl_Energia.Text = "0";
             this.Lbl_Energia.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Lbl_Hp
@@ -290,9 +290,9 @@
             this.Lbl_Hp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Hp.Location = new System.Drawing.Point(125, 50);
             this.Lbl_Hp.Name = "Lbl_Hp";
-            this.Lbl_Hp.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Hp.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Hp.TabIndex = 14;
-            this.Lbl_Hp.Text = "label14";
+            this.Lbl_Hp.Text = "0";
             this.Lbl_Hp.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Lbl_Nivel
@@ -301,9 +301,9 @@
             this.Lbl_Nivel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Nivel.Location = new System.Drawing.Point(125, 17);
             this.Lbl_Nivel.Name = "Lbl_Nivel";
-            this.Lbl_Nivel.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Nivel.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Nivel.TabIndex = 13;
-            this.Lbl_Nivel.Text = "label14";
+            this.Lbl_Nivel.Text = "0";
             this.Lbl_Nivel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label9
