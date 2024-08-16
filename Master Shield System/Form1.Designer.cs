@@ -75,28 +75,32 @@
             // voltarParaCampanhasToolStripMenuItem
             // 
             this.voltarParaCampanhasToolStripMenuItem.Name = "voltarParaCampanhasToolStripMenuItem";
-            this.voltarParaCampanhasToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.voltarParaCampanhasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.voltarParaCampanhasToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.voltarParaCampanhasToolStripMenuItem.Text = "Voltar para Campanhas";
             this.voltarParaCampanhasToolStripMenuItem.Click += new System.EventHandler(this.voltarParaCampanhasToolStripMenuItem_Click);
             // 
             // chaveDeAPIToolStripMenuItem
             // 
             this.chaveDeAPIToolStripMenuItem.Name = "chaveDeAPIToolStripMenuItem";
-            this.chaveDeAPIToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.chaveDeAPIToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.chaveDeAPIToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.chaveDeAPIToolStripMenuItem.Text = "Chave de API";
             this.chaveDeAPIToolStripMenuItem.Click += new System.EventHandler(this.chaveDeAPIToolStripMenuItem_Click);
             // 
             // instruçõesToolStripMenuItem
             // 
             this.instruçõesToolStripMenuItem.Name = "instruçõesToolStripMenuItem";
-            this.instruçõesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.instruçõesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.instruçõesToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.instruçõesToolStripMenuItem.Text = "Instruções ";
             this.instruçõesToolStripMenuItem.Click += new System.EventHandler(this.instruçõesToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.sairToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
