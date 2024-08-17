@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Txt_Resultado = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.Rbtn_100 = new System.Windows.Forms.RadioButton();
+            this.Rbtn_d100 = new System.Windows.Forms.RadioButton();
             this.Rbtn_d20 = new System.Windows.Forms.RadioButton();
             this.Rbtn_d12 = new System.Windows.Forms.RadioButton();
             this.Rbtn_d10 = new System.Windows.Forms.RadioButton();
@@ -42,7 +42,7 @@
             this.Rbtn_escolher = new System.Windows.Forms.RadioButton();
             this.Txt_Num1 = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.Txt_Num2 = new System.Windows.Forms.RichTextBox();
             this.Btn_Sair = new System.Windows.Forms.Button();
             this.Btn_Rolar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,15 +61,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Deu";
             // 
-            // label2
+            // Txt_Resultado
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Baskerville Old Face", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(364, 172);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(216, 110);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Deu";
+            this.Txt_Resultado.AutoSize = true;
+            this.Txt_Resultado.Font = new System.Drawing.Font("Baskerville Old Face", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Resultado.Location = new System.Drawing.Point(364, 172);
+            this.Txt_Resultado.Name = "Txt_Resultado";
+            this.Txt_Resultado.Size = new System.Drawing.Size(216, 110);
+            this.Txt_Resultado.TabIndex = 1;
+            this.Txt_Resultado.Text = "Deu";
             // 
             // richTextBox1
             // 
@@ -79,17 +79,17 @@
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
-            // Rbtn_100
+            // Rbtn_d100
             // 
-            this.Rbtn_100.AutoSize = true;
-            this.Rbtn_100.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rbtn_100.Location = new System.Drawing.Point(16, 12);
-            this.Rbtn_100.Name = "Rbtn_100";
-            this.Rbtn_100.Size = new System.Drawing.Size(83, 31);
-            this.Rbtn_100.TabIndex = 4;
-            this.Rbtn_100.TabStop = true;
-            this.Rbtn_100.Text = "d100";
-            this.Rbtn_100.UseVisualStyleBackColor = true;
+            this.Rbtn_d100.AutoSize = true;
+            this.Rbtn_d100.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d100.Location = new System.Drawing.Point(16, 12);
+            this.Rbtn_d100.Name = "Rbtn_d100";
+            this.Rbtn_d100.Size = new System.Drawing.Size(83, 31);
+            this.Rbtn_d100.TabIndex = 4;
+            this.Rbtn_d100.TabStop = true;
+            this.Rbtn_d100.Text = "d100";
+            this.Rbtn_d100.UseVisualStyleBackColor = true;
             // 
             // Rbtn_d20
             // 
@@ -188,11 +188,12 @@
             // 
             // Txt_Num1
             // 
-            this.Txt_Num1.Location = new System.Drawing.Point(36, 308);
+            this.Txt_Num1.Location = new System.Drawing.Point(36, 312);
             this.Txt_Num1.Name = "Txt_Num1";
-            this.Txt_Num1.Size = new System.Drawing.Size(63, 28);
+            this.Txt_Num1.Size = new System.Drawing.Size(63, 21);
             this.Txt_Num1.TabIndex = 13;
-            this.Txt_Num1.Text = "";
+            this.Txt_Num1.Text = "0";
+            this.Txt_Num1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Num1_KeyPress);
             // 
             // label4
             // 
@@ -204,13 +205,14 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "a";
             // 
-            // richTextBox2
+            // Txt_Num2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(136, 308);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(63, 28);
-            this.richTextBox2.TabIndex = 15;
-            this.richTextBox2.Text = "";
+            this.Txt_Num2.Location = new System.Drawing.Point(136, 312);
+            this.Txt_Num2.Name = "Txt_Num2";
+            this.Txt_Num2.Size = new System.Drawing.Size(63, 21);
+            this.Txt_Num2.TabIndex = 15;
+            this.Txt_Num2.Text = "0";
+            this.Txt_Num2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Num2_KeyPress);
             // 
             // Btn_Sair
             // 
@@ -233,10 +235,11 @@
             this.Btn_Rolar.TabIndex = 24;
             this.Btn_Rolar.Text = "Rolar Dados";
             this.Btn_Rolar.UseVisualStyleBackColor = true;
+            this.Btn_Rolar.Click += new System.EventHandler(this.Btn_Rolar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox2);
+            this.groupBox1.Controls.Add(this.Txt_Num2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.Txt_Num1);
             this.groupBox1.Controls.Add(this.Rbtn_escolher);
@@ -247,7 +250,7 @@
             this.groupBox1.Controls.Add(this.Rbtn_d10);
             this.groupBox1.Controls.Add(this.Rbtn_d12);
             this.groupBox1.Controls.Add(this.Rbtn_d20);
-            this.groupBox1.Controls.Add(this.Rbtn_100);
+            this.groupBox1.Controls.Add(this.Rbtn_d100);
             this.groupBox1.Location = new System.Drawing.Point(30, 49);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(230, 347);
@@ -273,7 +276,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Btn_Rolar);
             this.Controls.Add(this.Btn_Sair);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Txt_Resultado);
             this.Controls.Add(this.label1);
             this.Name = "RolarDadosForm";
             this.Text = "Rolar Dados";
@@ -288,9 +291,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Txt_Resultado;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RadioButton Rbtn_100;
+        private System.Windows.Forms.RadioButton Rbtn_d100;
         private System.Windows.Forms.RadioButton Rbtn_d20;
         private System.Windows.Forms.RadioButton Rbtn_d12;
         private System.Windows.Forms.RadioButton Rbtn_d10;
@@ -301,7 +304,7 @@
         private System.Windows.Forms.RadioButton Rbtn_escolher;
         private System.Windows.Forms.RichTextBox Txt_Num1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox Txt_Num2;
         private System.Windows.Forms.Button Btn_Sair;
         private System.Windows.Forms.Button Btn_Rolar;
         private System.Windows.Forms.GroupBox groupBox1;

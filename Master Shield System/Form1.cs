@@ -30,5 +30,9 @@ namespace Master_Shield_System
         private void chaveDeAPIToolStripMenuItem_Click(object sender, EventArgs e) => new ChaveApiForm().ShowDialog();
 
         private void instruçõesToolStripMenuItem_Click(object sender, EventArgs e) => new InstrucoesForm().ShowDialog();
+
+        private void rolarDadosToolStripMenuItem_Click(object sender, EventArgs e) => new RolarDadosForm().ShowDialog();
+
+      
     }
 }

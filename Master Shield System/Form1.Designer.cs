@@ -36,6 +36,7 @@
             this.chaveDeAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instruçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rolarDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +67,7 @@
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.voltarParaCampanhasToolStripMenuItem,
             this.chaveDeAPIToolStripMenuItem,
+            this.rolarDadosToolStripMenuItem,
             this.instruçõesToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
@@ -104,6 +106,14 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
+            // rolarDadosToolStripMenuItem
+            // 
+            this.rolarDadosToolStripMenuItem.Name = "rolarDadosToolStripMenuItem";
+            this.rolarDadosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.rolarDadosToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.rolarDadosToolStripMenuItem.Text = "Rolar Dados";
+            this.rolarDadosToolStripMenuItem.Click += new System.EventHandler(this.rolarDadosToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +141,7 @@
         private System.Windows.Forms.ToolStripMenuItem chaveDeAPIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem instruçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rolarDadosToolStripMenuItem;
     }
 }
 
