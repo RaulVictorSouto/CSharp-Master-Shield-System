@@ -217,5 +217,8 @@ namespace Master_Shield_System
         }
 
         #endregion
+
+        private void Btn_Sair_Click(object sender, EventArgs e) => this.Close();
+
     }
 }

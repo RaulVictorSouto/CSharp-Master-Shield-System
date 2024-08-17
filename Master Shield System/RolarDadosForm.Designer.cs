@@ -229,6 +229,7 @@
             this.Btn_Sair.TabIndex = 23;
             this.Btn_Sair.Text = "Sair";
             this.Btn_Sair.UseVisualStyleBackColor = true;
+            this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
             // 
             // Btn_Rolar
             // 
