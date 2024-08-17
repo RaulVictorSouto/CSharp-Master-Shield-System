@@ -191,8 +191,6 @@ namespace Master_Shield_System.Formularios.Npc
                 return;
             e.Handled = true;
         }
-
-
         #endregion
 
         private void Btn_IncluirImagem_Click(object sender, EventArgs e)
@@ -364,5 +362,6 @@ namespace Master_Shield_System.Formularios.Npc
             }
         }
 
+    
     }
 }

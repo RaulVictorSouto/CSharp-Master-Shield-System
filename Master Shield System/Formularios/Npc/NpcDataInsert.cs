@@ -263,5 +263,7 @@ namespace Master_Shield_System.Formularios.Npc
             this.nc.CreateNpc(this.ConfirmBoardId, this.ConfirmCityId);
             LimparDados();
         }
+
+        
     }
 }

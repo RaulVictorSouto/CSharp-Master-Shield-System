@@ -220,6 +220,7 @@
             this.Txt_Sorte.Size = new System.Drawing.Size(77, 20);
             this.Txt_Sorte.TabIndex = 25;
             this.Txt_Sorte.Text = "0";
+            this.Txt_Sorte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Sorte_KeyPress);
             // 
             // label9
             // 
@@ -238,6 +239,7 @@
             this.Txt_Carisma.Size = new System.Drawing.Size(77, 20);
             this.Txt_Carisma.TabIndex = 23;
             this.Txt_Carisma.Text = "0";
+            this.Txt_Carisma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Carisma_KeyPress);
             // 
             // groupBox3
             // 
@@ -280,6 +282,7 @@
             this.Txt_Inteligencia.Size = new System.Drawing.Size(77, 20);
             this.Txt_Inteligencia.TabIndex = 21;
             this.Txt_Inteligencia.Text = "0";
+            this.Txt_Inteligencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Inteligencia_KeyPress);
             // 
             // label7
             // 
@@ -298,6 +301,7 @@
             this.Txt_Velocidade.Size = new System.Drawing.Size(77, 20);
             this.Txt_Velocidade.TabIndex = 19;
             this.Txt_Velocidade.Text = "0";
+            this.Txt_Velocidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Velocidade_KeyPress);
             // 
             // label6
             // 
@@ -316,6 +320,7 @@
             this.Txt_Forca.Size = new System.Drawing.Size(77, 20);
             this.Txt_Forca.TabIndex = 17;
             this.Txt_Forca.Text = "0";
+            this.Txt_Forca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Forca_KeyPress);
             // 
             // label5
             // 
@@ -334,6 +339,7 @@
             this.Txt_Energia.Size = new System.Drawing.Size(77, 20);
             this.Txt_Energia.TabIndex = 15;
             this.Txt_Energia.Text = "0";
+            this.Txt_Energia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Energia_KeyPress);
             // 
             // label4
             // 
@@ -352,6 +358,7 @@
             this.Txt_Hp.Size = new System.Drawing.Size(77, 20);
             this.Txt_Hp.TabIndex = 13;
             this.Txt_Hp.Text = "0";
+            this.Txt_Hp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Hp_KeyPress);
             // 
             // label3
             // 
@@ -370,6 +377,7 @@
             this.Txt_Nivel.Size = new System.Drawing.Size(77, 20);
             this.Txt_Nivel.TabIndex = 11;
             this.Txt_Nivel.Text = "0";
+            this.Txt_Nivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Nivel_KeyPress);
             // 
             // groupBox2
             // 

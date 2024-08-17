@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RolarDadosForm));
             this.Txt_Resultado = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Txt_Historico = new System.Windows.Forms.RichTextBox();
             this.Rbtn_d100 = new System.Windows.Forms.RadioButton();
             this.Rbtn_d20 = new System.Windows.Forms.RadioButton();
             this.Rbtn_d12 = new System.Windows.Forms.RadioButton();
@@ -47,42 +47,39 @@
             this.Btn_Rolar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Cbb_Modo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Baskerville Old Face", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(440, 141);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Deu";
             // 
             // Txt_Resultado
             // 
             this.Txt_Resultado.AutoSize = true;
             this.Txt_Resultado.Font = new System.Drawing.Font("Baskerville Old Face", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Resultado.Location = new System.Drawing.Point(364, 172);
+            this.Txt_Resultado.ForeColor = System.Drawing.SystemColors.Control;
+            this.Txt_Resultado.Location = new System.Drawing.Point(356, 145);
             this.Txt_Resultado.Name = "Txt_Resultado";
             this.Txt_Resultado.Size = new System.Drawing.Size(216, 110);
             this.Txt_Resultado.TabIndex = 1;
             this.Txt_Resultado.Text = "Deu";
+            this.Txt_Resultado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // richTextBox1
+            // Txt_Historico
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(274, 315);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.Txt_Historico.Location = new System.Drawing.Point(6, 21);
+            this.Txt_Historico.Name = "Txt_Historico";
+            this.Txt_Historico.ReadOnly = true;
+            this.Txt_Historico.Size = new System.Drawing.Size(274, 315);
+            this.Txt_Historico.TabIndex = 2;
+            this.Txt_Historico.Text = "";
             // 
             // Rbtn_d100
             // 
             this.Rbtn_d100.AutoSize = true;
             this.Rbtn_d100.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d100.ForeColor = System.Drawing.SystemColors.Control;
             this.Rbtn_d100.Location = new System.Drawing.Point(16, 12);
             this.Rbtn_d100.Name = "Rbtn_d100";
             this.Rbtn_d100.Size = new System.Drawing.Size(83, 31);
@@ -95,6 +92,7 @@
             // 
             this.Rbtn_d20.AutoSize = true;
             this.Rbtn_d20.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d20.ForeColor = System.Drawing.SystemColors.Control;
             this.Rbtn_d20.Location = new System.Drawing.Point(16, 50);
             this.Rbtn_d20.Name = "Rbtn_d20";
             this.Rbtn_d20.Size = new System.Drawing.Size(70, 31);
@@ -107,6 +105,7 @@
             // 
             this.Rbtn_d12.AutoSize = true;
             this.Rbtn_d12.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d12.ForeColor = System.Drawing.SystemColors.Control;
             this.Rbtn_d12.Location = new System.Drawing.Point(16, 88);
             this.Rbtn_d12.Name = "Rbtn_d12";
             this.Rbtn_d12.Size = new System.Drawing.Size(70, 31);
@@ -119,6 +118,7 @@
             // 
             this.Rbtn_d10.AutoSize = true;
             this.Rbtn_d10.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d10.ForeColor = System.Drawing.SystemColors.Control;
             this.Rbtn_d10.Location = new System.Drawing.Point(16, 126);
             this.Rbtn_d10.Name = "Rbtn_d10";
             this.Rbtn_d10.Size = new System.Drawing.Size(70, 31);
@@ -131,6 +131,7 @@
             // 
             this.Rbtn_d8.AutoSize = true;
             this.Rbtn_d8.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d8.ForeColor = System.Drawing.SystemColors.Control;
             this.Rbtn_d8.Location = new System.Drawing.Point(16, 164);
             this.Rbtn_d8.Name = "Rbtn_d8";
             this.Rbtn_d8.Size = new System.Drawing.Size(57, 31);
@@ -143,6 +144,7 @@
             // 
             this.Rbtn_d6.AutoSize = true;
             this.Rbtn_d6.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d6.ForeColor = System.Drawing.SystemColors.Control;
             this.Rbtn_d6.Location = new System.Drawing.Point(16, 202);
             this.Rbtn_d6.Name = "Rbtn_d6";
             this.Rbtn_d6.Size = new System.Drawing.Size(57, 31);
@@ -155,6 +157,7 @@
             // 
             this.Rbtn_d4.AutoSize = true;
             this.Rbtn_d4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d4.ForeColor = System.Drawing.SystemColors.Control;
             this.Rbtn_d4.Location = new System.Drawing.Point(16, 240);
             this.Rbtn_d4.Name = "Rbtn_d4";
             this.Rbtn_d4.Size = new System.Drawing.Size(57, 31);
@@ -167,6 +170,7 @@
             // 
             this.Rbtn_d2.AutoSize = true;
             this.Rbtn_d2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbtn_d2.ForeColor = System.Drawing.SystemColors.Control;
             this.Rbtn_d2.Location = new System.Drawing.Point(16, 278);
             this.Rbtn_d2.Name = "Rbtn_d2";
             this.Rbtn_d2.Size = new System.Drawing.Size(57, 31);
@@ -199,6 +203,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(105, 309);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 27);
@@ -218,7 +223,7 @@
             // 
             this.Btn_Sair.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Sair.ForeColor = System.Drawing.Color.Red;
-            this.Btn_Sair.Location = new System.Drawing.Point(30, 420);
+            this.Btn_Sair.Location = new System.Drawing.Point(30, 393);
             this.Btn_Sair.Name = "Btn_Sair";
             this.Btn_Sair.Size = new System.Drawing.Size(67, 29);
             this.Btn_Sair.TabIndex = 23;
@@ -228,8 +233,8 @@
             // Btn_Rolar
             // 
             this.Btn_Rolar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Rolar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Btn_Rolar.Location = new System.Drawing.Point(405, 400);
+            this.Btn_Rolar.ForeColor = System.Drawing.Color.Green;
+            this.Btn_Rolar.Location = new System.Drawing.Point(354, 373);
             this.Btn_Rolar.Name = "Btn_Rolar";
             this.Btn_Rolar.Size = new System.Drawing.Size(134, 49);
             this.Btn_Rolar.TabIndex = 24;
@@ -251,48 +256,77 @@
             this.groupBox1.Controls.Add(this.Rbtn_d12);
             this.groupBox1.Controls.Add(this.Rbtn_d20);
             this.groupBox1.Controls.Add(this.Rbtn_d100);
-            this.groupBox1.Location = new System.Drawing.Point(30, 49);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(30, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(230, 347);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dados";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.richTextBox1);
-            this.groupBox2.Location = new System.Drawing.Point(684, 49);
+            this.groupBox2.Controls.Add(this.Txt_Historico);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Location = new System.Drawing.Point(595, 75);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(286, 347);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Histórico de Rolagens";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Cbb_Modo);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox3.Location = new System.Drawing.Point(595, 22);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(286, 46);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Modo";
+            // 
+            // Cbb_Modo
+            // 
+            this.Cbb_Modo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbb_Modo.FormattingEnabled = true;
+            this.Cbb_Modo.Items.AddRange(new object[] {
+            "Rolagem Normal",
+            "Rolagem Favorável",
+            "Rolagem Desfavorável"});
+            this.Cbb_Modo.Location = new System.Drawing.Point(7, 17);
+            this.Cbb_Modo.Name = "Cbb_Modo";
+            this.Cbb_Modo.Size = new System.Drawing.Size(273, 21);
+            this.Cbb_Modo.TabIndex = 0;
+            // 
             // RolarDadosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 490);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(904, 446);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Btn_Rolar);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Txt_Resultado);
-            this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RolarDadosForm";
             this.Text = "Rolar Dados";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Txt_Resultado;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Txt_Historico;
         private System.Windows.Forms.RadioButton Rbtn_d100;
         private System.Windows.Forms.RadioButton Rbtn_d20;
         private System.Windows.Forms.RadioButton Rbtn_d12;
@@ -309,5 +343,7 @@
         private System.Windows.Forms.Button Btn_Rolar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox Cbb_Modo;
     }
 }
