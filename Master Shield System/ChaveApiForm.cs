@@ -14,7 +14,7 @@ namespace Master_Shield_System
 {
     public partial class ChaveApiForm : Form
     {
-        private ApiClass ac = new ApiClass();
+        private readonly ApiClass ac = new ApiClass();
         public ChaveApiForm()
         {
             InitializeComponent();

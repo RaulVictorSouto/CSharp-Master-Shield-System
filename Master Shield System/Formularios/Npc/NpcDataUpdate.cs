@@ -30,10 +30,12 @@ namespace Master_Shield_System.Formularios.Npc
             InitializeComponent();
         }
 
-        public void SetDados(int NpcId)
+        public void SetDados(int NpcId, string CityName, string CityBiome)
         {
             try
             {
+                ConfirmCityName = CityName;
+                ConfirmCityBiome = CityBiome;
                 using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
                 {
                     connection.Open();
@@ -225,6 +227,7 @@ namespace Master_Shield_System.Formularios.Npc
             nm = (NpcMain)null;
         }
 
+
         private void Btn_Retornar_Click(object sender, EventArgs e)
         {
             NpcMain npcMain = new NpcMain();
@@ -317,15 +320,6 @@ namespace Master_Shield_System.Formularios.Npc
                 MessageBox.Show("ERRO na leitura do formulário: " + ex.Message, "Ocorreu um erro", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return null;
             }
-        }
-
-
-        private int ParseToInt(string text)
-        {
-            int result;
-            if (int.TryParse(text, out result))
-                return result;
-            throw new InvalidOperationException("Invalid integer value: " + text);
         }
 
         private void Btn_Alterar_Click(object sender, EventArgs e)

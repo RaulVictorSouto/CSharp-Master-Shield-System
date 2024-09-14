@@ -17,23 +17,23 @@ namespace MSSLibrary
         public static string TextoGerado { get; set; }
 
         public static async Task GerarTextoNpc(
-    string apiKey,
-    string nome,
-    string sobrenome,
-    string localizacao,
-    string bioma,
-    string raca,
-    string classe,
-    string genero,
-    string moral,
-    string nivel,
-    string hp,
-    string energia,
-    string forca,
-    string velocidade,
-    string inteligencia,
-    string carisma,
-    string sorte)
+            string apiKey,
+            string nome,
+            string sobrenome,
+            string localizacao,
+            string bioma,
+            string raca,
+            string classe,
+            string genero,
+            string moral,
+            string nivel,
+            string hp,
+            string energia,
+            string forca,
+            string velocidade,
+            string inteligencia,
+            string carisma,
+            string sorte)
         {
             ProgressForm progressForm = null;
             try
@@ -59,7 +59,7 @@ namespace MSSLibrary
             },
                     generationConfig = new
                     {
-                        temperature = 1.0,
+                        temperature = 0.7,
                         topK = 40,
                         topP = 0.9,
                         maxOutputTokens = 600

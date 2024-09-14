@@ -18,20 +18,20 @@ namespace Master_Shield_System.Formularios.Npc
 {
     public partial class NpcMain : UserControl
     {
-        private NpcClass nc = new NpcClass();
+        private readonly NpcClass nc = new NpcClass();
         private DataTable dt = new DataTable();
         private int readCityId;
         private int readNpcId;
         public string readCityName;
         public string readCityBiome;
         private int readBoardId;
-        private Random random = new Random();
-        private List<string> nomesSelecionados = new List<string>();
-        private List<string> sobrenomesSelecionados = new List<string>();
+        private readonly Random random = new Random();
+        private readonly List<string> nomesSelecionados = new List<string>();
+        private readonly List<string> sobrenomesSelecionados = new List<string>();
 
         #region Arrays para criação randomica
 
-        private string[] nomesRandon = new string[69]
+        private readonly string[] nomesRandon = new string[69]
     {
       "Alana",
       "Beatrix",
@@ -103,7 +103,7 @@ namespace Master_Shield_System.Formularios.Npc
       "Wren",
       "Zephyr"
     };
-        private string[] sobrenomesRandon = new string[119]
+        private readonly string[] sobrenomesRandon = new string[119]
         {
       "Adler",
       "Blackwood",
@@ -225,46 +225,16 @@ namespace Master_Shield_System.Formularios.Npc
       "Sunwood",
       "Whisperwood"
         };
-        private string[] raceRandon = new string[36]
+        private readonly string[] raceRandon = new string[6]
         {
       "Humano",
       "Elfo",
       "Anão",
-      "Aarakocra",
-      "Aasimar",
       "Cambion",
-      "Centauro",
-      "Draenei",
-      "Draconato",
-      "Dragonborn",
-      "Elfo Sombrio",
-      "Firbolg",
-      "Gnomo",
-      "Goblin",
-      "Githzerai",
       "Gigante das Montanhas",
-      "Golem",
-      "Halfling",
-      "Kenku",
-      "Lizardfolk",
-      "Meio-Anão",
-      "Meio-Elfo",
-      "Merfolk",
-      "Merenian",
-      "Minotauro",
-      "Morto-Vivo",
-      "Naga",
-      "Orc",
-      "Sátiro",
-      "Tabaxi",
-      "Tauren",
-      "Tiefling",
-      "Tritão",
-      "Troll",
-      "Warforged",
-      "Worgen"
+      "Merenian"
         };
-        private string[] classesRandon = new string[26]
+        private readonly string[] classesRandon = new string[10]
         {
       "Guerreiro",
       "Bárbaro",
@@ -275,32 +245,15 @@ namespace Master_Shield_System.Formularios.Npc
       "Ladino",
       "Curandeiro",
       "Arqueiro",
-      "Paladino",
-      "Alquimista",
-      "Arcanista",
-      "Bardo",
-      "Bruxo",
-      "Caçador de Demônios",
-      "Camponês",
-      "Cavaleiro",
-      "Clérigo",
-      "Comerciante",
-      "Feiticeiro",
-      "Ferreiro",
-      "Necromante",
-      "Patrulheiro",
-      "Pistoleiro",
-      "Samurai",
-      "Xamã"
+      "Paladino"
         };
-        private string[] genderRandon = new string[3]
+        private readonly string[] genderRandon = new string[3]
         {
       "Masculino",
       "Feminino",
       "Não definido"
         };
-
-        private string[] moralRandon = new string[9]
+        private readonly string[] moralRandon = new string[9]
        {
       "Ordeiro e Bom",
       "Ordeiro e Neutro",
@@ -555,7 +508,9 @@ namespace Master_Shield_System.Formularios.Npc
                     {
                         if (mySqlDataReader.Read())
                         {
-                            Txt_Descricao.Text = mySqlDataReader["NpcDescription"]?.ToString() ?? "Sem Descrição";
+                            Txt_Descricao.Text = mySqlDataReader["NpcDescription"].ToString();
+                            if (this.Txt_Descricao.Text == "")
+                                this.Txt_Descricao.Text = "Sem Descrição";
                             Lbl_Nome.Text = mySqlDataReader["NpcFullName"]?.ToString() ?? "";
                             Lbl_Raca.Text = mySqlDataReader["NpcRace"]?.ToString() ?? "";
                             Lbl_Classe.Text = mySqlDataReader["NpcClass"]?.ToString() ?? "";
@@ -824,7 +779,7 @@ namespace Master_Shield_System.Formularios.Npc
         {
             NpcDataInsert npcDataInsert = new NpcDataInsert();
             this.Controls.Clear();
-            npcDataInsert.SetDados(this.readBoardId, this.readCityId);
+            npcDataInsert.SetDados(this.readBoardId, this.readCityId, readCityName, readCityBiome);
             this.Controls.Add((Control)npcDataInsert);
             npcDataInsert.BringToFront();
         }
@@ -835,7 +790,7 @@ namespace Master_Shield_System.Formularios.Npc
             {
                 NpcDataUpdate npcDataUpdate = new NpcDataUpdate();
                 this.Controls.Clear();
-                npcDataUpdate.SetDados(npcId);
+                npcDataUpdate.SetDados(npcId, readCityName, readCityBiome);
                 this.Controls.Add((Control)npcDataUpdate);
                 npcDataUpdate.BringToFront();
             }

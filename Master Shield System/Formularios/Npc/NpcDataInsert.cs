@@ -32,10 +32,12 @@ namespace Master_Shield_System.Formularios.Npc
             this.Cbb_Moral.SelectedItem = (object)"Ordeiro e Bom";
         }
 
-        public void SetDados(int boardId, int cityId)
+        public void SetDados(int boardId, int cityId, string cityName, string cityBiome)
         {
             this.ConfirmBoardId = boardId;
             this.ConfirmCityId = cityId;
+            this.ConfirmCityName = cityName;
+            this.ConfirmCityBiome = cityBiome;
         }
 
         private NpcClass LeituraDeFormulario()
