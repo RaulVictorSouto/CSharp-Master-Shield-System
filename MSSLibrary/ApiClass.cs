@@ -59,7 +59,7 @@ namespace MSSLibrary
             },
                     generationConfig = new
                     {
-                        temperature = 0.7,
+                        temperature = 0.5,
                         topK = 40,
                         topP = 0.9,
                         maxOutputTokens = 600

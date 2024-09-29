@@ -39,7 +39,7 @@ namespace Master_Shield_System.Formularios.City
         private CityClass LeituraDeFormulario()
         {
             // Lê os dados do formulário e preenche a instância de CityClass
-            cc.CityName = Txt_NomeCampanha.Text;
+            cc.CityName = Txt_NomeCidade.Text;
             cc.CityBiome = Cbb_Bioma.Text;
             cc.CityDescription = Txt_descricao.Text;
 
@@ -99,7 +99,7 @@ namespace Master_Shield_System.Formularios.City
         private void LimparFormulario()
         {
             this.Cbb_Bioma.SelectedItem = (object)"Campos";
-            this.Txt_NomeCampanha.Text = "";
+            this.Txt_NomeCidade.Text = "";
             this.Txt_descricao.Text = "";
             this.Pcb_Imagem.Image = (Image)null;
             this.caminhoArquivoImagemCidade = (string)null;
@@ -165,12 +165,18 @@ namespace Master_Shield_System.Formularios.City
 
         private async void Btn_GerarDescricao_Click(object sender, EventArgs e)
         {
-            ApiClass.LoadApiKey();
-            await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCampanha.Text, this.Cbb_Bioma.Text);
-            this.Txt_descricao.Text = ApiClass.TextoGerado;
+            DialogResult result = MessageBox.Show($"Tem certeza que quer incluir uma descrição para a cidade {Txt_NomeCidade}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                ApiClass.LoadApiKey();
+                await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCidade.Text, this.Cbb_Bioma.Text);
+                this.Txt_descricao.Text = ApiClass.TextoGerado;
+            }
+              
         }
 
-        private void AtualizarEstadoBotoes() => Btn_ApagarImagem.Enabled = Pcb_Imagem.Image != null || cc.CityImage != null;
+
+    private void AtualizarEstadoBotoes() => Btn_ApagarImagem.Enabled = Pcb_Imagem.Image != null || cc.CityImage != null;
 
         
     }

@@ -32,7 +32,7 @@
             this.Cbb_Bioma = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Txt_NomeCampanha = new System.Windows.Forms.TextBox();
+            this.Txt_NomeCidade = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.groupBox1.Controls.Add(this.Cbb_Bioma);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Txt_NomeCampanha);
+            this.groupBox1.Controls.Add(this.Txt_NomeCidade);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1288, 95);
@@ -112,12 +112,12 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Nome da Cidade";
             // 
-            // Txt_NomeCampanha
+            // Txt_NomeCidade
             // 
-            this.Txt_NomeCampanha.Location = new System.Drawing.Point(10, 39);
-            this.Txt_NomeCampanha.Name = "Txt_NomeCampanha";
-            this.Txt_NomeCampanha.Size = new System.Drawing.Size(708, 20);
-            this.Txt_NomeCampanha.TabIndex = 7;
+            this.Txt_NomeCidade.Location = new System.Drawing.Point(10, 39);
+            this.Txt_NomeCidade.Name = "Txt_NomeCidade";
+            this.Txt_NomeCidade.Size = new System.Drawing.Size(708, 20);
+            this.Txt_NomeCidade.TabIndex = 7;
             // 
             // groupBox2
             // 
@@ -268,7 +268,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_NomeCampanha;
+        private System.Windows.Forms.TextBox Txt_NomeCidade;
         private System.Windows.Forms.ComboBox Cbb_Bioma;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox Txt_descricao;

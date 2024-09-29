@@ -234,10 +234,14 @@ namespace Master_Shield_System.Formularios.Npc
 
         private async void Btn_GerarDescricao_Click(object sender, EventArgs e)
         {
-            ApiClass.LoadApiKey();
-            await ApiClass.GerarTextoNpc(ApiClass.GeminiKey, this.Txt_Nome.Text, this.Txt_Sobrenome.Text, nm.readCityName, nm.readCityBiome, this.Cbb_Race.Text, this.Cbb_Class.Text, this.Cbb_Gender.Text, this.Cbb_Moral.Text, this.Txt_Nivel.Text, this.Txt_Hp.Text, this.Txt_Energia.Text, this.Txt_Forca.Text, this.Txt_Velocidade.Text, this.Txt_Carisma.Text, this.Txt_Sorte.Text, this.Txt_Inteligencia.Text);
-            this.Txt_Descricao.Text = ApiClass.TextoGerado;
-            nm = (NpcMain)null;
+            DialogResult result = MessageBox.Show($"Tem certeza que quer incluir uma descrição para o NPC {Txt_Nome.Text} {Txt_Sobrenome.Text}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                ApiClass.LoadApiKey();
+                await ApiClass.GerarTextoNpc(ApiClass.GeminiKey, this.Txt_Nome.Text, this.Txt_Sobrenome.Text, nm.readCityName, nm.readCityBiome, this.Cbb_Race.Text, this.Cbb_Class.Text, this.Cbb_Gender.Text, this.Cbb_Moral.Text, this.Txt_Nivel.Text, this.Txt_Hp.Text, this.Txt_Energia.Text, this.Txt_Forca.Text, this.Txt_Velocidade.Text, this.Txt_Carisma.Text, this.Txt_Sorte.Text, this.Txt_Inteligencia.Text);
+                this.Txt_Descricao.Text = ApiClass.TextoGerado;
+            }
+
         }
 
         private void Btn_IncluirImagem_Click_1(object sender, EventArgs e)

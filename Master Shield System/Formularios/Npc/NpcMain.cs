@@ -868,22 +868,22 @@ namespace Master_Shield_System.Formularios.Npc
                         if (reader.Read())
                         {
                             await ApiClass.GerarTextoNpc(ApiClass.GeminiKey,
-                                                         reader["NpcFirstName"].ToString(),
-                                                         reader["NpcLastName"].ToString(),
-                                                         this.readCityName,
-                                                         this.readCityBiome,
-                                                         reader["NpcRace"].ToString(),
-                                                         reader["NpcClass"].ToString(),
-                                                         reader["NpcGender"].ToString(),
-                                                         reader["NpcMoralAlignment"].ToString(),
-                                                         reader["NpcLevel"].ToString(),
-                                                         reader["NpcHp"].ToString(),
-                                                         reader["NpcEnergy"].ToString(),
-                                                         reader["NpcStrength"].ToString(),
-                                                         reader["NpcSpeed"].ToString(),
-                                                         reader["NpcCharisma"].ToString(),
-                                                         reader["NpcLuck"].ToString(),
-                                                         reader["NpcIntelligence"].ToString());
+                                                           reader["NpcFirstName"]?.ToString() ?? string.Empty,
+                                                           reader["NpcLastName"]?.ToString() ?? string.Empty,
+                                                           this.readCityName,
+                                                           this.readCityBiome,
+                                                           reader["NpcRace"]?.ToString() ?? string.Empty,
+                                                           reader["NpcClass"]?.ToString() ?? string.Empty,
+                                                           reader["NpcGender"]?.ToString() ?? string.Empty,
+                                                           reader["NpcMoralAlignment"]?.ToString() ?? string.Empty,
+                                                           reader["NpcLevel"]?.ToString() ?? string.Empty,
+                                                           reader["NpcHp"]?.ToString() ?? string.Empty,
+                                                           reader["NpcEnergy"]?.ToString() ?? string.Empty,
+                                                           reader["NpcStrength"]?.ToString() ?? string.Empty,
+                                                           reader["NpcSpeed"]?.ToString() ?? string.Empty,
+                                                           reader["NpcCharisma"]?.ToString() ?? string.Empty,
+                                                           reader["NpcLuck"]?.ToString() ?? string.Empty,
+                                                           reader["NpcIntelligence"]?.ToString() ?? string.Empty);
                         }
                         else
                         {
@@ -894,7 +894,7 @@ namespace Master_Shield_System.Formularios.Npc
 
                     string insertSql = "UPDATE sgrpg.tblnpc SET NpcDescription = @NpcDescription WHERE NpcId = @NpcId";
                     MySqlCommand insertCommand = new MySqlCommand(insertSql, cn);
-                    insertCommand.Parameters.AddWithValue("@NpcDescription", ApiClass.TextoGerado);
+                    insertCommand.Parameters.AddWithValue("@NpcDescription", ApiClass.TextoGerado ?? string.Empty); // Adicionando uma verificação para evitar null
                     insertCommand.Parameters.AddWithValue("@NpcId", npcId);
                     await insertCommand.ExecuteNonQueryAsync();
 

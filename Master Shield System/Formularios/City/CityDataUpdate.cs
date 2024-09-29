@@ -170,9 +170,13 @@ namespace Master_Shield_System.Formularios.City
 
         private async void Btn_GerarDescricao_Click(object sender, EventArgs e)
         {
-            ApiClass.LoadApiKey();
-            await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCidade.Text, this.Cbb_Bioma.Text);
-            this.Txt_descricao.Text = ApiClass.TextoGerado;
+            DialogResult result = MessageBox.Show($"Tem certeza que quer incluir uma descrição para a cidade {Txt_NomeCidade}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                ApiClass.LoadApiKey();
+                await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCidade.Text, this.Cbb_Bioma.Text);
+                this.Txt_descricao.Text = ApiClass.TextoGerado;
+            }
         }
 
         private void Btn_ApagarImagem_Click(object sender, EventArgs e)
