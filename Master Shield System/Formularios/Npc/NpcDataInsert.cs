@@ -15,8 +15,8 @@ namespace Master_Shield_System.Formularios.Npc
 {
     public partial class NpcDataInsert : UserControl
     {
-        private NpcClass nc = new NpcClass();
-        private NpcMain nm = new NpcMain();
+        public NpcClass nc = new NpcClass();
+        public NpcMain nm = new NpcMain();
         public int ConfirmBoardId;
         public int ConfirmCityId;
         private string caminhoArquivoImagem = "";
@@ -237,11 +237,49 @@ namespace Master_Shield_System.Formularios.Npc
             DialogResult result = MessageBox.Show($"Tem certeza que quer incluir uma descrição para o NPC {Txt_Nome.Text} {Txt_Sobrenome.Text}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                // Função para mapear o valor do atributo para a string adequada
+                string MapearAtributo(string atributo)
+                {
+                    if (int.TryParse(atributo, out int valor))
+                    {
+                        if (valor == 0) return "regular";
+                        if (valor >= 1 && valor <= 3) return "alto";
+                        if (valor > 3) return "muito alto";
+                        if (valor >= -3 && valor <= -1) return "baixo";
+                        if (valor < -3) return "muito baixo";
+                    }
+                    return "desconhecido"; // Valor padrão se houver algum erro
+                }
+
+                string forca = MapearAtributo(this.Txt_Forca.Text);
+                string velocidade = MapearAtributo(this.Txt_Velocidade.Text);
+                string carisma = MapearAtributo(this.Txt_Carisma.Text);
+                string sorte = MapearAtributo(this.Txt_Sorte.Text);
+                string inteligencia = MapearAtributo(this.Txt_Inteligencia.Text);
+
+                // Exibir os valores convertidos em um MessageBox
+                MessageBox.Show($"Força: {forca}\nVelocidade: {velocidade}\nCarisma: {carisma}\nSorte: {sorte}\nInteligência: {inteligencia}",
+                                "Atributos Enviados",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
                 ApiClass.LoadApiKey();
-                await ApiClass.GerarTextoNpc(ApiClass.GeminiKey, this.Txt_Nome.Text, this.Txt_Sobrenome.Text, nm.readCityName, nm.readCityBiome, this.Cbb_Race.Text, this.Cbb_Class.Text, this.Cbb_Gender.Text, this.Cbb_Moral.Text, this.Txt_Nivel.Text, this.Txt_Hp.Text, this.Txt_Energia.Text, this.Txt_Forca.Text, this.Txt_Velocidade.Text, this.Txt_Carisma.Text, this.Txt_Sorte.Text, this.Txt_Inteligencia.Text);
+                await ApiClass.GerarTextoNpc(ApiClass.GeminiKey,
+                                             this.Txt_Nome.Text,
+                                             this.Txt_Sobrenome.Text,
+                                             nm.readCityName,
+                                             nm.readCityBiome,
+                                             this.Cbb_Race.Text,
+                                             this.Cbb_Class.Text,
+                                             this.Cbb_Gender.Text,
+                                             this.Cbb_Moral.Text,
+                                             forca,
+                                             velocidade,
+                                             carisma,
+                                             sorte,
+                                             inteligencia);
                 this.Txt_Descricao.Text = ApiClass.TextoGerado;
             }
-
         }
 
         private void Btn_IncluirImagem_Click_1(object sender, EventArgs e)

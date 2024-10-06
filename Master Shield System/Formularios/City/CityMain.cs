@@ -28,6 +28,26 @@ namespace Master_Shield_System.Formularios.City
         public CityMain()
         {
             InitializeComponent();
+
+            // Verifica inicialmente se o DataGridView está vazio
+            VerificarLinhasDgvCity();
+
+            // Adiciona eventos para verificar quando linhas são adicionadas ou removidas
+            Dgv_City.RowsAdded += (s, e) => VerificarLinhasDgvCity();
+            Dgv_City.RowsRemoved += (s, e) => VerificarLinhasDgvCity();
+        }
+
+        // Método para verificar se há linhas no DataGridView
+        private void VerificarLinhasDgvCity()
+        {
+            if (Dgv_City.Rows.Count == 0)
+            {
+                Btn_Selecionar.Enabled = false;
+            }
+            else
+            {
+                Btn_Selecionar.Enabled = true;
+            }
         }
 
         public void SetBoardId(int ConfirmBoardId)
@@ -55,6 +75,8 @@ namespace Master_Shield_System.Formularios.City
             {
                 Cbb_Operadores.SelectedIndex = 0; // Seleciona o primeiro item
             }
+
+            
         }
 
         private void ConfigurarGradeCity()

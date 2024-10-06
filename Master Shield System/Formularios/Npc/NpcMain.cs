@@ -867,23 +867,40 @@ namespace Master_Shield_System.Formularios.Npc
                     {
                         if (reader.Read())
                         {
+                            // Função para mapear o valor do atributo para a string adequada
+                            string MapearAtributo(string atributo)
+                            {
+                                if (int.TryParse(atributo, out int valor))
+                                {
+                                    if (valor == 0) return "regular";
+                                    if (valor >= 1 && valor <= 3) return "alto";
+                                    if (valor > 3) return "muito alto";
+                                    if (valor >= -3 && valor <= -1) return "baixo";
+                                    if (valor < -3) return "muito baixo";
+                                }
+                                return "desconhecido"; // Valor padrão se houver algum erro
+                            }
+
+                            string forca = MapearAtributo(reader["NpcStrength"]?.ToString() ?? "0");
+                            string velocidade = MapearAtributo(reader["NpcSpeed"]?.ToString() ?? "0");
+                            string carisma = MapearAtributo(reader["NpcCharisma"]?.ToString() ?? "0");
+                            string sorte = MapearAtributo(reader["NpcLuck"]?.ToString() ?? "0");
+                            string inteligencia = MapearAtributo(reader["NpcIntelligence"]?.ToString() ?? "0");
+
                             await ApiClass.GerarTextoNpc(ApiClass.GeminiKey,
-                                                           reader["NpcFirstName"]?.ToString() ?? string.Empty,
-                                                           reader["NpcLastName"]?.ToString() ?? string.Empty,
-                                                           this.readCityName,
-                                                           this.readCityBiome,
-                                                           reader["NpcRace"]?.ToString() ?? string.Empty,
-                                                           reader["NpcClass"]?.ToString() ?? string.Empty,
-                                                           reader["NpcGender"]?.ToString() ?? string.Empty,
-                                                           reader["NpcMoralAlignment"]?.ToString() ?? string.Empty,
-                                                           reader["NpcLevel"]?.ToString() ?? string.Empty,
-                                                           reader["NpcHp"]?.ToString() ?? string.Empty,
-                                                           reader["NpcEnergy"]?.ToString() ?? string.Empty,
-                                                           reader["NpcStrength"]?.ToString() ?? string.Empty,
-                                                           reader["NpcSpeed"]?.ToString() ?? string.Empty,
-                                                           reader["NpcCharisma"]?.ToString() ?? string.Empty,
-                                                           reader["NpcLuck"]?.ToString() ?? string.Empty,
-                                                           reader["NpcIntelligence"]?.ToString() ?? string.Empty);
+                                                         reader["NpcFirstName"]?.ToString() ?? string.Empty,
+                                                         reader["NpcLastName"]?.ToString() ?? string.Empty,
+                                                         this.readCityName,
+                                                         this.readCityBiome,
+                                                         reader["NpcRace"]?.ToString() ?? string.Empty,
+                                                         reader["NpcClass"]?.ToString() ?? string.Empty,
+                                                         reader["NpcGender"]?.ToString() ?? string.Empty,
+                                                         reader["NpcMoralAlignment"]?.ToString() ?? string.Empty,
+                                                         forca,
+                                                         velocidade,
+                                                         carisma,
+                                                         sorte,
+                                                         inteligencia);
                         }
                         else
                         {
@@ -906,6 +923,7 @@ namespace Master_Shield_System.Formularios.Npc
                 MessageBox.Show("ERRO: " + ex.Message, "Ocorreu um erro ao gerar a descrição do NPC", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
+
 
 
         #endregion

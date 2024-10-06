@@ -25,6 +25,26 @@ namespace Master_Shield_System.Formularios.Board
         {
             InitializeComponent();
             this.Inicializar();
+
+            // Verifica inicialmente se o DataGridView está vazio
+            VerificarLinhasDgvBoard();
+
+            // Adiciona eventos para verificar quando linhas são adicionadas ou removidas
+            Dgv_Board.RowsAdded += (s, e) => VerificarLinhasDgvBoard();
+            Dgv_Board.RowsRemoved += (s, e) => VerificarLinhasDgvBoard();
+        }
+
+        // Método para verificar se há linhas no DataGridView
+        private void VerificarLinhasDgvBoard()
+        {
+            if (Dgv_Board.Rows.Count == 0)
+            {
+                Btn_Selecionar.Enabled = false;
+            }
+            else
+            {
+                Btn_Selecionar.Enabled = true;
+            }
         }
 
         private void Inicializar()

@@ -26,9 +26,6 @@ namespace MSSLibrary
             string classe,
             string genero,
             string moral,
-            string nivel,
-            string hp,
-            string energia,
             string forca,
             string velocidade,
             string inteligencia,
@@ -42,7 +39,7 @@ namespace MSSLibrary
                 progressForm.Show();
                 Cursor.Current = Cursors.WaitCursor;
 
-                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Alinhamento Moral: {moral} Nível: {nivel}, HP: {hp}, Energia: {energia}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}. Considere que, no que tange os atributos numéricos, -6 é horrível e 6 é ótimo";
+                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Alinhamento Moral: {moral}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}.";
 
                 var jsonBody = new
                 {
@@ -59,7 +56,7 @@ namespace MSSLibrary
             },
                     generationConfig = new
                     {
-                        temperature = 0.5,
+                        temperature = 0.7,
                         topK = 40,
                         topP = 0.9,
                         maxOutputTokens = 600
