@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Cbb_Profession = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.Cbb_Status = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.Cbb_Moral = new System.Windows.Forms.ComboBox();
@@ -45,6 +47,10 @@
             this.Cbb_Race = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.Txt_ResMental = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Txt_ResFis = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.Txt_Sorte = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -106,7 +112,7 @@
             this.Txt_Sobrenome.Location = new System.Drawing.Point(577, 39);
             this.Txt_Sobrenome.Name = "Txt_Sobrenome";
             this.Txt_Sobrenome.Size = new System.Drawing.Size(665, 20);
-            this.Txt_Sobrenome.TabIndex = 11;
+            this.Txt_Sobrenome.TabIndex = 2;
             // 
             // label1
             // 
@@ -123,10 +129,12 @@
             this.Txt_Nome.Location = new System.Drawing.Point(10, 39);
             this.Txt_Nome.Name = "Txt_Nome";
             this.Txt_Nome.Size = new System.Drawing.Size(538, 20);
-            this.Txt_Nome.TabIndex = 9;
+            this.Txt_Nome.TabIndex = 1;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Cbb_Profession);
+            this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.Cbb_Status);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.Cbb_Moral);
@@ -143,6 +151,67 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // Cbb_Profession
+            // 
+            this.Cbb_Profession.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbb_Profession.FormattingEnabled = true;
+            this.Cbb_Profession.Items.AddRange(new object[] {
+            "Sem Profissão",
+            "Alquimista",
+            "Apostador",
+            "Artesão",
+            "Botânico",
+            "Camponês",
+            "Carpinteiro",
+            "Caçador",
+            "Cavaleiro",
+            "Ceramista",
+            "Comerciante",
+            "Contador",
+            "Cozinheiro",
+            "Diplomata",
+            "Domador de Animais",
+            "Escudeiro",
+            "Espião",
+            "Ferreiro",
+            "Guarda",
+            "Joalheiro",
+            "Lenhador",
+            "Líder Tribal",
+            "Líder Religioso",
+            "Médico",
+            "Mendigo",
+            "Mercenário",
+            "Mestre de Armas",
+            "Músico",
+            "Navegador",
+            "Nobre",
+            "Padre",
+            "Pecuarista",
+            "Pescador",
+            "Prefeito",
+            "Sacerdote",
+            "Soldado",
+            "Tecelão",
+            "Taverneiro",
+            "Vendedor Ambulante",
+            "Vidente",
+            "Outro"});
+            this.Cbb_Profession.Location = new System.Drawing.Point(10, 98);
+            this.Cbb_Profession.Name = "Cbb_Profession";
+            this.Cbb_Profession.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Profession.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(6, 76);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 20);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "Profissão";
+            // 
             // Cbb_Status
             // 
             this.Cbb_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -150,16 +219,16 @@
             this.Cbb_Status.Items.AddRange(new object[] {
             "Vivo",
             "Morto"});
-            this.Cbb_Status.Location = new System.Drawing.Point(252, 99);
+            this.Cbb_Status.Location = new System.Drawing.Point(492, 99);
             this.Cbb_Status.Name = "Cbb_Status";
             this.Cbb_Status.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Status.TabIndex = 36;
+            this.Cbb_Status.TabIndex = 8;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(248, 76);
+            this.label14.Location = new System.Drawing.Point(488, 76);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(48, 20);
             this.label14.TabIndex = 35;
@@ -179,16 +248,16 @@
             "Caótico e Bom",
             "Caótico e Neutro",
             "Caótico e Mau"});
-            this.Cbb_Moral.Location = new System.Drawing.Point(10, 99);
+            this.Cbb_Moral.Location = new System.Drawing.Point(252, 99);
             this.Cbb_Moral.Name = "Cbb_Moral";
             this.Cbb_Moral.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Moral.TabIndex = 34;
+            this.Cbb_Moral.TabIndex = 7;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(6, 77);
+            this.label15.Location = new System.Drawing.Point(248, 76);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(127, 20);
             this.label15.TabIndex = 33;
@@ -205,7 +274,7 @@
             this.Cbb_Gender.Location = new System.Drawing.Point(492, 49);
             this.Cbb_Gender.Name = "Cbb_Gender";
             this.Cbb_Gender.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Gender.TabIndex = 32;
+            this.Cbb_Gender.TabIndex = 5;
             // 
             // label13
             // 
@@ -235,7 +304,7 @@
             this.Cbb_Class.Location = new System.Drawing.Point(252, 49);
             this.Cbb_Class.Name = "Cbb_Class";
             this.Cbb_Class.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Class.TabIndex = 30;
+            this.Cbb_Class.TabIndex = 4;
             // 
             // label12
             // 
@@ -261,7 +330,7 @@
             this.Cbb_Race.Location = new System.Drawing.Point(10, 49);
             this.Cbb_Race.Name = "Cbb_Race";
             this.Cbb_Race.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Race.TabIndex = 28;
+            this.Cbb_Race.TabIndex = 3;
             // 
             // label11
             // 
@@ -275,6 +344,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.Txt_ResMental);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.Txt_ResFis);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.Txt_Sorte);
             this.groupBox3.Controls.Add(this.label9);
@@ -297,6 +370,44 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(415, 25);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 20);
+            this.label20.TabIndex = 30;
+            this.label20.Text = "Res. Mental";
+            // 
+            // Txt_ResMental
+            // 
+            this.Txt_ResMental.Location = new System.Drawing.Point(418, 48);
+            this.Txt_ResMental.Name = "Txt_ResMental";
+            this.Txt_ResMental.Size = new System.Drawing.Size(77, 20);
+            this.Txt_ResMental.TabIndex = 13;
+            this.Txt_ResMental.Text = "0";
+            this.Txt_ResMental.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_ResMental_KeyPress);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(317, 25);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(63, 20);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "Res. Fis.";
+            // 
+            // Txt_ResFis
+            // 
+            this.Txt_ResFis.Location = new System.Drawing.Point(320, 48);
+            this.Txt_ResFis.Name = "Txt_ResFis";
+            this.Txt_ResFis.Size = new System.Drawing.Size(77, 20);
+            this.Txt_ResFis.TabIndex = 12;
+            this.Txt_ResFis.Text = "0";
+            this.Txt_ResFis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_ResFis_KeyPress);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -312,7 +423,7 @@
             this.Txt_Sorte.Location = new System.Drawing.Point(418, 99);
             this.Txt_Sorte.Name = "Txt_Sorte";
             this.Txt_Sorte.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Sorte.TabIndex = 25;
+            this.Txt_Sorte.TabIndex = 18;
             this.Txt_Sorte.Text = "0";
             this.Txt_Sorte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Sorte_KeyPress);
             // 
@@ -331,7 +442,7 @@
             this.Txt_Carisma.Location = new System.Drawing.Point(320, 99);
             this.Txt_Carisma.Name = "Txt_Carisma";
             this.Txt_Carisma.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Carisma.TabIndex = 23;
+            this.Txt_Carisma.TabIndex = 17;
             this.Txt_Carisma.Text = "0";
             this.Txt_Carisma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Carisma_KeyPress);
             // 
@@ -350,7 +461,7 @@
             this.Txt_Inteligencia.Location = new System.Drawing.Point(222, 99);
             this.Txt_Inteligencia.Name = "Txt_Inteligencia";
             this.Txt_Inteligencia.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Inteligencia.TabIndex = 21;
+            this.Txt_Inteligencia.TabIndex = 16;
             this.Txt_Inteligencia.Text = "0";
             this.Txt_Inteligencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Inteligencia_KeyPress);
             // 
@@ -369,7 +480,7 @@
             this.Txt_Velocidade.Location = new System.Drawing.Point(124, 99);
             this.Txt_Velocidade.Name = "Txt_Velocidade";
             this.Txt_Velocidade.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Velocidade.TabIndex = 19;
+            this.Txt_Velocidade.TabIndex = 15;
             this.Txt_Velocidade.Text = "0";
             this.Txt_Velocidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Velocidade_KeyPress);
             // 
@@ -388,7 +499,7 @@
             this.Txt_Forca.Location = new System.Drawing.Point(26, 99);
             this.Txt_Forca.Name = "Txt_Forca";
             this.Txt_Forca.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Forca.TabIndex = 17;
+            this.Txt_Forca.TabIndex = 14;
             this.Txt_Forca.Text = "0";
             this.Txt_Forca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Forca_KeyPress);
             // 
@@ -407,7 +518,7 @@
             this.Txt_Energia.Location = new System.Drawing.Point(218, 48);
             this.Txt_Energia.Name = "Txt_Energia";
             this.Txt_Energia.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Energia.TabIndex = 15;
+            this.Txt_Energia.TabIndex = 11;
             this.Txt_Energia.Text = "0";
             this.Txt_Energia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Energia_KeyPress);
             // 
@@ -426,7 +537,7 @@
             this.Txt_Hp.Location = new System.Drawing.Point(122, 48);
             this.Txt_Hp.Name = "Txt_Hp";
             this.Txt_Hp.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Hp.TabIndex = 13;
+            this.Txt_Hp.TabIndex = 10;
             this.Txt_Hp.Text = "0";
             this.Txt_Hp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Hp_KeyPress);
             // 
@@ -445,7 +556,7 @@
             this.Txt_Nivel.Location = new System.Drawing.Point(26, 48);
             this.Txt_Nivel.Name = "Txt_Nivel";
             this.Txt_Nivel.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Nivel.TabIndex = 11;
+            this.Txt_Nivel.TabIndex = 9;
             this.Txt_Nivel.Text = "0";
             this.Txt_Nivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Nivel_KeyPress);
             // 
@@ -471,7 +582,7 @@
             this.Btn_IncluirImagem.Location = new System.Drawing.Point(1135, 274);
             this.Btn_IncluirImagem.Name = "Btn_IncluirImagem";
             this.Btn_IncluirImagem.Size = new System.Drawing.Size(114, 29);
-            this.Btn_IncluirImagem.TabIndex = 18;
+            this.Btn_IncluirImagem.TabIndex = 21;
             this.Btn_IncluirImagem.Text = "Adicionar imagem";
             this.Btn_IncluirImagem.UseVisualStyleBackColor = true;
             this.Btn_IncluirImagem.Click += new System.EventHandler(this.Btn_IncluirImagem_Click_1);
@@ -484,7 +595,7 @@
             this.Btn_ApagarImagem.Location = new System.Drawing.Point(1085, 274);
             this.Btn_ApagarImagem.Name = "Btn_ApagarImagem";
             this.Btn_ApagarImagem.Size = new System.Drawing.Size(44, 29);
-            this.Btn_ApagarImagem.TabIndex = 17;
+            this.Btn_ApagarImagem.TabIndex = 20;
             this.Btn_ApagarImagem.UseVisualStyleBackColor = true;
             this.Btn_ApagarImagem.Click += new System.EventHandler(this.Btn_ApagarImagem_Click);
             // 
@@ -495,7 +606,7 @@
             this.Btn_GerarDescricao.Location = new System.Drawing.Point(842, 275);
             this.Btn_GerarDescricao.Name = "Btn_GerarDescricao";
             this.Btn_GerarDescricao.Size = new System.Drawing.Size(113, 29);
-            this.Btn_GerarDescricao.TabIndex = 16;
+            this.Btn_GerarDescricao.TabIndex = 20;
             this.Btn_GerarDescricao.Text = "Gerar Descrição";
             this.Btn_GerarDescricao.UseVisualStyleBackColor = true;
             this.Btn_GerarDescricao.Click += new System.EventHandler(this.Btn_GerarDescricao_Click);
@@ -534,7 +645,7 @@
             this.Txt_Descricao.Location = new System.Drawing.Point(10, 39);
             this.Txt_Descricao.Name = "Txt_Descricao";
             this.Txt_Descricao.Size = new System.Drawing.Size(945, 230);
-            this.Txt_Descricao.TabIndex = 1;
+            this.Txt_Descricao.TabIndex = 19;
             this.Txt_Descricao.Text = "";
             // 
             // Btn_Limpar
@@ -556,7 +667,7 @@
             this.Btn_Incluir.Location = new System.Drawing.Point(1203, 582);
             this.Btn_Incluir.Name = "Btn_Incluir";
             this.Btn_Incluir.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Incluir.TabIndex = 22;
+            this.Btn_Incluir.TabIndex = 24;
             this.Btn_Incluir.Text = "Incluir";
             this.Btn_Incluir.UseVisualStyleBackColor = true;
             this.Btn_Incluir.Click += new System.EventHandler(this.Btn_Incluir_Click);
@@ -568,7 +679,7 @@
             this.Btn_Retornar.Location = new System.Drawing.Point(23, 582);
             this.Btn_Retornar.Name = "Btn_Retornar";
             this.Btn_Retornar.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Retornar.TabIndex = 21;
+            this.Btn_Retornar.TabIndex = 22;
             this.Btn_Retornar.Text = "Retornar";
             this.Btn_Retornar.UseVisualStyleBackColor = true;
             this.Btn_Retornar.Click += new System.EventHandler(this.Btn_Retornar_Click);
@@ -645,5 +756,11 @@
         private System.Windows.Forms.Button Btn_Limpar;
         private System.Windows.Forms.Button Btn_Incluir;
         private System.Windows.Forms.Button Btn_Retornar;
+        private System.Windows.Forms.ComboBox Cbb_Profession;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox Txt_ResFis;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox Txt_ResMental;
     }
 }

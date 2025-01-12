@@ -361,7 +361,7 @@ namespace Master_Shield_System.Formularios.Npc
 
             // Configurações da coluna "Nome"
             Dgv_Npc.Columns["NpcFullName"].HeaderText = "Nome";
-            Dgv_Npc.Columns["NpcFullName"].Width = 210;
+            Dgv_Npc.Columns["NpcFullName"].Width = 200;
 
             // Configurações da coluna "Raça"
             Dgv_Npc.Columns["NpcRace"].HeaderText = "Raça";
@@ -369,15 +369,18 @@ namespace Master_Shield_System.Formularios.Npc
 
             // Configurações da coluna "Classe"
             Dgv_Npc.Columns["NpcClass"].HeaderText = "Classe";
-            Dgv_Npc.Columns["NpcClass"].Width = 160;
+            Dgv_Npc.Columns["NpcClass"].Width = 120;
 
             // Configurações da coluna "Gênero"
             Dgv_Npc.Columns["NpcGender"].HeaderText = "Gênero";
-            Dgv_Npc.Columns["NpcGender"].Width = 180;
+            Dgv_Npc.Columns["NpcGender"].Width = 120;
+
+            Dgv_Npc.Columns["NpcProfession"].HeaderText = "Profissão";
+            Dgv_Npc.Columns["NpcProfession"].Width = 120;
 
             // Configurações da coluna "Alinhamento"
             Dgv_Npc.Columns["NpcMoralAlignment"].HeaderText = "Alinhamento";
-            Dgv_Npc.Columns["NpcMoralAlignment"].Width = 120;
+            Dgv_Npc.Columns["NpcMoralAlignment"].Width = 130;
 
             // Configurações da coluna "Status"
             Dgv_Npc.Columns["NpcIsDead"].HeaderText = "Status";
@@ -395,6 +398,8 @@ namespace Master_Shield_System.Formularios.Npc
             Dgv_Npc.Columns["NpcIntelligence"].Visible = false;
             Dgv_Npc.Columns["NpcImage"].Visible = false;
             Dgv_Npc.Columns["NpcDescription"].Visible = false;
+            Dgv_Npc.Columns["NpcPhysicalResistance"].Visible = false;
+            Dgv_Npc.Columns["NpcMentalResistance"].Visible = false;
 
             int contarColunas = Dgv_Npc.Columns.Count;
 
@@ -886,6 +891,8 @@ namespace Master_Shield_System.Formularios.Npc
                             string carisma = MapearAtributo(reader["NpcCharisma"]?.ToString() ?? "0");
                             string sorte = MapearAtributo(reader["NpcLuck"]?.ToString() ?? "0");
                             string inteligencia = MapearAtributo(reader["NpcIntelligence"]?.ToString() ?? "0");
+                            string fisica = MapearAtributo(reader["NpcPhysicalResistance"]?.ToString() ?? "0");
+                            string mental = MapearAtributo(reader["NpcMentalResistance"]?.ToString() ?? "0");
 
                             await ApiClass.GerarTextoNpc(ApiClass.GeminiKey,
                                                          reader["NpcFirstName"]?.ToString() ?? string.Empty,
@@ -894,13 +901,16 @@ namespace Master_Shield_System.Formularios.Npc
                                                          this.readCityBiome,
                                                          reader["NpcRace"]?.ToString() ?? string.Empty,
                                                          reader["NpcClass"]?.ToString() ?? string.Empty,
+                                                         reader["NpcProfession"]?.ToString() ?? string.Empty,
                                                          reader["NpcGender"]?.ToString() ?? string.Empty,
                                                          reader["NpcMoralAlignment"]?.ToString() ?? string.Empty,
                                                          forca,
                                                          velocidade,
                                                          carisma,
                                                          sorte,
-                                                         inteligencia);
+                                                         inteligencia,
+                                                         fisica,
+                                                         mental);
                         }
                         else
                         {

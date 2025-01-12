@@ -28,53 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Txt_Descricao = new System.Windows.Forms.RichTextBox();
+            this.Pcb_City = new System.Windows.Forms.PictureBox();
             this.Btn_Incluir = new System.Windows.Forms.Button();
             this.Cbb_Operadores = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Pesquisar = new System.Windows.Forms.Button();
             this.Txt_pesquisa = new System.Windows.Forms.TextBox();
             this.Dgv_City = new System.Windows.Forms.DataGridView();
+            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.Cbb_CityFilter = new System.Windows.Forms.ComboBox();
             this.Btn_Selecionar = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Pcb_City = new System.Windows.Forms.PictureBox();
-            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.excluir = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_City)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_City)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_City)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Txt_Descricao);
             this.groupBox1.Controls.Add(this.Pcb_City);
-            this.groupBox1.Location = new System.Drawing.Point(739, 102);
+            this.groupBox1.Location = new System.Drawing.Point(775, 101);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(553, 455);
+            this.groupBox1.Size = new System.Drawing.Size(517, 455);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
             // Txt_Descricao
             // 
             this.Txt_Descricao.Font = new System.Drawing.Font("Baskerville Old Face", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Descricao.Location = new System.Drawing.Point(6, 19);
+            this.Txt_Descricao.Location = new System.Drawing.Point(15, 19);
             this.Txt_Descricao.Name = "Txt_Descricao";
             this.Txt_Descricao.ReadOnly = true;
-            this.Txt_Descricao.Size = new System.Drawing.Size(538, 156);
+            this.Txt_Descricao.Size = new System.Drawing.Size(487, 156);
             this.Txt_Descricao.TabIndex = 4;
             this.Txt_Descricao.Text = "";
+            // 
+            // Pcb_City
+            // 
+            this.Pcb_City.Location = new System.Drawing.Point(15, 181);
+            this.Pcb_City.Name = "Pcb_City";
+            this.Pcb_City.Size = new System.Drawing.Size(487, 268);
+            this.Pcb_City.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pcb_City.TabIndex = 3;
+            this.Pcb_City.TabStop = false;
             // 
             // Btn_Incluir
             // 
             this.Btn_Incluir.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Incluir.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Incluir.Location = new System.Drawing.Point(620, 564);
+            this.Btn_Incluir.Location = new System.Drawing.Point(656, 564);
             this.Btn_Incluir.Name = "Btn_Incluir";
             this.Btn_Incluir.Size = new System.Drawing.Size(113, 23);
             this.Btn_Incluir.TabIndex = 12;
@@ -131,17 +140,17 @@
             // Dgv_City
             // 
             this.Dgv_City.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.Dgv_City.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            this.Dgv_City.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Dgv_City.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_City.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_City.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Dgv_City.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_City.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.editar,
@@ -149,11 +158,27 @@
             this.Dgv_City.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Dgv_City.Location = new System.Drawing.Point(24, 101);
             this.Dgv_City.Name = "Dgv_City";
-            this.Dgv_City.Size = new System.Drawing.Size(709, 456);
+            this.Dgv_City.Size = new System.Drawing.Size(745, 456);
             this.Dgv_City.TabIndex = 9;
             this.Dgv_City.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_City_CellClick_1);
             this.Dgv_City.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_City_CellContentClick);
             this.Dgv_City.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_City_CellContentDoubleClick);
+            // 
+            // editar
+            // 
+            this.editar.HeaderText = "";
+            this.editar.Image = global::Master_Shield_System.Properties.Resources.editar1;
+            this.editar.Name = "editar";
+            this.editar.ToolTipText = "Clique aqui para editar";
+            this.editar.Width = 25;
+            // 
+            // excluir
+            // 
+            this.excluir.HeaderText = "";
+            this.excluir.Image = global::Master_Shield_System.Properties.Resources.excluir1;
+            this.excluir.Name = "excluir";
+            this.excluir.ToolTipText = "Clique aqui para excluir";
+            this.excluir.Width = 25;
             // 
             // Cbb_CityFilter
             // 
@@ -197,31 +222,6 @@
             this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
             this.dataGridViewImageColumn2.Width = 25;
             // 
-            // Pcb_City
-            // 
-            this.Pcb_City.Location = new System.Drawing.Point(6, 181);
-            this.Pcb_City.Name = "Pcb_City";
-            this.Pcb_City.Size = new System.Drawing.Size(538, 268);
-            this.Pcb_City.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Pcb_City.TabIndex = 3;
-            this.Pcb_City.TabStop = false;
-            // 
-            // editar
-            // 
-            this.editar.HeaderText = "";
-            this.editar.Image = global::Master_Shield_System.Properties.Resources.editar1;
-            this.editar.Name = "editar";
-            this.editar.ToolTipText = "Clique aqui para editar";
-            this.editar.Width = 25;
-            // 
-            // excluir
-            // 
-            this.excluir.HeaderText = "";
-            this.excluir.Image = global::Master_Shield_System.Properties.Resources.excluir1;
-            this.excluir.Name = "excluir";
-            this.excluir.ToolTipText = "Clique aqui para excluir";
-            this.excluir.Width = 25;
-            // 
             // CityMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,8 +238,8 @@
             this.Name = "CityMain";
             this.Size = new System.Drawing.Size(1336, 641);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_City)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_City)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_City)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -24,13 +24,16 @@ namespace MSSLibrary
             string bioma,
             string raca,
             string classe,
+            string profissao,
             string genero,
             string moral,
             string forca,
             string velocidade,
             string inteligencia,
             string carisma,
-            string sorte)
+            string sorte,
+            string fisica,
+            string mental)
         {
             ProgressForm progressForm = null;
             try
@@ -39,7 +42,7 @@ namespace MSSLibrary
                 progressForm.Show();
                 Cursor.Current = Cursors.WaitCursor;
 
-                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome}, Sobrenome: {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Alinhamento Moral: {moral}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}.";
+                string promptString = $"Crie uma descrição resumida para um NPC de RPG, separada APENAS pelos seguintes tópicos: backstory, características físicas e sidequest (além de suas recompensas). Para isso, siga os seguintes atributos: Nome: {nome} {sobrenome}, Localização: {localizacao} ({bioma}), Raça: {raca}, Classe: {classe}, Gênero: {genero}, Profissão: {profissao}, Alinhamento Moral: {moral}, Força: {forca}, Velocidade: {velocidade}, Inteligência: {inteligencia}, Carisma: {carisma}, Sorte: {sorte}, Resistência Física: {fisica}, Resistência Mental: {mental}.";
 
                 var jsonBody = new
                 {
@@ -56,7 +59,7 @@ namespace MSSLibrary
             },
                     generationConfig = new
                     {
-                        temperature = 0.7,
+                        temperature = 0.8,
                         topK = 40,
                         topP = 0.9,
                         maxOutputTokens = 600
@@ -127,7 +130,7 @@ namespace MSSLibrary
 
 
 
-        public static async Task GerarTextoCidade(string apiKey, string nome, string bioma)
+        public static async Task GerarTextoCidade(string apiKey, string nome, string bioma, string reputacao)
         {
             ProgressForm progressForm = null;
             try
@@ -138,7 +141,7 @@ namespace MSSLibrary
                 Cursor.Current = Cursors.WaitCursor;
 
                 // Constrói o prompt para a geração de conteúdo
-                string promptString = $"Crie uma descrição resumida para uma cidade/localização de RPG com as seguintes características: Nome: {nome}, Bioma: {bioma}.";
+                string promptString = $"Crie uma descrição resumida para uma cidade/localização de RPG com as seguintes características: Nome: {nome}, Bioma: {bioma}, Reputação dos Habitantes: {reputacao}.";
 
                 // Cria o corpo da requisição JSON
                 var jsonBody = new

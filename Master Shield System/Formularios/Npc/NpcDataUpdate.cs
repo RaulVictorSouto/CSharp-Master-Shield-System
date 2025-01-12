@@ -59,6 +59,8 @@ namespace Master_Shield_System.Formularios.Npc
                             this.Txt_Carisma.Text = mySqlDataReader["NpcCharisma"].ToString();
                             this.Txt_Sorte.Text = mySqlDataReader["NpcLuck"].ToString();
                             this.Txt_Descricao.Text = mySqlDataReader["NpcDescription"].ToString();
+                            this.Txt_ResMental.Text = mySqlDataReader["NpcMentalResistance"].ToString();
+                            this.Txt_ResFis.Text = mySqlDataReader["NpcPhysicalResistance"].ToString();
                             string str1 = mySqlDataReader["NpcRace"].ToString();
                             if (this.Cbb_Race.Items.Contains((object)str1))
                                 this.Cbb_Race.SelectedItem = (object)str1;
@@ -71,6 +73,9 @@ namespace Master_Shield_System.Formularios.Npc
                             string str4 = mySqlDataReader["NpcGender"].ToString();
                             if (this.Cbb_Genero.Items.Contains((object)str4))
                                 this.Cbb_Genero.SelectedItem = (object)str4;
+                            string str5 = mySqlDataReader["NpcProfession"].ToString();
+                            if (this.Cbb_Profession.Items.Contains((object)str5))
+                                this.Cbb_Profession.SelectedItem = (object)str5;
                             this.Cbb_Status.SelectedItem = !Convert.ToBoolean(mySqlDataReader["NpcIsDead"]) ? (object)"Vivo" : (object)"Morto";
                             if (!mySqlDataReader.IsDBNull(mySqlDataReader.GetOrdinal("NpcImage")))
                             {
@@ -193,6 +198,22 @@ namespace Master_Shield_System.Formularios.Npc
                 return;
             e.Handled = true;
         }
+
+        private void Txt_ResFis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NpcDataInsert.IntNumber(e);
+            if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
+                return;
+            e.Handled = true;
+        }
+
+        private void Txt_ResMental_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NpcDataInsert.IntNumber(e);
+            if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
+                return;
+            e.Handled = true;
+        }
         #endregion
 
         private void Btn_IncluirImagem_Click(object sender, EventArgs e)
@@ -243,6 +264,8 @@ namespace Master_Shield_System.Formularios.Npc
                 string carisma = MapearAtributo(this.Txt_Carisma.Text);
                 string sorte = MapearAtributo(this.Txt_Sorte.Text);
                 string inteligencia = MapearAtributo(this.Txt_Inteligencia.Text);
+                string fisica = MapearAtributo(this.Txt_ResFis.Text);
+                string mental = MapearAtributo(this.Txt_ResMental.Text);
 
                 ApiClass.LoadApiKey();
                 await ApiClass.GerarTextoNpc(ApiClass.GeminiKey,
@@ -252,13 +275,16 @@ namespace Master_Shield_System.Formularios.Npc
                                              nm.readCityBiome,
                                              this.Cbb_Race.Text,
                                              this.Cbb_Class.Text,
+                                             this.Cbb_Profession.Text,
                                              this.Cbb_Genero.Text,
                                              this.Cbb_Moral.Text,
                                              forca,
                                              velocidade,
                                              carisma,
                                              sorte,
-                                             inteligencia);
+                                             inteligencia,
+                                             fisica,
+                                             mental);
                 this.Txt_Descricao.Text = ApiClass.TextoGerado;
             }
         }
@@ -284,6 +310,7 @@ namespace Master_Shield_System.Formularios.Npc
             this.Cbb_Genero.SelectedItem = (object)"Masculino";
             this.Cbb_Status.SelectedItem = (object)"Vivo";
             this.Cbb_Moral.SelectedItem = (object)"Ordeiro e Bom";
+            this.Cbb_Profession.SelectedItem = (object)"Sem Profissão";
             this.Txt_Nivel.Text = "0";
             this.Txt_Hp.Text = "0";
             this.Txt_Energia.Text = "0";
@@ -293,6 +320,8 @@ namespace Master_Shield_System.Formularios.Npc
             this.Txt_Sorte.Text = "0";
             this.Txt_Inteligencia.Text = "0";
             this.Txt_Descricao.Text = "";
+            this.Txt_ResFis.Text = "0";
+            this.Txt_ResMental.Text = "0";
             this.Pcb_Image.Image = (Image)null;
             this.caminhoArquivoImagem = (string)null;
             this.nc.NpcImage = (byte[])null;
@@ -310,6 +339,8 @@ namespace Master_Shield_System.Formularios.Npc
                 int result6;
                 int result7;
                 int result8;
+                int result9;
+                int result10;
 
                 // Criação da instância de NpcClass e preenchimento dos campos
                 NpcClass npcClass = new NpcClass()
@@ -321,6 +352,7 @@ namespace Master_Shield_System.Formularios.Npc
                     NpcCls = this.Cbb_Class.SelectedItem?.ToString(),
                     NpcGender = this.Cbb_Genero.SelectedItem?.ToString(),
                     NpcMoral = this.Cbb_Moral.SelectedItem?.ToString(),
+                    NpcProfession = this.Cbb_Profession.SelectedItem?.ToString(),
                     NpcHp = int.TryParse(this.Txt_Hp.Text.Trim(), out result1) ? result1 : 0,
                     NpcLevel = int.TryParse(this.Txt_Nivel.Text.Trim(), out result2) ? result2 : 0,
                     NpcEnergy = int.TryParse(this.Txt_Energia.Text.Trim(), out result3) ? result3 : 0,
@@ -330,6 +362,8 @@ namespace Master_Shield_System.Formularios.Npc
                     NpcIntelligence = int.TryParse(this.Txt_Inteligencia.Text.Trim(), out result6) ? result6 : 0,
                     NpcCharisma = int.TryParse(this.Txt_Carisma.Text.Trim(), out result7) ? result7 : 0,
                     NpcLuck = int.TryParse(this.Txt_Sorte.Text.Trim(), out result8) ? result8 : 0,
+                    NpcPhysicalResistance = int.TryParse(this.Txt_ResFis.Text.Trim(), out result9) ? result9 : 0,
+                    NpcMentalResistance = int.TryParse(this.Txt_ResMental.Text.Trim(), out result10) ? result10 : 0,
                     NpcDescription = this.Txt_Descricao.Text.Trim()
                 };
 
@@ -392,6 +426,6 @@ namespace Master_Shield_System.Formularios.Npc
             }
         }
 
-    
+   
     }
 }

@@ -44,6 +44,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.Txt_Carisma = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.Txt_ResMental = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Txt_ResFis = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Txt_Inteligencia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,6 +61,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_Nivel = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Cbb_Profession = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.Cbb_Status = new System.Windows.Forms.ComboBox();
             this.Cbb_Moral = new System.Windows.Forms.ComboBox();
             this.Cbb_Genero = new System.Windows.Forms.ComboBox();
@@ -86,7 +92,7 @@
             this.Btn_Limpar.Location = new System.Drawing.Point(1116, 588);
             this.Btn_Limpar.Name = "Btn_Limpar";
             this.Btn_Limpar.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Limpar.TabIndex = 30;
+            this.Btn_Limpar.TabIndex = 24;
             this.Btn_Limpar.Text = "Limpar";
             this.Btn_Limpar.UseVisualStyleBackColor = true;
             this.Btn_Limpar.Click += new System.EventHandler(this.Btn_Limpar_Click);
@@ -98,7 +104,7 @@
             this.Btn_Retornar.Location = new System.Drawing.Point(33, 588);
             this.Btn_Retornar.Name = "Btn_Retornar";
             this.Btn_Retornar.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Retornar.TabIndex = 28;
+            this.Btn_Retornar.TabIndex = 23;
             this.Btn_Retornar.Text = "Retornar";
             this.Btn_Retornar.UseVisualStyleBackColor = true;
             this.Btn_Retornar.Click += new System.EventHandler(this.Btn_Retornar_Click);
@@ -110,7 +116,7 @@
             this.Btn_IncluirImagem.Location = new System.Drawing.Point(1135, 274);
             this.Btn_IncluirImagem.Name = "Btn_IncluirImagem";
             this.Btn_IncluirImagem.Size = new System.Drawing.Size(114, 29);
-            this.Btn_IncluirImagem.TabIndex = 18;
+            this.Btn_IncluirImagem.TabIndex = 22;
             this.Btn_IncluirImagem.Text = "Adicionar imagem";
             this.Btn_IncluirImagem.UseVisualStyleBackColor = true;
             this.Btn_IncluirImagem.Click += new System.EventHandler(this.Btn_IncluirImagem_Click);
@@ -123,7 +129,7 @@
             this.Btn_ApagarImagem.Location = new System.Drawing.Point(1085, 274);
             this.Btn_ApagarImagem.Name = "Btn_ApagarImagem";
             this.Btn_ApagarImagem.Size = new System.Drawing.Size(44, 29);
-            this.Btn_ApagarImagem.TabIndex = 17;
+            this.Btn_ApagarImagem.TabIndex = 21;
             this.Btn_ApagarImagem.UseVisualStyleBackColor = true;
             this.Btn_ApagarImagem.Click += new System.EventHandler(this.Btn_ApagarImagem_Click);
             // 
@@ -134,7 +140,7 @@
             this.Btn_GerarDescricao.Location = new System.Drawing.Point(842, 275);
             this.Btn_GerarDescricao.Name = "Btn_GerarDescricao";
             this.Btn_GerarDescricao.Size = new System.Drawing.Size(113, 29);
-            this.Btn_GerarDescricao.TabIndex = 16;
+            this.Btn_GerarDescricao.TabIndex = 20;
             this.Btn_GerarDescricao.Text = "Gerar Descrição";
             this.Btn_GerarDescricao.UseVisualStyleBackColor = true;
             this.Btn_GerarDescricao.Click += new System.EventHandler(this.Btn_GerarDescricao_Click);
@@ -173,7 +179,7 @@
             this.Txt_Descricao.Location = new System.Drawing.Point(10, 39);
             this.Txt_Descricao.Name = "Txt_Descricao";
             this.Txt_Descricao.Size = new System.Drawing.Size(945, 230);
-            this.Txt_Descricao.TabIndex = 1;
+            this.Txt_Descricao.TabIndex = 19;
             this.Txt_Descricao.Text = "";
             // 
             // Btn_Alterar
@@ -183,7 +189,7 @@
             this.Btn_Alterar.Location = new System.Drawing.Point(1213, 588);
             this.Btn_Alterar.Name = "Btn_Alterar";
             this.Btn_Alterar.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Alterar.TabIndex = 29;
+            this.Btn_Alterar.TabIndex = 25;
             this.Btn_Alterar.Text = "Alterar";
             this.Btn_Alterar.UseVisualStyleBackColor = true;
             this.Btn_Alterar.Click += new System.EventHandler(this.Btn_Alterar_Click);
@@ -218,7 +224,7 @@
             this.Txt_Sorte.Location = new System.Drawing.Point(418, 99);
             this.Txt_Sorte.Name = "Txt_Sorte";
             this.Txt_Sorte.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Sorte.TabIndex = 25;
+            this.Txt_Sorte.TabIndex = 18;
             this.Txt_Sorte.Text = "0";
             this.Txt_Sorte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Sorte_KeyPress);
             // 
@@ -237,12 +243,16 @@
             this.Txt_Carisma.Location = new System.Drawing.Point(320, 99);
             this.Txt_Carisma.Name = "Txt_Carisma";
             this.Txt_Carisma.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Carisma.TabIndex = 23;
+            this.Txt_Carisma.TabIndex = 17;
             this.Txt_Carisma.Text = "0";
             this.Txt_Carisma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Carisma_KeyPress);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.Txt_ResMental);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.Txt_ResFis);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.Txt_Sorte);
             this.groupBox3.Controls.Add(this.label9);
@@ -265,6 +275,44 @@
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(414, 25);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 20);
+            this.label20.TabIndex = 32;
+            this.label20.Text = "Res. Mental";
+            // 
+            // Txt_ResMental
+            // 
+            this.Txt_ResMental.Location = new System.Drawing.Point(418, 48);
+            this.Txt_ResMental.Name = "Txt_ResMental";
+            this.Txt_ResMental.Size = new System.Drawing.Size(77, 20);
+            this.Txt_ResMental.TabIndex = 133;
+            this.Txt_ResMental.Text = "0";
+            this.Txt_ResMental.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_ResMental_KeyPress);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(316, 25);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(63, 20);
+            this.label19.TabIndex = 30;
+            this.label19.Text = "Res. Fis.";
+            // 
+            // Txt_ResFis
+            // 
+            this.Txt_ResFis.Location = new System.Drawing.Point(320, 49);
+            this.Txt_ResFis.Name = "Txt_ResFis";
+            this.Txt_ResFis.Size = new System.Drawing.Size(77, 20);
+            this.Txt_ResFis.TabIndex = 12;
+            this.Txt_ResFis.Text = "0";
+            this.Txt_ResFis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_ResFis_KeyPress);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -280,7 +328,7 @@
             this.Txt_Inteligencia.Location = new System.Drawing.Point(222, 99);
             this.Txt_Inteligencia.Name = "Txt_Inteligencia";
             this.Txt_Inteligencia.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Inteligencia.TabIndex = 21;
+            this.Txt_Inteligencia.TabIndex = 16;
             this.Txt_Inteligencia.Text = "0";
             this.Txt_Inteligencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Inteligencia_KeyPress);
             // 
@@ -299,7 +347,7 @@
             this.Txt_Velocidade.Location = new System.Drawing.Point(124, 99);
             this.Txt_Velocidade.Name = "Txt_Velocidade";
             this.Txt_Velocidade.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Velocidade.TabIndex = 19;
+            this.Txt_Velocidade.TabIndex = 15;
             this.Txt_Velocidade.Text = "0";
             this.Txt_Velocidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Velocidade_KeyPress);
             // 
@@ -318,7 +366,7 @@
             this.Txt_Forca.Location = new System.Drawing.Point(26, 99);
             this.Txt_Forca.Name = "Txt_Forca";
             this.Txt_Forca.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Forca.TabIndex = 17;
+            this.Txt_Forca.TabIndex = 14;
             this.Txt_Forca.Text = "0";
             this.Txt_Forca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Forca_KeyPress);
             // 
@@ -337,7 +385,7 @@
             this.Txt_Energia.Location = new System.Drawing.Point(218, 48);
             this.Txt_Energia.Name = "Txt_Energia";
             this.Txt_Energia.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Energia.TabIndex = 15;
+            this.Txt_Energia.TabIndex = 11;
             this.Txt_Energia.Text = "0";
             this.Txt_Energia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Energia_KeyPress);
             // 
@@ -356,7 +404,7 @@
             this.Txt_Hp.Location = new System.Drawing.Point(122, 48);
             this.Txt_Hp.Name = "Txt_Hp";
             this.Txt_Hp.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Hp.TabIndex = 13;
+            this.Txt_Hp.TabIndex = 10;
             this.Txt_Hp.Text = "0";
             this.Txt_Hp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Hp_KeyPress);
             // 
@@ -375,12 +423,14 @@
             this.Txt_Nivel.Location = new System.Drawing.Point(26, 48);
             this.Txt_Nivel.Name = "Txt_Nivel";
             this.Txt_Nivel.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Nivel.TabIndex = 11;
+            this.Txt_Nivel.TabIndex = 9;
             this.Txt_Nivel.Text = "0";
             this.Txt_Nivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Nivel_KeyPress);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Cbb_Profession);
+            this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.Cbb_Status);
             this.groupBox2.Controls.Add(this.Cbb_Moral);
             this.groupBox2.Controls.Add(this.Cbb_Genero);
@@ -397,16 +447,76 @@
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             // 
+            // Cbb_Profession
+            // 
+            this.Cbb_Profession.FormattingEnabled = true;
+            this.Cbb_Profession.Items.AddRange(new object[] {
+            "Sem Profissão",
+            "Alquimista",
+            "Apostador",
+            "Artesão",
+            "Botânico",
+            "Camponês",
+            "Carpinteiro",
+            "Caçador",
+            "Cavaleiro",
+            "Ceramista",
+            "Comerciante",
+            "Contador",
+            "Cozinheiro",
+            "Diplomata",
+            "Domador de Animais",
+            "Escudeiro",
+            "Espião",
+            "Ferreiro",
+            "Guarda",
+            "Joalheiro",
+            "Lenhador",
+            "Líder Tribal",
+            "Líder Religioso",
+            "Médico",
+            "Mendigo",
+            "Mercenário",
+            "Mestre de Armas",
+            "Músico",
+            "Navegador",
+            "Nobre",
+            "Padre",
+            "Pecuarista",
+            "Pescador",
+            "Prefeito",
+            "Sacerdote",
+            "Soldado",
+            "Tecelão",
+            "Taverneiro",
+            "Vendedor Ambulante",
+            "Vidente",
+            "Outro"});
+            this.Cbb_Profession.Location = new System.Drawing.Point(10, 98);
+            this.Cbb_Profession.Name = "Cbb_Profession";
+            this.Cbb_Profession.Size = new System.Drawing.Size(215, 21);
+            this.Cbb_Profession.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(6, 76);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 20);
+            this.label18.TabIndex = 42;
+            this.label18.Text = "Profissão";
+            // 
             // Cbb_Status
             // 
             this.Cbb_Status.FormattingEnabled = true;
             this.Cbb_Status.Items.AddRange(new object[] {
             "Vivo",
             "Morto"});
-            this.Cbb_Status.Location = new System.Drawing.Point(252, 99);
+            this.Cbb_Status.Location = new System.Drawing.Point(492, 98);
             this.Cbb_Status.Name = "Cbb_Status";
             this.Cbb_Status.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Status.TabIndex = 41;
+            this.Cbb_Status.TabIndex = 8;
             // 
             // Cbb_Moral
             // 
@@ -421,10 +531,10 @@
             "Caótico e Bom",
             "Caótico e Neutro",
             "Caótico e Mau"});
-            this.Cbb_Moral.Location = new System.Drawing.Point(10, 99);
+            this.Cbb_Moral.Location = new System.Drawing.Point(252, 98);
             this.Cbb_Moral.Name = "Cbb_Moral";
             this.Cbb_Moral.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Moral.TabIndex = 40;
+            this.Cbb_Moral.TabIndex = 7;
             // 
             // Cbb_Genero
             // 
@@ -436,7 +546,7 @@
             this.Cbb_Genero.Location = new System.Drawing.Point(492, 49);
             this.Cbb_Genero.Name = "Cbb_Genero";
             this.Cbb_Genero.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Genero.TabIndex = 39;
+            this.Cbb_Genero.TabIndex = 5;
             // 
             // Cbb_Class
             // 
@@ -455,7 +565,7 @@
             this.Cbb_Class.Location = new System.Drawing.Point(252, 49);
             this.Cbb_Class.Name = "Cbb_Class";
             this.Cbb_Class.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Class.TabIndex = 38;
+            this.Cbb_Class.TabIndex = 4;
             // 
             // Cbb_Race
             // 
@@ -470,13 +580,13 @@
             this.Cbb_Race.Location = new System.Drawing.Point(10, 49);
             this.Cbb_Race.Name = "Cbb_Race";
             this.Cbb_Race.Size = new System.Drawing.Size(215, 21);
-            this.Cbb_Race.TabIndex = 37;
+            this.Cbb_Race.TabIndex = 3;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(248, 76);
+            this.label14.Location = new System.Drawing.Point(488, 75);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(48, 20);
             this.label14.TabIndex = 35;
@@ -486,7 +596,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(6, 77);
+            this.label15.Location = new System.Drawing.Point(248, 76);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(127, 20);
             this.label15.TabIndex = 33;
@@ -547,14 +657,14 @@
             this.Txt_Sobrenome.Location = new System.Drawing.Point(577, 39);
             this.Txt_Sobrenome.Name = "Txt_Sobrenome";
             this.Txt_Sobrenome.Size = new System.Drawing.Size(665, 20);
-            this.Txt_Sobrenome.TabIndex = 11;
+            this.Txt_Sobrenome.TabIndex = 2;
             // 
             // Txt_Nome
             // 
             this.Txt_Nome.Location = new System.Drawing.Point(10, 39);
             this.Txt_Nome.Name = "Txt_Nome";
             this.Txt_Nome.Size = new System.Drawing.Size(538, 20);
-            this.Txt_Nome.TabIndex = 9;
+            this.Txt_Nome.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -640,5 +750,11 @@
         private System.Windows.Forms.ComboBox Cbb_Genero;
         private System.Windows.Forms.ComboBox Cbb_Moral;
         private System.Windows.Forms.ComboBox Cbb_Status;
+        private System.Windows.Forms.ComboBox Cbb_Profession;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox Txt_ResFis;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox Txt_ResMental;
     }
 }

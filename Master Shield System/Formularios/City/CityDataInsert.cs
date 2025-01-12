@@ -31,6 +31,10 @@ namespace Master_Shield_System.Formularios.City
             {
                 Cbb_Bioma.SelectedIndex = 0; // Seleciona o primeiro item
             }
+            if (Cbb_Reputacao.Items.Count > 0)
+            {
+                Cbb_Reputacao.SelectedIndex = 0; // Seleciona o primeiro item
+            }
             AtualizarEstadoBotoes();
         }
 
@@ -42,6 +46,7 @@ namespace Master_Shield_System.Formularios.City
             cc.CityName = Txt_NomeCidade.Text;
             cc.CityBiome = Cbb_Bioma.Text;
             cc.CityDescription = Txt_descricao.Text;
+            cc.CityReputation = Cbb_Reputacao.Text;
 
             // Lê a imagem da cidade se o caminho estiver válido
             cc.CityImage = CarregarImagem(this.caminhoArquivoImagemCidade);
@@ -99,6 +104,7 @@ namespace Master_Shield_System.Formularios.City
         private void LimparFormulario()
         {
             this.Cbb_Bioma.SelectedItem = (object)"Campos";
+            this.Cbb_Reputacao.SelectedItem = (object)"Neutros";
             this.Txt_NomeCidade.Text = "";
             this.Txt_descricao.Text = "";
             this.Pcb_Imagem.Image = (Image)null;
@@ -165,11 +171,11 @@ namespace Master_Shield_System.Formularios.City
 
         private async void Btn_GerarDescricao_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show($"Tem certeza que quer incluir uma descrição para a cidade {Txt_NomeCidade}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Tem certeza que quer incluir uma descrição para a cidade {Txt_NomeCidade.Text}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 ApiClass.LoadApiKey();
-                await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCidade.Text, this.Cbb_Bioma.Text);
+                await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCidade.Text, this.Cbb_Bioma.Text, this.Cbb_Reputacao.Text);
                 this.Txt_descricao.Text = ApiClass.TextoGerado;
             }
               
@@ -178,6 +184,5 @@ namespace Master_Shield_System.Formularios.City
 
     private void AtualizarEstadoBotoes() => Btn_ApagarImagem.Enabled = Pcb_Imagem.Image != null || cc.CityImage != null;
 
-        
     }
 }

@@ -30,6 +30,7 @@ namespace Master_Shield_System.Formularios.Npc
             this.Cbb_Gender.SelectedItem = (object)"Masculino";
             this.Cbb_Status.SelectedItem = (object)"Vivo";
             this.Cbb_Moral.SelectedItem = (object)"Ordeiro e Bom";
+            this.Cbb_Profession.SelectedItem = (object)"Sem Profissão";
         }
 
         public void SetDados(int boardId, int cityId, string cityName, string cityBiome)
@@ -48,6 +49,7 @@ namespace Master_Shield_System.Formularios.Npc
             this.nc.NpcCls = this.Cbb_Class.Text;
             this.nc.NpcMoral = this.Cbb_Moral.Text;
             this.nc.NpcGender = this.Cbb_Gender.Text;
+            this.nc.NpcProfession = this.Cbb_Profession.Text;
             this.nc.NpcLevel = this.ParseToInt(this.Txt_Nivel.Text);
             this.nc.NpcHp = this.ParseToInt(this.Txt_Hp.Text);
             this.nc.NpcEnergy = this.ParseToInt(this.Txt_Energia.Text);
@@ -56,6 +58,8 @@ namespace Master_Shield_System.Formularios.Npc
             this.nc.NpcCharisma = this.ParseToInt(this.Txt_Carisma.Text);
             this.nc.NpcLuck = this.ParseToInt(this.Txt_Sorte.Text);
             this.nc.NpcIntelligence = this.ParseToInt(this.Txt_Inteligencia.Text);
+            this.nc.NpcPhysicalResistance = this.ParseToInt(this.Txt_ResFis.Text);
+            this.nc.NpcMentalResistance = this.ParseToInt(this.Txt_ResMental.Text);
             this.nc.NpcDescription = this.Txt_Descricao.Text;
             this.nc.NpcIsDead = !(this.Cbb_Status.Text == "Vivo");
             byte[] numArray = (byte[])null;
@@ -124,6 +128,7 @@ namespace Master_Shield_System.Formularios.Npc
             this.Cbb_Gender.SelectedItem = (object)"Masculino";
             this.Cbb_Status.SelectedItem = (object)"Vivo";
             this.Cbb_Moral.SelectedItem = (object)"Ordeiro e Bom";
+            this.Cbb_Profession.SelectedItem = (object)"Sem Profissão";
             this.Txt_Nivel.Text = "0";
             this.Txt_Hp.Text = "0";
             this.Txt_Energia.Text = "0";
@@ -132,6 +137,8 @@ namespace Master_Shield_System.Formularios.Npc
             this.Txt_Carisma.Text = "0";
             this.Txt_Sorte.Text = "0";
             this.Txt_Inteligencia.Text = "0";
+            this.Txt_ResFis.Text = "0"; 
+            this.Txt_ResMental.Text = "0";
             this.Txt_Descricao.Text = "";
             this.Pcb_Image.Image = (Image)null;
             this.caminhoArquivoImagem = (string)null;
@@ -212,6 +219,21 @@ namespace Master_Shield_System.Formularios.Npc
             e.Handled = true;
         }
 
+        private void Txt_ResFis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NpcDataInsert.IntNumber(e);
+            if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
+                return;
+            e.Handled = true;
+        }
+
+        private void Txt_ResMental_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NpcDataInsert.IntNumber(e);
+            if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
+                return;
+            e.Handled = true;
+        }
         #endregion
 
         private void Btn_Limpar_Click(object sender, EventArgs e) => LimparDados();
@@ -256,12 +278,8 @@ namespace Master_Shield_System.Formularios.Npc
                 string carisma = MapearAtributo(this.Txt_Carisma.Text);
                 string sorte = MapearAtributo(this.Txt_Sorte.Text);
                 string inteligencia = MapearAtributo(this.Txt_Inteligencia.Text);
-
-                // Exibir os valores convertidos em um MessageBox
-                MessageBox.Show($"Força: {forca}\nVelocidade: {velocidade}\nCarisma: {carisma}\nSorte: {sorte}\nInteligência: {inteligencia}",
-                                "Atributos Enviados",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                string fisica = MapearAtributo(this.Txt_ResFis.Text);
+                string mental = MapearAtributo(this.Txt_ResMental.Text);
 
                 ApiClass.LoadApiKey();
                 await ApiClass.GerarTextoNpc(ApiClass.GeminiKey,
@@ -271,13 +289,16 @@ namespace Master_Shield_System.Formularios.Npc
                                              nm.readCityBiome,
                                              this.Cbb_Race.Text,
                                              this.Cbb_Class.Text,
+                                             this.Cbb_Profession.Text,
                                              this.Cbb_Gender.Text,
                                              this.Cbb_Moral.Text,
                                              forca,
                                              velocidade,
                                              carisma,
                                              sorte,
-                                             inteligencia);
+                                             inteligencia,
+                                             fisica,
+                                             mental);
                 this.Txt_Descricao.Text = ApiClass.TextoGerado;
             }
         }

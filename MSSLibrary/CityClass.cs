@@ -26,6 +26,9 @@ namespace MSSLibrary
 
         public byte[] CityImage { get; set; }
 
+        [Required(ErrorMessage = "A reputação da Cidade é obrigatória")]
+        public string CityReputation { get; set; }
+
         public void CreateCity(int ConfirmBoardId)
         {
             try
@@ -33,12 +36,13 @@ namespace MSSLibrary
                 using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
                 {
                     connection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand("INSERT INTO sgrpg.tblcity (BoardId, CityName, CityBiome, CityImage, CityDescription) VALUES (@BoardId, @CityName, @CityBiome, @CityImage, @CityDescription)", connection);
+                    MySqlCommand mySqlCommand = new MySqlCommand("INSERT INTO sgrpg.tblcity (BoardId, CityName, CityBiome, CityImage, CityDescription, CityReputation) VALUES (@BoardId, @CityName, @CityBiome, @CityImage, @CityDescription, @CityReputation)", connection);
                     mySqlCommand.Parameters.AddWithValue("@BoardId", (object)ConfirmBoardId);
                     mySqlCommand.Parameters.AddWithValue("@CityName", (object)this.CityName);
                     mySqlCommand.Parameters.AddWithValue("@CityBiome", (object)this.CityBiome);
                     mySqlCommand.Parameters.AddWithValue("@CityImage", (object)this.CityImage);
                     mySqlCommand.Parameters.AddWithValue("@CityDescription", (object)this.CityDescription);
+                    mySqlCommand.Parameters.AddWithValue("@CityReputation", (object)this.CityReputation);
                     mySqlCommand.ExecuteNonQuery();
                     int num = (int)MessageBox.Show("Inclusão de Cidade realizada com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     connection.Close();
@@ -57,11 +61,12 @@ namespace MSSLibrary
                 using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
                 {
                     connection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand("UPDATE sgrpg.tblcity SET CityName = @CityName, CityBiome = @CityBiome, CityImage = @CityImage, CityDescription = @CityDescription WHERE CityId = @CityId", connection);
+                    MySqlCommand mySqlCommand = new MySqlCommand("UPDATE sgrpg.tblcity SET CityName = @CityName, CityBiome = @CityBiome, CityImage = @CityImage, CityDescription = @CityDescription, CityReputation = @CityReputation WHERE CityId = @CityId", connection);
                     mySqlCommand.Parameters.AddWithValue("@CityName", (object)this.CityName);
                     mySqlCommand.Parameters.AddWithValue("@CityBiome", (object)this.CityBiome);
                     mySqlCommand.Parameters.AddWithValue("@CityImage", (object)this.CityImage);
                     mySqlCommand.Parameters.AddWithValue("@CityDescription", (object)this.CityDescription);
+                    mySqlCommand.Parameters.AddWithValue("@CityReputation", (object)this.CityReputation);
                     mySqlCommand.Parameters.AddWithValue("@CityId", (object)this.CityId);
                     mySqlCommand.ExecuteNonQuery();
                     int num = (int)MessageBox.Show("Alteração de cidade realizada com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -97,7 +102,7 @@ namespace MSSLibrary
         public static DataTable GetCity(bool ativos, int readBoardId)
         {
             DataTable dataTable = new DataTable();
-            string selectCommandText = string.Format("\r\n        SELECT c.CityId, c.BoardId, c.CityName, c.CityBiome, c.CityDescription, \r\n               COUNT(n.CityId) AS NpcCount \r\n        FROM sgrpg.tblcity c \r\n        LEFT JOIN sgrpg.tblnpc n ON c.CityId = n.CityId \r\n        WHERE c.BoardId = {0}\r\n        GROUP BY c.CityId, c.BoardId, c.CityName, c.CityBiome, c.CityDescription", (object)readBoardId);
+            string selectCommandText = string.Format("SELECT c.CityId, c.BoardId, c.CityName, c.CityBiome, c.CityDescription, c.CityReputation, COUNT(n.CityId) AS NpcCount FROM sgrpg.tblcity c LEFT JOIN sgrpg.tblnpc n ON c.CityId = n.CityId WHERE c.BoardId = {0} GROUP BY c.CityId, c.BoardId, c.CityName, c.CityBiome, c.CityDescription, c.CityReputation", (object)readBoardId);
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))

@@ -51,6 +51,10 @@ namespace MSSLibrary
         public byte[] NpcImage { get; set; }
         public string NpcDescription { get; set; }
 
+        public string NpcProfession { get; set; }
+        public int NpcPhysicalResistance { get; set; }
+        public int NpcMentalResistance { get; set; }
+
         public void CreateNpc(int BoardId, int CityId)
         {
             try
@@ -61,9 +65,9 @@ namespace MSSLibrary
 
                     string query = @"
                 INSERT INTO sgrpg.tblnpc 
-                (BoardId, CityId, NpcFirstName, NpcLastName, NpcRace, NpcClass, NpcGender, NpcMoralAlignment, NpcHp, NpcLevel, NpcEnergy, NpcIsDead, NpcStrength, NpcSpeed, NpcIntelligence, NpcCharisma, NpcLuck, NpcImage, NpcDescription) 
+                (BoardId, CityId, NpcFirstName, NpcLastName, NpcRace, NpcClass, NpcGender, NpcMoralAlignment, NpcHp, NpcLevel, NpcEnergy, NpcIsDead, NpcStrength, NpcSpeed, NpcIntelligence, NpcCharisma, NpcLuck, NpcImage, NpcDescription, NpcProfession, NpcPhysicalResistance, NpcMentalResistance) 
                 VALUES 
-                (@BoardId, @CityId, @NpcFirstName, @NpcLastName, @NpcRace, @NpcClass, @NpcGender, @NpcMoral, @NpcHp, @NpcLevel, @NpcEnergy, @NpcIsDead, @NpcStrength, @NpcSpeed, @NpcIntelligence, @NpcCharisma, @NpcLuck, @NpcImage, @NpcDescription)";
+                (@BoardId, @CityId, @NpcFirstName, @NpcLastName, @NpcRace, @NpcClass, @NpcGender, @NpcMoral, @NpcHp, @NpcLevel, @NpcEnergy, @NpcIsDead, @NpcStrength, @NpcSpeed, @NpcIntelligence, @NpcCharisma, @NpcLuck, @NpcImage, @NpcDescription, @NpcProfession, @NpcPhysicalResistance, @NpcMentalResistance)";
 
                     MySqlCommand mySqlCommand = new MySqlCommand(query, connection);
 
@@ -87,6 +91,9 @@ namespace MSSLibrary
                     mySqlCommand.Parameters.AddWithValue("@NpcLuck", this.NpcLuck);
                     mySqlCommand.Parameters.AddWithValue("@NpcImage", this.NpcImage);
                     mySqlCommand.Parameters.AddWithValue("@NpcDescription", this.NpcDescription);
+                    mySqlCommand.Parameters.AddWithValue("@NpcProfession", this.NpcProfession);
+                    mySqlCommand.Parameters.AddWithValue("@NpcPhysicalResistance", this.NpcPhysicalResistance);
+                    mySqlCommand.Parameters.AddWithValue("@NpcMentalResistance", this.NpcMentalResistance);
 
                     mySqlCommand.ExecuteNonQuery();
 
@@ -129,7 +136,10 @@ namespace MSSLibrary
                     NpcCharisma = @NpcCharisma, 
                     NpcLuck = @NpcLuck, 
                     NpcImage = @NpcImage, 
-                    NpcDescription = @NpcDescription 
+                    NpcDescription = @NpcDescription,
+                    NpcProfession = @NpcProfession,
+                    NpcPhysicalResistance = @NpcPhysicalResistance,
+                    NpcMentalResistance = @NpcMentalResistance
                 WHERE 
                     NpcId = @NpcId";
 
@@ -153,6 +163,9 @@ namespace MSSLibrary
                     mySqlCommand.Parameters.AddWithValue("@NpcLuck", this.NpcLuck);
                     mySqlCommand.Parameters.AddWithValue("@NpcImage", this.NpcImage);
                     mySqlCommand.Parameters.AddWithValue("@NpcDescription", this.NpcDescription);
+                    mySqlCommand.Parameters.AddWithValue("@NpcProfession", this.NpcProfession);
+                    mySqlCommand.Parameters.AddWithValue("@NpcPhysicalResistance", this.NpcPhysicalResistance);
+                    mySqlCommand.Parameters.AddWithValue("@NpcMentalResistance", this.NpcMentalResistance);
                     mySqlCommand.Parameters.AddWithValue("@NpcId", this.NpcId);
 
                     mySqlCommand.ExecuteNonQuery();
@@ -211,7 +224,8 @@ namespace MSSLibrary
             CONCAT(NpcFirstName, ' ', NpcLastName) AS NpcFullName, 
             NpcGender, 
             NpcClass, 
-            NpcRace, 
+            NpcRace,
+            NpcProfession,
             NpcMoralAlignment, 
             NpcLevel, 
             NpcHp, 
@@ -223,7 +237,9 @@ namespace MSSLibrary
             NpcLuck, 
             NpcIntelligence, 
             NpcImage, 
-            NpcDescription 
+            NpcDescription,
+            NpcPhysicalResistance,
+            NpcMentalResistance
         FROM 
             sgrpg.tblnpc 
         WHERE 

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_reputacao = new System.Windows.Forms.Label();
+            this.Cbb_Reputacao = new System.Windows.Forms.ComboBox();
             this.Cbb_Bioma = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +53,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_reputacao);
+            this.groupBox1.Controls.Add(this.Cbb_Reputacao);
             this.groupBox1.Controls.Add(this.Cbb_Bioma);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -60,6 +64,37 @@
             this.groupBox1.Size = new System.Drawing.Size(1288, 95);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
+            // 
+            // lbl_reputacao
+            // 
+            this.lbl_reputacao.AutoSize = true;
+            this.lbl_reputacao.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_reputacao.Location = new System.Drawing.Point(953, 15);
+            this.lbl_reputacao.Name = "lbl_reputacao";
+            this.lbl_reputacao.Size = new System.Drawing.Size(74, 20);
+            this.lbl_reputacao.TabIndex = 16;
+            this.lbl_reputacao.Text = "Reputação";
+            // 
+            // Cbb_Reputacao
+            // 
+            this.Cbb_Reputacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbb_Reputacao.FormattingEnabled = true;
+            this.Cbb_Reputacao.Items.AddRange(new object[] {
+            "Neutros",
+            "Proibidos",
+            "Odiados",
+            "Indesejados",
+            "Mal falados",
+            "Irrelevantes",
+            "Relevantes",
+            "Bem falados",
+            "Desejados",
+            "Amados",
+            "Heróis"});
+            this.Cbb_Reputacao.Location = new System.Drawing.Point(957, 38);
+            this.Cbb_Reputacao.Name = "Cbb_Reputacao";
+            this.Cbb_Reputacao.Size = new System.Drawing.Size(325, 21);
+            this.Cbb_Reputacao.TabIndex = 3;
             // 
             // Cbb_Bioma
             // 
@@ -87,16 +122,16 @@
             "Tropical",
             "Vulcânico",
             "Outro"});
-            this.Cbb_Bioma.Location = new System.Drawing.Point(738, 38);
+            this.Cbb_Bioma.Location = new System.Drawing.Point(630, 38);
             this.Cbb_Bioma.Name = "Cbb_Bioma";
-            this.Cbb_Bioma.Size = new System.Drawing.Size(544, 21);
-            this.Cbb_Bioma.TabIndex = 10;
+            this.Cbb_Bioma.Size = new System.Drawing.Size(321, 21);
+            this.Cbb_Bioma.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(734, 16);
+            this.label2.Location = new System.Drawing.Point(626, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 9;
@@ -116,8 +151,8 @@
             // 
             this.Txt_NomeCidade.Location = new System.Drawing.Point(10, 39);
             this.Txt_NomeCidade.Name = "Txt_NomeCidade";
-            this.Txt_NomeCidade.Size = new System.Drawing.Size(708, 20);
-            this.Txt_NomeCidade.TabIndex = 7;
+            this.Txt_NomeCidade.Size = new System.Drawing.Size(614, 20);
+            this.Txt_NomeCidade.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -161,7 +196,7 @@
             this.Btn_IncluirImagem.Location = new System.Drawing.Point(1180, 359);
             this.Btn_IncluirImagem.Name = "Btn_IncluirImagem";
             this.Btn_IncluirImagem.Size = new System.Drawing.Size(102, 29);
-            this.Btn_IncluirImagem.TabIndex = 16;
+            this.Btn_IncluirImagem.TabIndex = 7;
             this.Btn_IncluirImagem.Text = "Alterar imagem";
             this.Btn_IncluirImagem.UseVisualStyleBackColor = true;
             this.Btn_IncluirImagem.Click += new System.EventHandler(this.Btn_IncluirImagem_Click);
@@ -174,7 +209,7 @@
             this.Btn_ApagarImagem.Location = new System.Drawing.Point(1130, 359);
             this.Btn_ApagarImagem.Name = "Btn_ApagarImagem";
             this.Btn_ApagarImagem.Size = new System.Drawing.Size(44, 29);
-            this.Btn_ApagarImagem.TabIndex = 15;
+            this.Btn_ApagarImagem.TabIndex = 6;
             this.Btn_ApagarImagem.UseVisualStyleBackColor = true;
             this.Btn_ApagarImagem.Click += new System.EventHandler(this.Btn_ApagarImagem_Click);
             // 
@@ -194,7 +229,7 @@
             this.Btn_GerarDescricao.Location = new System.Drawing.Point(511, 359);
             this.Btn_GerarDescricao.Name = "Btn_GerarDescricao";
             this.Btn_GerarDescricao.Size = new System.Drawing.Size(113, 29);
-            this.Btn_GerarDescricao.TabIndex = 13;
+            this.Btn_GerarDescricao.TabIndex = 5;
             this.Btn_GerarDescricao.Text = "Gerar Descrição";
             this.Btn_GerarDescricao.UseVisualStyleBackColor = true;
             this.Btn_GerarDescricao.Click += new System.EventHandler(this.Btn_GerarDescricao_Click);
@@ -204,7 +239,7 @@
             this.Txt_descricao.Location = new System.Drawing.Point(10, 39);
             this.Txt_descricao.Name = "Txt_descricao";
             this.Txt_descricao.Size = new System.Drawing.Size(614, 314);
-            this.Txt_descricao.TabIndex = 0;
+            this.Txt_descricao.TabIndex = 4;
             this.Txt_descricao.Text = "";
             // 
             // Btn_Limpar
@@ -214,7 +249,7 @@
             this.Btn_Limpar.Location = new System.Drawing.Point(1113, 570);
             this.Btn_Limpar.Name = "Btn_Limpar";
             this.Btn_Limpar.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Limpar.TabIndex = 25;
+            this.Btn_Limpar.TabIndex = 9;
             this.Btn_Limpar.Text = "Limpar";
             this.Btn_Limpar.UseVisualStyleBackColor = true;
             this.Btn_Limpar.Click += new System.EventHandler(this.Btn_Limpar_Click);
@@ -226,7 +261,7 @@
             this.Btn_Atualizar.Location = new System.Drawing.Point(1210, 570);
             this.Btn_Atualizar.Name = "Btn_Atualizar";
             this.Btn_Atualizar.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Atualizar.TabIndex = 24;
+            this.Btn_Atualizar.TabIndex = 10;
             this.Btn_Atualizar.Text = "Atualizar";
             this.Btn_Atualizar.UseVisualStyleBackColor = true;
             this.Btn_Atualizar.Click += new System.EventHandler(this.Btn_Atualizar_Click);
@@ -238,7 +273,7 @@
             this.Btn_Retornar.Location = new System.Drawing.Point(13, 570);
             this.Btn_Retornar.Name = "Btn_Retornar";
             this.Btn_Retornar.Size = new System.Drawing.Size(91, 29);
-            this.Btn_Retornar.TabIndex = 23;
+            this.Btn_Retornar.TabIndex = 8;
             this.Btn_Retornar.Text = "Retornar";
             this.Btn_Retornar.UseVisualStyleBackColor = true;
             this.Btn_Retornar.Click += new System.EventHandler(this.Btn_Retornar_Click);
@@ -281,5 +316,7 @@
         private System.Windows.Forms.Button Btn_Retornar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_reputacao;
+        private System.Windows.Forms.ComboBox Cbb_Reputacao;
     }
 }

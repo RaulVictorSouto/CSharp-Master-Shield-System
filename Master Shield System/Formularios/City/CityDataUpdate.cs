@@ -45,6 +45,7 @@ namespace Master_Shield_System.Formularios.City
                             this.ReadCityId = Convert.ToInt32(mySqlDataReader["CityId"]);
                             this.Txt_NomeCidade.Text = mySqlDataReader["CityName"].ToString();
                             this.Cbb_Bioma.Text = mySqlDataReader["CityBiome"].ToString();
+                            this.Cbb_Reputacao.Text = mySqlDataReader["CityReputation"].ToString();
                             this.Txt_descricao.Text = mySqlDataReader["CityDescription"].ToString();
                             if (!mySqlDataReader.IsDBNull(mySqlDataReader.GetOrdinal("CityImage")))
                             {
@@ -81,6 +82,7 @@ namespace Master_Shield_System.Formularios.City
                     CityId = cityId,
                     CityName = this.Txt_NomeCidade.Text.Trim(),
                     CityBiome = this.Cbb_Bioma.Text.Trim(),
+                    CityReputation = this.Cbb_Reputacao.Text.Trim(),
                     CityDescription = this.Txt_descricao.Text.Trim()
                 };
                 if (!string.IsNullOrEmpty(this.caminhoArquivoImagem) && File.Exists(this.caminhoArquivoImagem))
@@ -160,6 +162,7 @@ namespace Master_Shield_System.Formularios.City
         {
             this.Txt_NomeCidade.Text = "";
             this.Cbb_Bioma.SelectedItem = (object)"Campos";
+            this.Cbb_Reputacao.SelectedItem = (object)"Neutros";
             this.Txt_descricao.Text = "";
             this.Pcb_ImagemCidade.Image = (Image)null;
             this.caminhoArquivoImagem = (string)null;
@@ -170,11 +173,11 @@ namespace Master_Shield_System.Formularios.City
 
         private async void Btn_GerarDescricao_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show($"Tem certeza que quer incluir uma descrição para a cidade {Txt_NomeCidade}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Tem certeza que quer incluir uma descrição para a cidade {Txt_NomeCidade.Text}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 ApiClass.LoadApiKey();
-                await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCidade.Text, this.Cbb_Bioma.Text);
+                await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, this.Txt_NomeCidade.Text, this.Cbb_Bioma.Text, this.Cbb_Reputacao.Text);
                 this.Txt_descricao.Text = ApiClass.TextoGerado;
             }
         }

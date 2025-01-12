@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Master_Shield_System.Formularios.Gerador;
 using Master_Shield_System.Formularios.Npc;
 using MSSLibrary;
 using MySql.Data.MySqlClient;
@@ -22,8 +23,6 @@ namespace Master_Shield_System.Formularios.City
         public int ConfirmCityId;
         public string ConfirmCityName;
         public string ConfirmCityBiome;
-        private Random random = new Random();
-        private List<string> cidadesSelecionadas = new List<string>();
 
         public CityMain()
         {
@@ -56,7 +55,7 @@ namespace Master_Shield_System.Formularios.City
             this.Inicializar();
         }
 
-        private void Inicializar()
+        public void Inicializar()
         {
             this.dt = CityClass.GetCity(true, this.readBoardId);
             this.Dgv_City.DataSource = (object)this.dt;
@@ -100,10 +99,13 @@ namespace Master_Shield_System.Formularios.City
             this.Dgv_City.Columns["BoardId"].Visible = false;
 
             this.Dgv_City.Columns["CityName"].HeaderText = "Cidade";
-            this.Dgv_City.Columns["CityName"].Width = 300;
+            this.Dgv_City.Columns["CityName"].Width = 235;
 
             this.Dgv_City.Columns["CityBiome"].HeaderText = "Bioma";
-            this.Dgv_City.Columns["CityBiome"].Width = 170;
+            this.Dgv_City.Columns["CityBiome"].Width = 150;
+
+            this.Dgv_City.Columns["CityReputation"].HeaderText = "Reputação";
+            this.Dgv_City.Columns["CityReputation"].Width = 150;
 
             this.Dgv_City.Columns["NpcCount"].HeaderText = "População";
             this.Dgv_City.Columns["NpcCount"].Width = 100;
@@ -111,9 +113,9 @@ namespace Master_Shield_System.Formularios.City
             this.Dgv_City.Columns["CityDescription"].HeaderText = "Descrição";
             this.Dgv_City.Columns["CityDescription"].Visible = false;
 
-            this.Dgv_City.Columns["Editar"].DisplayIndex = 7;
+            this.Dgv_City.Columns["Editar"].DisplayIndex = 8;
 
-            this.Dgv_City.Columns["Excluir"].DisplayIndex = 7;
+            this.Dgv_City.Columns["Excluir"].DisplayIndex = 8;
         }
 
         private void Dgv_City_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -321,7 +323,7 @@ namespace Master_Shield_System.Formularios.City
                     {
                         if (reader.Read())
                         {
-                            await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, reader["CityName"].ToString(), reader["CityBiome"].ToString());
+                            await ApiClass.GerarTextoCidade(ApiClass.GeminiKey, reader["CityName"].ToString(), reader["CityBiome"].ToString(), reader["CityReputation"].ToString());
                         }
                         else
                         {
@@ -350,121 +352,9 @@ namespace Master_Shield_System.Formularios.City
 
         public void CriarCidadesRandon()
         {
-            try
-            {
-                if (MessageBox.Show("Tem certeza que deseja gerar cidades aleatórias?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                    return;
-
-                for (int index = 0; index < 10; ++index)
-                {
-                    string cidade = SelecionarCidadeAleatoria();
-                    string bioma = biomesRandon[random.Next(biomesRandon.Length)];
-
-                    using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
-                    {
-                        connection.Open();
-                        using (MySqlCommand mySqlCommand = new MySqlCommand("INSERT INTO sgrpg.tblcity (BoardId, CityName, CityBiome) VALUES (@BoardId, @CityName, @CityBiome)", connection))
-                        {
-                            mySqlCommand.Parameters.AddWithValue("@BoardId", readBoardId);
-                            mySqlCommand.Parameters.AddWithValue("@CityName", cidade);
-                            mySqlCommand.Parameters.AddWithValue("@CityBiome", bioma);
-                            mySqlCommand.ExecuteNonQuery();
-                        }
-                        connection.Close();
-                    }
-
-                    cidadesSelecionadas.Add(cidade);
-                }
-
-                MessageBox.Show("Inclusão de Cidades realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                Inicializar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERRO ao inserir cidade: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
+            var geradorCidade = new GeradorCidade(this, readBoardId); 
+            geradorCidade.ShowDialog();
         }
-
-        private string SelecionarCidadeAleatoria()
-        {
-            string cidade;
-            do
-            {
-                cidade = cidadesRandon[random.Next(cidadesRandon.Length)];
-            }
-            while (cidadesSelecionadas.Contains(cidade));
-            return cidade;
-        }
-
-
-        private string[] cidadesRandon = new string[41]
-   {
-      "Valeria",
-      "Rivendell",
-      "Neverwinter",
-      "Stormwind",
-      "Baldur's Gate",
-      "Ankh-Morpork",
-      "Winterfell",
-      "Gotham",
-      "Mordheim",
-      "Midgar",
-      "Gondor",
-      "Whiterun",
-      "Novigrad",
-      "Silent Hill",
-      "Raccoon City",
-      "Eldoria",
-      "Ravenmoor",
-      "Silvervale",
-      "Frostholm",
-      "Stormreach",
-      "Shadowfen",
-      "Ironcrest",
-      "Emberfall",
-      "Sunhaven",
-      "Mistwood",
-      "Thunderbreak",
-      "Arkania",
-      "Mistyhollow",
-      "Goldenhold",
-      "Ironhold",
-      "Whogmar",
-      "Wrierheith",
-      "Schasmoe",
-      "Vrapcuum",
-      "Dukush",
-      "Ventobravo",
-      "Valdrakken",
-      "Orgrimmar",
-      "Luaprata",
-      "Marea Azul",
-      "Xique-Xique"
-   };
-        private string[] biomesRandon = new string[21]
-        {
-      "Campos",
-      "Cavernas",
-      "Deserto",
-      "Estepes",
-      "Floresta",
-      "Gélido",
-      "Litoral",
-      "Manguezal",
-      "Marinha",
-      "Montanha",
-      "Planaltos",
-      "Planície",
-      "Pântano",
-      "Savana",
-      "Selva",
-      "Subterrâneo",
-      "Taiga",
-      "Tundra",
-      "Tropical",
-      "Vulcânico",
-      "Outro"
-        };
 
         private void Dgv_City_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
