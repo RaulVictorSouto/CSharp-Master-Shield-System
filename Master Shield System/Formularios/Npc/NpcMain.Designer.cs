@@ -74,6 +74,12 @@
             this.Btn_Incluir = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label15 = new System.Windows.Forms.Label();
+            this.Lbl_Profession = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Lbl_Fisica = new System.Windows.Forms.Label();
+            this.Lbl_Mental = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Npc)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -160,7 +166,7 @@
             this.Dgv_Npc.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -196,6 +202,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Lbl_Mental);
+            this.groupBox1.Controls.Add(this.Lbl_Fisica);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.Lbl_Sorte);
             this.groupBox1.Controls.Add(this.Lbl_Carisma);
             this.groupBox1.Controls.Add(this.Lbl_Inteligencia);
@@ -214,7 +224,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(1033, 86);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(262, 276);
+            this.groupBox1.Size = new System.Drawing.Size(271, 276);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
@@ -222,7 +232,7 @@
             // 
             this.Lbl_Sorte.AutoSize = true;
             this.Lbl_Sorte.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Sorte.Location = new System.Drawing.Point(125, 248);
+            this.Lbl_Sorte.Location = new System.Drawing.Point(88, 248);
             this.Lbl_Sorte.Name = "Lbl_Sorte";
             this.Lbl_Sorte.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Sorte.TabIndex = 20;
@@ -233,7 +243,7 @@
             // 
             this.Lbl_Carisma.AutoSize = true;
             this.Lbl_Carisma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Carisma.Location = new System.Drawing.Point(125, 215);
+            this.Lbl_Carisma.Location = new System.Drawing.Point(88, 215);
             this.Lbl_Carisma.Name = "Lbl_Carisma";
             this.Lbl_Carisma.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Carisma.TabIndex = 19;
@@ -244,7 +254,7 @@
             // 
             this.Lbl_Inteligencia.AutoSize = true;
             this.Lbl_Inteligencia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Inteligencia.Location = new System.Drawing.Point(125, 182);
+            this.Lbl_Inteligencia.Location = new System.Drawing.Point(88, 182);
             this.Lbl_Inteligencia.Name = "Lbl_Inteligencia";
             this.Lbl_Inteligencia.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Inteligencia.TabIndex = 18;
@@ -255,7 +265,7 @@
             // 
             this.Lbl_Velocidade.AutoSize = true;
             this.Lbl_Velocidade.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Velocidade.Location = new System.Drawing.Point(125, 149);
+            this.Lbl_Velocidade.Location = new System.Drawing.Point(88, 148);
             this.Lbl_Velocidade.Name = "Lbl_Velocidade";
             this.Lbl_Velocidade.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Velocidade.TabIndex = 17;
@@ -266,7 +276,7 @@
             // 
             this.Lbl_Forca.AutoSize = true;
             this.Lbl_Forca.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Forca.Location = new System.Drawing.Point(125, 116);
+            this.Lbl_Forca.Location = new System.Drawing.Point(88, 116);
             this.Lbl_Forca.Name = "Lbl_Forca";
             this.Lbl_Forca.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Forca.TabIndex = 16;
@@ -277,7 +287,7 @@
             // 
             this.Lbl_Energia.AutoSize = true;
             this.Lbl_Energia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Energia.Location = new System.Drawing.Point(125, 83);
+            this.Lbl_Energia.Location = new System.Drawing.Point(88, 82);
             this.Lbl_Energia.Name = "Lbl_Energia";
             this.Lbl_Energia.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Energia.TabIndex = 15;
@@ -288,7 +298,7 @@
             // 
             this.Lbl_Hp.AutoSize = true;
             this.Lbl_Hp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Hp.Location = new System.Drawing.Point(125, 50);
+            this.Lbl_Hp.Location = new System.Drawing.Point(88, 49);
             this.Lbl_Hp.Name = "Lbl_Hp";
             this.Lbl_Hp.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Hp.TabIndex = 14;
@@ -299,7 +309,7 @@
             // 
             this.Lbl_Nivel.AutoSize = true;
             this.Lbl_Nivel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Nivel.Location = new System.Drawing.Point(125, 17);
+            this.Lbl_Nivel.Location = new System.Drawing.Point(88, 17);
             this.Lbl_Nivel.Name = "Lbl_Nivel";
             this.Lbl_Nivel.Size = new System.Drawing.Size(17, 18);
             this.Lbl_Nivel.TabIndex = 13;
@@ -332,9 +342,9 @@
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 181);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 19);
+            this.label7.Size = new System.Drawing.Size(65, 19);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Inteligência:";
+            this.label7.Text = "Intelig.:";
             // 
             // label6
             // 
@@ -342,9 +352,9 @@
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(6, 148);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 19);
+            this.label6.Size = new System.Drawing.Size(61, 19);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Velocidade:";
+            this.label6.Text = "Veloc.:";
             // 
             // label5
             // 
@@ -388,6 +398,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Lbl_Profession);
+            this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.Lbl_Alinhamento);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.Lbl_Status);
@@ -404,7 +416,7 @@
             this.groupBox2.Controls.Add(this.label);
             this.groupBox2.Location = new System.Drawing.Point(24, 397);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1271, 226);
+            this.groupBox2.Size = new System.Drawing.Size(1280, 226);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
@@ -412,7 +424,7 @@
             // 
             this.Lbl_Alinhamento.AutoSize = true;
             this.Lbl_Alinhamento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Alinhamento.Location = new System.Drawing.Point(617, 16);
+            this.Lbl_Alinhamento.Location = new System.Drawing.Point(531, 15);
             this.Lbl_Alinhamento.Name = "Lbl_Alinhamento";
             this.Lbl_Alinhamento.Size = new System.Drawing.Size(59, 18);
             this.Lbl_Alinhamento.TabIndex = 14;
@@ -422,7 +434,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(454, 16);
+            this.label14.Location = new System.Drawing.Point(368, 15);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(157, 19);
             this.label14.TabIndex = 13;
@@ -480,7 +492,7 @@
             // 
             // Pcb_Imagem
             // 
-            this.Pcb_Imagem.Location = new System.Drawing.Point(1009, 16);
+            this.Pcb_Imagem.Location = new System.Drawing.Point(1018, 16);
             this.Pcb_Imagem.Name = "Pcb_Imagem";
             this.Pcb_Imagem.Size = new System.Drawing.Size(256, 204);
             this.Pcb_Imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -585,6 +597,68 @@
             this.dataGridViewImageColumn2.ToolTipText = "Clique aqui para excluir";
             this.dataGridViewImageColumn2.Width = 25;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(685, 14);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(88, 19);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Profissão:";
+            // 
+            // Lbl_Profession
+            // 
+            this.Lbl_Profession.AutoSize = true;
+            this.Lbl_Profession.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Profession.Location = new System.Drawing.Point(779, 14);
+            this.Lbl_Profession.Name = "Lbl_Profession";
+            this.Lbl_Profession.Size = new System.Drawing.Size(59, 18);
+            this.Lbl_Profession.TabIndex = 16;
+            this.Lbl_Profession.Text = "label14";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(123, 214);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(98, 19);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "Res. Física:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(123, 247);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(98, 19);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Res. Física:";
+            // 
+            // Lbl_Fisica
+            // 
+            this.Lbl_Fisica.AutoSize = true;
+            this.Lbl_Fisica.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Fisica.Location = new System.Drawing.Point(227, 214);
+            this.Lbl_Fisica.Name = "Lbl_Fisica";
+            this.Lbl_Fisica.Size = new System.Drawing.Size(17, 18);
+            this.Lbl_Fisica.TabIndex = 23;
+            this.Lbl_Fisica.Text = "0";
+            this.Lbl_Fisica.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Lbl_Mental
+            // 
+            this.Lbl_Mental.AutoSize = true;
+            this.Lbl_Mental.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Mental.Location = new System.Drawing.Point(227, 248);
+            this.Lbl_Mental.Name = "Lbl_Mental";
+            this.Lbl_Mental.Size = new System.Drawing.Size(17, 18);
+            this.Lbl_Mental.TabIndex = 24;
+            this.Lbl_Mental.Text = "0";
+            this.Lbl_Mental.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // NpcMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -658,5 +732,11 @@
         private System.Windows.Forms.Label Lbl_Raca;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label Lbl_Alinhamento;
+        private System.Windows.Forms.Label Lbl_Fisica;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label Lbl_Profession;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label Lbl_Mental;
     }
 }

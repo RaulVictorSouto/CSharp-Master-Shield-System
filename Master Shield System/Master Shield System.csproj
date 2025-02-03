@@ -163,6 +163,12 @@
     <Compile Include="Formularios\Gerador\GeradorCidade.Designer.cs">
       <DependentUpon>GeradorCidade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Gerador\GeradorNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Gerador\GeradorNPC.Designer.cs">
+      <DependentUpon>GeradorNPC.cs</DependentUpon>
+    </Compile>
     <Compile Include="InstrucoesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Gerador\GeradorCidade.resx">
       <DependentUpon>GeradorCidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Gerador\GeradorNPC.resx">
+      <DependentUpon>GeradorNPC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Npc\NpcDataInsert.resx">
       <DependentUpon>NpcDataInsert.cs</DependentUpon>

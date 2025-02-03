@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeradorCidade));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Txt_Numero = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnl_biomas = new System.Windows.Forms.Panel();
@@ -42,8 +41,10 @@
             this.chb_Reputacao_MarcarTodos = new System.Windows.Forms.CheckBox();
             this.Btn_Cancelar = new System.Windows.Forms.Button();
             this.Btn_Gerar = new System.Windows.Forms.Button();
+            this.Txt_Numero = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Numero)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,14 +66,6 @@
             this.label2.Size = new System.Drawing.Size(138, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Número de Cidades";
-            // 
-            // Txt_Numero
-            // 
-            this.Txt_Numero.Location = new System.Drawing.Point(17, 85);
-            this.Txt_Numero.Name = "Txt_Numero";
-            this.Txt_Numero.Size = new System.Drawing.Size(135, 20);
-            this.Txt_Numero.TabIndex = 2;
-            this.Txt_Numero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Numero_KeyPress);
             // 
             // label3
             // 
@@ -170,11 +163,24 @@
             this.Btn_Gerar.UseVisualStyleBackColor = true;
             this.Btn_Gerar.Click += new System.EventHandler(this.Btn_Gerar_Click);
             // 
+            // Txt_Numero
+            // 
+            this.Txt_Numero.Location = new System.Drawing.Point(17, 84);
+            this.Txt_Numero.Name = "Txt_Numero";
+            this.Txt_Numero.Size = new System.Drawing.Size(135, 20);
+            this.Txt_Numero.TabIndex = 14;
+            this.Txt_Numero.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // GeradorCidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 497);
+            this.Controls.Add(this.Txt_Numero);
             this.Controls.Add(this.Btn_Gerar);
             this.Controls.Add(this.Btn_Cancelar);
             this.Controls.Add(this.chb_Reputacao_MarcarTodos);
@@ -183,7 +189,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Txt_Numero);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -192,6 +197,7 @@
             this.Load += new System.EventHandler(this.GeradorCidade_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Numero)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +207,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Txt_Numero;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnl_biomas;
@@ -212,5 +217,6 @@
         private System.Windows.Forms.CheckBox chb_Reputacao_MarcarTodos;
         private System.Windows.Forms.Button Btn_Cancelar;
         private System.Windows.Forms.Button Btn_Gerar;
+        private System.Windows.Forms.NumericUpDown Txt_Numero;
     }
 }
