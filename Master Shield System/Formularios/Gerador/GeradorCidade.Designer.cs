@@ -166,6 +166,11 @@
             // Txt_Numero
             // 
             this.Txt_Numero.Location = new System.Drawing.Point(17, 84);
+            this.Txt_Numero.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.Txt_Numero.Name = "Txt_Numero";
             this.Txt_Numero.Size = new System.Drawing.Size(135, 20);
             this.Txt_Numero.TabIndex = 14;

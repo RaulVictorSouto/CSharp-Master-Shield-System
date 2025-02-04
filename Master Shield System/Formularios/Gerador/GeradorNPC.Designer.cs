@@ -89,6 +89,9 @@
             this.txt_fis_max = new System.Windows.Forms.NumericUpDown();
             this.txt_mental_min = new System.Windows.Forms.NumericUpDown();
             this.txt_mental_max = new System.Windows.Forms.NumericUpDown();
+            this.label28 = new System.Windows.Forms.Label();
+            this.pnl_profissoes = new System.Windows.Forms.Panel();
+            this.chb_Profissoes_MarcarTodos = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_Numero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_nivel_min)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_nivel_max)).BeginInit();
@@ -158,7 +161,7 @@
             this.pnl_racas.AutoScroll = true;
             this.pnl_racas.Location = new System.Drawing.Point(17, 146);
             this.pnl_racas.Name = "pnl_racas";
-            this.pnl_racas.Size = new System.Drawing.Size(218, 199);
+            this.pnl_racas.Size = new System.Drawing.Size(218, 105);
             this.pnl_racas.TabIndex = 18;
             // 
             // Btn_Gerar
@@ -184,7 +187,7 @@
             // chb_Alinhamento_MarcarTodos
             // 
             this.chb_Alinhamento_MarcarTodos.AutoSize = true;
-            this.chb_Alinhamento_MarcarTodos.Location = new System.Drawing.Point(147, 358);
+            this.chb_Alinhamento_MarcarTodos.Location = new System.Drawing.Point(147, 413);
             this.chb_Alinhamento_MarcarTodos.Name = "chb_Alinhamento_MarcarTodos";
             this.chb_Alinhamento_MarcarTodos.Size = new System.Drawing.Size(88, 17);
             this.chb_Alinhamento_MarcarTodos.TabIndex = 24;
@@ -196,7 +199,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 358);
+            this.label4.Location = new System.Drawing.Point(14, 411);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 17);
             this.label4.TabIndex = 22;
@@ -205,9 +208,9 @@
             // pnl_alinhamento
             // 
             this.pnl_alinhamento.AutoScroll = true;
-            this.pnl_alinhamento.Location = new System.Drawing.Point(17, 381);
+            this.pnl_alinhamento.Location = new System.Drawing.Point(17, 431);
             this.pnl_alinhamento.Name = "pnl_alinhamento";
-            this.pnl_alinhamento.Size = new System.Drawing.Size(218, 166);
+            this.pnl_alinhamento.Size = new System.Drawing.Size(218, 116);
             this.pnl_alinhamento.TabIndex = 23;
             // 
             // pnl_classes
@@ -498,6 +501,11 @@
             // Txt_Numero
             // 
             this.Txt_Numero.Location = new System.Drawing.Point(17, 85);
+            this.Txt_Numero.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.Txt_Numero.Name = "Txt_Numero";
             this.Txt_Numero.Size = new System.Drawing.Size(120, 20);
             this.Txt_Numero.TabIndex = 73;
@@ -717,19 +725,9 @@
             // txt_fis_min
             // 
             this.txt_fis_min.Location = new System.Drawing.Point(512, 488);
-            this.txt_fis_min.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
             this.txt_fis_min.Name = "txt_fis_min";
             this.txt_fis_min.Size = new System.Drawing.Size(55, 20);
             this.txt_fis_min.TabIndex = 90;
-            this.txt_fis_min.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            -2147483648});
             // 
             // txt_fis_max
             // 
@@ -746,19 +744,9 @@
             // txt_mental_min
             // 
             this.txt_mental_min.Location = new System.Drawing.Point(512, 528);
-            this.txt_mental_min.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
             this.txt_mental_min.Name = "txt_mental_min";
             this.txt_mental_min.Size = new System.Drawing.Size(55, 20);
             this.txt_mental_min.TabIndex = 92;
-            this.txt_mental_min.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            -2147483648});
             // 
             // txt_mental_max
             // 
@@ -772,11 +760,42 @@
             0,
             0});
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(14, 266);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(78, 17);
+            this.label28.TabIndex = 94;
+            this.label28.Text = "Profissões";
+            // 
+            // pnl_profissoes
+            // 
+            this.pnl_profissoes.AutoScroll = true;
+            this.pnl_profissoes.Location = new System.Drawing.Point(17, 286);
+            this.pnl_profissoes.Name = "pnl_profissoes";
+            this.pnl_profissoes.Size = new System.Drawing.Size(218, 110);
+            this.pnl_profissoes.TabIndex = 19;
+            // 
+            // chb_Profissoes_MarcarTodos
+            // 
+            this.chb_Profissoes_MarcarTodos.AutoSize = true;
+            this.chb_Profissoes_MarcarTodos.Location = new System.Drawing.Point(147, 268);
+            this.chb_Profissoes_MarcarTodos.Name = "chb_Profissoes_MarcarTodos";
+            this.chb_Profissoes_MarcarTodos.Size = new System.Drawing.Size(88, 17);
+            this.chb_Profissoes_MarcarTodos.TabIndex = 95;
+            this.chb_Profissoes_MarcarTodos.Text = "Marcar todos";
+            this.chb_Profissoes_MarcarTodos.UseVisualStyleBackColor = true;
+            // 
             // GeradorNPC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 601);
+            this.Controls.Add(this.chb_Profissoes_MarcarTodos);
+            this.Controls.Add(this.pnl_profissoes);
+            this.Controls.Add(this.label28);
             this.Controls.Add(this.txt_mental_max);
             this.Controls.Add(this.txt_mental_min);
             this.Controls.Add(this.txt_fis_max);
@@ -929,5 +948,8 @@
         private System.Windows.Forms.NumericUpDown txt_fis_max;
         private System.Windows.Forms.NumericUpDown txt_mental_min;
         private System.Windows.Forms.NumericUpDown txt_mental_max;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Panel pnl_profissoes;
+        private System.Windows.Forms.CheckBox chb_Profissoes_MarcarTodos;
     }
 }

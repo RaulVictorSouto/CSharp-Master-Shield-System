@@ -286,7 +286,7 @@ namespace Master_Shield_System.Formularios.Npc
             }
         }
 
-        private void Inicializar()
+        public void Inicializar()
         {
             this.dt = NpcClass.GetNpc(true, this.readCityId);
             this.Dgv_Npc.DataSource = this.dt;
@@ -687,7 +687,7 @@ namespace Master_Shield_System.Formularios.Npc
 
         public void CriarNPCRandon()
         {
-            var geradorNpc = new GeradorNPC();
+            var geradorNpc = new GeradorNPC(this, readBoardId, readCityId);
             geradorNpc.ShowDialog();
             //try
             //{

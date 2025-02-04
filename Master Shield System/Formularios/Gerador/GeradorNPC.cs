@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Master_Shield_System.Formularios.City;
+using Master_Shield_System.Formularios.Npc;
 using MSSLibrary;
 using MySql.Data.MySqlClient;
 
@@ -57,14 +59,30 @@ namespace Master_Shield_System.Formularios.Gerador
        {
            "Vivo", "Morto"
        };
+        private readonly string[] profissoesRandon = new string[41]
+       {
+           "Sem Profissão", "Alquimista", "Apostador", "Artesão", "Botânico", "Camponês",
+            "Carpinteiro", "Caçador", "Cavaleiro", "Ceramista", "Comerciante", "Contador",
+            "Cozinheiro", "Diplomata", "Domador de Animais", "Escudeiro", "Espião", "Ferreiro",
+            "Guarda", "Joalheiro", "Lenhador", "Líder Tribal", "Líder Religioso", "Médico",
+            "Mendigo", "Mercenário", "Mestre de Armas", "Músico", "Navegador", "Nobre",
+            "Padre", "Pecuarista", "Pescador", "Prefeito", "Sacerdote", "Soldado", "Tecelão",
+            "Taverneiro", "Vendedor Ambulante", "Vidente", "Outro"
+       };
         private readonly Random random = new Random();
         private readonly List<string> nomesSelecionados = new List<string>();
         private readonly List<string> sobrenomesSelecionados = new List<string>();
+        private int _readBoardId;
+        private int _readCityId;
+        private NpcMain _npcMain;
 
         #endregion
-        public GeradorNPC()
+        public GeradorNPC(NpcMain npcMain, int readBoardId, int readCityId)
         {
             InitializeComponent();
+            _npcMain = npcMain;
+            _readCityId = readCityId;
+            _readBoardId = readBoardId;
         }
 
         private void GeradorNPC_Load(object sender, EventArgs e)
@@ -74,6 +92,7 @@ namespace Master_Shield_System.Formularios.Gerador
             AdicionarCheckBoxes(classesRandon, pnl_classes, CheckBoxIndividualClasses_CheckedChanged);
             AdicionarCheckBoxes(genderRandon, pnl_genero, CheckBoxIndividualGenero_CheckedChanged);
             AdicionarCheckBoxes(statusRandon, pnl_status, CheckBoxIndividualStatus_CheckedChanged);
+            AdicionarCheckBoxes(profissoesRandon, pnl_profissoes, CheckBoxIndividuaProfissoes_CheckedChanged);
 
             // Configura o checkbox "Marcar Todos"
             chb_Racas_MarcarTodos.CheckedChanged += chb_Racas_MarcarTodos_CheckedChanged;
@@ -81,13 +100,15 @@ namespace Master_Shield_System.Formularios.Gerador
             chb_classes_MarcarTodos.CheckedChanged += chb_classes_MarcarTodos_CheckedChanged;
             chb_genero_MarcarTodos.CheckedChanged += chb_genero_MarcarTodos_CheckedChanged;
             chb_status_MarcarTodos.CheckedChanged += chb_status_MarcarTodos_CheckedChanged;
+            chb_Profissoes_MarcarTodos.CheckedChanged += chb_Profissoes_MarcarTodos_CheckedChanged;
 
             chb_Racas_MarcarTodos.Checked = true;
             chb_Alinhamento_MarcarTodos.Checked = true;
             chb_classes_MarcarTodos.Checked = true;
             chb_genero_MarcarTodos.Checked = true;
             chb_status_MarcarTodos.Checked = true;
-     
+            chb_Profissoes_MarcarTodos.Checked = true;
+
         }
 
         private void AdicionarCheckBoxes(string[] items, Panel targetPanel, EventHandler checkedChangedHandler)
@@ -271,6 +292,47 @@ namespace Master_Shield_System.Formularios.Gerador
 
         #endregion
 
+        #region marcar todos profissoes
+
+        private void chb_Profissoes_MarcarTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isUpdating) return; // Evita loops desnecessários
+
+            isUpdating = true;
+
+            bool marcarTodos = chb_Profissoes_MarcarTodos.Checked;
+
+            // Atualiza todos os checkboxes individuais
+            foreach (Control control in pnl_profissoes.Controls)
+            {
+                if (control is CheckBox checkBox && checkBox != chb_Profissoes_MarcarTodos)
+                {
+                    checkBox.Checked = marcarTodos;
+                }
+            }
+
+            isUpdating = false;
+        }
+
+        private void CheckBoxIndividuaProfissoes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isUpdating) return; // Evita loops desnecessários
+
+            isUpdating = true;
+
+            // Verifica se todos os checkboxes estão marcados
+            bool todosMarcados = pnl_profissoes.Controls.OfType<CheckBox>()
+                .Where(cb => cb != chb_Profissoes_MarcarTodos) // Ignora o "Marcar Todos"
+                .All(cb => cb.Checked);
+
+            // Atualiza o estado do "Marcar Todos"
+            chb_Profissoes_MarcarTodos.Checked = todosMarcados;
+
+            isUpdating = false;
+        }
+
+        #endregion
+        
         #region marcar todos Status
 
         private void chb_status_MarcarTodos_CheckedChanged(object sender, EventArgs e)
@@ -364,32 +426,36 @@ namespace Master_Shield_System.Formularios.Gerador
                 {
                     string firstName = SelecionarNomesAleatorio();
                     string lastName = SelecionarSobrenomesAleatorio();
-                    string npcClass = classesRandon.Length != 0 ? classesRandon[random.Next(classesRandon.Length)] : "";
-                    string npcRace = raceRandon.Length != 0 ? raceRandon[random.Next(raceRandon.Length)] : "";
-                    string npcGender = genderRandon.Length != 0 ? genderRandon[random.Next(genderRandon.Length)] : "";
-                    string npcMoralAlignment = moralRandon.Length != 0 ? moralRandon[random.Next(moralRandon.Length)] : "";
-                    int hp = random.Next(1, 11);
-                    int level = random.Next(1, 11);
-                    int energy = random.Next(1, 11);
-                    int strength = random.Next(-6, 7);
-                    int speed = random.Next(-6, 7);
-                    int intelligence = random.Next(-6, 7);
-                    int charisma = random.Next(-6, 7);
-                    int luck = random.Next(-6, 7);
+                    string npcClass = classesRandon[random.Next(classesRandon.Length)];
+                    string npcRace = raceRandon[random.Next(raceRandon.Length)];
+                    string npcGender = genderRandon[random.Next(genderRandon.Length)];
+                    string npcMoralAlignment = moralRandon[random.Next(moralRandon.Length)];
+                    string npcStatus = statusRandon[random.Next(statusRandon.Length)];
+                    string npcProfession = profissoesRandon[random.Next(profissoesRandon.Length)];
+                    int hp = random.Next((int)txt_hp_min.Value, (int)txt_hp_min.Value + 1);
+                    int level = random.Next((int)txt_nivel_min.Value, (int)txt_nivel_min.Value + 1);
+                    int energy = random.Next((int)txt_energia_min.Value, (int)txt_energia_min.Value + 1);
+                    int strength = random.Next((int)txt_forca_min.Value, (int)txt_forca_min.Value + 1);
+                    int speed = random.Next((int)txt_veloc_min.Value, (int)txt_veloc_min.Value + 1);
+                    int intelligence = random.Next((int)txt_intel_min.Value, (int)txt_intel_min.Value + 1);
+                    int charisma = random.Next((int)txt_carisma_min.Value, (int)txt_carisma_min.Value + 1);
+                    int luck = random.Next((int)txt_sorte_min.Value, (int)txt_sorte_min.Value + 1);
+                    int physical = random.Next((int)txt_fis_min.Value, (int)txt_fis_min.Value + 1);
+                    int mental = random.Next((int)txt_mental_min.Value, (int)txt_mental_min.Value + 1);
 
                     using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
                     {
                         connection.Open();
                         string query = @"
                     INSERT INTO sgrpg.tblnpc 
-                    (BoardId, CityId, NpcFirstName, NpcLastName, NpcRace, NpcClass, NpcGender, NpcMoralAlignment, NpcHp, NpcLevel, NpcEnergy, NpcIsDead, NpcStrength, NpcSpeed, NpcIntelligence, NpcCharisma, NpcLuck) 
+                    (BoardId, CityId, NpcFirstName, NpcLastName, NpcRace, NpcClass, NpcGender, NpcMoralAlignment, NpcHp, NpcLevel, NpcEnergy, NpcIsDead, NpcStrength, NpcSpeed, NpcIntelligence, NpcCharisma, NpcLuck, NpcProfession, NpcPhysicalResistance, NpcMentalResistance) 
                     VALUES 
-                    (@BoardId, @CityId, @NpcFirstName, @NpcLastName, @NpcRace, @NpcClass, @NpcGender, @NpcMoralAlignment, @NpcHp, @NpcLevel, @NpcEnergy, @NpcIsDead, @NpcStrength, @NpcSpeed, @NpcIntelligence, @NpcCharisma, @NpcLuck)";
+                    (@BoardId, @CityId, @NpcFirstName, @NpcLastName, @NpcRace, @NpcClass, @NpcGender, @NpcMoralAlignment, @NpcHp, @NpcLevel, @NpcEnergy, @NpcIsDead, @NpcStrength, @NpcSpeed, @NpcIntelligence, @NpcCharisma, @NpcLuck, @NpcProfession, @NpcPhysicalResistance, @NpcMentalResistance)";
 
                         using (MySqlCommand mySqlCommand = new MySqlCommand(query, connection))
                         {
-                           // mySqlCommand.Parameters.AddWithValue("@BoardId", readBoardId);
-                          //  mySqlCommand.Parameters.AddWithValue("@CityId", readCityId);
+                            mySqlCommand.Parameters.AddWithValue("@BoardId", _readBoardId);
+                            mySqlCommand.Parameters.AddWithValue("@CityId", _readCityId);
                             mySqlCommand.Parameters.AddWithValue("@NpcFirstName", firstName);
                             mySqlCommand.Parameters.AddWithValue("@NpcLastName", lastName);
                             mySqlCommand.Parameters.AddWithValue("@NpcRace", npcRace);
@@ -405,6 +471,9 @@ namespace Master_Shield_System.Formularios.Gerador
                             mySqlCommand.Parameters.AddWithValue("@NpcIntelligence", intelligence);
                             mySqlCommand.Parameters.AddWithValue("@NpcCharisma", charisma);
                             mySqlCommand.Parameters.AddWithValue("@NpcLuck", luck);
+                            mySqlCommand.Parameters.AddWithValue("@NpcProfession", npcProfession);
+                            mySqlCommand.Parameters.AddWithValue("@NpcPhysicalResistance", physical);
+                            mySqlCommand.Parameters.AddWithValue("@NpcMentalResistance", mental);
 
                             mySqlCommand.ExecuteNonQuery();
                         }
@@ -414,7 +483,9 @@ namespace Master_Shield_System.Formularios.Gerador
                 }
 
                 MessageBox.Show("Inclusão de NPC's realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                //Inicializar();
+                this.Close();
+
+                _npcMain.Inicializar();
             }
             catch (Exception ex)
             {
