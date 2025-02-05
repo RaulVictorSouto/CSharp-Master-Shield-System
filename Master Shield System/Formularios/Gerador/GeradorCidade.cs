@@ -37,10 +37,10 @@ namespace Master_Shield_System.Formularios.Gerador
         };
 
         private Random random = new Random();
-        private List<string> cidadesSelecionadas = new List<string>();
         private int _readBoardId;
         private CityMain _cityMain;
-
+        private List<string> biomasSelect = new List<string>();
+        private List<string> reputacoesSelect = new List<string>();
 
         public GeradorCidade(CityMain cityMain, int readBoardId)
         {
@@ -92,6 +92,7 @@ namespace Master_Shield_System.Formularios.Gerador
 
             bool marcarTodos = chb_Biomas_MarcarTodos.Checked;
 
+
             // Atualiza todos os checkboxes individuais
             foreach (Control control in pnl_biomas.Controls)
             {
@@ -99,6 +100,21 @@ namespace Master_Shield_System.Formularios.Gerador
                 {
                     checkBox.Checked = marcarTodos;
                 }
+            }
+
+            // Se estiver marcando todos, preenche a lista
+            if (marcarTodos)
+            {
+                biomasSelect = pnl_biomas.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb != chb_Biomas_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Select(cb => cb.Text) // Pega os textos dos checkboxes
+                    .ToList();
+            }
+            else
+            {
+                // Se estiver desmarcando todos, esvazia a lista
+                biomasSelect.Clear();
             }
 
             isUpdating = false;
@@ -110,6 +126,22 @@ namespace Master_Shield_System.Formularios.Gerador
             if (isUpdating) return; // Evita loops desnecessários
 
             isUpdating = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                if (checkBox.Checked)
+                {
+                    // Adiciona o valor se não estiver na lista
+                    if (!biomasSelect.Contains(checkBox.Text))
+                        biomasSelect.Add(checkBox.Text);
+                }
+                else
+                {
+                    // Remove o valor da lista se o checkbox for desmarcado
+                    biomasSelect.Remove(checkBox.Text);
+                }
+            }
 
             // Verifica se todos os checkboxes estão marcados
             bool todosMarcados = pnl_biomas.Controls.OfType<CheckBox>()
@@ -142,6 +174,20 @@ namespace Master_Shield_System.Formularios.Gerador
                 }
             }
 
+            if (marcarTodos)
+            {
+                reputacoesSelect = pnl_reputacao.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb != chb_Reputacao_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Select(cb => cb.Text) // Pega os textos dos checkboxes
+                    .ToList();
+            }
+            else
+            {
+                // Se estiver desmarcando todos, esvazia a lista
+                reputacoesSelect.Clear();
+            }
+
             isUpdating = false;
         }
 
@@ -150,6 +196,22 @@ namespace Master_Shield_System.Formularios.Gerador
             if (isUpdating) return; // Evita loops desnecessários
 
             isUpdating = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                if (checkBox.Checked)
+                {
+                    // Adiciona o valor se não estiver na lista
+                    if (!reputacoesSelect.Contains(checkBox.Text))
+                        reputacoesSelect.Add(checkBox.Text);
+                }
+                else
+                {
+                    // Remove o valor da lista se o checkbox for desmarcado
+                    reputacoesSelect.Remove(checkBox.Text);
+                }
+            }
 
             // Verifica se todos os checkboxes estão marcados
             bool todosMarcados = pnl_reputacao.Controls.OfType<CheckBox>()
@@ -191,13 +253,11 @@ namespace Master_Shield_System.Formularios.Gerador
                     return;
                 }
 
-                Random random = new Random();
-
                 for (int index = 0; index < numeroCidades; ++index)
                 {
                     string cidade = cidades[random.Next(cidades.Length)];
-                    string bioma = biomas[random.Next(biomas.Length)];
-                    string reputacao = reputacoes[random.Next(reputacoes.Length)];
+                    string bioma = biomasSelect[random.Next(biomasSelect.Count)];
+                    string reputacao = reputacoesSelect[random.Next(reputacoesSelect.Count)];
 
                     using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
                     {
@@ -213,12 +273,6 @@ namespace Master_Shield_System.Formularios.Gerador
                             // Executa o comando
                             mySqlCommand.ExecuteNonQuery();
                         }
-                    }
-
-                    // Adiciona à lista de cidades
-                    if (cidadesSelecionadas != null)
-                    {
-                        cidadesSelecionadas.Add(cidade);
                     }
                 }
 

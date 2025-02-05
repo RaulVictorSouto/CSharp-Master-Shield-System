@@ -75,6 +75,12 @@ namespace Master_Shield_System.Formularios.Gerador
         private int _readBoardId;
         private int _readCityId;
         private NpcMain _npcMain;
+        private List<string> raceSelect = new List<string>();
+        private List<string> classesSelect = new List<string>();
+        private List<string> genderSelect = new List<string>();
+        private List<string> moralSelect = new List<string>();
+        private List<string> statusSelect = new List<string>();
+        private List<string> profissoesSelect = new List<string>();
 
         #endregion
         public GeradorNPC(NpcMain npcMain, int readBoardId, int readCityId)
@@ -146,6 +152,21 @@ namespace Master_Shield_System.Formularios.Gerador
                 {
                     checkBox.Checked = marcarTodos;
                 }
+            }
+
+            // Se estiver marcando todos, preenche a lista
+            if (marcarTodos)
+            {
+                raceSelect = pnl_raca.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb != chb_Biomas_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Select(cb => cb.Text) // Pega os textos dos checkboxes
+                    .ToList();
+            }
+            else
+            {
+                // Se estiver desmarcando todos, esvazia a lista
+                biomasSelect.Clear();
             }
 
             isUpdating = false;
