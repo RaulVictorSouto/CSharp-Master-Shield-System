@@ -157,16 +157,16 @@ namespace Master_Shield_System.Formularios.Gerador
             // Se estiver marcando todos, preenche a lista
             if (marcarTodos)
             {
-                raceSelect = pnl_raca.Controls
+                raceSelect = pnl_racas.Controls
                     .OfType<CheckBox>()
-                    .Where(cb => cb != chb_Biomas_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Where(cb => cb != chb_Racas_MarcarTodos) // Ignora o "Marcar Todos"
                     .Select(cb => cb.Text) // Pega os textos dos checkboxes
                     .ToList();
             }
             else
             {
                 // Se estiver desmarcando todos, esvazia a lista
-                biomasSelect.Clear();
+                raceSelect.Clear();
             }
 
             isUpdating = false;
@@ -177,6 +177,22 @@ namespace Master_Shield_System.Formularios.Gerador
             if (isUpdating) return; // Evita loops desnecessários
 
             isUpdating = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                if (checkBox.Checked)
+                {
+                    // Adiciona o valor se não estiver na lista
+                    if (!moralSelect.Contains(checkBox.Text))
+                        moralSelect.Add(checkBox.Text);
+                }
+                else
+                {
+                    // Remove o valor da lista se o checkbox for desmarcado
+                    moralSelect.Remove(checkBox.Text);
+                }
+            }
 
             // Verifica se todos os checkboxes estão marcados
             bool todosMarcados = pnl_racas.Controls.OfType<CheckBox>()
@@ -191,7 +207,7 @@ namespace Master_Shield_System.Formularios.Gerador
 
         #endregion
 
-        #region marcar todos racas
+        #region marcar todos alinhamento
         private void chb_Alinhamento_MarcarTodos_CheckedChanged(object sender, EventArgs e)
         {
             if (isUpdating) return; // Evita loops desnecessários
@@ -209,6 +225,21 @@ namespace Master_Shield_System.Formularios.Gerador
                 }
             }
 
+            // Se estiver marcando todos, preenche a lista
+            if (marcarTodos)
+            {
+                moralSelect = pnl_alinhamento.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb != chb_Alinhamento_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Select(cb => cb.Text) // Pega os textos dos checkboxes
+                    .ToList();
+            }
+            else
+            {
+                // Se estiver desmarcando todos, esvazia a lista
+                moralSelect.Clear();
+            }
+
             isUpdating = false;
         }
 
@@ -217,6 +248,22 @@ namespace Master_Shield_System.Formularios.Gerador
             if (isUpdating) return; // Evita loops desnecessários
 
             isUpdating = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                if (checkBox.Checked)
+                {
+                    // Adiciona o valor se não estiver na lista
+                    if (!moralSelect.Contains(checkBox.Text))
+                        moralSelect.Add(checkBox.Text);
+                }
+                else
+                {
+                    // Remove o valor da lista se o checkbox for desmarcado
+                    moralSelect.Remove(checkBox.Text);
+                }
+            }
 
             // Verifica se todos os checkboxes estão marcados
             bool todosMarcados = pnl_alinhamento.Controls.OfType<CheckBox>()
@@ -250,6 +297,21 @@ namespace Master_Shield_System.Formularios.Gerador
                 }
             }
 
+            // Se estiver marcando todos, preenche a lista
+            if (marcarTodos)
+            {
+                classesSelect = pnl_classes.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb != chb_classes_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Select(cb => cb.Text) // Pega os textos dos checkboxes
+                    .ToList();
+            }
+            else
+            {
+                // Se estiver desmarcando todos, esvazia a lista
+                classesSelect.Clear();
+            }
+
             isUpdating = false;
         }
 
@@ -258,6 +320,22 @@ namespace Master_Shield_System.Formularios.Gerador
             if (isUpdating) return; // Evita loops desnecessários
 
             isUpdating = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                if (checkBox.Checked)
+                {
+                    // Adiciona o valor se não estiver na lista
+                    if (!classesSelect.Contains(checkBox.Text))
+                        classesSelect.Add(checkBox.Text);
+                }
+                else
+                {
+                    // Remove o valor da lista se o checkbox for desmarcado
+                    classesSelect.Remove(checkBox.Text);
+                }
+            }
 
             // Verifica se todos os checkboxes estão marcados
             bool todosMarcados = pnl_classes.Controls.OfType<CheckBox>()
@@ -291,6 +369,21 @@ namespace Master_Shield_System.Formularios.Gerador
                 }
             }
 
+            // Se estiver marcando todos, preenche a lista
+            if (marcarTodos)
+            {
+                genderSelect = pnl_genero.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb != chb_genero_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Select(cb => cb.Text) // Pega os textos dos checkboxes
+                    .ToList();
+            }
+            else
+            {
+                // Se estiver desmarcando todos, esvazia a lista
+                genderSelect.Clear();
+            }
+
             isUpdating = false;
         }
 
@@ -299,6 +392,22 @@ namespace Master_Shield_System.Formularios.Gerador
             if (isUpdating) return; // Evita loops desnecessários
 
             isUpdating = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                if (checkBox.Checked)
+                {
+                    // Adiciona o valor se não estiver na lista
+                    if (!genderSelect.Contains(checkBox.Text))
+                        genderSelect.Add(checkBox.Text);
+                }
+                else
+                {
+                    // Remove o valor da lista se o checkbox for desmarcado
+                    genderSelect.Remove(checkBox.Text);
+                }
+            }
 
             // Verifica se todos os checkboxes estão marcados
             bool todosMarcados = pnl_genero.Controls.OfType<CheckBox>()
@@ -332,6 +441,21 @@ namespace Master_Shield_System.Formularios.Gerador
                 }
             }
 
+            // Se estiver marcando todos, preenche a lista
+            if (marcarTodos)
+            {
+                profissoesSelect = pnl_profissoes.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb != chb_Profissoes_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Select(cb => cb.Text) // Pega os textos dos checkboxes
+                    .ToList();
+            }
+            else
+            {
+                // Se estiver desmarcando todos, esvazia a lista
+                profissoesSelect.Clear();
+            }
+
             isUpdating = false;
         }
 
@@ -340,6 +464,22 @@ namespace Master_Shield_System.Formularios.Gerador
             if (isUpdating) return; // Evita loops desnecessários
 
             isUpdating = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                if (checkBox.Checked)
+                {
+                    // Adiciona o valor se não estiver na lista
+                    if (!profissoesSelect.Contains(checkBox.Text))
+                        profissoesSelect.Add(checkBox.Text);
+                }
+                else
+                {
+                    // Remove o valor da lista se o checkbox for desmarcado
+                    profissoesSelect.Remove(checkBox.Text);
+                }
+            }
 
             // Verifica se todos os checkboxes estão marcados
             bool todosMarcados = pnl_profissoes.Controls.OfType<CheckBox>()
@@ -373,6 +513,21 @@ namespace Master_Shield_System.Formularios.Gerador
                 }
             }
 
+            // Se estiver marcando todos, preenche a lista
+            if (marcarTodos)
+            {
+                statusSelect = pnl_status.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb != chb_status_MarcarTodos) // Ignora o "Marcar Todos"
+                    .Select(cb => cb.Text) // Pega os textos dos checkboxes
+                    .ToList();
+            }
+            else
+            {
+                // Se estiver desmarcando todos, esvazia a lista
+                statusSelect.Clear();
+            }
+
             isUpdating = false;
         }
 
@@ -381,6 +536,22 @@ namespace Master_Shield_System.Formularios.Gerador
             if (isUpdating) return; // Evita loops desnecessários
 
             isUpdating = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                if (checkBox.Checked)
+                {
+                    // Adiciona o valor se não estiver na lista
+                    if (!statusSelect.Contains(checkBox.Text))
+                        statusSelect.Add(checkBox.Text);
+                }
+                else
+                {
+                    // Remove o valor da lista se o checkbox for desmarcado
+                    statusSelect.Remove(checkBox.Text);
+                }
+            }
 
             // Verifica se todos os checkboxes estão marcados
             bool todosMarcados = pnl_status.Controls.OfType<CheckBox>()
@@ -447,12 +618,12 @@ namespace Master_Shield_System.Formularios.Gerador
                 {
                     string firstName = SelecionarNomesAleatorio();
                     string lastName = SelecionarSobrenomesAleatorio();
-                    string npcClass = classesRandon[random.Next(classesRandon.Length)];
-                    string npcRace = raceRandon[random.Next(raceRandon.Length)];
-                    string npcGender = genderRandon[random.Next(genderRandon.Length)];
-                    string npcMoralAlignment = moralRandon[random.Next(moralRandon.Length)];
-                    string npcStatus = statusRandon[random.Next(statusRandon.Length)];
-                    string npcProfession = profissoesRandon[random.Next(profissoesRandon.Length)];
+                    string npcClass = classesSelect[random.Next(classesSelect.Count)];
+                    string npcRace = raceSelect[random.Next(raceSelect.Count)];
+                    string npcGender = genderSelect[random.Next(genderSelect.Count)];
+                    string npcMoralAlignment = moralSelect[random.Next(moralSelect.Count)];
+                    string npcStatus = statusSelect[random.Next(statusSelect.Count)];
+                    string npcProfession = profissoesSelect[random.Next(profissoesSelect.Count)];
                     int hp = random.Next((int)txt_hp_min.Value, (int)txt_hp_min.Value + 1);
                     int level = random.Next((int)txt_nivel_min.Value, (int)txt_nivel_min.Value + 1);
                     int energy = random.Next((int)txt_energia_min.Value, (int)txt_energia_min.Value + 1);
