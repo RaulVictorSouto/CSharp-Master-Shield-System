@@ -253,7 +253,7 @@ namespace Master_Shield_System.Formularios.Gerador
                     return;
                 }
 
-                for (int index = 0; index < numeroCidades; ++index)
+                for (int index = 0; index < (int)Txt_Numero.Value; ++index)
                 {
                     string cidade = cidades[random.Next(cidades.Length)];
                     string bioma = biomasSelect[random.Next(biomasSelect.Count)];

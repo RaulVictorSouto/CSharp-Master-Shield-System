@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using Master_Shield_System.Formularios.City;
 using Master_Shield_System.Formularios.Npc;
 using MSSLibrary;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crmf;
 
 namespace Master_Shield_System.Formularios.Gerador
 {
@@ -184,13 +186,13 @@ namespace Master_Shield_System.Formularios.Gerador
                 if (checkBox.Checked)
                 {
                     // Adiciona o valor se não estiver na lista
-                    if (!moralSelect.Contains(checkBox.Text))
-                        moralSelect.Add(checkBox.Text);
+                    if (!raceSelect.Contains(checkBox.Text))
+                        raceSelect.Add(checkBox.Text);
                 }
                 else
                 {
                     // Remove o valor da lista se o checkbox for desmarcado
-                    moralSelect.Remove(checkBox.Text);
+                    raceSelect.Remove(checkBox.Text);
                 }
             }
 
@@ -576,45 +578,23 @@ namespace Master_Shield_System.Formularios.Gerador
                 if (MessageBox.Show("Tem certeza que deseja gerar NPC's aleatórios?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
 
-                // Valida a entrada numérica
                 if (!int.TryParse(Txt_Numero.Text, out int numeroNpc) || numeroNpc <= 0)
                 {
                     MessageBox.Show("Por favor, insira um número válido para gerar os NPC's.", "Erro de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                if (raceRandon == null || raceRandon.Length == 0)
+                if (raceRandon == null || raceRandon.Length == 0 ||
+                    classesRandon == null || classesRandon.Length == 0 ||
+                    genderRandon == null || genderRandon.Length == 0 ||
+                    moralRandon == null || moralRandon.Length == 0 ||
+                    statusRandon == null || statusRandon.Length == 0)
                 {
-                    MessageBox.Show("A lista de raças está vazia ou não inicializada.", "Erro de Dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Uma ou mais listas obrigatórias estão vazias ou não inicializadas.", "Erro de Dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                if (classesRandon == null || classesRandon.Length == 0)
-                {
-                    MessageBox.Show("A lista de classes está vazia ou não inicializada.", "Erro de Dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (genderRandon == null || genderRandon.Length == 0)
-                {
-                    MessageBox.Show("A lista de gêneros está vazia ou não inicializada.", "Erro de Dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (moralRandon == null || moralRandon.Length == 0)
-                {
-                    MessageBox.Show("A lista de alinhamentos está vazia ou não inicializada.", "Erro de Dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (statusRandon == null || statusRandon.Length == 0)
-                {
-                    MessageBox.Show("A lista de status está vazia ou não inicializada.", "Erro de Dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                Random random = new Random();
-                for (int index = 0; index < 10; ++index)
+                for (int index = 0; index < (int)Txt_Numero.Value; ++index)
                 {
                     string firstName = SelecionarNomesAleatorio();
                     string lastName = SelecionarSobrenomesAleatorio();
@@ -623,26 +603,28 @@ namespace Master_Shield_System.Formularios.Gerador
                     string npcGender = genderSelect[random.Next(genderSelect.Count)];
                     string npcMoralAlignment = moralSelect[random.Next(moralSelect.Count)];
                     string npcStatus = statusSelect[random.Next(statusSelect.Count)];
+                    bool npcIsDead = npcStatus.Equals("Morto", StringComparison.OrdinalIgnoreCase);
                     string npcProfession = profissoesSelect[random.Next(profissoesSelect.Count)];
-                    int hp = random.Next((int)txt_hp_min.Value, (int)txt_hp_min.Value + 1);
-                    int level = random.Next((int)txt_nivel_min.Value, (int)txt_nivel_min.Value + 1);
-                    int energy = random.Next((int)txt_energia_min.Value, (int)txt_energia_min.Value + 1);
-                    int strength = random.Next((int)txt_forca_min.Value, (int)txt_forca_min.Value + 1);
-                    int speed = random.Next((int)txt_veloc_min.Value, (int)txt_veloc_min.Value + 1);
-                    int intelligence = random.Next((int)txt_intel_min.Value, (int)txt_intel_min.Value + 1);
-                    int charisma = random.Next((int)txt_carisma_min.Value, (int)txt_carisma_min.Value + 1);
-                    int luck = random.Next((int)txt_sorte_min.Value, (int)txt_sorte_min.Value + 1);
-                    int physical = random.Next((int)txt_fis_min.Value, (int)txt_fis_min.Value + 1);
-                    int mental = random.Next((int)txt_mental_min.Value, (int)txt_mental_min.Value + 1);
+
+                    int hp = AjustarIntervalo(txt_hp_min, txt_hp_max);
+                    int level = AjustarIntervalo(txt_nivel_min, txt_nivel_max);
+                    int energy = AjustarIntervalo(txt_energia_min, txt_energia_max);
+                    int strength = AjustarIntervalo(txt_forca_min, txt_forca_max);
+                    int speed = AjustarIntervalo(txt_veloc_min, txt_veloc_max);
+                    int intelligence = AjustarIntervalo(txt_intel_min, txt_intel_max);
+                    int charisma = AjustarIntervalo(txt_carisma_min, txt_carisma_max);
+                    int luck = AjustarIntervalo(txt_sorte_min, txt_sorte_max);
+                    int physical = AjustarIntervalo(txt_fis_min, txt_fis_max);
+                    int mental = AjustarIntervalo(txt_mental_min, txt_mental_max);
 
                     using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
                     {
                         connection.Open();
                         string query = @"
-                    INSERT INTO sgrpg.tblnpc 
-                    (BoardId, CityId, NpcFirstName, NpcLastName, NpcRace, NpcClass, NpcGender, NpcMoralAlignment, NpcHp, NpcLevel, NpcEnergy, NpcIsDead, NpcStrength, NpcSpeed, NpcIntelligence, NpcCharisma, NpcLuck, NpcProfession, NpcPhysicalResistance, NpcMentalResistance) 
-                    VALUES 
-                    (@BoardId, @CityId, @NpcFirstName, @NpcLastName, @NpcRace, @NpcClass, @NpcGender, @NpcMoralAlignment, @NpcHp, @NpcLevel, @NpcEnergy, @NpcIsDead, @NpcStrength, @NpcSpeed, @NpcIntelligence, @NpcCharisma, @NpcLuck, @NpcProfession, @NpcPhysicalResistance, @NpcMentalResistance)";
+                INSERT INTO sgrpg.tblnpc 
+                (BoardId, CityId, NpcFirstName, NpcLastName, NpcRace, NpcClass, NpcGender, NpcMoralAlignment, NpcHp, NpcLevel, NpcEnergy, NpcIsDead, NpcStrength, NpcSpeed, NpcIntelligence, NpcCharisma, NpcLuck, NpcProfession, NpcPhysicalResistance, NpcMentalResistance) 
+                VALUES 
+                (@BoardId, @CityId, @NpcFirstName, @NpcLastName, @NpcRace, @NpcClass, @NpcGender, @NpcMoralAlignment, @NpcHp, @NpcLevel, @NpcEnergy, @NpcIsDead, @NpcStrength, @NpcSpeed, @NpcIntelligence, @NpcCharisma, @NpcLuck, @NpcProfession, @NpcPhysicalResistance, @NpcMentalResistance)";
 
                         using (MySqlCommand mySqlCommand = new MySqlCommand(query, connection))
                         {
@@ -657,7 +639,7 @@ namespace Master_Shield_System.Formularios.Gerador
                             mySqlCommand.Parameters.AddWithValue("@NpcHp", hp);
                             mySqlCommand.Parameters.AddWithValue("@NpcLevel", level);
                             mySqlCommand.Parameters.AddWithValue("@NpcEnergy", energy);
-                            mySqlCommand.Parameters.AddWithValue("@NpcIsDead", 0);
+                            mySqlCommand.Parameters.AddWithValue("@NpcIsDead", npcIsDead);
                             mySqlCommand.Parameters.AddWithValue("@NpcStrength", strength);
                             mySqlCommand.Parameters.AddWithValue("@NpcSpeed", speed);
                             mySqlCommand.Parameters.AddWithValue("@NpcIntelligence", intelligence);
@@ -684,6 +666,21 @@ namespace Master_Shield_System.Formularios.Gerador
                 MessageBox.Show("ERRO ao inserir NPC's: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
+
+        // Retorna um número aleatório entre um mínimo e um máximo, garantindo que min ≤ max.
+        int AjustarIntervalo(NumericUpDown minControl, NumericUpDown maxControl)
+        {
+            int min = (int)minControl.Value;
+            int max = (int)maxControl.Value;
+            if (min > max)
+            {
+                int temp = min;
+                min = max;
+                max = temp;
+            }
+            return random.Next(min, max + 1);
+        }
+
 
         //Estas funções não permitem que um mesmo nome/sobrenome seja selecionado duas vezes
         private string SelecionarNomesAleatorio()

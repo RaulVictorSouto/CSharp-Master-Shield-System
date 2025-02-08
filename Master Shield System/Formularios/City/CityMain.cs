@@ -295,7 +295,10 @@ namespace Master_Shield_System.Formularios.City
             switch (keyData)
             {
                 case Keys.G | Keys.Control:
-                    this.CriarCidadesRandon();
+                    if (this is CityMain)
+                    {
+                        this.CriarCidadesRandon();
+                    }
                     return true;
                 case Keys.T | Keys.Control:
                     this.GerarTextoAutomaticamente(this.ConfirmCityId);

@@ -658,103 +658,13 @@ namespace Master_Shield_System.Formularios.Npc
         #endregion
 
         #region Criar NPC Aleatóriamente
-        //Adicionar NPC randomicamente
-
-        //Estas funções não permitem que um mesmo nome/sobrenome seja selecionado duas vezes
-        //private string SelecionarNomesAleatorio()
-        //{
-        //    string str;
-        //    do
-        //    {
-        //        str = this.nomesRandon[this.random.Next(this.nomesRandon.Length)];
-        //    }
-        //    while (this.nomesSelecionados.Contains(str));
-        //    this.nomesSelecionados.Add(str);
-        //    return str;
-        //}
-
-        //private string SelecionarSobrenomesAleatorio()
-        //{
-        //    string str;
-        //    do
-        //    {
-        //        str = this.sobrenomesRandon[this.random.Next(this.sobrenomesRandon.Length)];
-        //    }
-        //    while (this.sobrenomesSelecionados.Contains(str));
-        //    this.sobrenomesSelecionados.Add(str);
-        //    return str;
-        //}
+        
 
         public void CriarNPCRandon()
         {
             var geradorNpc = new GeradorNPC(this, readBoardId, readCityId);
             geradorNpc.ShowDialog();
-            //try
-            //{
-            //    if (MessageBox.Show("Tem certeza que deseja gerar NPC's aleatórios?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-            //        return;
-
-            //    Random random = new Random();
-            //    for (int index = 0; index < 10; ++index)
-            //    {
-            //        string firstName = SelecionarNomesAleatorio();
-            //        string lastName = SelecionarSobrenomesAleatorio();
-            //        string npcClass = classesRandon.Length != 0 ? classesRandon[random.Next(classesRandon.Length)] : "";
-            //        string npcRace = raceRandon.Length != 0 ? raceRandon[random.Next(raceRandon.Length)] : "";
-            //        string npcGender = genderRandon.Length != 0 ? genderRandon[random.Next(genderRandon.Length)] : "";
-            //        string npcMoralAlignment = moralRandon.Length != 0 ? moralRandon[random.Next(moralRandon.Length)] : "";
-            //        int hp = random.Next(1, 11);
-            //        int level = random.Next(1, 11);
-            //        int energy = random.Next(1, 11);
-            //        int strength = random.Next(-6, 7);
-            //        int speed = random.Next(-6, 7);
-            //        int intelligence = random.Next(-6, 7);
-            //        int charisma = random.Next(-6, 7);
-            //        int luck = random.Next(-6, 7);
-
-            //        using (MySqlConnection connection = new MySqlConnection(ConexaoSQLClass.ConnString))
-            //        {
-            //            connection.Open();
-            //            string query = @"
-            //        INSERT INTO sgrpg.tblnpc 
-            //        (BoardId, CityId, NpcFirstName, NpcLastName, NpcRace, NpcClass, NpcGender, NpcMoralAlignment, NpcHp, NpcLevel, NpcEnergy, NpcIsDead, NpcStrength, NpcSpeed, NpcIntelligence, NpcCharisma, NpcLuck) 
-            //        VALUES 
-            //        (@BoardId, @CityId, @NpcFirstName, @NpcLastName, @NpcRace, @NpcClass, @NpcGender, @NpcMoralAlignment, @NpcHp, @NpcLevel, @NpcEnergy, @NpcIsDead, @NpcStrength, @NpcSpeed, @NpcIntelligence, @NpcCharisma, @NpcLuck)";
-
-            //            using (MySqlCommand mySqlCommand = new MySqlCommand(query, connection))
-            //            {
-            //                mySqlCommand.Parameters.AddWithValue("@BoardId", readBoardId);
-            //                mySqlCommand.Parameters.AddWithValue("@CityId", readCityId);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcFirstName", firstName);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcLastName", lastName);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcRace", npcRace);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcClass", npcClass);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcGender", npcGender);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcMoralAlignment", npcMoralAlignment);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcHp", hp);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcLevel", level);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcEnergy", energy);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcIsDead", 0);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcStrength", strength);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcSpeed", speed);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcIntelligence", intelligence);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcCharisma", charisma);
-            //                mySqlCommand.Parameters.AddWithValue("@NpcLuck", luck);
-
-            //                mySqlCommand.ExecuteNonQuery();
-            //            }
-
-            //            connection.Close();
-            //        }
-            //    }
-
-            //    MessageBox.Show("Inclusão de NPC's realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            //    Inicializar();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("ERRO ao inserir NPC's: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //}
+            
         }
 
         #endregion
@@ -765,7 +675,10 @@ namespace Master_Shield_System.Formularios.Npc
             switch (keyData)
             {
                 case Keys.G | Keys.Control:
-                    this.CriarNPCRandon();
+                    if (this is NpcMain)
+                    {
+                        this.CriarNPCRandon();
+                    }
                     return true;
                 case Keys.T | Keys.Control:
                     this.GerarTextoAutomaticamente(this.readNpcId);
