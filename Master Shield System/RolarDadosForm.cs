@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Master_Shield_System.Formularios.Npc;
+using static Org.BouncyCastle.Asn1.Cmp.Challenge;
 
 namespace Master_Shield_System
 {
@@ -16,6 +17,8 @@ namespace Master_Shield_System
         public int resultado;
         public string historico;
         public string dice;
+        private object random;
+
         public RolarDadosForm()
         {
             InitializeComponent();
@@ -165,16 +168,18 @@ namespace Master_Shield_System
             {
                 int num1 = Convert.ToInt32(Txt_Num1.Text);
                 int num2 = Convert.ToInt32(Txt_Num2.Text);
-                if (num1 <= num2)
+
+                // Ajusta os valores de num1 e num2 para garantir que num1 <= num2
+                if (num1 > num2)
                 {
-                    dice = $"Dado Customizado({num1}/{num2})";
-                    resultado = SortearNumero(num1, num2);
+                    int temp = num1;
+                    num1 = num2;
+                    num2 = temp;
                 }
-                else
-                {
-                    MessageBox.Show("O valor mínimo deve ser menor ou igual ao valor máximo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+
+                // Agora num1 é garantidamente menor ou igual a num2
+                dice = $"Dado Customizado({num1}/{num2})";
+                resultado = SortearNumero(num1, num2);
             }
 
             Txt_Resultado.Text = resultado.ToString();
@@ -191,34 +196,35 @@ namespace Master_Shield_System
         }
 
 
-        #region apenas numeros
+        //#region apenas numeros
 
-        public static void IntNumber(KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == '-')
-                return;
-            e.Handled = true;
-        }
+        //public static void IntNumber(KeyPressEventArgs e)
+        //{
+        //    if (char.IsDigit(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == '-')
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Num1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Num1.Text.IndexOf('-') <= -1 && this.Txt_Num1.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Num1_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Num1.Text.IndexOf('-') <= -1 && this.Txt_Num1.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Num2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Num2.Text.IndexOf('-') <= -1 && this.Txt_Num2.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Num2_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Num2.Text.IndexOf('-') <= -1 && this.Txt_Num2.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        #endregion
+        //#endregion
 
         private void Btn_Sair_Click(object sender, EventArgs e) => this.Close();
 
+     
     }
 }

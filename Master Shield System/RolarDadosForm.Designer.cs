@@ -40,16 +40,18 @@
             this.Rbtn_d4 = new System.Windows.Forms.RadioButton();
             this.Rbtn_d2 = new System.Windows.Forms.RadioButton();
             this.Rbtn_escolher = new System.Windows.Forms.RadioButton();
-            this.Txt_Num1 = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Txt_Num2 = new System.Windows.Forms.RichTextBox();
             this.Btn_Sair = new System.Windows.Forms.Button();
             this.Btn_Rolar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Txt_Num2 = new System.Windows.Forms.NumericUpDown();
+            this.Txt_Num1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Cbb_Modo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Num2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Num1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -190,15 +192,6 @@
             this.Rbtn_escolher.TabStop = true;
             this.Rbtn_escolher.UseVisualStyleBackColor = true;
             // 
-            // Txt_Num1
-            // 
-            this.Txt_Num1.Location = new System.Drawing.Point(36, 312);
-            this.Txt_Num1.Name = "Txt_Num1";
-            this.Txt_Num1.Size = new System.Drawing.Size(63, 21);
-            this.Txt_Num1.TabIndex = 13;
-            this.Txt_Num1.Text = "0";
-            this.Txt_Num1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Num1_KeyPress);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -209,15 +202,6 @@
             this.label4.Size = new System.Drawing.Size(25, 27);
             this.label4.TabIndex = 14;
             this.label4.Text = "a";
-            // 
-            // Txt_Num2
-            // 
-            this.Txt_Num2.Location = new System.Drawing.Point(136, 312);
-            this.Txt_Num2.Name = "Txt_Num2";
-            this.Txt_Num2.Size = new System.Drawing.Size(63, 21);
-            this.Txt_Num2.TabIndex = 15;
-            this.Txt_Num2.Text = "0";
-            this.Txt_Num2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Num2_KeyPress);
             // 
             // Btn_Sair
             // 
@@ -246,8 +230,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Txt_Num2);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.Txt_Num1);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.Rbtn_escolher);
             this.groupBox1.Controls.Add(this.Rbtn_d2);
             this.groupBox1.Controls.Add(this.Rbtn_d4);
@@ -264,6 +248,40 @@
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados";
+            // 
+            // Txt_Num2
+            // 
+            this.Txt_Num2.Location = new System.Drawing.Point(136, 313);
+            this.Txt_Num2.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.Txt_Num2.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.Txt_Num2.Name = "Txt_Num2";
+            this.Txt_Num2.Size = new System.Drawing.Size(63, 20);
+            this.Txt_Num2.TabIndex = 17;
+            // 
+            // Txt_Num1
+            // 
+            this.Txt_Num1.Location = new System.Drawing.Point(36, 313);
+            this.Txt_Num1.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.Txt_Num1.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.Txt_Num1.Name = "Txt_Num1";
+            this.Txt_Num1.Size = new System.Drawing.Size(63, 20);
+            this.Txt_Num1.TabIndex = 16;
             // 
             // groupBox2
             // 
@@ -314,10 +332,13 @@
             this.Controls.Add(this.Txt_Resultado);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "RolarDadosForm";
             this.Text = "Rolar Dados";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Num2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Num1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -337,14 +358,14 @@
         private System.Windows.Forms.RadioButton Rbtn_d4;
         private System.Windows.Forms.RadioButton Rbtn_d2;
         private System.Windows.Forms.RadioButton Rbtn_escolher;
-        private System.Windows.Forms.RichTextBox Txt_Num1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox Txt_Num2;
         private System.Windows.Forms.Button Btn_Sair;
         private System.Windows.Forms.Button Btn_Rolar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox Cbb_Modo;
+        private System.Windows.Forms.NumericUpDown Txt_Num2;
+        private System.Windows.Forms.NumericUpDown Txt_Num1;
     }
 }

@@ -166,6 +166,7 @@
             // 
             // Btn_Gerar
             // 
+            this.Btn_Gerar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_Gerar.Location = new System.Drawing.Point(575, 566);
             this.Btn_Gerar.Name = "Btn_Gerar";
             this.Btn_Gerar.Size = new System.Drawing.Size(75, 23);
@@ -176,6 +177,7 @@
             // 
             // Btn_Cancelar
             // 
+            this.Btn_Cancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_Cancelar.Location = new System.Drawing.Point(17, 566);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
             this.Btn_Cancelar.Size = new System.Drawing.Size(75, 23);
@@ -519,13 +521,18 @@
             // 
             this.txt_nivel_min.Location = new System.Drawing.Point(512, 141);
             this.txt_nivel_min.Minimum = new decimal(new int[] {
-            100,
+            1,
             0,
             0,
-            -2147483648});
+            0});
             this.txt_nivel_min.Name = "txt_nivel_min";
             this.txt_nivel_min.Size = new System.Drawing.Size(55, 20);
             this.txt_nivel_min.TabIndex = 74;
+            this.txt_nivel_min.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txt_nivel_max
             // 
@@ -542,9 +549,19 @@
             // txt_hp_min
             // 
             this.txt_hp_min.Location = new System.Drawing.Point(512, 188);
+            this.txt_hp_min.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txt_hp_min.Name = "txt_hp_min";
             this.txt_hp_min.Size = new System.Drawing.Size(55, 20);
             this.txt_hp_min.TabIndex = 76;
+            this.txt_hp_min.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txt_hp_max
             // 
@@ -561,9 +578,19 @@
             // txt_energia_min
             // 
             this.txt_energia_min.Location = new System.Drawing.Point(512, 231);
+            this.txt_energia_min.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txt_energia_min.Name = "txt_energia_min";
             this.txt_energia_min.Size = new System.Drawing.Size(55, 20);
             this.txt_energia_min.TabIndex = 78;
+            this.txt_energia_min.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txt_energia_max
             // 
@@ -792,6 +819,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(672, 601);
             this.Controls.Add(this.chb_Profissoes_MarcarTodos);
             this.Controls.Add(this.pnl_profissoes);
@@ -856,7 +884,9 @@
             this.Controls.Add(this.pnl_racas);
             this.Controls.Add(this.Btn_Gerar);
             this.Controls.Add(this.Btn_Cancelar);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "GeradorNPC";
             this.Text = "GeradorNPC";
             this.Load += new System.EventHandler(this.GeradorNPC_Load);

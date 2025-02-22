@@ -295,5 +295,6 @@ namespace Master_Shield_System.Formularios.Gerador
                 e.Handled = true; // Cancela o evento para entradas inválidas
             }
         }
+
     }
 }

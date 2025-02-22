@@ -397,6 +397,7 @@ namespace Master_Shield_System.Formularios.Board
             this.Controls.Clear();
             this.Controls.Add((Control)cityMain);
             cityMain.BringToFront();
+            cityMain.Focus();
         }
     }
 }

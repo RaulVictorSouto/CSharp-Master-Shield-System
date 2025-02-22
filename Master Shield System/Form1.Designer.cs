@@ -34,9 +34,9 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltarParaCampanhasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chaveDeAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rolarDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instruçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rolarDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +90,14 @@
             this.chaveDeAPIToolStripMenuItem.Text = "Chave de API";
             this.chaveDeAPIToolStripMenuItem.Click += new System.EventHandler(this.chaveDeAPIToolStripMenuItem_Click);
             // 
+            // rolarDadosToolStripMenuItem
+            // 
+            this.rolarDadosToolStripMenuItem.Name = "rolarDadosToolStripMenuItem";
+            this.rolarDadosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.rolarDadosToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.rolarDadosToolStripMenuItem.Text = "Rolar Dados";
+            this.rolarDadosToolStripMenuItem.Click += new System.EventHandler(this.rolarDadosToolStripMenuItem_Click);
+            // 
             // instruçõesToolStripMenuItem
             // 
             this.instruçõesToolStripMenuItem.Name = "instruçõesToolStripMenuItem";
@@ -106,14 +114,6 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // rolarDadosToolStripMenuItem
-            // 
-            this.rolarDadosToolStripMenuItem.Name = "rolarDadosToolStripMenuItem";
-            this.rolarDadosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.rolarDadosToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.rolarDadosToolStripMenuItem.Text = "Rolar Dados";
-            this.rolarDadosToolStripMenuItem.Click += new System.EventHandler(this.rolarDadosToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +123,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Master Shield System";
             this.menuStrip1.ResumeLayout(false);

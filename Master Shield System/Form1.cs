@@ -22,7 +22,7 @@ namespace Master_Shield_System
 
         private void voltarParaCampanhasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UCClass.AddUserControl(this.panelContainer, (UserControl)new BoardMain());
+            UCClass.AddUserControl(this.panelContainer, (UserControl)new BoardMain()); panelContainer.Focus();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();

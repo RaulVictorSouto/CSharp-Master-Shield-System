@@ -145,6 +145,7 @@
             // 
             // Btn_Cancelar
             // 
+            this.Btn_Cancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_Cancelar.Location = new System.Drawing.Point(17, 458);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
             this.Btn_Cancelar.Size = new System.Drawing.Size(75, 23);
@@ -155,6 +156,7 @@
             // 
             // Btn_Gerar
             // 
+            this.Btn_Gerar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_Gerar.Location = new System.Drawing.Point(438, 458);
             this.Btn_Gerar.Name = "Btn_Gerar";
             this.Btn_Gerar.Size = new System.Drawing.Size(75, 23);
@@ -184,6 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(532, 497);
             this.Controls.Add(this.Txt_Numero);
             this.Controls.Add(this.Btn_Gerar);
@@ -196,7 +199,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "GeradorCidade";
             this.Text = "Geração de Cidades";
             this.Load += new System.EventHandler(this.GeradorCidade_Load);

@@ -146,95 +146,95 @@ namespace Master_Shield_System.Formularios.Npc
         }
 
 
-        #region Permite que apenas numeros seja adicionar ao campos numericos
+        //#region Permite que apenas numeros seja adicionar ao campos numericos
 
-        public static void IntNumber(KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == '-')
-                return;
-            e.Handled = true;
-        }
+        //public static void IntNumber(KeyPressEventArgs e)
+        //{
+        //    if (char.IsDigit(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == '-')
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Nivel_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Nivel.Text.IndexOf('-') <= -1 && this.Txt_Nivel.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Nivel_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Nivel.Text.IndexOf('-') <= -1 && this.Txt_Nivel.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Hp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Hp.Text.IndexOf('-') <= -1 && this.Txt_Hp.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Hp_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Hp.Text.IndexOf('-') <= -1 && this.Txt_Hp.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Energia_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Energia.Text.IndexOf('-') <= -1 && this.Txt_Energia.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Energia_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Energia.Text.IndexOf('-') <= -1 && this.Txt_Energia.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Forca_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Forca.Text.IndexOf('-') <= -1 && this.Txt_Forca.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Forca_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Forca.Text.IndexOf('-') <= -1 && this.Txt_Forca.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Velocidade_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Velocidade.Text.IndexOf('-') <= -1 && this.Txt_Velocidade.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Velocidade_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Velocidade.Text.IndexOf('-') <= -1 && this.Txt_Velocidade.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Inteligencia_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Inteligencia.Text.IndexOf('-') <= -1 && this.Txt_Inteligencia.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Inteligencia_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Inteligencia.Text.IndexOf('-') <= -1 && this.Txt_Inteligencia.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Carisma_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Carisma.Text.IndexOf('-') <= -1 && this.Txt_Carisma.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Carisma_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Carisma.Text.IndexOf('-') <= -1 && this.Txt_Carisma.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_Sorte_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_Sorte_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_ResFis_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
+        //private void Txt_ResFis_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
 
-        private void Txt_ResMental_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            NpcDataInsert.IntNumber(e);
-            if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
-                return;
-            e.Handled = true;
-        }
-        #endregion
+        //private void Txt_ResMental_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    NpcDataInsert.IntNumber(e);
+        //    if (e.KeyChar != '-' || this.Txt_Sorte.Text.IndexOf('-') <= -1 && this.Txt_Sorte.SelectionStart == 0)
+        //        return;
+        //    e.Handled = true;
+        //}
+        //#endregion
 
         private void Btn_Limpar_Click(object sender, EventArgs e) => LimparDados();
 
@@ -329,6 +329,5 @@ namespace Master_Shield_System.Formularios.Npc
             LimparDados();
         }
 
-        
     }
 }

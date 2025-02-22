@@ -441,6 +441,7 @@ namespace Master_Shield_System.Formularios.City
             this.Controls.Clear();
             this.Controls.Add((Control)npcMain);
             npcMain.BringToFront();
+            npcMain.Focus();
         }
 
         private void Dgv_City_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

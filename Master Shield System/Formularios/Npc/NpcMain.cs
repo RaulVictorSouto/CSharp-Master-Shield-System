@@ -288,6 +288,7 @@ namespace Master_Shield_System.Formularios.Npc
 
         public void Inicializar()
         {
+
             this.dt = NpcClass.GetNpc(true, this.readCityId);
             this.Dgv_Npc.DataSource = this.dt;
 
@@ -701,6 +702,7 @@ namespace Master_Shield_System.Formularios.Npc
             cityMain.SetBoardId(this.readBoardId);
             this.Controls.Add((Control)cityMain);
             cityMain.BringToFront();
+            cityMain.Focus();
         }
 
         private void Btn_Incluir_Click(object sender, EventArgs e)
@@ -710,6 +712,7 @@ namespace Master_Shield_System.Formularios.Npc
             npcDataInsert.SetDados(this.readBoardId, this.readCityId, readCityName, readCityBiome);
             this.Controls.Add((Control)npcDataInsert);
             npcDataInsert.BringToFront();
+            npcDataInsert.Focus();
         }
 
         private void EditarNpc(int npcId)
@@ -721,6 +724,7 @@ namespace Master_Shield_System.Formularios.Npc
                 npcDataUpdate.SetDados(npcId, readCityName, readCityBiome);
                 this.Controls.Add((Control)npcDataUpdate);
                 npcDataUpdate.BringToFront();
+                npcDataUpdate.Focus();
             }
             catch (Exception ex)
             {

@@ -47,26 +47,26 @@
             this.Cbb_Race = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Txt_Sorte = new System.Windows.Forms.NumericUpDown();
+            this.Txt_Carisma = new System.Windows.Forms.NumericUpDown();
+            this.Txt_Inteligencia = new System.Windows.Forms.NumericUpDown();
+            this.Txt_Velocidade = new System.Windows.Forms.NumericUpDown();
+            this.Txt_Forca = new System.Windows.Forms.NumericUpDown();
+            this.Txt_ResMental = new System.Windows.Forms.NumericUpDown();
+            this.Txt_ResFis = new System.Windows.Forms.NumericUpDown();
+            this.Txt_Energia = new System.Windows.Forms.NumericUpDown();
+            this.Txt_Hp = new System.Windows.Forms.NumericUpDown();
+            this.Txt_Nivel = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
-            this.Txt_ResMental = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.Txt_ResFis = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Txt_Sorte = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Txt_Carisma = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.Txt_Inteligencia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.Txt_Velocidade = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.Txt_Forca = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Txt_Energia = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Txt_Hp = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Txt_Nivel = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.Btn_IncluirImagem = new System.Windows.Forms.Button();
             this.Btn_ApagarImagem = new System.Windows.Forms.Button();
@@ -81,6 +81,16 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Sorte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Carisma)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Inteligencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Velocidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Forca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_ResMental)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_ResFis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Energia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Hp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Nivel)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Image)).BeginInit();
             this.SuspendLayout();
@@ -344,31 +354,166 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.Txt_ResMental);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.Txt_ResFis);
-            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.Txt_Sorte);
-            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.Txt_Carisma);
-            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.Txt_Inteligencia);
-            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.Txt_Velocidade);
-            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.Txt_Forca);
-            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.Txt_ResMental);
+            this.groupBox3.Controls.Add(this.Txt_ResFis);
             this.groupBox3.Controls.Add(this.Txt_Energia);
-            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.Txt_Hp);
-            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.Txt_Nivel);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(777, 111);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(517, 144);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
+            // 
+            // Txt_Sorte
+            // 
+            this.Txt_Sorte.Location = new System.Drawing.Point(419, 99);
+            this.Txt_Sorte.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.Txt_Sorte.Name = "Txt_Sorte";
+            this.Txt_Sorte.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Sorte.TabIndex = 39;
+            // 
+            // Txt_Carisma
+            // 
+            this.Txt_Carisma.Location = new System.Drawing.Point(320, 100);
+            this.Txt_Carisma.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.Txt_Carisma.Name = "Txt_Carisma";
+            this.Txt_Carisma.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Carisma.TabIndex = 38;
+            // 
+            // Txt_Inteligencia
+            // 
+            this.Txt_Inteligencia.Location = new System.Drawing.Point(222, 100);
+            this.Txt_Inteligencia.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.Txt_Inteligencia.Name = "Txt_Inteligencia";
+            this.Txt_Inteligencia.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Inteligencia.TabIndex = 37;
+            // 
+            // Txt_Velocidade
+            // 
+            this.Txt_Velocidade.Location = new System.Drawing.Point(124, 100);
+            this.Txt_Velocidade.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.Txt_Velocidade.Name = "Txt_Velocidade";
+            this.Txt_Velocidade.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Velocidade.TabIndex = 36;
+            // 
+            // Txt_Forca
+            // 
+            this.Txt_Forca.Location = new System.Drawing.Point(26, 100);
+            this.Txt_Forca.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.Txt_Forca.Name = "Txt_Forca";
+            this.Txt_Forca.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Forca.TabIndex = 35;
+            // 
+            // Txt_ResMental
+            // 
+            this.Txt_ResMental.Location = new System.Drawing.Point(419, 48);
+            this.Txt_ResMental.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.Txt_ResMental.Name = "Txt_ResMental";
+            this.Txt_ResMental.Size = new System.Drawing.Size(77, 20);
+            this.Txt_ResMental.TabIndex = 34;
+            // 
+            // Txt_ResFis
+            // 
+            this.Txt_ResFis.Location = new System.Drawing.Point(321, 48);
+            this.Txt_ResFis.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.Txt_ResFis.Name = "Txt_ResFis";
+            this.Txt_ResFis.Size = new System.Drawing.Size(77, 20);
+            this.Txt_ResFis.TabIndex = 33;
+            // 
+            // Txt_Energia
+            // 
+            this.Txt_Energia.Location = new System.Drawing.Point(219, 48);
+            this.Txt_Energia.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Txt_Energia.Name = "Txt_Energia";
+            this.Txt_Energia.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Energia.TabIndex = 32;
+            this.Txt_Energia.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // Txt_Hp
+            // 
+            this.Txt_Hp.Location = new System.Drawing.Point(121, 48);
+            this.Txt_Hp.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Txt_Hp.Name = "Txt_Hp";
+            this.Txt_Hp.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Hp.TabIndex = 31;
+            this.Txt_Hp.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // Txt_Nivel
+            // 
+            this.Txt_Nivel.Location = new System.Drawing.Point(26, 48);
+            this.Txt_Nivel.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Txt_Nivel.Name = "Txt_Nivel";
+            this.Txt_Nivel.Size = new System.Drawing.Size(77, 20);
+            this.Txt_Nivel.TabIndex = 22;
+            this.Txt_Nivel.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label20
             // 
@@ -380,15 +525,6 @@
             this.label20.TabIndex = 30;
             this.label20.Text = "Res. Mental";
             // 
-            // Txt_ResMental
-            // 
-            this.Txt_ResMental.Location = new System.Drawing.Point(418, 48);
-            this.Txt_ResMental.Name = "Txt_ResMental";
-            this.Txt_ResMental.Size = new System.Drawing.Size(77, 20);
-            this.Txt_ResMental.TabIndex = 13;
-            this.Txt_ResMental.Text = "0";
-            this.Txt_ResMental.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_ResMental_KeyPress);
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -398,15 +534,6 @@
             this.label19.Size = new System.Drawing.Size(63, 20);
             this.label19.TabIndex = 28;
             this.label19.Text = "Res. Fis.";
-            // 
-            // Txt_ResFis
-            // 
-            this.Txt_ResFis.Location = new System.Drawing.Point(320, 48);
-            this.Txt_ResFis.Name = "Txt_ResFis";
-            this.Txt_ResFis.Size = new System.Drawing.Size(77, 20);
-            this.Txt_ResFis.TabIndex = 12;
-            this.Txt_ResFis.Text = "0";
-            this.Txt_ResFis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_ResFis_KeyPress);
             // 
             // label10
             // 
@@ -418,15 +545,6 @@
             this.label10.TabIndex = 26;
             this.label10.Text = "Sorte";
             // 
-            // Txt_Sorte
-            // 
-            this.Txt_Sorte.Location = new System.Drawing.Point(418, 99);
-            this.Txt_Sorte.Name = "Txt_Sorte";
-            this.Txt_Sorte.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Sorte.TabIndex = 18;
-            this.Txt_Sorte.Text = "0";
-            this.Txt_Sorte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Sorte_KeyPress);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -436,15 +554,6 @@
             this.label9.Size = new System.Drawing.Size(60, 20);
             this.label9.TabIndex = 24;
             this.label9.Text = "Carisma";
-            // 
-            // Txt_Carisma
-            // 
-            this.Txt_Carisma.Location = new System.Drawing.Point(320, 99);
-            this.Txt_Carisma.Name = "Txt_Carisma";
-            this.Txt_Carisma.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Carisma.TabIndex = 17;
-            this.Txt_Carisma.Text = "0";
-            this.Txt_Carisma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Carisma_KeyPress);
             // 
             // label8
             // 
@@ -456,15 +565,6 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Inteligência";
             // 
-            // Txt_Inteligencia
-            // 
-            this.Txt_Inteligencia.Location = new System.Drawing.Point(222, 99);
-            this.Txt_Inteligencia.Name = "Txt_Inteligencia";
-            this.Txt_Inteligencia.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Inteligencia.TabIndex = 16;
-            this.Txt_Inteligencia.Text = "0";
-            this.Txt_Inteligencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Inteligencia_KeyPress);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -474,15 +574,6 @@
             this.label7.Size = new System.Drawing.Size(78, 20);
             this.label7.TabIndex = 20;
             this.label7.Text = "Velocidade";
-            // 
-            // Txt_Velocidade
-            // 
-            this.Txt_Velocidade.Location = new System.Drawing.Point(124, 99);
-            this.Txt_Velocidade.Name = "Txt_Velocidade";
-            this.Txt_Velocidade.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Velocidade.TabIndex = 15;
-            this.Txt_Velocidade.Text = "0";
-            this.Txt_Velocidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Velocidade_KeyPress);
             // 
             // label6
             // 
@@ -494,15 +585,6 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Força";
             // 
-            // Txt_Forca
-            // 
-            this.Txt_Forca.Location = new System.Drawing.Point(26, 99);
-            this.Txt_Forca.Name = "Txt_Forca";
-            this.Txt_Forca.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Forca.TabIndex = 14;
-            this.Txt_Forca.Text = "0";
-            this.Txt_Forca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Forca_KeyPress);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -512,15 +594,6 @@
             this.label5.Size = new System.Drawing.Size(57, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "Energia";
-            // 
-            // Txt_Energia
-            // 
-            this.Txt_Energia.Location = new System.Drawing.Point(218, 48);
-            this.Txt_Energia.Name = "Txt_Energia";
-            this.Txt_Energia.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Energia.TabIndex = 11;
-            this.Txt_Energia.Text = "0";
-            this.Txt_Energia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Energia_KeyPress);
             // 
             // label4
             // 
@@ -532,15 +605,6 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "HP";
             // 
-            // Txt_Hp
-            // 
-            this.Txt_Hp.Location = new System.Drawing.Point(122, 48);
-            this.Txt_Hp.Name = "Txt_Hp";
-            this.Txt_Hp.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Hp.TabIndex = 10;
-            this.Txt_Hp.Text = "0";
-            this.Txt_Hp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Hp_KeyPress);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -550,15 +614,6 @@
             this.label3.Size = new System.Drawing.Size(40, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "Nível";
-            // 
-            // Txt_Nivel
-            // 
-            this.Txt_Nivel.Location = new System.Drawing.Point(26, 48);
-            this.Txt_Nivel.Name = "Txt_Nivel";
-            this.Txt_Nivel.Size = new System.Drawing.Size(77, 20);
-            this.Txt_Nivel.TabIndex = 9;
-            this.Txt_Nivel.Text = "0";
-            this.Txt_Nivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Nivel_KeyPress);
             // 
             // groupBox4
             // 
@@ -703,6 +758,16 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Sorte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Carisma)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Inteligencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Velocidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Forca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_ResMental)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_ResFis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Energia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Hp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Nivel)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pcb_Image)).EndInit();
@@ -721,21 +786,13 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox Txt_Inteligencia;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Txt_Velocidade;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox Txt_Forca;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Txt_Energia;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Txt_Hp;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Txt_Nivel;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox Txt_Sorte;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox Txt_Carisma;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox Cbb_Gender;
         private System.Windows.Forms.Label label13;
@@ -759,8 +816,16 @@
         private System.Windows.Forms.ComboBox Cbb_Profession;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox Txt_ResFis;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox Txt_ResMental;
+        private System.Windows.Forms.NumericUpDown Txt_Nivel;
+        private System.Windows.Forms.NumericUpDown Txt_Sorte;
+        private System.Windows.Forms.NumericUpDown Txt_Carisma;
+        private System.Windows.Forms.NumericUpDown Txt_Inteligencia;
+        private System.Windows.Forms.NumericUpDown Txt_Velocidade;
+        private System.Windows.Forms.NumericUpDown Txt_Forca;
+        private System.Windows.Forms.NumericUpDown Txt_ResMental;
+        private System.Windows.Forms.NumericUpDown Txt_ResFis;
+        private System.Windows.Forms.NumericUpDown Txt_Energia;
+        private System.Windows.Forms.NumericUpDown Txt_Hp;
     }
 }
