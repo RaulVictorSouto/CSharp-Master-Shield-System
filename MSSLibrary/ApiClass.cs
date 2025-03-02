@@ -99,11 +99,11 @@ namespace MSSLibrary
                         Console.WriteLine("Error: No candidates found in the response.");
                     }
                 }
-                else if (response.StatusCode == HttpStatusCode.Forbidden)
+                else if (response.StatusCode == (HttpStatusCode)429)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
                     var errorResponse = JsonConvert.DeserializeObject<GeminiErrorResponse>(responseBody);
-                    MessageBox.Show("Erro: Por gentileza, insira uma nova chave de API", "Ocorreu um erro: API Gemini", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("Erro: Limite de requisições excedido. Por gentileza, insira uma nova chave de API", "Ocorreu um erro: API Gemini", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 else
                 {
@@ -201,11 +201,11 @@ namespace MSSLibrary
                         Console.WriteLine("Erro: Nenhum candidato encontrado na resposta.");
                     }
                 }
-                else if (response.StatusCode == HttpStatusCode.Forbidden)
+                else if (response.StatusCode == (HttpStatusCode)429)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
                     var errorResponse = JsonConvert.DeserializeObject<GeminiErrorResponse>(responseBody);
-                    MessageBox.Show("Erro: Por gentileza, insira uma nova chave de API", "Ocorreu um erro: API Gemini", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("Erro: Limite de requisições excedido. Por gentileza, insira uma nova chave de API", "Ocorreu um erro: API Gemini", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 else
                 {
